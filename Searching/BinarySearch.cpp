@@ -1,3 +1,8 @@
+/*
+	Binary search:
+	A search algorithm that finds the position of a target value within a sorted array
+*/
+
 #include <iostream>
 #include <vector>
 
@@ -9,10 +14,14 @@ int binarySearch(int value, const vector<int>& sortedVect, int low, int high) {
 	if (value == sortedVect[mid])
 		return mid;
 	else if (low <= high) {
-		if (value < sortedVect[mid])
+		if (value < sortedVect[mid]) {
+			// value must be between indices low and mid-1, if exists
 			return binarySearch(value, sortedVect, low, mid-1);
-		else if (value > sortedVect[mid])
+		}
+		else if (value > sortedVect[mid]) {
+			// value must be between indices mid-1 and high, if exists
 			return binarySearch(value, sortedVect, mid+1, high);
+		}
 	}
 
 	return -1;
