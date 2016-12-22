@@ -1,6 +1,6 @@
 /*
 	N-Queens problem:
-    Find a way to place N non-attacking queens on an N×N chessboard
+	Find a way to place N non-attacking queens on an N×N chessboard
 */
 
 #include <iostream>
@@ -72,11 +72,11 @@ bool canPlaceQueens(const int col, const int size) {
 
 int main()
 {
-    int N;		// number of queens to place = N, size of board = NxN
+	int N;		// number of queens to place = N, size of board = NxN
 	cout << "Enter the number of queens to place (max " << MaxQueens << ") : ";
-    cin >> N;
+	cin >> N;
 
-    initBoard(N);
+	initBoard(N);
 
 	if (canPlaceQueens(0, N)) {
 		cout << "Found a way!\n";
@@ -85,5 +85,5 @@ int main()
 	else
 		cout << "Couldn\'t find a way to place " << N << " queens on a " << N << "x" << N << " board\n";
 
-    return 0;
+	return 0;
 }
