@@ -14,38 +14,40 @@ void displayState(const vector<int>& valuesVect) {
     cout << '\n';
 }
 
-void merge(vector<int>& values, int low, int high) {
-    vector<int> tempVect(high - low + 1);
-    size_t index1 = low;
-    size_t index2 = ()(low + high) / 2) + 1;   // mid + 1
-    size_t indexT = 0;
+void merge(vector<int>& values, size_t start, size_t end, int order) {
+    vector<int> tempVect(end - start + 1);
+    size_t mid = (start + end) / 2;
+    size_t index1 = start;
+    size_t index2 = mid + 1;
 
-    for (int i = start; i <= end ; i++) {
-        if(p > mid)      //checks if first part comes to an end or not .
-           Arr[ k++ ] = A[ q++] ;
-
-       else if ( q > end)   //checks if second part comes to an end or not
-           Arr[ k++ ] = A[ p++ ];
-
-       else if( A[ p ] < A[ q ])     //checks which part has smaller element.
-          Arr[ k++ ] = A[ p++ ];
-
-       else
-          Arr[ k++ ] = A[ q++];
+    for (int& nextVal: tempVect) {
+        if (index1 > mid)       // first part has ended, copy from the second part
+            nextVal = values[index2++];
+        else if (index2 > end)  // second part has ended, copy from the first part
+            nextVal = values[index1++];
+        else {                  // copy the value that's next in order
+            if (order * values[index1] < order * values[index2])    // 'order' is -1 for descending, so the inequality is reversed
+                nextVal = values[index1++];
+            else
+                nextVal = values[index2++];
+        }
     }
 
-    for (int p = 0 ; p < k ; p++)
-       A[ start++ ] = Arr[ p ] ;
+    for (const int& sortedVal: tempVect)
+       values[start++] = sortedVal;
 }
 
-void mergeSort(vector<int>& values, int low, int high) {
-    if (low < high) {
-        int mid = (low + high) / 2;
+void mergeSort(vector<int>& values, size_t start, size_t end, int order, bool askedToViewState) {
+    if (start < end) {
+        size_t mid = (start + end) / 2;
 
-        mergeSort(values, low, mid);
-        mergeSort(values, mid+1, high);
+        mergeSort(values, start, mid, order, askedToViewState);
+        mergeSort(values, mid+1, end, order, askedToViewState);
 
-        merge(values, low, high);
+        merge(values, start, end, order);
+
+        if (askedToViewState)
+            displayState(values);
     }
 }
 
@@ -81,7 +83,7 @@ int main() {
         askedToViewState = true;
 
     cout << '\n';
-    mergeSort(inputVect, order, askedToViewState);
+    mergeSort(inputVect, 0, inputVect.size() - 1, order, askedToViewState);
 
     cout << "\nThe values in " << orderInput << " order are :\n";
     for (const int& val: inputVect)
