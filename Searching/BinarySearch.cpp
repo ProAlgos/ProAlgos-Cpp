@@ -8,7 +8,7 @@
 
 using namespace std;
 
-int binarySearch(int value, const vector<int>& sortedVect, int low, int high) {
+int binarySearch(const int value, const vector<int>& sortedVect, const int low, const int high) {
     int mid = (low + high) / 2;
 
     if (value == sortedVect[mid])

@@ -14,12 +14,12 @@ void displayState(const vector<int>& valuesVect) {
     cout << '\n';
 }
 
-void merge(vector<int>& values, size_t start, size_t end, int order) {
-    vector<int> tempVect(end - start + 1);
+void merge(vector<int>& values, const size_t start, const size_t end, const int order) {
     size_t mid = (start + end) / 2;
     size_t index1 = start;
     size_t index2 = mid + 1;
 
+    vector<int> tempVect(end - start + 1);
     for (int& nextVal: tempVect) {
         if (index1 > mid)       // first part has ended, copy from the second part
             nextVal = values[index2++];
@@ -33,11 +33,12 @@ void merge(vector<int>& values, size_t start, size_t end, int order) {
         }
     }
 
+    size_t s = start;
     for (const int& sortedVal: tempVect)
-       values[start++] = sortedVal;
+       values[s++] = sortedVal;
 }
 
-void mergeSort(vector<int>& values, size_t start, size_t end, int order, bool askedToViewState) {
+void mergeSort(vector<int>& values, const size_t start, const size_t end, const int order, const bool askedToViewState) {
     if (start < end) {
         size_t mid = (start + end) / 2;
 
@@ -83,7 +84,7 @@ int main() {
         askedToViewState = true;
 
     cout << '\n';
-    mergeSort(inputVect, 0, inputVect.size() - 1, order, askedToViewState);
+    mergeSort(inputVect, 0, size-1, order, askedToViewState);
 
     cout << "\nThe values in " << orderInput << " order are :\n";
     for (const int& val: inputVect)

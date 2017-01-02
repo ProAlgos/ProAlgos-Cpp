@@ -16,7 +16,7 @@ void displayState(const vector<int>& valuesVect) {
     cout << '\n';
 }
 
-void bubbleSort(vector<int>& values, int order, bool askedToViewState) {
+void bubbleSort(vector<int>& values, const int order, const bool askedToViewState) {
     bool swapped;
     size_t i, j;
 

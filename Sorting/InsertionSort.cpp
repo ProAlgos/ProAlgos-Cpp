@@ -14,7 +14,7 @@ void displayState(const vector<int>& valuesVect) {
     cout << '\n';
 }
 
-void insertionSort(vector<int>& values, int order, bool askedToViewState) {
+void insertionSort(vector<int>& values, const int order, const bool askedToViewState) {
     size_t i, j;
     int currentValue;
 

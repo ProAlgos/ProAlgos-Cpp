@@ -10,15 +10,15 @@ using namespace std;
 const int MaxQueens = 40;
 bool board[MaxQueens][MaxQueens];
 
-void initBoard(const int size) {
-    int r, c;
+void initBoard(const size_t size) {
+    size_t r, c;
     for (r = 0; r < size; r++)
         for (c = 0; c < size; c++)
             board[r][c] = false;
 }
 
-void showBoard(const int size) {
-    int r, c;
+void showBoard(const size_t size) {
+    size_t r, c;
     for (r = 0; r < size; r++) {
         for (c = 0; c < size; c++) {
             if (board[r][c])
@@ -54,11 +54,11 @@ bool isSafe(const int row, const int col, const int size) {
     return true;
 }
 
-bool canPlaceQueens(const int col, const int size) {
+bool canPlaceQueens(const size_t col, const size_t size) {
     if (col == size)
         return true;
 
-    for (int row = 0; row < size; row++) {
+    for (size_t row = 0; row < size; row++) {
         if (isSafe(row, col, size)) {
             board[row][col] = true;
             if (canPlaceQueens(col+1, size))
