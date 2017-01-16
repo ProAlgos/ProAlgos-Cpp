@@ -11,3 +11,6 @@ To add atleast 1 algorithm to the repo every week
 
 #### Want to suggest some algorithms to add?
 Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a new issue") and I'll handle it from there :smile:
+
+## Contents
+Check out the [Wiki](/wiki) for a complete list of contents
