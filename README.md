@@ -13,4 +13,4 @@ To add atleast 1 algorithm to the repo every week
 Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a new issue") and I'll handle it from there :smile:
 
 ## Contents
-Check out the [Wiki](https://github.com/faheel/Algos/wiki) for a complete list of contents
+Check out the [Wiki](https://github.com/faheel/Algos/wiki/Contents) for a complete list of contents
