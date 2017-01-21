@@ -10,4 +10,7 @@ To add atleast 1 algorithm to the repo every week
 3. Submit a **pull request** ([click here to learn how](https://help.github.com/articles/creating-a-pull-request-from-a-fork/ "Learn how to create a pull request"))
 
 #### Want to suggest some algorithms to add?
-Just [create a new issue] (https://github.com/faheel/algos/issues/new "Create a new issue") and I'll handle it from there :smile:
+Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a new issue") and I'll handle it from there :smile:
+
+## Contents
+Check out the [Wiki](https://github.com/faheel/Algos/wiki/Contents) for a complete list of contents
