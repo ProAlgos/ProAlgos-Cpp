@@ -3,7 +3,7 @@
     A simple in-place comparision sorting algorithm
 */
 
-#include <algorithm>
+#include <algorithm>    // for swap()
 #include <iostream>
 #include <vector>
 

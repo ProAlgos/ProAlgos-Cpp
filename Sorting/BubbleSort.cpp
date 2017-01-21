@@ -4,7 +4,7 @@
     and swaps their positions if they are in the wrong order
 */
 
-#include <algorithm>
+#include <algorithm>    // for swap()
 #include <iostream>
 #include <vector>
 
