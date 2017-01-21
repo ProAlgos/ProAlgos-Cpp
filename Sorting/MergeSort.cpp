@@ -25,8 +25,9 @@ void merge(vector<int>& values, const size_t start, const size_t end, const int 
             nextVal = values[index2++];
         else if (index2 > end)  // second part has ended, copy from the first part
             nextVal = values[index1++];
-        else {                  // copy the value that's next in order
-            if (order * values[index1] < order * values[index2])    // 'order' is -1 for descending, so the inequality is reversed
+        else {          // copy the value that's next in order
+            // 'order' is -1 for descending, so the inequality is reversed:
+            if (order * values[index1] < order * values[index2])
                 nextVal = values[index1++];
             else
                 nextVal = values[index2++];

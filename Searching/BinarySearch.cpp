@@ -1,6 +1,7 @@
 /*
     Binary search:
-    A search algorithm that finds the position of a target value within a sorted array
+    A search algorithm that finds the position of a target value
+    within a sorted array
 */
 
 #include <iostream>

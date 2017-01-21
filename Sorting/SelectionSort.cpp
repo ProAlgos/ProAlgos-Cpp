@@ -17,13 +17,16 @@ void displayState(const vector<int>& valuesVect) {
 
 void insertionSort(vector<int>& values, const int order, const bool askedToViewState) {
     size_t i, j;
-    size_t currentExtremeIndex;   // index of either the current minimum or maximum value, depending on the order
+
+    // index of either the current minimum or maximum value, depending on the order:
+    size_t currentExtremeIndex;
 
     for (i = 0; i < values.size() - 1; i++) {
         currentExtremeIndex = i;
         j = i + 1;
         while (j < values.size()) {
-            if (order * values[j] < order * values[currentExtremeIndex])    // 'order' is -1 for descending, so the inequality is reversed
+            // 'order' is -1 for descending, so the inequality is reversed:
+            if (order * values[j] < order * values[currentExtremeIndex])
                 currentExtremeIndex = j;
             j++;
         }
