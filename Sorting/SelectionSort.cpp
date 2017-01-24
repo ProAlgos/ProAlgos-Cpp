@@ -3,19 +3,14 @@
     A simple in-place comparision sorting algorithm
 */
 
-#include <algorithm>    // for swap()
 #include <iostream>
 #include <vector>
 
+#include "SortingUtils.h"
+
 using namespace std;
 
-void displayState(const vector<int>& valuesVect) {
-    for (const int& value: valuesVect)
-        cout << value << ' ';
-    cout << '\n';
-}
-
-void insertionSort(vector<int>& values, const int order, const bool askedToViewState) {
+void insertionSort(vector<int>& values, const int order, const bool toShowState) {
     size_t i, j;
 
     // index of either the current minimum or maximum value, depending on the order:
@@ -32,49 +27,30 @@ void insertionSort(vector<int>& values, const int order, const bool askedToViewS
         }
         swap(values[i], values[currentExtremeIndex]);
 
-        if (askedToViewState)
+        if (toShowState)
             displayState(values);
     }
 }
 
 int main() {
-    int size;
-    cout << "Enter the input size : ";
-    cin >> size;
+    size_t size;
+    getInputSize(size);
 
-    vector<int> inputVect(size);
-    cout << "Enter " << size << " integers :\n";
-    for (int& val: inputVect)
-        cin >> val;
-    cin.ignore();
+    vector<int> values(size);
+    getInputValues(values, size);
 
-    string orderInput;
-    cout << "In which order should the values be sorted?\n[A]scending / [d]escending : ";
-    getline(cin, orderInput);
     int order;
-    if (orderInput[0] == 'd' or orderInput[0] == 'D') {
-        order = -1;
-        orderInput = "descending";
-    }
-    else {    // ascending order by default
-        order = 1;
-        orderInput = "ascending";
-    }
+    string orderText;
+    getOrder(order, orderText);
 
-    string answer;
-    cout << "Would you like to view the state of the values after each iteration?\n[y]es / [N]o : ";
-    getline(cin, answer);
-    bool askedToViewState = false;        // by default, don't show state
-    if (answer[0] == 'y' or answer[0] == 'Y')    // unless user asks for it
-        askedToViewState = true;
+    bool toShowState;
+    getWhetherToShowState(toShowState);
 
     cout << '\n';
-    insertionSort(inputVect, order, askedToViewState);
+    insertionSort(values, order, toShowState);
 
-    cout << "\nThe values in " << orderInput << " order are :\n";
-    for (const int& val: inputVect)
-        cout << val << " ";
-    cout << "\n";
+    cout << "\nThe values in " << orderText << " order are :\n";
+    displayState(values);
 
     return 0;
 }

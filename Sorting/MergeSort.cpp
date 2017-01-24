@@ -6,13 +6,9 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
+#include "SortingUtils.h"
 
-void displayState(const vector<int>& valuesVect) {
-    for (const int& value: valuesVect)
-        cout << value << ' ';
-    cout << '\n';
-}
+using namespace std;
 
 void merge(vector<int>& values, const size_t start, const size_t end, const int order) {
     size_t mid = (start + end) / 2;
@@ -39,58 +35,39 @@ void merge(vector<int>& values, const size_t start, const size_t end, const int 
        values[s++] = sortedVal;
 }
 
-void mergeSort(vector<int>& values, const size_t start, const size_t end, const int order, const bool askedToViewState) {
+void mergeSort(vector<int>& values, const size_t start, const size_t end, const int order, const bool toShowState) {
     if (start < end) {
         size_t mid = (start + end) / 2;
 
-        mergeSort(values, start, mid, order, askedToViewState);
-        mergeSort(values, mid+1, end, order, askedToViewState);
+        mergeSort(values, start, mid, order, toShowState);
+        mergeSort(values, mid+1, end, order, toShowState);
 
         merge(values, start, end, order);
 
-        if (askedToViewState)
+        if (toShowState)
             displayState(values);
     }
 }
 
 int main() {
-    int size;
-    cout << "Enter the input size : ";
-    cin >> size;
+    size_t size;
+    getInputSize(size);
 
-    vector<int> inputVect(size);
-    cout << "Enter " << size << " integers :\n";
-    for (int& val: inputVect)
-        cin >> val;
-    cin.ignore();
+    vector<int> values(size);
+    getInputValues(values, size);
 
-    string orderInput;
-    cout << "In which order should the values be sorted?\n[A]scending / [d]escending : ";
-    getline(cin, orderInput);
     int order;
-    if (orderInput[0] == 'd' or orderInput[0] == 'D') {
-        order = -1;
-        orderInput = "descending";
-    }
-    else {    // ascending order by default
-        order = 1;
-        orderInput = "ascending";
-    }
+    string orderText;
+    getOrder(order, orderText);
 
-    string answer;
-    cout << "Would you like to view the state of the values after each iteration?\n[y]es / [N]o : ";
-    getline(cin, answer);
-    bool askedToViewState = false;        // by default, don't show state
-    if (answer[0] == 'y' or answer[0] == 'Y')    // unless user asks for it
-        askedToViewState = true;
+    bool toShowState;
+    getWhetherToShowState(toShowState);
 
     cout << '\n';
-    mergeSort(inputVect, 0, size-1, order, askedToViewState);
+    mergeSort(values, 0, size-1, order, toShowState);
 
-    cout << "\nThe values in " << orderInput << " order are :\n";
-    for (const int& val: inputVect)
-        cout << val << " ";
-    cout << "\n";
+    cout << "\nThe values in " << orderText << " order are :\n";
+    displayState(values);
 
     return 0;
 }
