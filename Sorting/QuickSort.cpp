@@ -3,6 +3,9 @@
 	An efficient, comparison-based, in-place, divide and conquer sorting algorithm
 */
 
+#include <algorithm>    // for swap()
+#include <cstdlib>      // for rand(), srand()
+#include <ctime>
 #include <iostream>
 #include <vector>
 
@@ -14,34 +17,43 @@ void displayState(const vector<int>& valuesVect) {
 	cout << '\n';
 }
 
-int partition(vector<int>& values, const size_t start, const size_t end, const int order) {
-	int i = start + 1;
-	int piv = values[start] ;			//make the first element as pivot element.
+size_t partition(vector<int>& values, const size_t start, const size_t end, const int order) {
+    // choose a random index between start & end
+    size_t randomIndex = start + (rand() % (end - start + 1));
 
-    int random = start + rand( )%(end-start +1 ) ;
+	// swap the value there with the first value in given range
+    swap(values[randomIndex], values[start]);
 
-     swap ( values[random] , values[start]) ;		//swap pivot with 1st element.
+	// make that value the pivot element
+    int pivot = values[start];
 
-    for (int j = start + 1; j <= end; j++ )  {
-    /*rearrange the array by putting elements which are less than pivot
-       on one side and which are greater that on other. */
-        if ( values[ j ] < piv) {
-            swap (values[ i ],values [ j ]);
-            i += 1;
+    size_t i = start + 1;
+    for (size_t j = start + 1; j <= end; j++)  {
+	    /*
+			place elements which are less than the pivot on one side,
+			and those which are greater on the other
+		*/
+        if (order * values[j] < order * pivot) {
+            swap(values[i], values[j]);
+            i++;
         }
     }
 
-    swap ( values[ start ] ,values[ i-1 ] ) ;  //put the pivot element in its proper place.
+    // place the pivot in its proper place
+    swap(values[start], values[i-1]);
 
-    return i-1;					  // return the index of the pivot element
+    return i-1;     // pivot's index
 }
 
-void quickSort(vector<int>& values, const size_t start, const size_t end, const int order, const bool askedToViewState) {
+void quickSort(vector<int>& values, const int start, const int end, const int order, const bool askedToViewState) {
 	if (start < end) {
-		int pivotIndex = partition (values, start, end, order);    // index of the pivot element
+		size_t pivotIndex = partition(values, start, end, order);
 
-		quickSort (values, start, pivotIndex-1, order, askedToViewState);   // sort values to the left of pivot
-		quickSort (values, pivotIndex+1, end, order, askedToViewState);     // sort values to the right of pivot
+		// sort values to the left of pivot
+		quickSort(values, start, pivotIndex-1, order, askedToViewState);
+
+		// sort values to the right of pivot
+		quickSort(values, pivotIndex+1, end, order, askedToViewState);
 
 		if (askedToViewState)
 			displayState(values);
@@ -80,6 +92,7 @@ int main() {
 		askedToViewState = true;
 
 	cout << '\n';
+    srand(time(0));     // seed PRNG
 	quickSort(inputVect, 0, size-1, order, askedToViewState);
 
 	cout << "\nThe values in " << orderInput << " order are :\n";
