@@ -9,8 +9,10 @@
 
 #ifndef VECTOR_H
 #include <vector>
-#endif
+#include <cstdlib>
 
+#endif
+#define EXIT_CODE_ERROR -1
 using namespace std;
 
 // Input utils:
@@ -18,6 +20,13 @@ using namespace std;
 void getInputSize(size_t& size) {
     cout << "Enter the input size : ";
     cin >> size;
+    if(size <0) {
+        cout << "Invalid input size! Try again.\n";
+        getInputSize(size);
+    }else if(size == 0) {
+        cout << "There is nothing to sort here\n";
+        exit(EXIT_CODE_ERROR );
+    }
 }
 
 void getInputValues(vector<int>& values, const size_t& size) {
