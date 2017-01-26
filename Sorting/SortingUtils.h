@@ -3,13 +3,8 @@
     used in programs that implement sorting algorithms
 */
 
-#ifndef IOSTREAM_H
 #include <iostream>
-#endif
-
-#ifndef VECTOR_H
 #include <vector>
-#endif
 
 using namespace std;
 
