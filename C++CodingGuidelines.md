@@ -1,9 +1,11 @@
-# Coding guidelines for contributing
+# C++ Coding Guidelines
 
 Most of the sections in these guidelines are adapted from the
 [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 Only those sections that are relevant to this project have been included here.
 You can read the complete guide to know more of the good practises in writing C++ code.
+
+This document is not yet complete.
 
 ### Contents
 - [Naming](#naming)
@@ -41,7 +43,7 @@ int cstmr_id;              // Deletes internal letters.
 ## Formatting
 
 ### Tabs vs. spaces
-Use soft tabs which are 4 spaces long. :smile:
+Use soft tabs that are 4 spaces long. :smile:
 
 ### Horizontal whitespace
 #### Operators
