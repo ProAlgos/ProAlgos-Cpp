@@ -1,22 +1,25 @@
 # Algos
-Implementation of well-known (and some rare) algorithms, mostly in C++
+Implementation of well-known (and some rare) algorithms, mostly in C++.
+
+## Contents
+Check out the [Wiki](https://github.com/faheel/Algos/wiki/Contents) for a complete list of contents.
 
 ## My goal
-To add atleast 1 algorithm to the repo every week
+> Add atleast 1 algorithm to the repo every week.
 
 ### Want to contribute to open-source and help me achieve the goal?
-1. **Fork** the repo :fork_and_knife:
+1. **Fork** the repo :fork_and_knife: (and don't forget to star!)
 2. **Add your implementation** of an algorithm that is not already in the repo (preferably in C++, but others would do just fine)
 3. Submit a **pull request** ([click here to learn how](https://help.github.com/articles/creating-a-pull-request-from-a-fork/ "Learn how to create a pull request"))
 
 #### Want to suggest some algorithms to add?
 Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a new issue") and I'll handle it from there :smile:
 
-## Contents
-Check out the [Wiki](https://github.com/faheel/Algos/wiki/Contents) for a complete list of contents
+## C++ coding guidelines
+If you are contributing C++ code to this repo, make sure to read the [C++ coding guidelines](C++CodingGuidelines.md).
 
-## Compiling C++ codes
-Since many of the C++ codes use new features of C++11 (like range-based for-loops and more), you will need to use the `-std=c++11` flag if you are compiling using the CLI. If you use an IDE, make sure to set the standard as **C++11** in your compiler settings.
+## Compiling C++ code
+Since many of the C++ programs in this repo use new features of C++11 (like range-based for-loops and more), you will need to use the `-std=c++11` flag if you are compiling using the CLI. If you use an IDE, make sure to set the standard as **C++11** in your compiler settings.
 
 Also make sure there are no warnings during compilation by setting the `-Wall` flag and checking that nothing gets reported, if using the CLI. If using an IDE, make sure to check the "**Enable all warnings**" option for your compiler.
 
