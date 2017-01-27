@@ -3,16 +3,12 @@
     used in programs that implement sorting algorithms
 */
 
-#ifndef IOSTREAM_H
-#include <iostream>
-#endif
-
-#ifndef VECTOR_H
-#include <vector>
 #include <cstdlib>
+#include <iostream>
+#include <vector>
 
-#endif
-#define EXIT_CODE_NOT_SORTED 2
+#define EXIT_SORT_NOT_REQUIRED 2
+
 using namespace std;
 
 // Input utils:
@@ -20,12 +16,13 @@ using namespace std;
 void getInputSize(size_t& size) {
     cout << "Enter the input size : ";
     cin >> size;
-    if((int) size <0) {
+    
+    if ((int) size < 0) {
         cout << "Invalid input size! Try again.\n";
         getInputSize(size);
-    }else if(size == 0) {
-        cout << "There is nothing to sort here\n";
-        exit(EXIT_CODE_NOT_SORTED );
+    } else if (size == 0) {
+        cout << "Nothing to sort here.\n";
+        exit(EXIT_SORT_NOT_REQUIRED);
     }
 }
 
