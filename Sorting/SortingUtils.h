@@ -3,8 +3,11 @@
     used in programs that implement sorting algorithms
 */
 
+#include <cstdlib>
 #include <iostream>
 #include <vector>
+
+#define EXIT_SORT_NOT_REQUIRED 2
 
 using namespace std;
 
@@ -13,6 +16,14 @@ using namespace std;
 void getInputSize(size_t& size) {
     cout << "Enter the input size : ";
     cin >> size;
+    
+    if ((int) size < 0) {
+        cout << "Invalid input size! Try again.\n";
+        getInputSize(size);
+    } else if (size == 0) {
+        cout << "Nothing to sort here.\n";
+        exit(EXIT_SORT_NOT_REQUIRED);
+    }
 }
 
 void getInputValues(vector<int>& values, const size_t& size) {
