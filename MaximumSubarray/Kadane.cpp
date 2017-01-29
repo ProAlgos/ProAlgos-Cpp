@@ -13,16 +13,16 @@ using namespace std;
 tuple<int, size_t, size_t> maximumSubarray(const vector<int> &values)
 {
     int maxSum, currentSum;
-	size_t nextStart, start, end;
+    size_t nextStart, start, end;
 
-	maxSum = currentSum = values[0];
-	nextStart = start = end = 0;
+    maxSum = currentSum = values[0];
+    nextStart = start = end = 0;
     for (size_t i = 1; i < values.size(); i++) {
         currentSum += values[i];
 
         if (currentSum < values[i]) {
-			currentSum = values[i];
-			nextStart = i;
+            currentSum = values[i];
+            nextStart = i;
         }
 
         if (currentSum > maxSum) {
@@ -38,11 +38,11 @@ tuple<int, size_t, size_t> maximumSubarray(const vector<int> &values)
 int main()
 {
     size_t size;
-	cout << "Enter the input size : ";
+    cout << "Enter the input size : ";
     cin >> size;
 
     vector<int> values(size);
-	cout << "Enter " << size << " integers :\n";
+    cout << "Enter " << size << " integers :\n";
     for (int &val : values)
         cin >> val;
 
@@ -54,6 +54,7 @@ int main()
     for (size_t i = start; i <= end; i++)
         cout << values[i] << " ";
     cout << "\n(from position " << start + 1 << " to " << end + 1 << ")\n\n";
-	cout << "Sum of its elements is " << maxSum << '\n';
-	return 0;
+    cout << "Sum of its elements is " << maxSum << '\n';
+
+    return 0;
 }
