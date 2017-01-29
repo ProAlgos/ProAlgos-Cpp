@@ -28,4 +28,4 @@ If you are in the _Sorting_ directory, and want to compile the code for _merge s
 ```
 g++ -std=c++11 -Wall -o MergeSort.out MergeSort.cpp
 ```
-Even though _g++_ is recommended, you may also other compilers such as _gcc_, _clang_, _clang++_, or _MinGW_ (for Windows). Just make sure that they support C++11 features.
+Instead of _g++_, you may use other compilers like _gcc_, _clang_, _clang++_, _MinGW_ (Windows) or _Visual C++_ (Windows). Just make sure that they support C++11 features.
