@@ -23,7 +23,7 @@ Since many of the C++ programs in this repo use new features of C++11 (like rang
 
 Also make sure there are no warnings during compilation by setting the `-Wall` flag and checking that nothing gets reported, if using the CLI. If using an IDE, make sure to check the "**Enable all warnings**" option for your compiler.
 
-##### An example
+#### An example
 If you are in the _Sorting_ directory, and want to compile the code for _merge sort_, run the following command:
 ```
 g++ -std=c++11 -Wall -o MergeSort.out MergeSort.cpp
