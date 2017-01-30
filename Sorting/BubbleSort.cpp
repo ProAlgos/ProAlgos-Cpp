@@ -46,7 +46,6 @@ int main() {
     bool toShowState;
     getWhetherToShowState(toShowState);
 
-    cout << '\n';
     bubbleSort(values, order, toShowState);
 
     cout << "\nThe values in " << orderText << " order are :\n";

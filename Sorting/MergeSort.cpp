@@ -63,7 +63,6 @@ int main() {
     bool toShowState;
     getWhetherToShowState(toShowState);
 
-    cout << '\n';
     mergeSort(values, 0, size-1, order, toShowState);
 
     cout << "\nThe values in " << orderText << " order are :\n";

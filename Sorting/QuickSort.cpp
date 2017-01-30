@@ -69,7 +69,6 @@ int main() {
     bool toShowState;
     getWhetherToShowState(toShowState);
 
-    cout << '\n';
     srand(time(0));     // seed PRNG
     quickSort(values, 0, size-1, order, toShowState);
 
