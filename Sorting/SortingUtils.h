@@ -27,14 +27,14 @@ void getInputSize(size_t& size) {
 }
 
 void getInputValues(vector<int>& values, const size_t& size) {
-    cout << "Enter " << size << " integers :\n";
+    cout << "\nEnter " << size << " integers :\n";
     for (int& val: values)
         cin >> val;
     cin.ignore();
 }
 
 void getOrder(int& order, string& orderText ) {
-    cout << "In which order should the values be sorted?\n";
+    cout << "\nSorting order?\n";
     cout << "[A]scending / [d]escending : ";
     getline(cin, orderText);
 
@@ -49,7 +49,7 @@ void getOrder(int& order, string& orderText ) {
 
 void getWhetherToShowState(bool& toShowState) {
     string answer;
-    cout << "Would you like to view the state of the values after each iteration?\n";
+    cout << "\nShow state of values after each iteration?\n";
     cout << "[y]es / [N]o : ";
     getline(cin, answer);
 
