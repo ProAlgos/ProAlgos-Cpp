@@ -2,6 +2,9 @@
     Binary search:
     A search algorithm that finds the position of a target value
     within a sorted array
+
+    TIME COMPLEXITY :: O(log n) b/c of recursive implementation.
+    SPACE COMPLEXITY :: O(log n) since in recursion we use stack.
 */
 
 #include <iostream>
