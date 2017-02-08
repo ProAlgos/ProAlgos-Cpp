@@ -6,30 +6,44 @@
 */
 
 #include <iostream>
-#include <vector>
+#include <assert.h>
 
 using namespace std;
 
 typedef unsigned long long int ULL;
 
-const int MAX_N = 93;   // fibonacci(94) goes beyond the range of ULL
-
-ULL fibonacci(const int &N, vector<ULL> &fiboMemo) {
-    if (N == 0 or N == 1)
-        fiboMemo[N] = N;
-    else if (!fiboMemo[N]) {
-        fiboMemo[N] = fibonacci(N - 1, fiboMemo) + fibonacci(N - 2, fiboMemo);
+/* fibonacci recursive
+ * time complexity O(n) space complexity O(1)
+ * tested for input size < 10^5
+ */
+ULL fibonacci(const ULL n,ULL &previous)
+{
+	//previous is F(n-1) and previousToPrevious is F(n-2)
+	assert(n>=0);
+    if(n==0)
+    {
+        previous=1;
+        return 0;
     }
-
-    return fiboMemo[N];
+    else if(n==1)
+    {
+        previous=0;
+        return 1;
+    }
+    else
+    {
+        ULL previousToPrevious;
+        previous = fibonacci(n-1, previousToPrevious);
+        return previous + previousToPrevious;
+    }
 }
 
 void getN(int &N) {
-    cout << "Enter the value for N (max. " << MAX_N << ") : ";
+    cout << "Enter the value for N : ";
     cin >> N;
 
-    if (N < 0 or N > MAX_N) {
-        cout << "Invalid value! N should be between 0 and " << MAX_N << ".\n";
+    if (N < 0) {
+        cout << "Invalid value! N should not be less than 0.\n";
         getN(N);
     }
 }
@@ -37,11 +51,10 @@ void getN(int &N) {
 int main()
 {
     int N;
+    ULL previous;
     getN(N);
 
-    vector<ULL> fiboMemo(N + 1, 0);
-
-    cout << "\nFibonacci(" << N << ") = " << fibonacci(N, fiboMemo) << "\n";
+    cout << "\nFibonacci(" << N << ") = " << fibonacci(N, previous) << "\n";
 
     return 0;
 }
