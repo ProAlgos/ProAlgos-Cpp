@@ -3,6 +3,12 @@
     Find the N-th Fibonacci number, given the value of N.
     (The Fibonacci sequence is characterized by the fact that every number
     after the first two is the sum of the two preceding ones.)
+
+    Time complexity:
+    O(n), where n is the value for which Fibonacci number must be generated
+
+    Space complexity:
+    O(1), where n is the value for which Fibonacci number must be generated
 */
 
 #include <iostream>
