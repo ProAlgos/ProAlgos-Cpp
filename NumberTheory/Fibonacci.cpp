@@ -6,7 +6,6 @@
 */
 
 #include <iostream>
-#include <assert.h>
 
 using namespace std;
 
@@ -16,10 +15,10 @@ typedef unsigned long long int ULL;
  * time complexity O(n) space complexity O(1)
  * tested for input size < 10^5
  */
+const int MAX_N = 93;   // fibonacci(94) goes beyond the range of ULL
 ULL fibonacci(const ULL n,ULL &previous)
 {
 	//previous is F(n-1) and previousToPrevious is F(n-2)
-	assert(n>=0);
     if(n==0)
     {
         previous=1;
@@ -39,11 +38,11 @@ ULL fibonacci(const ULL n,ULL &previous)
 }
 
 void getN(int &N) {
-    cout << "Enter the value for N : ";
+    cout << "Enter the value for N (max. " << MAX_N << ") : ";
     cin >> N;
 
-    if (N < 0) {
-        cout << "Invalid value! N should not be less than 0.\n";
+    if (N < 0 or N > MAX_N) {
+        cout << "Invalid value! N should be between 0 and " << MAX_N << ".\n";
         getN(N);
     }
 }
