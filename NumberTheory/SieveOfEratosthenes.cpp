@@ -2,6 +2,10 @@
     Prime numbers:
     Given a number N, find all prime numbers upto N ( N included )
     (Prime Number is a number that is divisible only by itself and 1 (e.g. 2, 3, 5..))
+
+    Time complexity = O(nloglogn)
+    Space complexity = O(n)
+
 */
 
 #include <iostream>
@@ -10,22 +14,22 @@
 
 using namespace std;
 
-vector<int> sieveOfEratosthenes(int A) {
+vector<int> sieveOfEratosthenes(const int &prime_limit) {
     
-    vector<bool> primes(A+1);
+    vector<bool> primes(prime_limit+1);
     vector<int> result;
     
-    for(int i = 0;i<=A;i++)
+    for(int i = 0;i<=prime_limit;i++)
         primes[i] = 1;
     
     primes[0] = 0;
     primes[1] = 0;
     
-    for(int i = 2;i<=sqrt(A);i++)
+    for(int i = 2;i<=sqrt(prime_limit);i++)
     {
         if(primes[i])
         {
-            for(int j = 2;i*j<=A;j++)
+            for(int j = 2;i*j<=prime_limit;j++)
                 primes[i*j] = 0;
         }
     }
@@ -39,30 +43,30 @@ vector<int> sieveOfEratosthenes(int A) {
     return result;
 }
 
-void printPrimes(vector<int> &primes)
+void printPrimes(const vector<int> &primes)
 {
-	int length = primes.size();
-	for(int i = 0;i<length;i++)
-		cout << primes[i] << "\n";
+    int length = primes.size();
+    for(int i = 0;i<length;i++)
+        cout << primes[i] << "\n";
 }
 
-void getInput(int &N)
+void getInput(int &prime_limit)
 {
     cout << "Enter N to print all prime number upto N ";
-    cin >> N;
-    if (N <= 1) {
-        cout << "Invalid value! (N should be >= 2). \n";
-        getInput(N);
+    cin >> prime_limit;
+    if (prime_limit <= 1) {
+        cout << "Invalid value! (prime_limit should be >= 2). \n";
+        getInput(prime_limit);
     }
 }
 
 int main()
 {
-	int N;
-	getInput(N);
-	
-	vector<int> primes = sieveOfEratosthenes(N);
-	printPrimes(primes);
+    int prime_limit;
+    getInput(prime_limit);
+    
+    vector<int> primes = sieveOfEratosthenes(prime_limit);
+    printPrimes(primes);
 
-	return 0;
+    return 0;
 }
