@@ -49,14 +49,18 @@ void counting_sort(vector<int> &values, const int order, const bool to_show_stat
     }
 
     // calculate cumulative frequency
-    // freq[i] is now the number of elements in the sorted array that are <= i
+    // freq[i] will now be the number of elements in the sorted array that are
+    // less than or equal to value[i]
     for (int i = start; i != end; i += order) {
         freq[i] += freq[i - order];
     }
 
-    // place values in sorted order
+    // place values in sorted order by iterating input vector in reversed order,
+    // to maintain sorting stability
     vector<int> sorted(values.size());
-    for (const int &value : values) {
+    int value;
+    for (auto iter = values.rbegin(); iter != values.rend(); ++iter) {
+        value = *iter;
         sorted[freq[value - min_value] - 1] = value;
         --freq[value - min_value];
 
