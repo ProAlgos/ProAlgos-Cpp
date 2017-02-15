@@ -5,23 +5,24 @@
 
 using namespace std;
 
-
+//creates ordered heap
 void heapify(vector<int> &heap,int parent,int size, int order, bool showState){
   int child = (parent*2)+1, temp;
-  while(child<size){//travels down
+  while(child<size){//travels down children
       displayState(heap);
     if((order*heap[child])<(order*heap[child+1])&&(child+1<size)){
       child++;//child refers to the larger/smaller of the two children
     }
     else{}
     if((order*heap[parent])<(order*heap[child])){
-      swap(heap[parent],heap[child]);
+      swap(heap[parent],heap[child]);//if the parent is smaller(order==ascending) or larger(order==descending), then swap
     }
     parent = child;
     child=(parent*2)+1;
     displayState(heap);
   }
 }
+//removes largest/smallest node, replaces it and reheapifies with new heap.
 void heapsort(vector<int> &heap,int size, int order,bool showState){
   int temp,n = size;
   while(n>0){
@@ -30,6 +31,7 @@ void heapsort(vector<int> &heap,int size, int order,bool showState){
     heapify(heap,0,n, order, showState);
   }
 }
+//creates original ordered heap so that heapsort can be run
 void make_heap(vector<int> &heap, int size, int order, bool showState){
     for(int x = (size/2)-1; x>=0;x--){ //Searches and reheaps all non-leaf node
     heapify(heap, x, size, order, showState);
