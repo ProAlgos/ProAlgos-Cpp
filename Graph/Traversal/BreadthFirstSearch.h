@@ -8,16 +8,28 @@
 
 class Graph {
         int num_vertices;
-        std::vector< std::list<int> > adj_list; /* adjacency list representing graph */
+        std::vector< std::list< std::pair<int,int> > > adj_list;
+        /* adjacency list representing graph
+         * first int represents destination node
+         * second int represents weight of the edge
+         */
     public:
         Graph(int num_vertices) {
             this->num_vertices = num_vertices;
             adj_list.resize(num_vertices);
         }
-        void addEdge(int source_vertex, int dest_vertex) { adj_list[source_vertex].push_back(dest_vertex); }
+        void addUndirectedEdge(int source_vertex, int dest_vertex, int weight) {
+            std::pair<int, int> vertexPair = std::make_pair(dest_vertex, weight);
+            adj_list[source_vertex].push_back(vertexPair);
+            /* undirected graph so we add the edge both ways */
+            vertexPair = std::make_pair(source_vertex, weight);
+            adj_list[dest_vertex].push_back(vertexPair);
+        }
         bool isValidSource(int source_vertex) { return !(source_vertex < 0 || source_vertex >= num_vertices); }
         /* prints BFS-traversal from a source vertex */
         void breadthFirstSearch(int source_vertex);
+        /* prints DFS-traversal from a source vertex */
+        void depthFirstSearch(int source_vertex) { /* TO-DO */ };
 };
 
 Graph *generateGraph() { /* calls BFS-traversal */
@@ -43,6 +55,7 @@ Graph *generateGraph() { /* calls BFS-traversal */
 
     int first_vertex;
     int second_vertex;
+    int weight;
     for (int i = 0; i < num_edges; i++) {
         std::cout << "Enter the edge pair as two separate numbers (counting from 0): ";
         std::cin >> first_vertex;
@@ -54,7 +67,9 @@ Graph *generateGraph() { /* calls BFS-traversal */
             std::cin >> first_vertex;
             std::cin >> second_vertex;
         }
-        graph->addEdge(first_vertex, second_vertex);
+        std::cout << "Enter the weight of the edge: ";
+        std::cin >> weight;
+        graph->addUndirectedEdge(first_vertex, second_vertex, weight);
     }
 
     return graph;

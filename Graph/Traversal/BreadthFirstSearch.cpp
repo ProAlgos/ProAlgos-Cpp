@@ -25,9 +25,9 @@ void Graph::breadthFirstSearch(int source_vertex) {
         
         /* visits all the adjacent vertices and pushes them onto the queue */
         for (auto itr = adj_list[curr_vertex].begin(); itr != adj_list[curr_vertex].end(); itr++) {
-            if (!visited[*itr]) {
-                visited[*itr] = true;
-                toVisit.push(*itr);
+            if (!visited[itr->first]) {
+                visited[itr->first] = true;
+                toVisit.push(itr->first);
             }
         }
         toVisit.pop(); /* traverse to next vertex */
@@ -47,6 +47,8 @@ int main(int argc, char **argv) {
         std::cin >> source_vertex;
     }
     undirected_graph->breadthFirstSearch(source_vertex);
+
+    delete(undirected_graph);
 
     return 0;
 }
