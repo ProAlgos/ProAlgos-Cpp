@@ -3,6 +3,7 @@
  *
  * Time-complexity: 
  * O(V + E), where V is number of vertices and E is number of edges
+ *
  * Space-complexity:
  * O(V)
  *
@@ -20,7 +21,7 @@ void Graph::breadthFirstSearch(int source_vertex) {
 
     int curr_vertex;
     while (!toVisit.empty()) {
-        curr_vertex = toVisit.front(); /* next vertex to visit */
+        curr_vertex = toVisit.front(); /* current vertex being visited */
         std::cout << curr_vertex << " ";
         
         /* visits all the adjacent vertices and pushes them onto the queue */
@@ -36,9 +37,10 @@ void Graph::breadthFirstSearch(int source_vertex) {
 }
 
 int main(int argc, char **argv) {
-    Graph *undirected_graph;
-    undirected_graph = generateGraph();
+    /* initialize the graph */
+    Graph *undirected_graph = generateGraph();
 
+    /* prompts user for source vertex */
     int source_vertex;
     std::cout << "Enter the source vertex: ";
     std::cin >> source_vertex;
@@ -46,6 +48,7 @@ int main(int argc, char **argv) {
         std::cout << "Invalid source vertex, please enter a valid source index: ";
         std::cin >> source_vertex;
     }
+
     undirected_graph->breadthFirstSearch(source_vertex);
 
     delete(undirected_graph);

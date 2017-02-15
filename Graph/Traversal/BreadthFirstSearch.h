@@ -7,6 +7,7 @@
 #include <iostream>
 
 class Graph {
+    /* Graph class representing an undirected weighted graph */
         int num_vertices;
         std::vector< std::list< std::pair<int,int> > > adj_list;
         /* adjacency list representing graph
@@ -32,10 +33,11 @@ class Graph {
         void depthFirstSearch(int source_vertex) { /* TO-DO */ };
 };
 
-Graph *generateGraph() { /* calls BFS-traversal */
+Graph *generateGraph() {
     int num_vertices;
     int num_edges;
 
+    /* prompts user for input and returns a pointer to an undirected weighted graph */
     std::cout << "Enter the number of vertices (# > 0): ";
     std::cin >> num_vertices;
     while ((int) num_vertices <= 0) {
