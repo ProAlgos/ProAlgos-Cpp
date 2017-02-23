@@ -4,10 +4,10 @@
     within a sorted array
 
     Time complexity:
-    O(log n), where n is the number of values in the vector
+    O(log(N)), where n is the number of values in the vector
 
     Space complexity:
-    O(log n), where n is the number of values in the vector
+    O(log(N)), where n is the number of values in the vector
 */
 
 #include <iostream>

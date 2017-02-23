@@ -3,8 +3,8 @@
     A search algorithm that walks sequentially through a list to find
     the position of a target value within a vector. 
 
-    Time complexity: O(n), where n is the number of elements in the vector
-    Space complexity: O(1), i.e. the algorithm does not require additional space
+    Time complexity: O(N), where N is the number of elements in the vector
+    Space complexity: O(1), i.e. the algorithm requires a constant amount of additional space
 */
 
 #include <iostream>
@@ -14,13 +14,13 @@ using namespace std;
 
 int linearSearch(const int value, const vector<int>& searchVect) {
     
-    for (unsigned int i = 0; i < searchVect.size(); i++) {
+    for (size_t i = 0; i < searchVect.size(); i++) {
         if (searchVect.at(i) == value) {
-            return i; // return the element in searchVect where value is found
+            return i; // index at which the value is found
         }
     }
 
-    return -1; // return -1 because the value is not in searchVect
+    return -1; // when the value is not found
 }
     
 int main() {
