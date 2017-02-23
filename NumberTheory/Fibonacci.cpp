@@ -5,10 +5,10 @@
     after the first two is the sum of the two preceding ones.)
 
     Time complexity:
-    O(n), where n is the value for which Fibonacci number must be generated
+    O(N), where N is the term of the Fibonacci sequence to calculate
 
     Space complexity:
-    O(1), where n is the value for which Fibonacci number must be generated
+    O(1)
 */
 
 #include <iostream>
@@ -17,10 +17,6 @@ using namespace std;
 
 typedef unsigned long long int ULL;
 
-/* fibonacci recursive
- * time complexity O(n) space complexity O(1)
- * tested for input size < 10^5
- */
 const int MAX_N = 93;   // fibonacci(94) goes beyond the range of ULL
 ULL fibonacci(const ULL n,ULL &previous)
 {
