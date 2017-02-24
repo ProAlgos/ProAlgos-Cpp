@@ -8,7 +8,7 @@
     O(N), where N is the term of the Fibonacci sequence to calculate
 
     Space complexity:
-    O(1)
+    O(1), constant amount of extra space
 */
 
 #include <iostream>
@@ -18,44 +18,40 @@ using namespace std;
 typedef unsigned long long int ULL;
 
 const int MAX_N = 93;   // fibonacci(94) goes beyond the range of ULL
-ULL fibonacci(const ULL n,ULL &previous)
-{
-	//previous is F(n-1) and previousToPrevious is F(n-2)
-    if(n==0)
-    {
-        previous=1;
-        return 0;
+
+ULL fibonacci(const int n) {
+    ULL previousToPrevious = 0;     // first term, or F(n-2) in general
+    ULL previous = 1;   // second term, or F(n-1) in general
+    ULL fibo;   // F(n)
+
+    if (n == 0 or n == 1)
+        return n;   // since F(0) = 0, and F(1) = 1
+
+    for (int term = 2; term <= n; term++) {
+        fibo = previous + previousToPrevious;   // F(n) = F(n-1) + F(n-2)
+
+        previousToPrevious = previous;  // F(n-1) becomes F(n-2) in the next step
+        previous = fibo;    // F(n) becomes F(n-1) in the next step
     }
-    else if(n==1)
-    {
-        previous=0;
-        return 1;
-    }
-    else
-    {
-        ULL previousToPrevious;
-        previous = fibonacci(n-1, previousToPrevious);
-        return previous + previousToPrevious;
-    }
+
+    return fibo;
 }
 
-void getN(int &N) {
+void getInput(int &n) {
     cout << "Enter the value for N (max. " << MAX_N << ") : ";
-    cin >> N;
+    cin >> n;
 
-    if (N < 0 or N > MAX_N) {
+    if (n < 0 or n > MAX_N) {
         cout << "Invalid value! N should be between 0 and " << MAX_N << ".\n";
-        getN(N);
+        getInput(n);
     }
 }
 
-int main()
-{
-    int N;
-    ULL previous;
-    getN(N);
+int main() {
+    int n;
+    getInput(n);
 
-    cout << "\nFibonacci(" << N << ") = " << fibonacci(N, previous) << "\n";
+    cout << "\nFibonacci(" << n << ") = " << fibonacci(n) << "\n";
 
     return 0;
 }
