@@ -51,6 +51,10 @@ class Graph {
             return true;
         }
 
+        const std::vector<Vertex>& get_adjacency_list() const {
+                return adjacency_list;
+        }
+
         size_t size() const {
             return num_vertices;
         }
@@ -91,6 +95,7 @@ void read_edges_from_user(Graph& graph) {
         int weight = 0;
         std::cin >> vertex_src >> vertex_dest >> weight;
         std::cin.ignore(100, '\n');
+        std::cout << "You created an edge between vertex " << vertex_src << " & " << vertex_dest << "!\n";
     } while (again("insert an edge between two vertices"));
 }
 
