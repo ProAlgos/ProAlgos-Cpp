@@ -32,16 +32,14 @@ struct Vertex {
 class Graph {
     public:
         Graph() {
-            num_vertices = 0;
         }
 
         void insert(int data) {
             adjacency_list.emplace_back(data);
-            ++num_vertices;
         }
 
         bool connect(size_t source_vertex, size_t destination_vertex, int weight) {
-            if (source_vertex > num_vertices - 1 || destination_vertex > num_vertices - 1 ||
+            if (source_vertex > size() - 1 || destination_vertex > size() - 1 ||
                     source_vertex == destination_vertex)
                 return false;
 
@@ -56,12 +54,11 @@ class Graph {
         }
 
         size_t size() const {
-            return num_vertices;
+            return adjacency_list.size();
         }
     
     private:
         std::vector<Vertex> adjacency_list;
-        size_t num_vertices;
 };
 
 bool again(const std::string& action) {
@@ -114,3 +111,4 @@ size_t get_start_location(const Graph& graph) {
 }
 
 #endif
+
