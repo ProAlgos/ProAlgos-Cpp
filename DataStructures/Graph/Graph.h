@@ -19,13 +19,15 @@ struct Edge {
 struct Vertex {
     Vertex(int data) {
         this->data = data;
+        visited = false;
     }
 
     void connect_to(size_t destination_vertex, int weight) {
-        edge_list.emplace_back(destination_vertex, weight);
+        edge_list.push_back(Edge(destination_vertex, weight));
     }
 
     int data;
+    bool visited;
     std::vector<Edge> edge_list;
 };
 
@@ -49,7 +51,7 @@ class Graph {
             return true;
         }
 
-        const std::vector<Vertex>& get_adjacency_list() const {
+        std::vector<Vertex> get_adjacency_list() const {
                 return adjacency_list;
         }
 
@@ -93,6 +95,7 @@ void read_edges_from_user(Graph& graph) {
         std::cin >> vertex_src >> vertex_dest >> weight;
         std::cin.ignore(100, '\n');
         std::cout << "You created an edge between vertex " << vertex_src << " & " << vertex_dest << "!\n";
+        graph.connect(vertex_src, vertex_dest, weight);
     } while (again("insert an edge between two vertices"));
 }
 
