@@ -17,6 +17,7 @@ void breadth_first_search(const Graph& graph, const size_t start_location) {
 
         std::cout << front.data << " ";
 
+        // enqueue all of the adjacent nodes!
         for (Edge& edge : front.edge_list) {
             if (!adj_list[edge.adjacent_vertex].visited) {
                 to_visit.push(adj_list[edge.adjacent_vertex]);
