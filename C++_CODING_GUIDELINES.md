@@ -13,6 +13,7 @@ This document is not yet complete.
 - [Formatting](#formatting)
   - [Tabs vs. Spaces](#tabs-vs-spaces)
   - [Horizontal whitespace](#horizontal-whitespace)
+- [Compiling](#compiling)
 
 ## Naming
 
@@ -102,3 +103,15 @@ Use soft tabs that are 4 spaces long. :grin:
   ++y;
   z = !y;
   ```
+
+## Compiling
+Since many of the C++ programs in this repo use new features of C++11 (like range-based for-loops and more), you will need to use the `-std=c++11` flag if you are compiling using the CLI. If you use an IDE, make sure to set the standard as **C++11** in your compiler settings.
+
+Also make sure there are no warnings during compilation by setting the `-Wall` flag and checking that nothing gets reported, if using the CLI. If using an IDE, make sure to check the "**Enable all warnings**" option for your compiler.
+
+#### Example
+If you are in the _Sorting_ directory, and want to compile the code for _merge sort_, run the following command:
+```
+g++ -std=c++11 -Wall -o MergeSort.out MergeSort.cpp
+```
+Instead of _g++_, you may use other compilers like _gcc_, _clang_, _clang++_, _MinGW_ (Windows) or _Visual C++_ (Windows). Just make sure that they support C++11 features.
