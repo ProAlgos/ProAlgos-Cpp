@@ -3,18 +3,22 @@
     Given two strings s1 and s2, returns the longest common subsequence (not substring) of both.
     It is a classic Dynamic Programming example for string processing.
     
-    Time complexity is O(nm), where n is the length of the string s1 and m the length of string s2.    
+    Time Complexity:
+    O(NM), where N is the length of the string s1 and M the length of string s2.
+    
+    Space Complexity:
+    0(NM), where N is the length of the string s1 and M the length of string s2.    
 */
 
-#include <cstdio>
+#include <iostream>
 #include <vector>
 #include <string>
 
 using namespace std;
 
 
-vector< vector<int> > lcsCosts(string s1, string s2){
-	//A m+1 x n+1 cost matrix
+vector< vector<int> > lcs(string s1, string s2){
+	//A (m+1 x n+1) cost matrix
 	vector< vector<int> > costs(s1.length()+1, vector<int>(s2.length()+1, 0));
 	
 	for( int i=1; i<s1.length()+1; i++ ){
@@ -31,9 +35,10 @@ vector< vector<int> > lcsCosts(string s1, string s2){
 	return costs;
 }
 
-string lcs(string s1, string s2){
+
+string search(string s1, string s2){
 	//get the matrix with costs
-	vector< vector<int> > costs = lcsCosts(s1, s2);
+	vector< vector<int> > costs = lcs(s1, s2);
 
 	//indexes starting at last position
 	int i=costs.size()-1, j=costs[0].size()-1;
@@ -58,16 +63,18 @@ string lcs(string s1, string s2){
 }
 
 
-//For testing purposes
-int main(){
-	//This test example should return:
-	//String: MJAU
-	string s1 = "XMJYAUZ";
-	string s2 = "MZJAWXU";
+int main() {
+    string s1, s2;
+    cout << "Enter the first string : ";
+    getline(cin, s1);
 
-	string lcs_output = lcs(s1, s2);
-		
-	printf("String: %s\n", lcs_output.c_str());
-	
-	return 0;
+    cout << "\nEnter the second string : ";
+    getline(cin, s2);
+
+    string lcso = search(s1, s2);
+
+    cout << "\nLargest Common Subsequence found : " << lcso << endl;
+
+    return 0;
 }
+
