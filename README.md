@@ -21,4 +21,4 @@ Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a n
 Read the section on [Compiling C++ code](C++_CODING_GUIDELINES.md/#compiling) for details.
 
 ## License
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE.md) file for details.
+[MIT](LICENSE.md)
