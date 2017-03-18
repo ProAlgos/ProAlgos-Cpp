@@ -1,13 +1,35 @@
+// BigInt.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <string>
 #include "BigInt.hpp"
+
+bool is_valid_number(const std::string& num);
+void notify_invalid_input(const std::string& input);
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+
+	BigInt bI;
+	std::string s = "10";
+	if (is_valid_number(s)) {
+		std::cout << "Your number is: " << s << '\n';
+	}
+	else
+		notify_invalid_input(s);
+	return 0;
+}
 
 /*
     Utility functions
     -----------------
 */
 
+//in: passed string. out: 
 bool is_valid_number(const std::string& num) {
     for (char digit : num)
-        if (digit < '0' or digit > '9')
+        if (digit < '0' || digit > '9')
             return false;
 
     return true;
@@ -16,7 +38,6 @@ bool is_valid_number(const std::string& num) {
 void notify_invalid_input(const std::string& input) {
     std::cout << "Invalid input! Expected an integer, got \'" << input << "\'.\n";
 }
-
 
 /*
     Constructors
@@ -27,6 +48,9 @@ BigInt::BigInt() {
     value = "0";
     sign = '+';
 }
+
+
+/*
 
 BigInt::BigInt(const BigInt& num) {
     value = num.value;
@@ -68,10 +92,10 @@ BigInt::BigInt(const long long num) {
 }
 
 
-/*
-    Assignment operators
+
+//    Assignment operators
     --------------------
-*/
+
 
 void BigInt::operator=(const BigInt& num) {
     value = num.value;
@@ -91,26 +115,26 @@ void BigInt::operator=(const std::string num) {
 }
 
 
-/*
-    Arithmetic operators
+
+//    Arithmetic operators
     --------------------
-*/
+
 
 // TODO
 
 
-/*
-    Arithmetic-assignment operators
+
+//    Arithmetic-assignment operators
     -------------------------------
-*/
+
 
 // TODO
 
 
-/*
-    Unary operators
+
+//    Unary operators
     ---------------
-*/
+
 
 BigInt BigInt::operator-() {
     BigInt temp;
@@ -129,10 +153,10 @@ BigInt BigInt::operator-() {
 // TODO
 
 
-/*
-    Relational operators
+
+//    Relational operators
     --------------------
-*/
+
 
 bool BigInt::operator>(const BigInt& num) {
     if (sign == num.sign)
@@ -231,10 +255,10 @@ bool BigInt::operator!=(const long long num) {
 }
 
 
-/*
-    I/O stream operators
+
+//    I/O stream operators
     --------------------
-*/
+
 
 std::istream& operator>>(std::istream& in, BigInt& num) {
     std::string input;
@@ -262,3 +286,5 @@ int main() {
         std::cout << "Big integer : " << num << "\n";
 }
 #endif
+
+*/
