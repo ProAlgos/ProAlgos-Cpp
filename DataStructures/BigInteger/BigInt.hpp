@@ -44,25 +44,25 @@ public:
     void operator%=(long long);     // TODO
 
     // Unary operators:
-    BigInt operator-();
+    BigInt operator-() const;
     BigInt operator++(int); // TODO
-    BigInt operator++();    // TODO
+    BigInt& operator++();    // TODO
     BigInt operator--(int); // TODO
-    BigInt operator--();    // TODO
+    BigInt& operator--();    // TODO
 
     // Relational operators:
-    bool operator>(const BigInt&);
-    bool operator>(long long);
-    bool operator>=(const BigInt&);
-    bool operator>=(long long);
-    bool operator<(const BigInt&);
-    bool operator<(long long);
-    bool operator<=(const BigInt&);
-    bool operator<=(long long);
-    bool operator==(const BigInt&);
-    bool operator==(long long);
-    bool operator!=(const BigInt&);
-    bool operator!=(long long);
+    bool operator>(const BigInt&) const;
+    bool operator>(long long) const;
+    bool operator>=(const BigInt&) const;
+    bool operator>=(long long) const;
+    bool operator<(const BigInt&) const;
+    bool operator<(long long) const;
+    bool operator<=(const BigInt&) const;
+    bool operator<=(long long) const;
+    bool operator==(const BigInt&) const;
+    bool operator==(long long) const;
+    bool operator!=(const BigInt&) const;
+    bool operator!=(long long) const;
 
     // I/O stream operators:
     friend std::istream& operator>>(std::istream&, BigInt&);

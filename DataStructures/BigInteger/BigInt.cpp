@@ -96,6 +96,15 @@ void BigInt::operator=(const std::string num) {
     --------------------
 */
 
+BigInt operator+(const BigInt& num) const {
+    BigInt result(max(num, *this));
+    BigInt added(min(num, *this));
+    int carry = 0;
+    for(size_t i = 0; i < added.value.length(); ++i) {
+        //TODO
+    }
+}
+
 // TODO
 
 
@@ -112,7 +121,7 @@ void BigInt::operator=(const std::string num) {
     ---------------
 */
 
-BigInt BigInt::operator-() {
+BigInt BigInt::operator-() const {
     BigInt temp;
 
     temp.value = value;
@@ -122,7 +131,6 @@ BigInt BigInt::operator-() {
         else
             temp.sign = '+';
     }
-
     return temp;
 }
 
@@ -132,102 +140,64 @@ BigInt BigInt::operator-() {
 /*
     Relational operators
     --------------------
+    We can implement only two operators (== and <), and use them for all the rest.
 */
 
-bool BigInt::operator>(const BigInt& num) {
-    if (sign == num.sign)
-        return (value > num.value);
+bool BigInt::operator>(const BigInt& num) const {
+    return !(*this < num || *this == num);
+}
+
+bool BigInt::operator>(const long long num) const {
+    return *this > BigInt(num);
+}
+
+bool BigInt::operator>=(const BigInt& num) const {
+    return !(*this < num);
+}
+
+bool BigInt::operator>=(const long long num) const {
+    return !(*this < BigInt(num));
+}
+
+bool BigInt::operator<(const BigInt& num) const {
+    if (sign == num.sign) {
+        if (sign == '+') {
+            if (value.length() == num.value.length())
+                return value < num.value;
+            else return value.length() < num.value.length();
+        }
+        else return -(*this) > -num;
+    }        
     else
-        return (sign == '+');
+        return sign == '-';
 }
 
-bool BigInt::operator>(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value > temp.value);
-    else
-        return (sign == '+');
+bool BigInt::operator<(const long long num) const {
+    return *this < BigInt(num);
 }
 
-bool BigInt::operator>=(const BigInt& num) {
-    if (sign == num.sign)
-        return (value >= num.value);
-    else
-        return (sign == '+');
+bool BigInt::operator<=(const BigInt& num) const {
+    return *this < num || *this == num;
 }
 
-bool BigInt::operator>=(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value >= temp.value);
-    else
-        return (sign == '+');
+bool BigInt::operator<=(const long long num) const {
+    return !(*this > BigInt(num));
 }
 
-bool BigInt::operator<(const BigInt& num) {
-    if (sign == num.sign)
-        return (value < num.value);
-    else
-        return (sign == '-');
+bool BigInt::operator==(const BigInt& num) const {
+    return sign == num.sign && value == num.value;
 }
 
-bool BigInt::operator<(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value < temp.value);
-    else
-        return (sign == '-');
+bool BigInt::operator==(const long long num) const {
+    return *this == BigInt(num);
 }
 
-bool BigInt::operator<=(const BigInt& num) {
-    if (sign == num.sign)
-        return (value <= num.value);
-    else
-        return (sign == '-');
+bool BigInt::operator!=(const BigInt& num) const {
+    return !(*this == num);
 }
 
-bool BigInt::operator<=(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value <= temp.value);
-    else
-        return (sign == '-');
-}
-
-bool BigInt::operator==(const BigInt& num) {
-    if (sign == num.sign)
-        return (value > num.value);
-
-    return false;
-}
-
-bool BigInt::operator==(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value == temp.value);
-
-    return false;
-}
-
-bool BigInt::operator!=(const BigInt& num) {
-    if (sign == num.sign)
-        return (value != num.value);
-
-    return true;
-}
-
-bool BigInt::operator!=(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value != temp.value);
-
-    return true;
+bool BigInt::operator!=(const long long num) const {
+    return !(*this == BigInt(num));
 }
 
 
@@ -253,12 +223,26 @@ std::ostream& operator<<(std::ostream& out, const BigInt& num) {
 }
 
 #ifdef DEBUG
+#include <vector>
 int main() {
-    BigInt num;
-
-    num = -51311531;
-
-    if (-num == 51311531)
-        std::cout << "Big integer : " << num << "\n";
+    std::vector<BigInt> nums = {0, BigInt("52311531"), BigInt("1341134113411341"),
+     BigInt("-134343423"), BigInt("-434343423")};
+    nums[0] = 51311531;
+    for(BigInt a : nums) {
+        for(BigInt b : nums) {
+            if(a > b)
+                std::cout << a << " greater then " << b << "\n";
+            if(a < b)
+                std::cout << a << " smaller then " << b << "\n";
+            if(a == b)
+                std::cout << a << " equals " << b << "\n";
+            if(a != b)
+                std::cout << a << " not equals " << b << "\n";
+            if(a <= b)
+                std::cout << a << " smaller or equals " << b << "\n";
+            if(a >= b)
+                std::cout << a << " greater or equals " << b << "\n";
+        }
+    }
 }
 #endif
