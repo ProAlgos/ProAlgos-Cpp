@@ -39,7 +39,7 @@ int main() {
 
 	g.resize(vertices + 1);
 
-	cout << "Now enter your edges format: \"u v w\". Where u and w are vertices and w is the distance between them." << endl;
+	cout << "Now enter your edges in format: \"u v w\". Where u and w are vertices and w is the distance between them." << endl;
 	for(int i = 0; i < edges; ++i) {
 		int temp_start, temp_end, temp_distance;
 		cin >> temp_start >> temp_end >> temp_distance;
