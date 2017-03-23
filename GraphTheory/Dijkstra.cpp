@@ -50,10 +50,13 @@ int main() {
 	Graph graph;
 	graph.resize(vertices + 1);
 
-	cout << "Now enter your edges in format: \"u v w\". Where u and w are vertices and w is the distance between them." << endl;
+	cout << "Enter the edges in the format:" << "\n";
+	cout << "a w b" << "\n";
+	cout << "where \'a\' and \'b\' are vertices, and \'w\' is the distance between them." << "\n";
+	
 	for(int i = 0; i < edges; ++i) {
 		int temp_start, temp_end, temp_distance;
-		cin >> temp_start >> temp_end >> temp_distance;
+		cin >> temp_start >> temp_distance >> temp_end;
 		graph[temp_start].push_back({temp_end, temp_distance});
 	}
 
