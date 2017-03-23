@@ -43,7 +43,7 @@ vector<int> dijkstra(const int &start, const Graph& graph) {
 	        }	
         }
     }
-	return distances;
+    return distances;
 }
 
 int main() {
