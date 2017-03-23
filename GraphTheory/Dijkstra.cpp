@@ -2,6 +2,8 @@
 #include <vector>
 #include <queue>
 
+#define INF 2147483647
+
 using namespace std;
 
 
@@ -9,7 +11,6 @@ vector<vector< pair<int, int>>> g; // global graph
 int vertices, edges;
 
 vector<int> dijkstra(const int &start) {
-    const int INF = 1000000; // initially all distances are equal infinity
 	vector<int> distances(g.size(), INF);
 	distances[start] = 0;
 	priority_queue<pair<int,int>> queue; // we hold vertices in queue
