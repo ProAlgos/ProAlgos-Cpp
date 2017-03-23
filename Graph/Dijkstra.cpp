@@ -36,7 +36,7 @@ vector<int> dijkstra(const int &start, const Graph& graph) {
 
 		    if(distances[value] + dist_temp < distances[to]) {
 
-                distances[to] = distances[value] + dist_temp;
+                            distances[to] = distances[value] + dist_temp;
              
 			    queue.push({-distances[to], to});
 			 
