@@ -6,7 +6,7 @@
 <Brief description>:
 List comprised of nodes which hold a datum
 and point to the next datum element in the list.
-If there exists no next element, it points to null.\
+If there exists no next element, it points to null.
 If an array is populated with this style of Singly-linked-lists,
 we create a HashMap with hashing function f(x) = x
 Refer to interface file for function prototypes.
