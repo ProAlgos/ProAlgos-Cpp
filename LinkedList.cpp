@@ -19,34 +19,36 @@ O(n), where n is the number of nodes (read: elements) in a list*/
 
 template <class T>
 LinkedList<T>::LinkedList() {    //constructor
-  head = nullptr;
-  last = nullptr;
+	head = nullptr;
+	last = nullptr;
 }
 
 template <class T>
 LinkedList<T>::~LinkedList() {    //destructor
-  Node<T>* tempnode = head;
-  while(tempnode != nullptr) {
-    tempnode = tempnode->nextnode;
-    delete(head);
-    head = tempnode;
-  }
+    Node<T>* tempnode = head;
+    while(tempnode != nullptr) {
+        tempnode = tempnode->nextnode;
+        delete(head);
+        head = tempnode;
+    }
 }
+
+
 
 template <class T>
 bool LinkedList<T>::isEmpty() {
-  if (head == nullptr) { return true; }
-  else { return false; }
+    if (head == nullptr) { return true; }
+    else { return false; }
 }
 
 template <class T>
 int LinkedList<T>::list_size() const {
     if (head == nullptr) { return 0; }
-  Node<T>* tempnode = head;
-  int nodeWalk = 0;
+        Node<T>* tempnode = head;
+        int nodeWalk = 0;
     while (tempnode != nullptr) {
-      nodeWalk += 1;
-      tempnode = tempnode->nextnode;
+        nodeWalk += 1;
+        tempnode = tempnode->nextnode;
   }
     return nodeWalk;
 }
@@ -63,13 +65,13 @@ void LinkedList<T>::insertFront(T insertValue) {
 
     NODE->value = insertValue;
 
-  if (head == nullptr) {
-    head = NODE;
-  }
-  else {
-    NODE->nextnode = head;
-    head = NODE;
-  }
+    if (head == nullptr) {
+        head = NODE;
+      }
+    else {
+        NODE->nextnode = head;
+        head = NODE;
+    }
 }
 
 template <class T>
@@ -85,74 +87,74 @@ void LinkedList<T>::insertBack(T insertValue) {
         while (tempnode->nextnode != nullptr) {
             tempnode = tempnode->nextnode;
           }
-          tempnode->nextnode = NODE;
-        }
-  else {
-    head = NODE;
-  }
+        tempnode->nextnode = NODE;
+      }
+    else {
+        head = NODE;
+    }
 }
 
 template <class T>
 bool LinkedList<T>::removeBack() {
     if (head == nullptr && last == nullptr) {
-      return false;
+        return false;
 }
 
     if (head == last) {
-      delete(head);
-      head = last = nullptr;
-      return true;
-  }
+        delete(head);
+        head = last = nullptr;
+        return true;
+    }
 
     else {
-      Node<T>* tempnode = head;
-      int count = 0;
-
-    while (tempnode != nullptr) {
-      count += 1;
-      tempnode = tempnode->nextnode;
+        Node<T>* tempnode = head;
+        int count = 0;
+        while (tempnode != nullptr) {
+            count += 1;
+            tempnode = tempnode->nextnode;
     }
 
     Node<T>* tempnode2 = head;
 
     for(int i = 0; i < count; ++i) {
-      tempnode2 = tempnode2->nextnode;
+        tempnode2 = tempnode2->nextnode;
     }
+
     delete(tempnode2->nextnode);
     last = tempnode2;
     last->nextnode = nullptr;
-
     quickSize -= 1;
     return true;
-  }
+
+    }
 }
 
 template <class T>
 bool LinkedList<T>::removeFront() {
-  if (head == nullptr && last == nullptr) {
-    return false;
-  }
-  else {
-    Node<T>* tempnode;
-    tempnode = head;
-    head = head->nextnode;
-    delete(tempnode);
-    quickSize -= 1;
-    return true;
-  }
+    if (head == nullptr && last == nullptr) {
+        return false;
+    }
+    else {
+        Node<T>* tempnode;
+        tempnode = head;
+        head = head->nextnode;
+        delete(tempnode);
+        quickSize -= 1;
+        return true;
+    }
 }
 
 template <class T>
 void LinkedList<T>::clear() {
-  Node<T>* tempnode = head;
-  while (tempnode != nullptr) {
-    tempnode = tempnode->nextnode;
-    head = tempnode;
-    delete(tempnode);
-  }
+    Node<T>* tempnode = head;
+    while (tempnode != nullptr) {
+        tempnode = tempnode->nextnode;
+        head = tempnode;
+        delete(tempnode);
+    }
 }
 
 template <class T>
 T& LinkedList<T>::peek() {
-  return head->value;
+    return head->value;
 }
