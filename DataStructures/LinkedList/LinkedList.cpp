@@ -1,4 +1,4 @@
-#include "ListInterface.hpp"
+#include "LinkedList.hpp"
 
 /*
 <Author>: Tucker J. Polomik github.com/TheNergaL
