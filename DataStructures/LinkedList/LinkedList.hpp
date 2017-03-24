@@ -38,12 +38,6 @@ class LinkedList
         bool removeFront();
         bool removeBack(T removeValue);
         void clear();
-
-
-      private:
-        Node<T>* head;
-        Node<T>* last;
-        int size;
 };
 
 #endif
