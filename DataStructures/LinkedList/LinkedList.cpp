@@ -59,7 +59,7 @@ int LinkedList<T>::size_quick() const {
 
 template <class T>
 void LinkedList<T>::insertFront(T insertValue) {
-    quickSize += 1;
+    size += 1;
     Node<T>* new_node;
 
     new_node->value = insertValue;
@@ -122,7 +122,7 @@ bool LinkedList<T>::removeBack() {
     delete(tempnode2->nextnode);
     last = tempnode2;
     last->nextnode = nullptr;
-    quickSize -= 1;
+    size -= 1;
     return true;
 
     }
