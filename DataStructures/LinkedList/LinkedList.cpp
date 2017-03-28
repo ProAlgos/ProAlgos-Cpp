@@ -1,21 +1,22 @@
 #include "LinkedList.hpp"
 
 /*
-<Author>: Tucker J. Polomik github.com/TheNergaL
-<Name of algorithm>: Singly Linked-list
-<Brief description>:
-List comprised of nodes which hold a value
-and point to the next value element in the list.
-If there exists no next element, it points to null.
+    Author:
+    Tucker J. Polomik (https://github.com/TheNergaL)
+    Name of algorithm:Singly Linked-list
+    Brief description:
+    List comprised of nodes which hold a value
+    and point to the next value element in the list.
+    If there exists no next element, it points to null.
 
-Time complexity:
-Element search/access: O(N)
-Data insertion: O(1)
-Data deletion: O(1)
-where N is the number of nodes (elements) in the list.
+    Time complexity:
+    Element search/access: O(N)
+    Data insertion: O(1)
+    Data deletion: O(1)
+    where N is the number of nodes (elements) in the list.
 
-Space complexity:
-O(n), where n is the number of nodes (elements) in a list
+    Space complexity:
+    O(n), where n is the number of nodes (elements) in a list
 */
 
 template <class T>
@@ -58,7 +59,7 @@ int LinkedList<T>::size_quick() const {
 
 template <class T>
 void LinkedList<T>::insertFront(T insertValue) {
-    size += 1;
+    quickSize += 1;
     Node<T>* new_node;
 
     new_node->value = insertValue;
@@ -121,7 +122,7 @@ bool LinkedList<T>::removeBack() {
     delete(tempnode2->nextnode);
     last = tempnode2;
     last->nextnode = nullptr;
-    size -= 1;
+    quickSize -= 1;
     return true;
 
     }
