@@ -96,14 +96,6 @@ void BigInt::operator=(const std::string num) {
     --------------------
 */
 
-BigInt operator+(const BigInt& num) const {
-    BigInt result(max(num, *this));
-    BigInt added(min(num, *this));
-    int carry = 0;
-    for(size_t i = 0; i < added.value.length(); ++i) {
-        //TODO
-    }
-}
 
 // TODO
 
@@ -144,7 +136,7 @@ BigInt BigInt::operator-() const {
 */
 
 bool BigInt::operator>(const BigInt& num) const {
-    return !(*this < num || *this == num);
+    return !((*this < num) or (*this == num));
 }
 
 bool BigInt::operator>(const long long num) const {
@@ -177,7 +169,7 @@ bool BigInt::operator<(const long long num) const {
 }
 
 bool BigInt::operator<=(const BigInt& num) const {
-    return *this < num || *this == num;
+    return (*this < num) or (*this == num);
 }
 
 bool BigInt::operator<=(const long long num) const {
@@ -185,7 +177,7 @@ bool BigInt::operator<=(const long long num) const {
 }
 
 bool BigInt::operator==(const BigInt& num) const {
-    return sign == num.sign && value == num.value;
+    return (sign == num.sign) and (value == num.value);
 }
 
 bool BigInt::operator==(const long long num) const {
