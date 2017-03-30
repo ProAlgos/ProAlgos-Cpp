@@ -51,16 +51,16 @@ public:
     BigInt& operator--();    // TODO
 
     // Relational operators:
-    bool operator>(const BigInt&) const;
-    bool operator>(long long) const;
-    bool operator>=(const BigInt&) const;
-    bool operator>=(long long) const;
     bool operator<(const BigInt&) const;
     bool operator<(long long) const;
     bool operator<=(const BigInt&) const;
     bool operator<=(long long) const;
     bool operator==(const BigInt&) const;
     bool operator==(long long) const;
+    bool operator>=(const BigInt&) const;
+    bool operator>=(long long) const;
+    bool operator>(const BigInt&) const;
+    bool operator>(long long) const;
     bool operator!=(const BigInt&) const;
     bool operator!=(long long) const;
 

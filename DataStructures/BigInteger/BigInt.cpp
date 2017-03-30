@@ -132,34 +132,21 @@ BigInt BigInt::operator-() const {
 /*
     Relational operators
     --------------------
-    We can implement only two operators (== and <), and use them for all the rest.
+
+    All operators depend on '<' and/or '=='
 */
-
-bool BigInt::operator>(const BigInt& num) const {
-    return !((*this < num) or (*this == num));
-}
-
-bool BigInt::operator>(const long long num) const {
-    return *this > BigInt(num);
-}
-
-bool BigInt::operator>=(const BigInt& num) const {
-    return !(*this < num);
-}
-
-bool BigInt::operator>=(const long long num) const {
-    return !(*this < BigInt(num));
-}
 
 bool BigInt::operator<(const BigInt& num) const {
     if (sign == num.sign) {
         if (sign == '+') {
             if (value.length() == num.value.length())
                 return value < num.value;
-            else return value.length() < num.value.length();
+            else
+                return value.length() < num.value.length();
         }
-        else return -(*this) > -num;
-    }        
+        else
+            return -(*this) > -num;
+    }
     else
         return sign == '-';
 }
@@ -182,6 +169,22 @@ bool BigInt::operator==(const BigInt& num) const {
 
 bool BigInt::operator==(const long long num) const {
     return *this == BigInt(num);
+}
+
+bool BigInt::operator>=(const BigInt& num) const {
+    return !(*this < num);
+}
+
+bool BigInt::operator>=(const long long num) const {
+    return !(*this < BigInt(num));
+}
+
+bool BigInt::operator>(const BigInt& num) const {
+    return !((*this < num) or (*this == num));
+}
+
+bool BigInt::operator>(const long long num) const {
+    return *this > BigInt(num);
 }
 
 bool BigInt::operator!=(const BigInt& num) const {
@@ -215,26 +218,39 @@ std::ostream& operator<<(std::ostream& out, const BigInt& num) {
 }
 
 #ifdef DEBUG
+
 #include <vector>
+
 int main() {
-    std::vector<BigInt> nums = {0, BigInt("52311531"), BigInt("1341134113411341"),
-     BigInt("-134343423"), BigInt("-434343423")};
+    std::vector<BigInt> nums = {
+        0,
+        BigInt("52311531"),
+        BigInt("123456789012345678901234567890"),
+        BigInt("-134343423"),
+        BigInt("-434343423")
+    };
+
     nums[0] = 51311531;
+
     for(BigInt a : nums) {
         for(BigInt b : nums) {
-            if(a > b)
-                std::cout << a << " greater then " << b << "\n";
             if(a < b)
-                std::cout << a << " smaller then " << b << "\n";
-            if(a == b)
-                std::cout << a << " equals " << b << "\n";
-            if(a != b)
-                std::cout << a << " not equals " << b << "\n";
+                std::cout << a << " <  " << b << "\n";
             if(a <= b)
-                std::cout << a << " smaller or equals " << b << "\n";
+                std::cout << a << " <= " << b << "\n";
+            if(a == b)
+                std::cout << a << " == " << b << "\n";
             if(a >= b)
-                std::cout << a << " greater or equals " << b << "\n";
+                std::cout << a << " >= " << b << "\n";
+            if(a > b)
+                std::cout << a << " >  " << b << "\n";
+            if(a != b)
+                std::cout << a << " != " << b << "\n";
+            std::cout << "\n";
         }
     }
+
+    return 0;
 }
+
 #endif
