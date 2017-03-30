@@ -1,9 +1,13 @@
 /*
     Heap Sort :
-    Uses an array-implemented heap to sort a list of numbers.
+    Uses an array-implemented heap to sort a list of integers.
+    This is a comparison based sorting algorithm which separates the input into a
+    sorted and unsorted region and iteratively shrinks the unsorted region by taking
+    the maximum(or minimum if descending order) element and moving it to the sorted region.
+    It uses the heap data structure (implemented using a vector here) to find the maximum or minimum.
 
     Time complexity:
-    O(N * log(N)), where N is the number of elements to be sorted.
+    O(N * log(N)), where N is the number of integers to be sorted.
 
     Space complexity:
     O(1).
@@ -18,7 +22,6 @@ using namespace std;
 //creates max heap when ascending and min heap when descending
 void heapify(vector<int> &heap, int parent, const int size, const int order, const bool showState){
 	int child = parent*2 + 1;
-	int temp;
     while (child<size){    // travels down children
         if (showState) displayState(heap);
 
@@ -39,7 +42,7 @@ void heapify(vector<int> &heap, int parent, const int size, const int order, con
 }
 //removes largest/smallest node, replaces it and reheapifies with new heap.
 void heapsort(vector<int> &heap, const int size, const int order, const bool showState){
-	int temp, last = size;
+	int last = size;
 
 	while (last > 0){
 	    swap(heap[0], heap[last-1]);
