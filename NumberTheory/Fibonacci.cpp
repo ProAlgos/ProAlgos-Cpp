@@ -47,6 +47,7 @@ void getInput(int &n) {
     }
 }
 
+#ifndef TEST
 int main() {
     int n;
     getInput(n);
@@ -55,3 +56,4 @@ int main() {
 
     return 0;
 }
+#endif
