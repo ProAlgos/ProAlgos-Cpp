@@ -51,7 +51,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	*/	
 	
 	/*
-	// COMPLETE
+	// INCOMPLETE (missing pos + neg && neg + pos)
 	// arithmetic + test (BigInt + BigInt)
 	BigInt add_test1 = -1;
 	BigInt add_test2 = -9;
@@ -74,7 +74,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	add_result = add_test1 + add_test2;
 	std::cout << add_test1 << " + " << add_test2 << " = " << add_result << '\n';
 	
-	// COMPLETE
+	// INCOMPLETE (missing pos + neg && neg + pos)
 	// arithmetic + test (BigInt + long long)
 	BigInt add_test1 = -1;
 	int add_test2 = -9;
@@ -82,7 +82,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << add_test1 << " + " << add_test2 << " = " << add_result << '\n';
 	*/
 
-	
+	/*
 	// COMPLETE
 	// aritmetic * test (BigInt * BigInt and long long params)
 	BigInt mul_test1 = 10;
@@ -99,8 +99,35 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << mul_test1 << " * " << mul_test2 << " is: " << result << '\n';
 	std::cout << mul_test1 << " * 10 is: " << mul_test1 * 10 << '\n';
 	std::cout << mul_test1 << " * 9999 is: " << mul_test1 * 9999 << '\n';
-	
+	*/
 
+	// INCOMPLETE
+	// arithmetic - test (BigInt - BigInt)
+	BigInt subtest1 = 10;
+	BigInt subtest2 = -30;
+	BigInt subresult;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	subtest1 = 100;
+	subtest2 = 100;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	subtest1 = -3;
+	subtest2 = 17;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	subtest1 = 100;
+	subtest2 = 10;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	subtest1 = 1000000;
+	subtest2 = 1;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	subtest1 = 1;
+	subtest2 = 2;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
 
 	/*
 	// COMPLETE
@@ -130,6 +157,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << aa_test1 << '\n';
 	*/
 
+	// INCOMPLETE
+	// relational operators
+	BigInt compare1 = -2;
+	BigInt compare2 = -2;
+	bool result = compare1 == compare2;
+	std::cout << "Is " << compare1 << " equal to " << compare2 << "?: " << result << '\n';
+	compare1 = -100;
+	int one_hundred = -100;
+	result = compare1 == one_hundred;
+	std::cout << "Is " << compare1 << " equal to " << one_hundred << "?: " << result << '\n';
 	return 0;
 }
 
@@ -394,6 +431,59 @@ BigInt BigInt::operator*(long long num) {
 	return result;
 }
 
+BigInt BigInt::operator-(const BigInt& rhs) {
+	std::string lhs_string = value;
+	std::string rhs_string = rhs.value;
+	BigInt result;
+
+	if (*this == rhs)
+			result = 0;
+	else if (sign == '+' && rhs.sign == '-' || sign == '-' && rhs.sign == '+') {		// x - (-y)  ==  x + y   // -x - y  ==  -(x + y)
+		BigInt rhs_temp = rhs;
+		rhs_temp.sign = sign;
+		result = *this + rhs_temp;
+	}
+	else {
+		result = *this;
+		int offset = result.value.size()-1;
+		char subtracted_char;
+		bool borrow = false;
+		
+		// use relationals to determine size
+
+		while (!lhs_string.empty() && !rhs_string.empty()) {	// process digits while lhs and rhs strings are both not empty
+			if (borrow) {
+				--lhs_string.back();
+				borrow = false;
+			}
+			if (lhs_string.back() >= rhs_string.back())
+				result.value[offset] = (lhs_string.back() - rhs_string.back()) + 48;
+			else {
+				lhs_string.back() += 10;
+				result.value[offset] = (lhs_string.back() - rhs_string.back()) + 48;
+				borrow = true;
+			}
+			lhs_string.pop_back();
+			rhs_string.pop_back();
+			--offset;
+		}
+
+		while (!lhs_string.empty()) {
+			if (borrow) 
+				if (result.value[offset] == '0') 
+					result.value[offset] = '9';
+				else
+					result.value[offset] -= 1;
+			if (result.value[offset] == '0' && offset == 0)		// remove leading 0
+				result.value.erase(offset, offset+1);
+			--offset;
+			lhs_string.pop_back();
+		}
+	}
+
+	return result;
+}
+
 
 /*
     Arithmetic-assignment operators
@@ -421,108 +511,33 @@ BigInt BigInt::operator*=(long long num) {
 }
 
 
+
 /*
-//    Relational operators
+    Relational operators
     --------------------
-
-
-bool BigInt::operator>(const BigInt& num) {
-    if (sign == num.sign)
-        return (value > num.value);
-    else
-        return (sign == '+');
-}
-
-bool BigInt::operator>(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value > temp.value);
-    else
-        return (sign == '+');
-}
-
-bool BigInt::operator>=(const BigInt& num) {
-    if (sign == num.sign)
-        return (value >= num.value);
-    else
-        return (sign == '+');
-}
-
-bool BigInt::operator>=(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value >= temp.value);
-    else
-        return (sign == '+');
-}
-
-bool BigInt::operator<(const BigInt& num) {
-    if (sign == num.sign)
-        return (value < num.value);
-    else
-        return (sign == '-');
-}
-
-bool BigInt::operator<(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value < temp.value);
-    else
-        return (sign == '-');
-}
-
-bool BigInt::operator<=(const BigInt& num) {
-    if (sign == num.sign)
-        return (value <= num.value);
-    else
-        return (sign == '-');
-}
-
-bool BigInt::operator<=(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value <= temp.value);
-    else
-        return (sign == '-');
-}
-
-bool BigInt::operator==(const BigInt& num) {
-    if (sign == num.sign)
-        return (value > num.value);
-
-    return false;
-}
-
-bool BigInt::operator==(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value == temp.value);
-
-    return false;
-}
-
-bool BigInt::operator!=(const BigInt& num) {
-    if (sign == num.sign)
-        return (value != num.value);
-
-    return true;
-}
-
-bool BigInt::operator!=(const long long num) {
-    BigInt temp(num);
-
-    if (sign == temp.sign)
-        return (value != temp.value);
-
-    return true;
-}
-
 */
+
+bool BigInt::operator==(const BigInt& rhs) {
+	bool result = false;
+	if (sign == rhs.sign && value == rhs.value)
+		result = true;
+
+	return result;
+}
+
+bool BigInt::operator==(long long rhs) {
+	bool result = false;
+	std::string rhs_string = std::to_string(rhs);
+
+	if (sign == '-' && rhs_string[0] == '-')	// account for leading '-' in long long string
+		rhs_string.erase(0,1);
+	if (value == rhs_string) {
+		if (rhs >= 0 && sign == '+' || rhs < 0 && sign == '-')
+			result = true;
+	}
+
+	return result;			
+}
 
 #ifdef DEBUG
 int main() {
