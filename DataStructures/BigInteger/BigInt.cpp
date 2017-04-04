@@ -82,26 +82,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << add_test1 << " + " << add_test2 << " = " << add_result << '\n';
 	*/
 
-	
-	// COMPLETE
-	// aritmetic * test (BigInt * BigInt and long long params)
-	BigInt mul_test1 = 10;
-	BigInt mul_test2 = 10;
-	BigInt result = mul_test1 * mul_test2;
-	std::cout << mul_test1 << " * " << mul_test2 << " is: " << result << '\n';
-	mul_test1 = -10;
-	mul_test2 = -5;
-	result = mul_test1 * mul_test2;
-	std::cout << mul_test1 << " * " << mul_test2 << " is: " << result << '\n';
-	mul_test1 = 0;
-	mul_test2 = -10;
-	result = mul_test1 * mul_test2;
-	std::cout << mul_test1 << " * " << mul_test2 << " is: " << result << '\n';
-	std::cout << mul_test1 << " * 10 is: " << mul_test1 * 10 << '\n';
-	std::cout << mul_test1 << " * 9999 is: " << mul_test1 * 9999 << '\n';
-	
-
-
 	/*
 	// COMPLETE
 	// arithmetic-assignment += test (BigInt and long long params)
@@ -115,20 +95,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	aa_test1 += aa_int_test;
 	std::cout << aa_test1 << '\n';
 	*/	
-
-	/*
-	// COMPLETE
-	// arithmetic-assignment *= test (BigInt and long long params)
-	BigInt aa_test1 = 2;
-	BigInt aa_test2 = 5;
-	int aa_int_test = 10;
-	std::cout << aa_test1 << " set equal to " << aa_test1 << " * " << aa_test2 << " is: ";
-	aa_test1 *= aa_test2;
-	std::cout << aa_test1 << '\n';
-	std::cout << aa_test1 << " set equal to " << aa_test1 << " * " << aa_int_test << " is: ";
-	aa_test1 *= aa_int_test;
-	std::cout << aa_test1 << '\n';
-	*/
 
 	return 0;
 }
@@ -351,49 +317,6 @@ BigInt BigInt::operator+(long long num) {
 	return result;
 }
 
-BigInt BigInt::operator*(const BigInt& rhs) {
-	BigInt result;
-	std::string multiplier;
-	std::string initial_value;
-	int magnitude = 1;
-
-	if (value.size() >= rhs.value.size()) {		// assign largest int to initial_value and smallest int to magnitude to improve performance
-		initial_value = value;
-		multiplier = rhs.value;
-	}
-	else {
-		initial_value = rhs.value;
-		multiplier = value;
-	}
-
-	if (value == "0" || rhs.value == "0")	// zero case
-		result = 0;
-	else {
-		while (!multiplier.empty()) {
-			for (int i = (multiplier.back() - 48)*magnitude; i > 0; --i) {
-				result += initial_value;
-			}
-			multiplier.pop_back();
-			magnitude *= 10;
-		}
-	}
-	
-	if (sign ==  '+' && rhs.sign == '+' || sign == '-' && rhs.sign == '-')	//set sign, keep 0 positive
-		result.sign = '+';
-	else if (result.value == "0")
-		result.sign = '+';
-	else 
-		result.sign = '-';
-
-	return result;
-}
-
-BigInt BigInt::operator*(long long num) {
-	BigInt rhs(num);
-	BigInt result = *this * rhs;
-	return result;
-}
-
 
 /*
     Arithmetic-assignment operators
@@ -409,17 +332,6 @@ BigInt BigInt::operator+=(long long num) {
 	*this = *this + num;
 	return *this;
 }
-
-BigInt BigInt::operator*=(const BigInt& rhs) {
-	*this = *this * rhs;
-	return *this;
-}
-
-BigInt BigInt::operator*=(long long num) {
-	*this = *this * num;
-	return *this;
-}
-
 
 /*
 //    Relational operators
