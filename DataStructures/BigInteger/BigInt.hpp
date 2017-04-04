@@ -22,7 +22,7 @@ public:
     // Arithmetic operators:
     BigInt operator+(const BigInt&);  
     BigInt operator+(long long);
-    void operator-(const BigInt&);  // TODO
+    BigInt operator-(const BigInt&);  // TODO
     void operator-(long long);      // TODO
     BigInt operator*(const BigInt&); 
     BigInt operator*(long long);      
@@ -51,18 +51,18 @@ public:
     BigInt operator--();    // TODO
 
     // Relational operators:
-    bool operator>(const BigInt&);
-    bool operator>(long long);
-    bool operator>=(const BigInt&);
-    bool operator>=(long long);
-    bool operator<(const BigInt&);
-    bool operator<(long long);
-    bool operator<=(const BigInt&);
-    bool operator<=(long long);
-    bool operator==(const BigInt&);
-    bool operator==(long long);
-    bool operator!=(const BigInt&);
-    bool operator!=(long long);
+    bool operator>(const BigInt&);	// TODO
+    bool operator>(long long);		// TODO
+    bool operator>=(const BigInt&); // TODO
+    bool operator>=(long long);		// TODO
+    bool operator<(const BigInt&);	// TODO
+    bool operator<(long long);		// TODO
+    bool operator<=(const BigInt&);	// TODO
+    bool operator<=(long long);		// TODO
+    bool operator==(const BigInt&);	
+    bool operator==(long long);		
+    bool operator!=(const BigInt&);	// TODO
+    bool operator!=(long long);		// TODO
 
     // I/O stream operators:
     friend std::istream& operator>>(std::istream&, BigInt&);

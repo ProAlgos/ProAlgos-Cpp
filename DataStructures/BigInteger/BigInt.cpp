@@ -124,6 +124,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	subtest2 = 1;
 	subresult = subtest1 - subtest2;
 	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	// not functional
 	subtest1 = 1;
 	subtest2 = 2;
 	subresult = subtest1 - subtest2;
