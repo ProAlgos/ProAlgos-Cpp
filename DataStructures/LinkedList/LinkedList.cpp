@@ -3,7 +3,8 @@
 /*
     Author:
     Tucker J. Polomik (https://github.com/TheNergaL)
-    Name of algorithm:Singly Linked-list
+    Name of algorithm: 
+    Singly Linked-list
     Brief description:
     List comprised of nodes which hold a value
     and point to the next value element in the list.
