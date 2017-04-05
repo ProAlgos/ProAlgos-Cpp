@@ -24,7 +24,7 @@ class LinkedList
 {
         Node<T>* head;
         Node<T>* last;
-        int size;
+        int list_size;
 
       public:
         LinkedList();
@@ -36,7 +36,7 @@ class LinkedList
         void insertBack(T insertValue);
         T& peek();
         bool removeFront();
-        bool removeBack(T removeValue);
+        bool removeBack();
         void clear();
 };
 

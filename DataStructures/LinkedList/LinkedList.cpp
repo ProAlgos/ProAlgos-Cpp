@@ -54,12 +54,12 @@ int LinkedList<T>::size() const {
 
 template <class T>
 int LinkedList<T>::size_quick() const {
-    return size;
+    return list_size;
 }
 
 template <class T>
 void LinkedList<T>::insertFront(T insertValue) {
-    size += 1;
+    list_size += 1;
     Node<T>* new_node;
 
     new_node->value = insertValue;
@@ -75,7 +75,7 @@ void LinkedList<T>::insertFront(T insertValue) {
 
 template <class T>
 void LinkedList<T>::insertBack(T insertValue) {
-    size += 1;
+    list_size += 1;
     Node<T>* new_node;
     new_node->value = insertValue;
     new_node->nextnode = nullptr;
@@ -122,7 +122,7 @@ bool LinkedList<T>::removeBack() {
     delete(tempnode2->nextnode);
     last = tempnode2;
     last->nextnode = nullptr;
-    size -= 1;
+    list_size -= 1;
     return true;
 
     }
@@ -138,7 +138,7 @@ bool LinkedList<T>::removeFront() {
         temp_node = head;
         head = head->nextnode;
         delete(temp_node);
-        size -= 1;
+        list_size -= 1;
         return true;
     }
 }
