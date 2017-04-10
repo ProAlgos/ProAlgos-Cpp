@@ -10,7 +10,7 @@
     O(Log min(a, b)), where a and b are the input integers    
     
     Space complexity:
-    O(1)
+    Recursive: O(log((smaller number))
 */
 
 #include <iostream>
