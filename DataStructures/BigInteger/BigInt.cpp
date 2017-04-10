@@ -1,5 +1,5 @@
 // BigInt.cpp : Defines the entry point for the console application.
-//
+// 
 
 #include "stdafx.h"
 #include <string>
@@ -38,8 +38,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << "The negation of " << unary_test1 << " is: " << -unary_test1 << '\n';
 	*/
 
-	/*
-	// INCOMPLETE
+	
+	// COMPLETE
 	// unary increment tests
 	BigInt unary_test1 = 5;
 	std::cout << "++" << unary_test1 << " is: ";
@@ -48,10 +48,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout <<  unary_test2 << "++" << " is: ";
 	std::cout << unary_test2++ << " on return from operation, but\n";
 	std::cout << "after return from operation previous BigInt is now: " << unary_test2 << '\n';
-	*/	
+	unary_test1 = 100;
+	std::cout << "--" << unary_test1 << " is: ";
+	std::cout << --unary_test1 << '\n';
+	std::cout <<  unary_test2 << "--" << " is: ";
+	std::cout << unary_test2-- << " on return from operation, but\n";
+	std::cout << "after return from operation previous BigInt is now: " << unary_test2 << '\n';
+	
 	
 	/*
-	// INCOMPLETE (missing pos + neg && neg + pos)
+	// COMPLETE
 	// arithmetic + test (BigInt + BigInt)
 	BigInt add_test1 = -1;
 	BigInt add_test2 = -9;
@@ -73,12 +79,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	add_test2 = -100500;
 	add_result = add_test1 + add_test2;
 	std::cout << add_test1 << " + " << add_test2 << " = " << add_result << '\n';
-	
-	// INCOMPLETE (missing pos + neg && neg + pos)
+	*/
+
+	/*
+	// COMPLETE (pos + neg && neg + pos)
 	// arithmetic + test (BigInt + long long)
-	BigInt add_test1 = -1;
-	int add_test2 = -9;
+	BigInt add_test1 = 1;
+	int add_test2 = -90;
 	BigInt add_result = add_test1 + add_test2;
+	std::cout << add_test1 << " + " << add_test2 << " = " << add_result << '\n';
+	add_test1 = -10;
+	add_test2 = 500;
+	add_result = add_test1 + add_test2;
 	std::cout << add_test1 << " + " << add_test2 << " = " << add_result << '\n';
 	*/
 
@@ -86,7 +98,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	// COMPLETE
 	// aritmetic * test (BigInt * BigInt and long long params)
 	BigInt mul_test1 = 10;
-	BigInt mul_test2 = 10;
+	BigInt mul_test2 = -1;
 	BigInt result = mul_test1 * mul_test2;
 	std::cout << mul_test1 << " * " << mul_test2 << " is: " << result << '\n';
 	mul_test1 = -10;
@@ -101,11 +113,16 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << mul_test1 << " * 9999 is: " << mul_test1 * 9999 << '\n';
 	*/
 
-	// INCOMPLETE
+	/*
+	// COMPLETE
 	// arithmetic - test (BigInt - BigInt)
-	BigInt subtest1 = 10;
-	BigInt subtest2 = -30;
+	BigInt subtest1 = -5;
+	int subtest2 = -10;
 	BigInt subresult;
+	subresult = subtest1 - subtest2;
+	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
+	subtest1 = -1;
+	subtest2 = -10;
 	subresult = subtest1 - subtest2;
 	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
 	subtest1 = 100;
@@ -116,20 +133,20 @@ int _tmain(int argc, _TCHAR* argv[])
 	subtest2 = 17;
 	subresult = subtest1 - subtest2;
 	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
-	subtest1 = 100;
-	subtest2 = 10;
+	subtest1 = 1000;
+	subtest2 = 990;
 	subresult = subtest1 - subtest2;
 	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
 	subtest1 = 1000000;
 	subtest2 = 1;
 	subresult = subtest1 - subtest2;
 	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
-	// not functional
-	subtest1 = 1;
-	subtest2 = 2;
+	subtest1 = 10;
+	subtest2 = 30;
 	subresult = subtest1 - subtest2;
 	std::cout << subtest1 << " - " << subtest2 << " = " << subresult << '\n';
-
+	*/
+	
 	/*
 	// COMPLETE
 	// arithmetic-assignment += test (BigInt and long long params)
@@ -158,16 +175,73 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << aa_test1 << '\n';
 	*/
 
-	// INCOMPLETE
+	
+	// COMPLETE
+	// arithmetic-assignment -= test (BigInt and long long params)
+	BigInt aa_test1 = 2;
+	BigInt aa_test2 = 5;
+	int aa_int_test = 10;
+	std::cout << aa_test1 << " set equal to " << aa_test1 << " - " << aa_test2 << " is: ";
+	aa_test1 -= aa_test2;
+	std::cout << aa_test1 << '\n';
+	std::cout << aa_test1 << " set equal to " << aa_test1 << " - " << aa_int_test << " is: ";
+	aa_test1 -= aa_int_test;
+	std::cout << aa_test1 << '\n';
+	
+
+	/*
+	// COMPLETE
 	// relational operators
 	BigInt compare1 = -2;
 	BigInt compare2 = -2;
 	bool result = compare1 == compare2;
 	std::cout << "Is " << compare1 << " equal to " << compare2 << "?: " << result << '\n';
+	compare1 = 1000;
+	int test_int = 100;
+	result = compare1 == test_int;
+	std::cout << "Is " << compare1 << " equal to " << test_int << "?: " << result << '\n';
 	compare1 = -100;
-	int one_hundred = -100;
-	result = compare1 == one_hundred;
-	std::cout << "Is " << compare1 << " equal to " << one_hundred << "?: " << result << '\n';
+	compare2 = -100;
+	result = compare1 > compare2;
+	std::cout << "Is " << compare1 << " greater than " << compare2 << "?: " << result << '\n';
+	compare1 = -100001;
+	test_int = -100000;
+	result = compare1 > test_int;
+	std::cout << "Is " << compare1 << " greater than " << test_int << "?: " << result << '\n';
+	compare1 = 100;
+	compare2 = 100;
+	result = compare1 >= compare2;
+	std::cout << "Is " << compare1 << " greater than or equal to " << compare2 << "?: " << result << '\n';
+	compare1 = -100001;
+	test_int = -100001;
+	result = compare1 >= test_int;
+	std::cout << "Is " << compare1 << " greater than or equal to " << test_int << "?: " << result << '\n';
+	compare1 = 1;
+	compare2 = -2;
+	result = compare1 < compare2;
+	std::cout << "Is " << compare1 << " less than " << compare2 << "?: " << result << '\n';
+	compare1 = -100001;
+	test_int = -100000;
+	result = compare1 < test_int;
+	std::cout << "Is " << compare1 << " less than " << test_int << "?: " << result << '\n';
+	compare1 = -2;
+	compare2 = -2;
+	result = compare1 <= compare2;
+	std::cout << "Is " << compare1 << " less than or equal to " << compare2 << "?: " << result << '\n';
+	compare1 = -100001;
+	test_int = -100001;
+	result = compare1 <= test_int;
+	std::cout << "Is " << compare1 << " less than or equal to " << test_int << "?: " << result << '\n';
+	compare1 = -2;
+	compare2 = 2;
+	result = compare1 != compare2;
+	std::cout << "Is " << compare1 << " NOT equal to " << compare2 << "?: " << result << '\n';
+	compare1 = -100001;
+	test_int = 100001;
+	result = compare1 != test_int;
+	std::cout << "Is " << compare1 << " NOT equal to " << test_int << "?: " << result << '\n';
+	*/
+
 	return 0;
 }
 
@@ -190,12 +264,18 @@ void notify_invalid_input(const std::string& input) {
     std::cout << "Invalid input! Expected an integer, got \'" << input << "\'.\n";
 }
 
+void remove_leading_zeroes(std::string& value) {
+	while (value[0] == '0')
+		value.erase(0, 1);
+}
+
 
 /*
     Constructors
     ------------
 */
 
+// SANITIZE BigIints OF LEADING ZEROES AT CONSTRUCT TIME?
 BigInt::BigInt() {
     value = "0";
     sign = '+';
@@ -306,12 +386,24 @@ BigInt BigInt::operator-() {
 }
 
 BigInt BigInt::operator++() {
-	return *this += 1;
+	*this += 1;
+	return *this;
 }
 
 BigInt BigInt::operator++( int ) {
 	BigInt temp = *this;
 	++*this;
+	return temp;
+}
+
+BigInt BigInt::operator--() {
+	*this -= 1;
+	return *this;
+}
+
+BigInt BigInt::operator--(int) {
+	BigInt temp = *this;
+	--*this;
 	return temp;
 }
 
@@ -378,7 +470,16 @@ BigInt BigInt::operator+(const BigInt& rhs) {
 			}
 		}
 	}
-	//else { perform subtraction operation }
+	else if (sign == '+' && rhs.sign == '-' || sign == '-' && rhs.sign == '+') {	// one integer is positive and one is negative
+		if (sign == '+') {
+			BigInt rhs_temp = rhs;
+			result = *this - -rhs_temp;
+		}
+		else {
+			result = -*this - rhs;
+			result = -result;
+		}
+	}
 
 	return result;
 }
@@ -437,20 +538,25 @@ BigInt BigInt::operator-(const BigInt& rhs) {
 	std::string rhs_string = rhs.value;
 	BigInt result;
 
-	if (*this == rhs)
+	if (*this == rhs)	// equal case
 			result = 0;
 	else if (sign == '+' && rhs.sign == '-' || sign == '-' && rhs.sign == '+') {		// x - (-y)  ==  x + y   // -x - y  ==  -(x + y)
 		BigInt rhs_temp = rhs;
 		rhs_temp.sign = sign;
 		result = *this + rhs_temp;
 	}
-	else {
-		result = *this;
+	else if (sign == '-' && rhs.sign == '-') {	// -x - (-y)
+		BigInt lhs_temp = -*this;
+		BigInt rhs_temp = rhs;
+		rhs_temp = -rhs_temp;
+		result = lhs_temp - rhs_temp;
+		result = -result;
+	}
+	else if (*this > rhs) {		// x - y	// subtract smaller number from larger number, equal case handled above
+		result = *this;			
 		int offset = result.value.size()-1;
 		char subtracted_char;
 		bool borrow = false;
-		
-		// use relationals to determine size
 
 		while (!lhs_string.empty() && !rhs_string.empty()) {	// process digits while lhs and rhs strings are both not empty
 			if (borrow) {
@@ -475,42 +581,55 @@ BigInt BigInt::operator-(const BigInt& rhs) {
 					result.value[offset] = '9';
 				else
 					result.value[offset] -= 1;
-			if (result.value[offset] == '0' && offset == 0)		// remove leading 0
-				result.value.erase(offset, offset+1);
+			if (result.value[0] == '0')		// remove leading 0
+				remove_leading_zeroes(result.value);
 			--offset;
 			lhs_string.pop_back();
 		}
+	}
+	else {	// x - y		// subtract larger number from smaller number
+		BigInt rhs_BigInt = rhs;
+		result = rhs_BigInt - *this;
+		result.sign = '-';
 	}
 
 	return result;
 }
 
+BigInt BigInt::operator-(long long num) {
+	BigInt rhs(num);
+	BigInt result = *this - rhs;
+	return result;
+}
 
 /*
     Arithmetic-assignment operators
     -------------------------------
 */
 
-BigInt BigInt::operator+=(const BigInt& rhs) {
+void BigInt::operator+=(const BigInt& rhs) {
 	*this = *this + rhs;
-	return *this;
 }
 
-BigInt BigInt::operator+=(long long num) {
+void BigInt::operator+=(long long num) {
 	*this = *this + num;
-	return *this;
 }
 
-BigInt BigInt::operator*=(const BigInt& rhs) {
+void BigInt::operator*=(const BigInt& rhs) {
 	*this = *this * rhs;
-	return *this;
 }
 
-BigInt BigInt::operator*=(long long num) {
+void BigInt::operator*=(long long num) {
 	*this = *this * num;
-	return *this;
 }
 
+void BigInt::operator-=(const BigInt& rhs) {
+	*this = *this - rhs;
+}
+
+void BigInt::operator-=(long long num) {
+	*this = *this - num;
+}
 
 
 /*
@@ -519,25 +638,163 @@ BigInt BigInt::operator*=(long long num) {
 */
 
 bool BigInt::operator==(const BigInt& rhs) {
-	bool result = false;
 	if (sign == rhs.sign && value == rhs.value)
-		result = true;
-
-	return result;
+		return true;
+	else
+		return false;
 }
 
 bool BigInt::operator==(long long rhs) {
-	bool result = false;
-	std::string rhs_string = std::to_string(rhs);
+	BigInt rhs_BigInt = rhs;
+	return *this == rhs_BigInt;
+}
 
-	if (sign == '-' && rhs_string[0] == '-')	// account for leading '-' in long long string
-		rhs_string.erase(0,1);
-	if (value == rhs_string) {
-		if (rhs >= 0 && sign == '+' || rhs < 0 && sign == '-')
-			result = true;
+bool BigInt::operator>(const BigInt& rhs) {
+	if (*this == rhs)
+		return false;
+	else if (sign == '+' && rhs.sign == '-')
+		return true;
+	else if (sign == '-' && rhs.sign == '+')
+		return false;
+
+	if (value.size() > rhs.value.size())
+		return sign == '+';
+	else if (value.size() < rhs.value.size())
+		return sign == '-';
+	else {
+		std::string lhs_string = value;
+		std::string rhs_string = rhs.value;
+		while (!lhs_string.empty()) {
+			if (lhs_string[0] > rhs_string[0])
+				return sign == '+';
+			else if (lhs_string[0] < rhs_string[0])
+				return sign == '-';
+			else {
+				lhs_string.erase(0,1);
+				rhs_string.erase(0,1);
+			}
+		}
 	}
+	// no return needed, all cases have returned
+}
 
-	return result;			
+bool BigInt::operator>(long long rhs) {
+	BigInt rhs_BigInt = rhs;
+	return *this > rhs_BigInt;
+}
+
+bool BigInt::operator>=(const BigInt& rhs) {
+	if (*this == rhs)
+		return true;
+	else if (sign == '+' && rhs.sign == '-')
+		return true;
+	else if (sign == '-' && rhs.sign == '+')
+		return false;
+
+	if (value.size() > rhs.value.size())
+		return sign == '+';
+	else if (value.size() < rhs.value.size())
+		return sign == '-';
+	else {
+		std::string lhs_string = value;
+		std::string rhs_string = rhs.value;
+		while (!lhs_string.empty()) {
+			if (lhs_string[0] > rhs_string[0])
+				return sign == '+';
+			else if (lhs_string[0] < rhs_string[0])
+				return sign == '-';
+			else {
+				lhs_string.erase(0,1);
+				rhs_string.erase(0,1);
+			}
+		}
+	}
+	// no return needed, all cases have returned
+}
+
+bool BigInt::operator>=(long long rhs) {
+	BigInt rhs_BigInt = rhs;
+	return *this >= rhs_BigInt;
+}
+
+bool BigInt::operator<(const BigInt& rhs) {
+	if (*this == rhs)
+		return false;
+	else if (sign == '+' && rhs.sign == '-')
+		return false;
+	else if (sign == '-' && rhs.sign == '+')
+		return true;
+
+	if (value.size() > rhs.value.size())
+		return sign == '-';
+	else if (value.size() < rhs.value.size())
+		return sign == '+';
+	else {
+		std::string lhs_string = value;
+		std::string rhs_string = rhs.value;
+		while (!lhs_string.empty()) {
+			if (lhs_string[0] > rhs_string[0])
+				return sign == '-';
+			else if (lhs_string[0] < rhs_string[0])
+				return sign == '+';
+			else {
+				lhs_string.erase(0,1);
+				rhs_string.erase(0,1);
+			}
+		}
+	}
+	// no return needed, all cases have returned
+}
+
+bool BigInt::operator<(long long rhs) {
+	BigInt rhs_BigInt = rhs;
+	return *this < rhs_BigInt;
+}
+
+bool BigInt::operator<=(const BigInt& rhs) {
+	if (*this == rhs)
+		return true;
+	if (sign == '+' && rhs.sign == '-')
+		return false;
+	else if (sign == '-' && rhs.sign == '+')
+		return true;
+
+	if (value.size() > rhs.value.size())
+		return sign == '-';
+	else if (value.size() < rhs.value.size())
+		return sign == '+';
+	else {
+		std::string lhs_string = value;
+		std::string rhs_string = rhs.value;
+		while (!lhs_string.empty()) {
+			if (lhs_string[0] > rhs_string[0])
+				return sign == '-';
+			else if (lhs_string[0] < rhs_string[0])
+				return sign == '+';
+			else {
+				lhs_string.erase(0,1);
+				rhs_string.erase(0,1);
+			}
+		}
+	}
+	// no return needed, all cases have returned
+}
+
+bool BigInt::operator<=(long long rhs) {
+	BigInt rhs_BigInt = rhs;
+	return *this <= rhs_BigInt;
+}
+
+bool BigInt::operator!=(const BigInt& rhs) {
+	if (*this == rhs)
+		return false;
+	else
+		return true;
+}
+
+bool BigInt::operator!=(long long rhs) {
+	BigInt rhs_BigInt = rhs;
+	return *this != rhs_BigInt;
 }
 
 #ifdef DEBUG
