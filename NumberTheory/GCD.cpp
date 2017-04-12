@@ -7,10 +7,10 @@
     Below is a recursive C++ function to evaluate gcd using Euclid’s algorithm.
     
     Time complexity:
-    O(Log min(a, b)), where a and b are the input integers    
+    O(log min(a, b)), where a and b are the input integers    
     
     Space complexity:
-    Recursive: O(log((smaller number))
+    Recursive: O(log(min(a, b))), where a and b are the input integers
 */
 
 #include <iostream>
