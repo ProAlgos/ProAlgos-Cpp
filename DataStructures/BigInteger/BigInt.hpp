@@ -12,7 +12,6 @@ public:
     BigInt(const BigInt&);
     BigInt(std::string);
     BigInt(long long);
-    // TODO: add support for unsigned long long
 
     // Assignment operators:
     void operator=(const BigInt&);
@@ -20,49 +19,49 @@ public:
     void operator=(std::string);
 
     // Arithmetic operators:
-    BigInt operator+(const BigInt&);  
+    BigInt operator+(const BigInt&);
     BigInt operator+(long long);
-    BigInt operator-(const BigInt&);  
-    BigInt operator-(long long);      
-    BigInt operator*(const BigInt&); 
-    BigInt operator*(long long);      
-    void operator/(const BigInt&);  // TODO
-    void operator/(long long);      // TODO
-    void operator%(const BigInt&);  // TODO
-    void operator%(long long);      // TODO
+    BigInt operator-(const BigInt&);
+    BigInt operator-(long long);
+    BigInt operator*(const BigInt&);
+    BigInt operator*(long long);
+    BigInt operator/(const BigInt&);
+    BigInt operator/(long long);
+    BigInt operator%(const BigInt&);
+    BigInt operator%(long long);
 
     // Arithmetic-assignment operators:
     void operator+=(const BigInt&);
     void operator+=(long long);
-    void operator-=(const BigInt&); 
-    void operator-=(long long);     
-    void operator*=(const BigInt&); 
-    void operator*=(long long);     
-    void operator/=(const BigInt&); // TODO
-    void operator/=(long long);     // TODO
-    void operator%=(const BigInt&); // TODO
-    void operator%=(long long);     // TODO
+    void operator-=(const BigInt&);
+    void operator-=(long long);
+    void operator*=(const BigInt&);
+    void operator*=(long long);
+    void operator/=(const BigInt&);
+    void operator/=(long long);
+    void operator%=(const BigInt&);
+    void operator%=(long long);
 
     // Unary operators:
     BigInt operator-();
-    BigInt operator++(int); 
-    BigInt operator++();    
-    BigInt operator--(int); 
-    BigInt operator--();    
+    BigInt operator++(int);
+    BigInt operator++();
+    BigInt operator--(int);
+    BigInt operator--();
 
     // Relational operators:
-    bool operator>(const BigInt&);	
-    bool operator>(long long);		
-    bool operator>=(const BigInt&); 
-    bool operator>=(long long);		
-    bool operator<(const BigInt&);	
-    bool operator<(long long);		
-    bool operator<=(const BigInt&);	
-    bool operator<=(long long);		
-    bool operator==(const BigInt&);	
-    bool operator==(long long);		
-    bool operator!=(const BigInt&);	
-    bool operator!=(long long);		
+    bool operator>(const BigInt&) const;
+    bool operator>(long long) const;
+    bool operator>=(const BigInt&) const;
+    bool operator>=(long long) const;
+    bool operator<(const BigInt&) const;
+    bool operator<(long long) const;
+    bool operator<=(const BigInt&) const;
+    bool operator<=(long long) const;
+    bool operator==(const BigInt&) const;
+    bool operator==(long long) const;
+    bool operator!=(const BigInt&) const;
+    bool operator!=(long long) const;
 
     // I/O stream operators:
     friend std::istream& operator>>(std::istream&, BigInt&);

@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include <string>
 #include "BigInt.hpp"
+#include <stdexcept>
 
 bool is_valid_number(const std::string& num);
 void notify_invalid_input(const std::string& input);
@@ -38,7 +39,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << "The negation of " << unary_test1 << " is: " << -unary_test1 << '\n';
 	*/
 
-	
+	/*
 	// COMPLETE
 	// unary increment tests
 	BigInt unary_test1 = 5;
@@ -54,7 +55,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout <<  unary_test2 << "--" << " is: ";
 	std::cout << unary_test2-- << " on return from operation, but\n";
 	std::cout << "after return from operation previous BigInt is now: " << unary_test2 << '\n';
-	
+	*/
 	
 	/*
 	// COMPLETE
@@ -149,6 +150,90 @@ int _tmain(int argc, _TCHAR* argv[])
 	
 	/*
 	// COMPLETE
+	// arithmetic / test and arithmetic-assignment /= test
+	BigInt d_test1 = 100;
+	BigInt d_test2 = 6;
+	BigInt d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_test1 = -55;
+	d_test2 = 1;
+	d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_test1 = 55;
+	d_test2 = 5;
+	d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_test1 = 55;
+	d_test2 = 1;
+	d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_test1 = 55;
+	d_test2 = -1;
+	d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_test1 = 55;
+	d_test2 = -5;
+	d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_test1 = 12;
+	int d_test_int = -3;
+	d_result = d_test1 / d_test_int;
+	std::cout << d_test1 << "/" << d_test_int << " = " << d_result << '\n';
+	d_test1 = 163;
+	d_test2 = 163;
+	d_result = d_test1 / d_test2;
+	std::cout << d_test1 << "/" << d_test2 << " = " << d_result << '\n';
+	d_result = 100;
+	d_test2 = 10;
+	d_result /= d_test2;
+	std::cout << "100 /= " << d_test2 << " = " << d_result << '\n';
+	d_result = 100;
+	d_result /= 50;
+	std::cout << "100 /= 50 = " << d_result << '\n';
+	*/
+
+	/*
+	// COMPLETE
+	// arithmetic % test and arithmetic-assignment &= test
+	BigInt m_test1 = 100;
+	BigInt m_test2 = 6;
+	BigInt m_result = m_test1 % m_test2;
+	std::cout << m_test1 << " % " << m_test2 << " = " << m_result << '\n';
+	m_test1 = -100;
+	m_test2 = 6;
+	m_result = m_test1 % m_test2;
+	std::cout << m_test1 << " % " << m_test2 << " = " << m_result << '\n';
+	m_test1 = -100;
+	m_test2 = -6;
+	m_result = m_test1 % m_test2;
+	std::cout << m_test1 << " % " << m_test2 << " = " << m_result << '\n';
+	m_test1 = 100;
+	m_test2 = -6;
+	m_result = m_test1 % m_test2;
+	std::cout << m_test1 << " % " << m_test2 << " = " << m_result << '\n';
+	m_test1 = 924;
+	m_test2 = 63;
+	m_result = m_test1 % m_test2;
+	std::cout << m_test1 << " % " << m_test2 << " = " << m_result << '\n';
+	m_test1 = 10;
+	m_test2 = 10;
+	m_result = m_test1 % m_test2;
+	std::cout << m_test1 << " % " << m_test2 << " = " << m_result << '\n';
+	m_test1 = 12;
+	int m_test_int = -3;
+	m_result = m_test1 % m_test_int;
+	std::cout << m_test1 << " % " << m_test_int << " = " << m_result << '\n';
+	m_result = 15;
+	m_test2 = 2;
+	m_result %= m_test2;
+	std::cout << "15 /= " << m_test2 << " = " << m_result << '\n';
+	m_result = 15;
+	m_result %= 2;
+	std::cout << "15 /= 2 = " << m_result << '\n';
+	*/
+
+	/*
+	// COMPLETE
 	// arithmetic-assignment += test (BigInt and long long params)
 	BigInt aa_test1 = 7;
 	BigInt aa_test2 = 4;
@@ -175,7 +260,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << aa_test1 << '\n';
 	*/
 
-	
+	/*
 	// COMPLETE
 	// arithmetic-assignment -= test (BigInt and long long params)
 	BigInt aa_test1 = 2;
@@ -187,7 +272,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	std::cout << aa_test1 << " set equal to " << aa_test1 << " - " << aa_int_test << " is: ";
 	aa_test1 -= aa_int_test;
 	std::cout << aa_test1 << '\n';
-	
+	*/
 
 	/*
 	// COMPLETE
@@ -254,8 +339,7 @@ int _tmain(int argc, _TCHAR* argv[])
 bool is_valid_number(const std::string& num) {
     for (char digit : num)
         if (digit < '0' || digit > '9')
-			if (digit != '+' && digit != '-')
-				return false;
+			return false;
 
     return true;
 }
@@ -275,13 +359,13 @@ void remove_leading_zeroes(std::string& value) {
     ------------
 */
 
-// SANITIZE BigIints OF LEADING ZEROES AT CONSTRUCT TIME?
 BigInt::BigInt() {
     value = "0";
     sign = '+';
 }
 
 BigInt::BigInt(const BigInt& num) {
+
     value = num.value;
     sign = num.sign;
 }
@@ -602,6 +686,74 @@ BigInt BigInt::operator-(long long num) {
 	return result;
 }
 
+BigInt BigInt::operator/(const BigInt& rhs) {
+	BigInt lhs_temp = *this;
+	BigInt rhs_temp = rhs;
+	BigInt result = 0;
+	BigInt count;
+	char result_sign;
+
+	if (sign == rhs.sign)	// set result sign
+		result_sign = '+';
+	else
+		result_sign = '-';
+	lhs_temp.sign = '+';
+	rhs_temp.sign = '+';
+	count = rhs_temp;
+
+	if (rhs == 1)	// divide by 1 case
+		return *this;
+	else if (rhs == 0) {	// divide by 0 case
+		throw std::invalid_argument("Attempted to divide by 0");
+	}
+	else {		// typical division
+		while (count <= lhs_temp) {
+			count += rhs_temp;
+			++result;
+		}
+	}
+
+	BigInt remainder = lhs_temp - (count - rhs_temp);
+	remove_leading_zeroes(remainder.value);
+
+	result.sign = result_sign;
+	return result;
+}
+
+BigInt BigInt::operator/(long long num) {
+	BigInt rhs(num);
+	BigInt result = *this / rhs;
+	return result;
+}
+
+BigInt BigInt::operator%(const BigInt& rhs) {
+	BigInt lhs_temp = *this;
+	BigInt rhs_temp = rhs;
+	BigInt count;
+	char result_sign = lhs_temp.sign;
+	
+		
+	lhs_temp.sign = '+';
+	rhs_temp.sign = '+';
+	count = rhs_temp;
+
+	while (count <= lhs_temp)
+		count += rhs_temp;
+	
+	BigInt remainder = lhs_temp - (count - rhs_temp);
+	if (remainder != 0)
+		remove_leading_zeroes(remainder.value);
+	remainder.sign = result_sign;
+	
+	return remainder;
+}
+
+BigInt BigInt::operator%(long long num) {
+	BigInt rhs(num);
+	BigInt result = *this % rhs;
+	return result;
+}
+
 /*
     Arithmetic-assignment operators
     -------------------------------
@@ -631,170 +783,88 @@ void BigInt::operator-=(long long num) {
 	*this = *this - num;
 }
 
+void BigInt::operator/=(const BigInt& rhs) {
+	*this = *this / rhs;
+}
+
+void BigInt::operator/=(long long num) {
+	*this = *this / num;
+}
+
+void BigInt::operator%=(const BigInt& rhs) {
+	*this = *this % rhs;
+}
+
+void BigInt::operator%=(long long num) {
+	*this = *this % num;
+}
+
 
 /*
     Relational operators
     --------------------
 */
 
-bool BigInt::operator==(const BigInt& rhs) {
-	if (sign == rhs.sign && value == rhs.value)
-		return true;
-	else
-		return false;
-}
-
-bool BigInt::operator==(long long rhs) {
-	BigInt rhs_BigInt = rhs;
-	return *this == rhs_BigInt;
-}
-
-bool BigInt::operator>(const BigInt& rhs) {
-	if (*this == rhs)
-		return false;
-	else if (sign == '+' && rhs.sign == '-')
-		return true;
-	else if (sign == '-' && rhs.sign == '+')
-		return false;
-
-	if (value.size() > rhs.value.size())
-		return sign == '+';
-	else if (value.size() < rhs.value.size())
-		return sign == '-';
-	else {
-		std::string lhs_string = value;
-		std::string rhs_string = rhs.value;
-		while (!lhs_string.empty()) {
-			if (lhs_string[0] > rhs_string[0])
-				return sign == '+';
-			else if (lhs_string[0] < rhs_string[0])
-				return sign == '-';
-			else {
-				lhs_string.erase(0,1);
-				rhs_string.erase(0,1);
-			}
+bool BigInt::operator<(const BigInt& num) const {
+    if (sign == num.sign) {
+        if (sign == '+') {
+            if (value.length() == num.value.length())
+                return value < num.value;
+            else
+                return value.length() < num.value.length();
+        }
+        else {
+			BigInt lhs_temp = *this;
+			BigInt rhs_temp = num;
+            return -(lhs_temp) > -rhs_temp;
 		}
-	}
-	// no return needed, all cases have returned
+    }
+    else
+        return sign == '-';
 }
 
-bool BigInt::operator>(long long rhs) {
-	BigInt rhs_BigInt = rhs;
-	return *this > rhs_BigInt;
+bool BigInt::operator<(const long long num) const {
+    return *this < BigInt(num);
 }
 
-bool BigInt::operator>=(const BigInt& rhs) {
-	if (*this == rhs)
-		return true;
-	else if (sign == '+' && rhs.sign == '-')
-		return true;
-	else if (sign == '-' && rhs.sign == '+')
-		return false;
-
-	if (value.size() > rhs.value.size())
-		return sign == '+';
-	else if (value.size() < rhs.value.size())
-		return sign == '-';
-	else {
-		std::string lhs_string = value;
-		std::string rhs_string = rhs.value;
-		while (!lhs_string.empty()) {
-			if (lhs_string[0] > rhs_string[0])
-				return sign == '+';
-			else if (lhs_string[0] < rhs_string[0])
-				return sign == '-';
-			else {
-				lhs_string.erase(0,1);
-				rhs_string.erase(0,1);
-			}
-		}
-	}
-	// no return needed, all cases have returned
+bool BigInt::operator<=(const BigInt& num) const {
+    return (*this < num) || (*this == num);
 }
 
-bool BigInt::operator>=(long long rhs) {
-	BigInt rhs_BigInt = rhs;
-	return *this >= rhs_BigInt;
+bool BigInt::operator<=(const long long num) const {
+    return !(*this > BigInt(num));
 }
 
-bool BigInt::operator<(const BigInt& rhs) {
-	if (*this == rhs)
-		return false;
-	else if (sign == '+' && rhs.sign == '-')
-		return false;
-	else if (sign == '-' && rhs.sign == '+')
-		return true;
-
-	if (value.size() > rhs.value.size())
-		return sign == '-';
-	else if (value.size() < rhs.value.size())
-		return sign == '+';
-	else {
-		std::string lhs_string = value;
-		std::string rhs_string = rhs.value;
-		while (!lhs_string.empty()) {
-			if (lhs_string[0] > rhs_string[0])
-				return sign == '-';
-			else if (lhs_string[0] < rhs_string[0])
-				return sign == '+';
-			else {
-				lhs_string.erase(0,1);
-				rhs_string.erase(0,1);
-			}
-		}
-	}
-	// no return needed, all cases have returned
+bool BigInt::operator==(const BigInt& num) const {
+    return (sign == num.sign) && (value == num.value);
 }
 
-bool BigInt::operator<(long long rhs) {
-	BigInt rhs_BigInt = rhs;
-	return *this < rhs_BigInt;
+bool BigInt::operator==(const long long num) const {
+    return *this == BigInt(num);
 }
 
-bool BigInt::operator<=(const BigInt& rhs) {
-	if (*this == rhs)
-		return true;
-	if (sign == '+' && rhs.sign == '-')
-		return false;
-	else if (sign == '-' && rhs.sign == '+')
-		return true;
-
-	if (value.size() > rhs.value.size())
-		return sign == '-';
-	else if (value.size() < rhs.value.size())
-		return sign == '+';
-	else {
-		std::string lhs_string = value;
-		std::string rhs_string = rhs.value;
-		while (!lhs_string.empty()) {
-			if (lhs_string[0] > rhs_string[0])
-				return sign == '-';
-			else if (lhs_string[0] < rhs_string[0])
-				return sign == '+';
-			else {
-				lhs_string.erase(0,1);
-				rhs_string.erase(0,1);
-			}
-		}
-	}
-	// no return needed, all cases have returned
+bool BigInt::operator>=(const BigInt& num) const {
+    return !(*this < num);
 }
 
-bool BigInt::operator<=(long long rhs) {
-	BigInt rhs_BigInt = rhs;
-	return *this <= rhs_BigInt;
+bool BigInt::operator>=(const long long num) const {
+    return !(*this < BigInt(num));
 }
 
-bool BigInt::operator!=(const BigInt& rhs) {
-	if (*this == rhs)
-		return false;
-	else
-		return true;
+bool BigInt::operator>(const BigInt& num) const {
+    return !((*this < num) || (*this == num));
 }
 
-bool BigInt::operator!=(long long rhs) {
-	BigInt rhs_BigInt = rhs;
-	return *this != rhs_BigInt;
+bool BigInt::operator>(const long long num) const {
+    return *this > BigInt(num);
+}
+
+bool BigInt::operator!=(const BigInt& num) const {
+    return !(*this == num);
+}
+
+bool BigInt::operator!=(const long long num) const {
+    return !(*this == BigInt(num));
 }
 
 #ifdef DEBUG
