@@ -10,7 +10,7 @@
     O(log10(M)), where M = min(A, B) is the smaller of the input integers A and B
     
     Space complexity:
-    Recursive: O(log10(M)), where M = min(A, B) is the smaller of the input integers A and B
+    Recursive: O(1)
 */
 
 #include <iostream>
