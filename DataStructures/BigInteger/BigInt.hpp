@@ -12,7 +12,6 @@ public:
     BigInt(const BigInt&);
     BigInt(std::string);
     BigInt(long long);
-    // TODO: add support for unsigned long long
 
     // Assignment operators:
     void operator=(const BigInt&);
@@ -20,47 +19,47 @@ public:
     void operator=(std::string);
 
     // Arithmetic operators:
-    void operator+(const BigInt&);  // TODO
-    void operator+(long long);      // TODO
-    void operator-(const BigInt&);  // TODO
-    void operator-(long long);      // TODO
-    void operator*(const BigInt&);  // TODO
-    void operator*(long long);      // TODO
-    void operator/(const BigInt&);  // TODO
-    void operator/(long long);      // TODO
-    void operator%(const BigInt&);  // TODO
-    void operator%(long long);      // TODO
+    BigInt operator+(const BigInt&);
+    BigInt operator+(long long);
+    BigInt operator-(const BigInt&);
+    BigInt operator-(long long);
+    BigInt operator*(const BigInt&);
+    BigInt operator*(long long);
+    BigInt operator/(const BigInt&);
+    BigInt operator/(long long);
+    BigInt operator%(const BigInt&);
+    BigInt operator%(long long);
 
     // Arithmetic-assignment operators:
-    void operator+=(const BigInt&); // TODO
-    void operator+=(long long);     // TODO
-    void operator-=(const BigInt&); // TODO
-    void operator-=(long long);     // TODO
-    void operator*=(const BigInt&); // TODO
-    void operator*=(long long);     // TODO
-    void operator/=(const BigInt&); // TODO
-    void operator/=(long long);     // TODO
-    void operator%=(const BigInt&); // TODO
-    void operator%=(long long);     // TODO
+    void operator+=(const BigInt&);
+    void operator+=(long long);
+    void operator-=(const BigInt&);
+    void operator-=(long long);
+    void operator*=(const BigInt&);
+    void operator*=(long long);
+    void operator/=(const BigInt&);
+    void operator/=(long long);
+    void operator%=(const BigInt&);
+    void operator%=(long long);
 
     // Unary operators:
-    BigInt operator-() const;
-    BigInt operator++(int); // TODO
-    BigInt& operator++();    // TODO
-    BigInt operator--(int); // TODO
-    BigInt& operator--();    // TODO
+    BigInt operator-();
+    BigInt operator++(int);
+    BigInt operator++();
+    BigInt operator--(int);
+    BigInt operator--();
 
     // Relational operators:
+    bool operator>(const BigInt&) const;
+    bool operator>(long long) const;
+    bool operator>=(const BigInt&) const;
+    bool operator>=(long long) const;
     bool operator<(const BigInt&) const;
     bool operator<(long long) const;
     bool operator<=(const BigInt&) const;
     bool operator<=(long long) const;
     bool operator==(const BigInt&) const;
     bool operator==(long long) const;
-    bool operator>=(const BigInt&) const;
-    bool operator>=(long long) const;
-    bool operator>(const BigInt&) const;
-    bool operator>(long long) const;
     bool operator!=(const BigInt&) const;
     bool operator!=(long long) const;
 
