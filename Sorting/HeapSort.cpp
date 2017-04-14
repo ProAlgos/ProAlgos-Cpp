@@ -1,87 +1,99 @@
 /*
-    Heap Sort :
-    Uses an array-implemented heap to sort a list of integers.
-    This is a comparison based sorting algorithm which separates the input into a
-    sorted and unsorted region and iteratively shrinks the unsorted region by taking
-    the maximum(or minimum if descending order) element and moving it to the sorted region.
-    It uses the heap data structure (implemented using a vector here) to find the maximum or minimum.
+    Heap sort
+    ---------
+    A comparison-based sorting algorithm that uses an array-implemented heap to
+    sort a list of integers.
 
-    Time complexity:
-    O(N * log(N)), where N is the number of integers to be sorted.
+    Time complexity
+    ---------------
+    O(N * log(N)), where N is the number of elements.
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(1).
 */
+
 #include <iostream>
 #include <vector>
 
-#include "SortingUtils.h"
+#include "SortingUtils.hpp"
 
 using namespace std;
 
-//creates max heap when ascending and min heap when descending
-void heapify(vector<int> &heap, int parent, const int size, const int order, const bool showState){
-	int child = parent*2 + 1;
-    while (child<size){    // travels down children
-        if (showState) displayState(heap);
+void heapify(vector<int>& heap, int parent, const int last) {
+    // creates a max heap from a vector of integers
 
-	    if ((order * heap[child]) < (order * heap[child+1]) and (child+1 < size)){
-	    	child++;	// child is now the larger of the parent's children
-                        // or the smaller if the the order is descending
-	    }
-	    if ((order * heap[parent]) < (order * heap[child])){
-	    	swap(heap[parent],heap[child]);
-            // if the parent is smaller(order==ascending) or larger(order==descending), then swap
-	    }
-
-	parent = child;
-	child = parent*2 + 1;
-
-	if (showState) displayState(heap);
-	}
+    int child = parent*2 + 1;
+    while (child <= last) {    // travel down the children
+        if (child + 1 <= last and heap[child + 1] > heap[child])
+            child++;    // child is now the larger of its siblings
+        
+        if (heap[parent] < heap[child])
+            swap(heap[parent], heap[child]);    // if the parent is smaller, swap it with its child
+        
+        parent = child;
+        child = parent*2 + 1;
+    }
 }
-//removes largest/smallest node, replaces it and reheapifies with new heap.
-void heapsort(vector<int> &heap, const int size, const int order, const bool showState){
-	int last = size;
 
-	while (last > 0){
-	    swap(heap[0], heap[last-1]);
-	    last--;
-	    heapify(heap,0,last, order, showState);
-	}
+void heap_sort(vector<int>& heap, const int size, const bool to_show_state) {
+    // remove the largest node, replace it with the last node, and re-heapify the heap
+
+    if (to_show_state)
+        cout << "\nPerforming heap sort on the heap...\n";
+
+    int last = size - 1;
+    while (last >= 0) {
+        swap(heap[0], heap[last]);
+        last--;
+        heapify(heap, 0, last);
+
+        if (to_show_state)
+            display_state(heap);
+    }
 }
-//Makes ordered heap by "heapify"ing from highest indexed non-leaf node(curr_node) to the top node, index[0]
-void make_heap(vector<int> &heap, const int size, const int order, const bool showState){
-	for (int curr_node = (size/2) - 1; curr_node >= 0;curr_node--){
-	    heapify(heap, curr_node, size, order, showState);
 
-	    if (showState) displayState(heap);
-	}
+void make_heap(vector<int>& heap, const int size, const bool to_show_state) {
+    /*
+        makes an ordered heap by heapifying from highest indexed non-leaf node (curr_node)
+        to the top node (index[0])
+    */
+
+    if (to_show_state)
+        cout << "\nMaking initial heap...\n";
+
+    for (int curr_node = (size/2) - 1; curr_node >= 0; curr_node--) {
+        heapify(heap, curr_node, size);
+
+        if (to_show_state)
+            display_state(heap);
+    }
+
+    if (to_show_state)
+        cout << "Initial heap has been made.\n";
 }
-int main(){
-	size_t size;
-	getInputSize(size);
 
-	vector<int> values(size);
-	getInputValues(values, size);
+int main() {
+    size_t size;
+    get_input_size(size);
 
-	int order;
-	string orderText;
-	getOrder(order, orderText);
+    vector<int> values(size);
+    get_input_values(values, size);
 
-	bool showState;
-	getWhetherToShowState(showState);
-	if (showState) cout << endl << "Showing stages of making heap" << endl;
-	make_heap(values, size, order, showState);
-	if (showState){
-	    cout << "Initial heap has been made" << endl << endl;
-	    cout <<"Now showing state during heapify operation" << endl;
-	}
+    int order;
+    string order_text;
+    get_order(order, order_text);
 
-	heapsort(values, size, order, showState);
+    bool to_show_state;
+    get_whether_to_show_state(to_show_state);
 
-	cout << endl << "The result in " + orderText + " order is as follows : " << endl;
-	displayState(values);
+    make_heap(values, size, to_show_state);
+    heap_sort(values, size, to_show_state);
+    if (order == -1)    // descending
+        reverse(values.begin(), values.end());
 
-	return 0;
+    cout << "\nThe values in " << order_text << " order are:\n";
+    display_state(values);
+
+    return 0;
 }
