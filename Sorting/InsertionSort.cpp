@@ -1,17 +1,26 @@
 /*
-    Insertion sort:
-    A simple sorting algorithm that builds the final sorted array (or list)
-    one item at a time
+    Insertion sort
+    --------------
+    A simple sorting algorithm that builds the final sorted list of values
+    one item at a time.
+
+    Time complexity
+    ---------------
+    O(N^2), where N is the number of elements.
+
+    Space complexity
+    ----------------
+    O(1).
 */
 
 #include <iostream>
 #include <vector>
 
-#include "SortingUtils.h"
+#include "SortingUtils.hpp"
 
 using namespace std;
 
-void insertionSort(vector<int>& values, const int order, const bool toShowState) {
+void insertion_sort(vector<int>& values, const int order, const bool to_show_state) {
     size_t i, j;
     int currentValue;
 
@@ -26,29 +35,29 @@ void insertionSort(vector<int>& values, const int order, const bool toShowState)
         }
         values[j] = currentValue;
 
-        if (toShowState)
-            displayState(values);
+        if (to_show_state)
+            display_state(values);
     }
 }
 
 int main() {
     size_t size;
-    getInputSize(size);
+    get_input_size(size);
 
     vector<int> values(size);
-    getInputValues(values, size);
+    get_input_values(values, size);
 
     int order;
-    string orderText;
-    getOrder(order, orderText);
+    string order_text;
+    get_order(order, order_text);
 
-    bool toShowState;
-    getWhetherToShowState(toShowState);
+    bool to_show_state;
+    get_whether_to_show_state(to_show_state);
 
-    insertionSort(values, order, toShowState);
+    insertion_sort(values, order, to_show_state);
 
-    cout << "\nThe values in " << orderText << " order are :\n";
-    displayState(values);
+    cout << "\nThe values in " << order_text << " order are:\n";
+    display_state(values);
 
     return 0;
 }

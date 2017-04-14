@@ -1,55 +1,64 @@
 /*
-    Selection sort:
-    A simple in-place comparision sorting algorithm
+    Selection sort
+    --------------
+    A simple in-place comparision sorting algorithm.
+
+    Time complexity
+    ---------------
+    O(N^2), where N is the number of elements.
+
+    Space complexity
+    ----------------
+    O(1).
 */
 
 #include <iostream>
 #include <vector>
 
-#include "SortingUtils.h"
+#include "SortingUtils.hpp"
 
 using namespace std;
 
-void insertionSort(vector<int>& values, const int order, const bool toShowState) {
+void selection_sort(vector<int>& values, const int order, const bool to_show_state) {
     size_t i, j;
 
     // index of either the current minimum or maximum value, depending on the order:
-    size_t currentExtremeIndex;
+    size_t current_extreme_index;
 
     for (i = 0; i < values.size() - 1; i++) {
-        currentExtremeIndex = i;
+        current_extreme_index = i;
         j = i + 1;
         while (j < values.size()) {
             // 'order' is -1 for descending, so the inequality is reversed:
-            if (order * values[j] < order * values[currentExtremeIndex])
-                currentExtremeIndex = j;
+            if (order * values[j] < order * values[current_extreme_index])
+                current_extreme_index = j;
             j++;
         }
-        swap(values[i], values[currentExtremeIndex]);
+        swap(values[i], values[current_extreme_index]);
 
-        if (toShowState)
-            displayState(values);
+        if (to_show_state)
+            display_state(values);
     }
 }
 
 int main() {
     size_t size;
-    getInputSize(size);
+    get_input_size(size);
 
     vector<int> values(size);
-    getInputValues(values, size);
+    get_input_values(values, size);
 
     int order;
-    string orderText;
-    getOrder(order, orderText);
+    string order_text;
+    get_order(order, order_text);
 
-    bool toShowState;
-    getWhetherToShowState(toShowState);
+    bool to_show_state;
+    get_whether_to_show_state(to_show_state);
 
-    insertionSort(values, order, toShowState);
+    selection_sort(values, order, to_show_state);
 
-    cout << "\nThe values in " << orderText << " order are :\n";
-    displayState(values);
+    cout << "\nThe values in " << order_text << " order are:\n";
+    display_state(values);
 
     return 0;
 }
