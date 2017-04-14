@@ -2,6 +2,12 @@
     Binary search:
     A search algorithm that finds the position of a target value
     within a sorted array
+
+    Time complexity:
+    O(log(N)), where n is the number of values in the vector
+
+    Space complexity:
+    O(log(N)), where n is the number of values in the vector
 */
 
 #include <iostream>
