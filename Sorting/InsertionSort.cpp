@@ -2,7 +2,7 @@
     Insertion sort
     --------------
     A simple sorting algorithm that builds the final sorted list of values
-    one item at a time.
+    one item at a time. Less suitable for larger lists.
 
     Time complexity
     ---------------
@@ -10,7 +10,7 @@
 
     Space complexity
     ----------------
-    O(1).
+    O(1), temporary space for swapping.
 */
 
 #include <iostream>

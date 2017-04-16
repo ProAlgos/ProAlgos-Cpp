@@ -1,7 +1,9 @@
-/*
+ /*
     Merge sort
     ----------
-    An efficient, comparison-based, divide and conquer sorting algorithm.
+    An efficient, comparison-based, divide and conquer sorting algorithm. It divides
+    input array into two halves, recursively calls itself for the two halves and
+    then merges the two sorted halves.
 
     Time complexity
     ---------------
@@ -9,7 +11,7 @@
 
     Space complexity
     ----------------
-    O(N).
+    O(N), temporary space for array used in merging.
 */
 
 #include <iostream>

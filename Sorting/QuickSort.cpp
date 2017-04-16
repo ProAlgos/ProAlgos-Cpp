@@ -1,11 +1,15 @@
 /*
     Quick sort
     ----------
-    An efficient, comparison-based, in-place, divide and conquer sorting algorithm.
+    An efficient, comparison-based, in-place, divide and conquer sorting algorithm. It picks
+    an element as pivot, partitions the given array around the picked pivot, recursively
+    calls itself on those partitions and then merges them after sorting.
+    Statistically, for large data sets, it amounts to be the fastest sorting algorithm.
 
     Time complexity
     ---------------
-    O(N * log(N)), where N is the number of elements.
+    Worst case: O(N^2), where N is the number of elements.
+    Average case: O(N * log(N)).
 
     Space complexity
     ----------------

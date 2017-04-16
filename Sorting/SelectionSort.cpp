@@ -1,11 +1,13 @@
 /*
     Selection sort
     --------------
-    A simple in-place comparision sorting algorithm.
+    A simple in-place comparision sorting algorithm. It sorts an array by repeatedly
+    finding the minimum element (considering ascending order) from the unsorted
+    part and putting it at its right place.
 
     Time complexity
     ---------------
-    O(N^2), where N is the number of elements.
+    O(N * log(N)), where N is the number of elements.
 
     Space complexity
     ----------------
