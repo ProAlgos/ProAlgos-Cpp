@@ -7,7 +7,7 @@
 
     Time complexity
     ---------------
-    O(N * log(N)), where N is the number of elements.
+    O(N^2), where N is the number of elements.
 
     Space complexity
     ----------------
