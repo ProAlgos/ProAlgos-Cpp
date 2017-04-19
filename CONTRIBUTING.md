@@ -7,13 +7,16 @@
 
     The format for the _"description comment"_ (which is written at the beginning) should be:
     ```
-    <Name of algorithm>:
+    <Name of algorithm>
+    -------------------
     <Brief description>
 
-    Time complexity:
+    Time complexity
+    ---------------
     O(...), where <description of variable(s)>    
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(...), where <description of variable(s)>
     ```
 
