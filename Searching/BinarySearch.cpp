@@ -1,7 +1,16 @@
 /*
-    Binary search:
-    A search algorithm that finds the position of a target value
-    within a sorted array
+    Binary Search
+    -----------
+    A searching algorithm that finds the position of a target value
+    within a sorted array.
+
+    Time complexity
+    ---------------
+    O(log(N)), where N is the number of elements in the array.
+
+    Space complexity
+    ----------------
+    O(1).
 */
 
 #include <iostream>
