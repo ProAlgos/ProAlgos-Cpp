@@ -8,7 +8,7 @@
     ---------------
     O(N), where N is the number of elements in the original array.
     
-    Space Complexity
+    Space complexity
     ----------------
     O(1).
 */
