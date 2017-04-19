@@ -1,6 +1,6 @@
 /*
     Kadane's algorithm:
-    ---------------
+    ------------------
     Used for finding the contiguous subarray within a one-dimensional array
     of integers which has the largest sum.
     
