@@ -1,4 +1,4 @@
- /*
+/*
     Merge sort
     ----------
     An efficient, comparison-based, divide and conquer sorting algorithm. It divides
@@ -11,7 +11,8 @@
 
     Space complexity
     ----------------
-    O(N), temporary space for array used in merging.
+    O(N), where N is the number of elements.
+    This space is used for merging two halves of the array.
 */
 
 #include <iostream>
