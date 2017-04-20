@@ -11,7 +11,7 @@
 
     Space complexity
     ----------------
-    O(1), temporary space for swapping.
+    O(1).
 */
 
 #include <iostream>
