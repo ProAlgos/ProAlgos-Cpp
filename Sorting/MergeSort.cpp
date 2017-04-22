@@ -1,8 +1,8 @@
 /*
     Merge sort
     ----------
-    An efficient, comparison-based, divide and conquer sorting algorithm. It divides
-    input array into two halves, recursively calls itself for the two halves and
+    An efficient, comparison-based, divide and conquer sorting algorithm.
+    It divides input array into two halves, recursively calls itself for the two halves and
     then merges the two sorted halves.
 
     Time complexity

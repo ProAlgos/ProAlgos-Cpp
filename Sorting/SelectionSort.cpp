@@ -1,9 +1,10 @@
 /*
     Selection sort
     --------------
-    A simple in-place comparision sorting algorithm. It sorts an array by repeatedly
-    finding the minimum element (considering ascending order) from the unsorted
-    part and putting it at its right place.
+    A simple in-place comparision sorting algorithm.
+    It sorts a list by finding the smallest / largest element (considering sorting order) from
+    the unsorted sublist and swapping it with the leftmost unsorted element, moving the sublist
+    boundaries one element to the right.
 
     Time complexity
     ---------------

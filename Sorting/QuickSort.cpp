@@ -1,10 +1,9 @@
 /*
     Quick sort
     ----------
-    An efficient, comparison-based, in-place, divide and conquer sorting algorithm. It picks
-    an element as pivot, partitions the given array around the picked pivot and then recursively
-    calls itself on those partitions.
-    Statistically, for large data sets, it amounts to be the fastest sorting algorithm.
+    An efficient, comparison-based, in-place, divide and conquer sorting algorithm.
+    It picks an element as pivot, partitions the given array around the picked pivot and then
+    recursively calls itself on those partitions.
 
     Time complexity
     ---------------
