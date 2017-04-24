@@ -1,4 +1,4 @@
-        /*
+/*
     Insertion sort
     --------------
     A simple sorting algorithm that builds the final sorted list of value one item at a time.
