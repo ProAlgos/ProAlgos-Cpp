@@ -1,8 +1,8 @@
 /*
     Insertion sort
     --------------
-    A simple sorting algorithm that builds the final sorted list of values
-    one item at a time.
+    A simple sorting algorithm that builds the final sorted list of value one item at a time.
+    It is more efficient than most other quadratic-time algorithms.
 
     Time complexity
     ---------------

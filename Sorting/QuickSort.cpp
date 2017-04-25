@@ -2,10 +2,14 @@
     Quick sort
     ----------
     An efficient, comparison-based, in-place, divide and conquer sorting algorithm.
+    It picks an element as pivot, partitions the given array around the picked pivot and then
+    recursively calls itself on those partitions.
 
     Time complexity
     ---------------
-    O(N * log(N)), where N is the number of elements.
+    Absolute Worst case: O(N^2),
+    Expected Worst case: O(N * log(N)),
+    Where N is the number of elements.
 
     Space complexity
     ----------------
