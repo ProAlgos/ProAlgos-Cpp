@@ -40,13 +40,6 @@ void shell_sort (vector<int> &values, const bool &show_state) {
     }
 }
 
-// Print the array elements.
-void print(const vector<int> &arr) {
-    for (int i = 0; i < arr.size(); ++i)
-        cout << arr[i] << " ";
-    cout << endl;
-}
-
 int main () {
     size_t size;
     get_input_size(size);
