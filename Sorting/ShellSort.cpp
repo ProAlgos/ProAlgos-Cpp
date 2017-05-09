@@ -29,7 +29,7 @@ void shell_sort (vector<int> &values, const bool &show_state) {
         for (i = gap; i < n; ++i) {
 
             temp = values[i];
-            for (j = i; j >= gap && values[j - gap] > temp; j -= gap)
+            for (j = i; j >= gap and values[j - gap] > temp; j -= gap)
                 values[j] = values[j - gap];
 
             values[j] = temp;
