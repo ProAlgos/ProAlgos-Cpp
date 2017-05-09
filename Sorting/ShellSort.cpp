@@ -16,22 +16,26 @@
 
 #include <iostream>
 #include <vector>
+#include "SortingUtils.hpp"
 
 using namespace std;
 
-void shell_sort (vector<int> &arr) {
-    int n = arr.size();
+void shell_sort (vector<int> &values, const bool &show_state) {
+    int n = values.size();
 
     // We calculate the gap sequence in order of |n/2|, |n/4|,....
     for (int gap = n/2; gap > 0; gap /= 2) {
         for (int i = gap; i < n; ++i) {
 
-            int temp = arr[i];
+            int temp = values[i];
             int j;
-            for (j = i; j >= gap && arr[j - gap] > temp; j -= gap)
-                arr[j] = arr[j - gap];
+            for (j = i; j >= gap && values[j - gap] > temp; j -= gap)
+                values[j] = values[j - gap];
 
-            arr[j] = temp;
+            values[j] = temp;
+
+            if (show_state)
+                display_state(values);
         }
     }
 }
@@ -44,17 +48,15 @@ void print(const vector<int> &arr) {
 }
 
 int main () {
-    vector<int> arr;
-    int n;
-    cout << "Enter number of elements int the array: ";
-    cin >> n;
+    size_t size;
+    get_input_size(size);
 
-    cout << "Enter elements of the array: ";
-    for (int i = 0; i < n; ++i) {
-        int x;
-        cin >> x;
-        arr.push_back(x);
-    }
-    shell_sort(arr);
-    print(arr);
+    vector<int> values(size);
+    get_input_values(values, size);
+    
+    bool show_state;
+    get_whether_to_show_state(show_state);
+
+    shell_sort(values, show_state);
+    display_state(values);
 }
