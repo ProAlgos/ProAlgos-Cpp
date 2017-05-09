@@ -1,13 +1,13 @@
 /*
     Shell sort
     -----------
-    in this sorting algorithm we starts by comparing elements that are far apart,
-    then elements that are less far apart and finally comparing adjacent elements.
-    by calculating a gap sequence (gap = n / 2)
+    An in-place comparison sort which starts by sorting pairs of elements far apart from each other,
+    then progressively reducing the gap between elements to be compared. The time complexity depends on
+    the gap sequence, which is floor(N/2^K) in this implementation
 
     Time complexity
     ----------------
-    O(N*log(N)^2), where N is the nubmer of elements.
+    O(N^2), where N is the nubmer of elements.
 
     Space complexity
     -----------------
