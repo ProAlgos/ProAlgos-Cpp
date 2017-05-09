@@ -52,4 +52,6 @@ int main () {
 
     shell_sort(values, show_state);
     display_state(values);
+
+    return 0;
 }
