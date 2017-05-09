@@ -22,13 +22,13 @@ using namespace std;
 
 void shell_sort (vector<int> &values, const bool &show_state) {
     int n = values.size();
+    int temp, i, j;
 
     // We calculate the gap sequence in order of |n/2|, |n/4|,....
     for (int gap = n/2; gap > 0; gap /= 2) {
-        for (int i = gap; i < n; ++i) {
+        for (i = gap; i < n; ++i) {
 
-            int temp = values[i];
-            int j;
+            temp = values[i];
             for (j = i; j >= gap && values[j - gap] > temp; j -= gap)
                 values[j] = values[j - gap];
 
