@@ -4,7 +4,11 @@
 Tower Of Hanoi
 -------------------
 Solves the tower of hanoi problem ( https://en.wikipedia.org/wiki/Tower_of_Hanoi )
+<<<<<<< HEAD
 using a recursive approach.
+=======
+  using a recursive approach.
+>>>>>>> 0b9ba13c466f358bcca1a1349837b6e2b67d077f
 
 
 Time complexity
