@@ -1,17 +1,27 @@
 /*
-    Bubble sort (also known as sinking sort):
+    Bubble sort
+    -----------
     A simple sorting algorithm that repeatedly compares pairs of adjacent
-    elements and swaps their positions if they are in the wrong order
+    elements and swaps their positions if they are in the wrong order.
+    Also known as sinking sort.
+
+    Time complexity
+    ---------------
+    O(N^2), where N is the number of elements.
+
+    Space complexity
+    ----------------
+    O(1).
 */
 
 #include <iostream>
 #include <vector>
 
-#include "SortingUtils.h"
+#include "SortingUtils.hpp"
 
 using namespace std;
 
-void bubbleSort(vector<int>& values, const int order, const bool toShowState) {
+void bubble_sort(vector<int>& values, const int order, const bool to_show_state) {
     bool swapped;
     size_t i, j;
 
@@ -23,8 +33,8 @@ void bubbleSort(vector<int>& values, const int order, const bool toShowState) {
                 swap(values[j], values[j+1]);
                 swapped = true;
 
-                if (toShowState)
-                    displayState(values);
+                if (to_show_state)
+                    display_state(values);
             }
         }
         if (!swapped)
@@ -34,22 +44,22 @@ void bubbleSort(vector<int>& values, const int order, const bool toShowState) {
 
 int main() {
     size_t size;
-    getInputSize(size);
+    get_input_size(size);
 
     vector<int> values(size);
-    getInputValues(values, size);
+    get_input_values(values, size);
 
     int order;
-    string orderText;
-    getOrder(order, orderText);
+    string order_text;
+    get_order(order, order_text);
 
-    bool toShowState;
-    getWhetherToShowState(toShowState);
+    bool to_show_state;
+    get_whether_to_show_state(to_show_state);
 
-    bubbleSort(values, order, toShowState);
+    bubble_sort(values, order, to_show_state);
 
-    cout << "\nThe values in " << orderText << " order are :\n";
-    displayState(values);
+    cout << "\nThe values in " << order_text << " order are:\n";
+    display_state(values);
 
     return 0;
 }

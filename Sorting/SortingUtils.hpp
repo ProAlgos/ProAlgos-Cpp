@@ -3,7 +3,8 @@
     used in programs that implement sorting algorithms
 */
 
-#include <cstdlib>
+#include <algorithm>    // swap, min, max, reverse
+#include <cstdlib>      // exit
 #include <iostream>
 #include <vector>
 
@@ -11,29 +12,36 @@
 
 using namespace std;
 
-// Input utils:
+/*
+    Input utils
+    -----------
+    get_input_size
+    get_input_values
+    get_order
+    get_whether_to_show_state
+*/
 
-void getInputSize(size_t& size) {
+void get_input_size(size_t& size) {
     cout << "Enter the input size : ";
     cin >> size;
 
     if ((int) size < 0) {
         cout << "Invalid input size! Try again.\n";
-        getInputSize(size);
+        get_input_size(size);
     } else if (size == 0) {
         cout << "Nothing to sort here.\n";
         exit(EXIT_INPUT_SIZE_IS_ZERO);
     }
 }
 
-void getInputValues(vector<int>& values, const size_t& size) {
+void get_input_values(vector<int>& values, const size_t& size) {
     cout << "\nEnter " << size << " integers :\n";
     for (int& val: values)
         cin >> val;
     cin.ignore();
 }
 
-void getOrder(int& order, string& orderText ) {
+void get_order(int& order, string& orderText ) {
     cout << "\nSorting order?\n";
     cout << "[A]scending / [d]escending : ";
     getline(cin, orderText);
@@ -47,7 +55,7 @@ void getOrder(int& order, string& orderText ) {
     }
 }
 
-void getWhetherToShowState(bool& toShowState) {
+void get_whether_to_show_state(bool& toShowState) {
     string answer;
     cout << "\nShow state of values after each iteration?\n";
     cout << "[y]es / [N]o : ";
@@ -58,18 +66,14 @@ void getWhetherToShowState(bool& toShowState) {
         toShowState = true;
 }
 
-// Output utils:
+/*
+    Output utils
+    ------------
+    display_state
+*/
 
-void displayState(const vector<int>& values) {
+void display_state(const vector<int>& values) {
     for (const int& val: values)
         cout << val << ' ';
     cout << '\n';
-}
-
-// Other utils:
-
-void swap(int& a, int& b) {
-    int temp = a;
-    a = b;
-    b = temp;
 }

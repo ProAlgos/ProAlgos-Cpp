@@ -1,27 +1,33 @@
 /*
-    Counting sort (stable):
+    Counting sort (stable)
+    ----------------------
     An integer sorting algorithm that operates by counting the number of objects
     that have each distinct key value, and using arithmetic on those counts
     to determine the positions of each key value in the output sequence.
 
-    Time complexity is O(n + k), where n is the number of elements in the input
-    array and k is the range of input.
+    Time complexity
+    ---------------
+    O(N + R), where N is the number of elements and R is the range of input.
+
+    Space complexity
+    ----------------
+    O(N), where N is the number of elements.
 */
 
 #include <iostream>
 #include <vector>
 
-#include "SortingUtils.h"
+#include "SortingUtils.hpp"
 
 using namespace std;
 
-void counting_sort(vector<int> &values, const int order, const bool to_show_state) {
+void counting_sort(vector<int>& values, const int order, const bool to_show_state) {
 
     int min_value = values[0];
     int max_value = values[0];
 
     // find minimum and maximum values in input vector
-    for (const int &value : values) {
+    for (const int& value : values) {
         if (value < min_value)
             min_value = value;
         else if (value > max_value)
@@ -48,7 +54,7 @@ void counting_sort(vector<int> &values, const int order, const bool to_show_stat
         end = -1;
     }
 
-    // calculate cumulative frequency
+    // calculate cumulative frequency:
     // freq[i] will now be the number of elements in the sorted array that are
     // less than or equal to value[i]
     for (int i = start; i != end; i += order) {
@@ -65,7 +71,7 @@ void counting_sort(vector<int> &values, const int order, const bool to_show_stat
         --freq[value - min_value];
 
         if (to_show_state)
-            displayState(sorted);
+            display_state(sorted);
     }
 
     values.assign(sorted.begin(), sorted.end());
@@ -73,22 +79,22 @@ void counting_sort(vector<int> &values, const int order, const bool to_show_stat
 
 int main() {
     size_t size;
-    getInputSize(size);
+    get_input_size(size);
 
     vector<int> values(size);
-    getInputValues(values, size);
+    get_input_values(values, size);
 
     int order;
-    string orderText;
-    getOrder(order, orderText);
+    string order_text;
+    get_order(order, order_text);
 
-    bool toShowState;
-    getWhetherToShowState(toShowState);
+    bool to_show_state;
+    get_whether_to_show_state(to_show_state);
 
-    counting_sort(values, order, toShowState);
+    counting_sort(values, order, to_show_state);
 
-    cout << "\nThe values in " << orderText << " order are :\n";
-    displayState(values);
+    cout << "\nThe values in " << order_text << " order are:\n";
+    display_state(values);
 
     return 0;
 }

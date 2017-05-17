@@ -1,7 +1,16 @@
 /*
     Kadane's algorithm:
+    ------------------
     Used for finding the contiguous subarray within a one-dimensional array
     of integers which has the largest sum.
+    
+    Time complexity
+    ---------------
+    O(N), where N is the number of elements in the original array.
+    
+    Space complexity
+    ----------------
+    O(1).
 */
 
 #include <iostream>
