@@ -59,7 +59,7 @@ void wiggle_sort(vector<int>& values, int size) {
         }
     }
 
-	for (int& val: values)
+    for (int& val: values)
         cout<< val;
 }
 
