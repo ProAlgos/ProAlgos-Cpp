@@ -38,8 +38,8 @@ void wiggle_sort(vector<int>& values, int size) {
     nth_element(values.begin(), ith,values.end());
     median_value = *ith;
     /*3- way partition
-	Rearrangement is based on  the ordering of element indices.We rearrange the
-	elements  by filling the odd positions(indices) of the final vector at first,
+    Rearrangement is based on  the ordering of element indices.We rearrange the
+    elements  by filling the odd positions(indices) of the final vector at first,
     followed by even positions of the final vector.Hence array_value is used.  	 
     */ 
     auto array_value = [num_values](int index) { return (2 * index + 1) % (num_values | 1); };          
