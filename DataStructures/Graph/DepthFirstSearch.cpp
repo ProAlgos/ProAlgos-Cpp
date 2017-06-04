@@ -9,26 +9,61 @@
  *
  */
 
-#include <queue>
 #include "Graph.h"
 
-void DepthFirstSearchTraversal(Graph &graph, const int curr_vertex, bool *visited)
-{
-    //Making the current vertex visited
-    visited[curr_vertex] = true;
+#define WHITE 0
+#define GRAY 1
+#define BLACK 2
 
+class DepthFirstSearch
+{
+private:
+    int *colour;
+    int *parent;
+    int *discovery_time;
+    int *finishing_time;
+    int time;
+public:
+    DepthFirstSearch(int n)
+    {
+        time = 0; // this is the timestamp which is used by the vertices to know when it was discovered and when it was finished
+        colour = new int[n](); // initially all the vertex are coloured WHITE
+        parent = new int[n](); // parent of all the vertex are initialized to zero
+        discovery_time = new int[n](); // initializing discovery_time of each vertex as zero
+        finishing_time = new int[n](); // initializing finishing_time of each vertex as zero
+    };
+    ~DepthFirstSearch()
+    {
+        delete colour;
+        delete parent;
+        delete discovery_time;
+        delete finishing_time;
+    };
+    void DepthFirstSearchTraversal(Graph &graph, const int curr_vertex);
+};
+
+void DepthFirstSearch :: DepthFirstSearchTraversal(Graph &graph, const int curr_vertex)
+{
+    //Displaying the current vertex
     std :: cout << curr_vertex << " ";
+
+    //Colour the current vertex with GRAY to mark visited 
+    colour[curr_vertex] = GRAY;
+
+    discovery_time[curr_vertex] = time = time +1;
+
     for(const auto itr : graph.adjacentVertices(curr_vertex))
     {
-        if(!visited[itr.first])
-            DepthFirstSearchTraversal(graph, itr.first, visited);
+        if(colour[itr.first] == WHITE)
+        {
+            parent[itr.first] = curr_vertex;
+            DepthFirstSearchTraversal(graph, itr.first);
+        }
     }
-}
 
-void DepthFirstSearch(Graph &graph, const int source_vertex) {
-    bool *visited = new bool[graph.numVertices()](); /* tracks which vertices have been visited */
-    DepthFirstSearchTraversal(graph,source_vertex, visited);
-    std :: cout << "\n";
+    //Colour the current vertex with BLACK to mark finish
+    colour[curr_vertex] = BLACK;
+    finishing_time[curr_vertex] = time = time +1; 
 }
 
 int main() {
@@ -45,7 +80,7 @@ int main() {
         std::cin >> source_vertex;
     }
 
-    DepthFirstSearch(undirected_graph, source_vertex);
-
+    DepthFirstSearch(undirected_graph.numVertices()).DepthFirstSearchTraversal(undirected_graph, source_vertex);
+    std :: cout << "\n";
     return 0;
 }
