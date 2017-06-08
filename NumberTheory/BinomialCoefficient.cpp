@@ -5,7 +5,7 @@
     and a dynamic programming approach to memoize (save) BinomialCoefficient values computed between calls
 
     Time complexity:
-    O(N*K) - cache[i][j] will be computed exactly once for each i<=N and j<=K
+    O(N*K) - cache[i][j] will be computed at most once for each i<=N and j<=K
 
     Space complexity:
     O(N*K) due to memoization (due to the 'cache' variable), and O(N) stack space (due to recursion)
