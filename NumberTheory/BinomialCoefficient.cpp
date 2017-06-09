@@ -1,14 +1,17 @@
 /*
     Binomial Coefficient:
-    For a set containing N unique elements, find the number of subsets containing K elements (aka N choose K)
-    This approach uses the recurrence BinomialCoefficient(N,K) = BinomialCoefficient(N-1,K) + BinomialCoefficient(N-1,K-1),
-    and a dynamic programming approach to memoize (save) BinomialCoefficient values computed between calls
+    For a set containing N unique elements, find the number of subsets
+    containing K elements (aka N choose K)
+
+    This approach uses the following recurrence:
+    B(n, k) = B(n-1, k) + B(n-1, k-1)
+    and a dynamic programming approach to memoize values computed between calls
 
     Time complexity:
-    O(N*K) - cache[i][j] will be computed at most once for each i<=N and j<=K
+    O(N*K)
 
     Space complexity:
-    O(N*K) due to memoization (due to the 'cache' variable), and O(N) stack space (due to recursion)
+    O(N*K)
 */
 
 #include <iostream>
@@ -17,33 +20,38 @@ using namespace std;
 
 const int FLAG = -1;
 
-int BinomialCoefficientHelper(int N, int K, vector<vector<int> > cache)//uses recurrence relation and fills cache to find binomial coefficient of N & K
+//uses recurrence relation and fills cache to find binomial coefficient of N & K
+int BinomialCoefficientHelper(int N, int K, vector<vector<int>> &cache)
 {
-    //recursive invariant: cache[N][K] either contains binomial coefficient of N & K or FLAG (-1) (it is impossible for a binomial coefficient to be negative)
+    //recursive invariant: cache[N][K] either contains the correct value or FLAG
     if(cache[N][K]!= FLAG)
         return cache[N][K];
 
-    int out;//will contain the value to be returned
+    int result;//will contain the value to be returned
 
     if((K == N) or (K == 0)) {
-        out = 1;
+        result = 1;
     }
 
     else {
-        out = BinomialCoefficientHelper(N - 1, K, cache) + BinomialCoefficientHelper(N-1,K-1,cache);
+        result = BinomialCoefficientHelper(N - 1, K, cache) + BinomialCoefficientHelper(N - 1,K - 1,cache);
     }
-    //out now contains the binomial coefficient of N & K
 
-    cache[N][K] = out;//out is stored in the cache so it doesn't need to be recomputed if needed again
-    return out;
+    //result now contains the binomial coefficient of N & K
+    //It is stored in the cache so it doesn't need to be recomputed if needed again
+    cache[N][K] = result;
+    return result;
 }
 
 int BinomialCoefficient(int N, int K)
 {
-    vector< vector<int> > cache;//2d cache vector will be used to memoize BinomialCoefficient values between calls
+    if(N<K)//if N<K, there exist no subsets with size K
+        return 0;
+
+    vector<vector<int>> cache;//2d cache vector will be used to memoize values between calls
     cache.resize(N + 1);
 
-    for(int i = 0; i < (N + 1); i++)//cache[i][j] is initialized to FLAG value (-1) at start
+    for(int i = 0; i <= N; i++)//cache[i][j] is initialized to FLAG value (-1) at start
         cache[i].resize(K + 1, FLAG);
 
     return BinomialCoefficientHelper(N, K, cache);
