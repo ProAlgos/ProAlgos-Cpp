@@ -18,16 +18,18 @@
 #include <vector>
 using namespace std;
 
-const int FLAG = -1;
+typedef unsigned long long ULL;
+
+const ULL FLAG = 0;
 
 //uses recurrence relation and fills cache to find binomial coefficient of N & K
-int BinomialCoefficientHelper(int N, int K, vector<vector<int>> &cache)
+ULL BinomialCoefficientHelper(int N, int K, vector<vector<ULL>> &cache)
 {
     //recursive invariant: cache[N][K] either contains the correct value or FLAG
     if(cache[N][K]!= FLAG)
         return cache[N][K];
 
-    int result;//will contain the value to be returned
+    ULL result;//will contain the value to be returned
 
     if((K == N) or (K == 0)) {
         result = 1;
@@ -43,15 +45,15 @@ int BinomialCoefficientHelper(int N, int K, vector<vector<int>> &cache)
     return result;
 }
 
-int BinomialCoefficient(int N, int K)
+ULL BinomialCoefficient(int N, int K)
 {
-    if(N<K)//if N<K, there exist no subsets with size K
+    if(N < K)//if N<K, there exist no subsets with size K
         return 0;
 
-    vector<vector<int>> cache;//2d cache vector will be used to memoize values between calls
+    vector<vector<ULL>> cache;//2d cache vector will be used to memoize values between calls
     cache.resize(N + 1);
 
-    for(int i = 0; i <= N; i++)//cache[i][j] is initialized to FLAG value (-1) at start
+    for(int i = 0; i <= N; i++)//cache[i][j] is initialized to FLAG value (0) at start
         cache[i].resize(K + 1, FLAG);
 
     return BinomialCoefficientHelper(N, K, cache);
@@ -80,6 +82,7 @@ void getInput(int &n, int &k) {
 
 #ifndef TEST
 int main() {
+
     int n;
     int k;
     getInput(n,k);
