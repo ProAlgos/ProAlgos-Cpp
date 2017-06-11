@@ -1,93 +1,134 @@
 /*
-    Binomial Coefficient:
-    For a set containing N unique elements, find the number of subsets
-    containing K elements (aka N choose K)
+    Binomial coefficient
+    --------------------
+    For a set containing N unique elements, find the number of subsets containing
+    K elements (a.k.a. "N choose K").
+    Alternatively, it is the coefficient of X^K in the binomial expansion of (1 + X)^N.
 
-    This approach uses the following recurrence:
-    B(n, k) = B(n-1, k) + B(n-1, k-1)
-    and a dynamic programming approach to memoize values computed between calls
+    This implementation uses a recurrence relation along with a dynamic programming
+    approach to calculate the binomial coefficient C(N, K).
 
-    Time complexity:
-    O(N*K)
+    Time complexity
+    ---------------
+    O(N * K), where N and K are as mentioned above.
 
-    Space complexity:
-    O(N*K)
+    Space complexity
+    ----------------
+    O(N * K), where N and K are as mentioned above.
 */
 
 #include <iostream>
 #include <vector>
+
 using namespace std;
 
 typedef unsigned long long ULL;
 
-const ULL FLAG = 0;
+const ULL EMPTY = 0;
 
-//uses recurrence relation and fills cache to find binomial coefficient of N & K
-ULL BinomialCoefficientHelper(int N, int K, vector<vector<ULL>> &cache)
-{
-    //recursive invariant: cache[N][K] either contains the correct value or FLAG
-    if(cache[N][K]!= FLAG)
-        return cache[N][K];
 
-    ULL result;//will contain the value to be returned
+/*
+    calc_binomial_coefficient
+    ---------------------------
+    Uses the recurrence relation,
+        C(n, k) = C(n - 1, k) + C(n - 1, k - 1),
+    and a dynamic programming approach to find the binomial coefficient C(n, k).
 
-    if((K == N) or (K == 0)) {
+    Return value
+    ------------
+    C(n, k) modulo 2^64. (Due to limited range of ULL).
+
+    Time complexity
+    ---------------
+    O(n * k).
+
+    Space complexity
+    ----------------
+    O(1).
+*/
+
+ULL calc_binomial_coefficient(int n, int k, vector<vector<ULL>>& cache) {
+    if (cache[n][k] != EMPTY)    // value has already been calculated
+        return cache[n][k];
+
+    ULL result;
+    if (n == k or k == 0)
         result = 1;
-    }
+    else
+        result = calc_binomial_coefficient(n - 1, k, cache)
+                + calc_binomial_coefficient(n - 1, k - 1, cache);
 
-    else {
-        result = BinomialCoefficientHelper(N - 1, K, cache) + BinomialCoefficientHelper(N - 1,K - 1,cache);
-    }
-
-    //result now contains the binomial coefficient of N & K
-    //It is stored in the cache so it doesn't need to be recomputed if needed again
-    cache[N][K] = result;
+    // result is stored in cache so that it isn't re-calculated when needed again
+    cache[n][k] = result;
     return result;
 }
 
-ULL BinomialCoefficient(int N, int K)
-{
-    if(N < K)//if N<K, there exist no subsets with size K
-        return 0;
 
-    vector<vector<ULL>> cache;//2d cache vector will be used to memoize values between calls
-    cache.resize(N + 1);
+/*
+    binomial_coefficient
+    --------------------
+    Creates a cache that is used by calc_binomial_coefficient to memoize the calculated
+    coefficients, and returns the value of C(n, k).
 
-    for(int i = 0; i <= N; i++)//cache[i][j] is initialized to FLAG value (0) at start
-        cache[i].resize(K + 1, FLAG);
+    Return value
+    ------------
+    C(n, k) modulo 2^64. (Due to limited range of ULL).
 
-    return BinomialCoefficientHelper(N, K, cache);
+    Time complexity
+    ---------------
+    O(n * k).
+
+    Space complexity
+    ----------------
+    O(n * k).
+*/
+
+ULL binomial_coefficient(int n, int k) {
+    if (n < k)
+        return 0;   // no subsets of size k are possible
+
+    vector<vector<ULL>> cache;
+    cache.resize(n + 1);
+
+    // initialise all values in cache as EMPTY
+    for (int i = 0; i <= n; i++)
+        cache[i].resize(k + 1, EMPTY);
+
+    return calc_binomial_coefficient(n, k, cache);
 }
 
-void getInput(int &n, int &k) {
-    cout << "Enter the value for N: ";
-    cin >> n;
 
-    while (n < 0) {
-        cout << "Invalid value! N should be greater than 0.\n";
-        cout << "Enter the value for N: ";
-        cin >> n;
+/*
+    get_positive_int
+    ----------------
+    Gets a positive integer as input from the user for a variable, giving it a
+    name as specified.
 
-    }
+*/
 
-    cout << "Enter the value for K: ";
-    cin >> k;
+void get_positive_int(int& var, const string& var_name) {
+    do {
+        cout << "Enter the value for " << var_name << " : ";
+        cin >> var;
 
-    while (k < 0) {
-        cout << "Invalid value! K should be greater than 0.\n";
-        cout << "Enter the value for K: ";
-        cin >> k;
-    }
+        if (var < 0)
+            cout << "Invalid value! " << var_name << " should be greater than 0.\n";
+    } while (var < 0);
 }
+
+
+/*
+    main
+    ----
+*/
 
 #ifndef TEST
 int main() {
+    int n, k;
+    get_positive_int(n, "N");
+    get_positive_int(k, "K");
 
-    int n;
-    int k;
-    getInput(n,k);
-
-    cout << "\nBinomialCoefficient(" << n << ", "<< k << ") = " << BinomialCoefficient(n,k) << "\n";
+    cout << "\nBinomialCoefficient(" << n << ", "<< k << ") = " << binomial_coefficient(n, k) << "\n";
 
     return 0;
 }
