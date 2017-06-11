@@ -1,4 +1,5 @@
 #define CATCH_CONFIG_MAIN
+#define TEST
 
 #include "../catch.hpp"
 #include "../../NumberTheory/Fibonacci.cpp"
