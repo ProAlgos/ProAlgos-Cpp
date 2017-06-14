@@ -1,7 +1,6 @@
 /*
     Perfect number:
-    Checks if a given number is perfect. Could be used to generate a 
-    sequence of perfect numbers
+    prints up to N perfect numbers
     Time complexity:
     O(N), where N is the number being checked 
     Space complexity:
@@ -9,12 +8,13 @@
 */
 
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
-ULL is_perfect(int num) {
+bool is_perfect(int num) {
 	int sum = 1;
-	for(int divisor = 2; divisor <= num/2; divisor++)
+	for(int divisor = 2; divisor <= sqrt(num); divisor++)
 	{
 		if(num % divisor == 0)
 			sum += divisor;
@@ -26,10 +26,12 @@ ULL is_perfect(int num) {
 
 int main() {
 	int num;
-	cout << "Enter a number: ";
+	cout << "The number of perfect numbers you want printed: ";
 	cin >> num;
-	if(is_perfect(num))
-		cout << num << " is perfect" << endl;
-	else 
-		cout << num << " is not perfect" << endl;
+	for(int count = 1; count < num; count++)
+	//start from one to prevent false positive with 0
+	{
+		if(is_perfect(num))
+			cout << num << endl;
+	}
 }
