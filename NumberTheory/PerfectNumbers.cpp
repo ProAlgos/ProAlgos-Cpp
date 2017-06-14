@@ -1,20 +1,20 @@
-/*
+ /*
     Perfect number:
-    prints up to N perfect numbers
+    prints up to N perfect numbers (a positive integer that 
+    is equal to the sum of its proper positive divisors)
     Time complexity:
-    O(N), where N is the number being checked 
+    O(sqrt(N)), where N is the number being checked 
     Space complexity:
     O(1), constant amount of space needed
 */
 
 #include <iostream>
-#include <math.h>
 
 using namespace std;
 
 bool is_perfect(int num) {
 	int sum = 1;
-	for(int divisor = 2; divisor <= sqrt(num); divisor++)
+	for(int divisor = 2; divisor <= num/2; divisor++)
 	{
 		if(num % divisor == 0)
 			sum += divisor;
@@ -35,4 +35,3 @@ int main() {
 			cout << num << endl;
 	}
 }
- 
