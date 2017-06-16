@@ -1,5 +1,7 @@
 /*
-    Extended Euclidean Algorithm:
+    Extended Euclidean Algorithm
+    ----------------------------
+
     Given two non-negative numbers a & b as inputs, find M[0], M[1] such that
 
     gcd(a, b) = M[0]*a + M[1]*b
@@ -8,10 +10,12 @@
     quickly compute multiplicative inverses in finite fields, as is often
     needed for cryptographic algorithms
 
-    Time Complexity:
+    Time Complexity
+    ---------------
     O(log10(K)), where K = min(A, B) is the smaller of the input integers A and B
 
-    Space Complexity:
+    Space Complexity
+    ----------------
     O(1)   
 */
 
@@ -20,7 +24,30 @@
 
 using namespace std;
 
-vector<int> extendedEuclid(int a, int b)
+/*
+
+    extended_euclidean
+    --------------
+    Uses the recurrence relation,
+        GCD(a, b) = GCD(b, a%b),
+    to find coefficients M[0] and M[1] such that 
+        GCD(a, b) = M[0]*a + M[1]*b
+
+    Return value
+    ------------
+    vector<int> M of length 2 which satisfies the equation above
+
+    Time complexity
+    ---------------
+    O(log10(K)), where K = min(A, B) is the smaller of the input integers A and B
+
+    Space complexity
+    ----------------
+    O(1).
+
+*/
+
+vector<int> extended_euclidean(int a, int b)
 {
     //loop invariant: gcd(a,b) is the same at the end of each iteration
     //a = aM[0]*(original value of a) + aM[1]*(original value of b)
@@ -42,22 +69,30 @@ vector<int> extendedEuclid(int a, int b)
     }
     return aM;
 }
-void getInputs(int &a, int &b)
-{
-    a = -1;
-    b = -1;
-    while(a < 0)
-    {
-        cout << "Enter a non-negative value for 'a'\n";
-        cin >> a;
-    }
 
-    while(b < 0)
-    {
-        cout << "Enter a non-negative value for 'b'\n";
-        cin >> b;
-    }
+
+/*
+    get_positive_int
+    ----------------
+    Gets a positive integer as input from the user for a variable, giving it a
+    name as specified.
+
+*/
+
+void get_positive_int(int& var, const string& var_name) {
+    do {
+        cout << "Enter the value for " << var_name << " : ";
+        cin >> var;
+
+        if (var < 0)
+            cout << "Invalid value! " << var_name << " should be greater than 0.\n";
+    } while (var < 0);
 }
+
+/*
+    main
+    ----
+*/
 
 #ifndef TEST
 int main()
@@ -65,9 +100,10 @@ int main()
 
     int a;
     int b;
-    getInputs(a,b);
+    get_positive_int(a, "a");
+    get_positive_int(b, "b");
 
-    vector<int> M = extendedEuclid(a,b);
+    vector<int> M = extended_euclidean(a, b);
     int gcd = M[0] * a + M[1] * b;
     cout << "gcd(" << a << "," << b << ") = " << M[0] << "*" << a << " + " << M[1] << "*" << b;
     cout << " = " << gcd <<"\n";
