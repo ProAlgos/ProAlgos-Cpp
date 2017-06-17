@@ -12,7 +12,7 @@
 
     Time Complexity
     ---------------
-    O(log10(K)), where K = min(A, B) is the smaller of the input integers A and B
+    O(log(K)), where K = min(A, B) is the smaller of the input integers A and B
 
     Space Complexity
     ----------------
@@ -20,7 +20,7 @@
 */
 
 #include<iostream>
-#include<vector>
+#include<array>
 
 using namespace std;
 
@@ -47,14 +47,14 @@ using namespace std;
 
 */
 
-vector<int> extended_euclidean(int a, int b)
+array<int,2> extended_euclidean(int a, int b)
 {
     //loop invariant: gcd(a,b) is the same at the end of each iteration
     //a = aM[0]*(original value of a) + aM[1]*(original value of b)
     //the above statement holds for b and bM as well
 
-    vector<int> aM = {1,0};
-    vector<int> bM = {0,1};
+    array<int,2> aM = {1,0};
+    array<int,2> bM = {0,1};
     while(b!=0)
     {
         aM[0] -= (a/b)*bM[0];
@@ -103,7 +103,7 @@ int main()
     get_positive_int(a, "a");
     get_positive_int(b, "b");
 
-    vector<int> M = extended_euclidean(a, b);
+    array<int,2> M = extended_euclidean(a, b);
     int gcd = M[0] * a + M[1] * b;
     cout << "gcd(" << a << "," << b << ") = " << M[0] << "*" << a << " + " << M[1] << "*" << b;
     cout << " = " << gcd <<"\n";
