@@ -35,11 +35,11 @@ using namespace std;
 
     Return value
     ------------
-    vector<int> M of length 2 which satisfies the equation above
+    array<int,2> M of length 2 which satisfies the equation above
 
     Time complexity
     ---------------
-    O(log10(K)), where K = min(A, B) is the smaller of the input integers A and B
+    O(log(K)), where K = min(A, B) is the smaller of the input integers A and B
 
     Space complexity
     ----------------
