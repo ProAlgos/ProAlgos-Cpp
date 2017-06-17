@@ -14,7 +14,7 @@
  
 typedef unsigned long long int ULL;
 
- ULL is_perfect(ULL num) {
+ bool is_perfect(ULL num) {
  	ULL sum = 1;
  	ULL divisor;
  	for(divisor = 2; divisor <= sqrt(num); divisor++)
