@@ -20,16 +20,16 @@ typedef unsigned long long int ULL;
  	for(divisor = 2; divisor <= sqrt(num); divisor++)
  	{
  		if(num % divisor == 0)
- 			sum += divisor;
+ 			sum += divisor + num / divisor;
  	}
- 	if(divisor == sum)
- 		return 1;
- 	return 0;
+ 	if(num == sum)
+ 		return true;
+ 	return false;
  }
  
  int main() {
  	ULL num;
- 	cout << "Enter a number: ";
+ 	cout << "Enter a positive integer less than 2^64 : ";
  	cin >> num;
  	if(is_perfect(num))
  		cout << num << " is perfect" << endl;
