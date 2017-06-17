@@ -1,37 +1,38 @@
- /*
-    Perfect number:
-    prints up to N perfect numbers (a positive integer that 
-    is equal to the sum of its proper positive divisors)
-    Time complexity:
-    O(sqrt(N)), where N is the number being checked 
-    Space complexity:
-    O(1), constant amount of space needed
-*/
+/*
+     Perfect number:
+     Checks if a given number is perfect. Could be used to generate a 
+     sequence of perfect numbers
+     Time complexity:
+     O(sqrt(N)), where N is the number being checked 
+     Space complexity:
+     O(1), constant amount of space needed
+ */
+ 
+ #include <iostream>
+ #include <math.h>
+ using namespace std;
+ 
+typedef unsigned long long int ULL;
 
-#include <iostream>
-
-using namespace std;
-
-bool is_perfect(int num) {
-	int sum = 1;
-	for(int divisor = 2; divisor <= num/2; divisor++)
-	{
-		if(num % divisor == 0)
-			sum += divisor;
-	}
-	if(divisor == sum)
-		return 1;
-	return 0;
-}
-
-int main() {
-	int num;
-	cout << "The number of perfect numbers you want printed: ";
-	cin >> num;
-	for(int count = 1; count < num; count++)
-	//start from one to prevent false positive with 0
-	{
-		if(is_perfect(num))
-			cout << num << endl;
-	}
-}
+ ULL is_perfect(ULL num) {
+ 	ULL sum = 1;
+ 	ULL divisor;
+ 	for(divisor = 2; divisor <= sqrt(num); divisor++)
+ 	{
+ 		if(num % divisor == 0)
+ 			sum += divisor;
+ 	}
+ 	if(divisor == sum)
+ 		return 1;
+ 	return 0;
+ }
+ 
+ int main() {
+ 	ULL num;
+ 	cout << "Enter a number: ";
+ 	cin >> num;
+ 	if(is_perfect(num))
+ 		cout << num << " is perfect" << endl;
+ 	else 
+ 		cout << num << " is not perfect" << endl;
+ }
