@@ -54,6 +54,7 @@ void get_order(int& order, string& orderText ) {
         orderText = "ascending";
     }
 }
+
 void get_whether_to_show_state(bool& toShowState) {
     string answer;
     cout << "\nShow state of values after each iteration?\n";
