@@ -1,3 +1,19 @@
+/*
+    Radix sort
+    ----------
+    An efficient, key-index-based, comparision based sorting algorithm.
+  	It sorts based on the keys obtained on each index of the numbers to be sorteed.
+
+    Time complexity
+    ---------------
+    O(D * N), where N is the number of keys, D is the number of digits in input integers.
+
+    Space complexity
+    ----------------
+    O(N), where N is the number of elements and B is the base for representing the numbers(10 in case of decimal system)
+    This space is used for count sorting each key and temporarily creating a sorted array.
+*/
+
 #include <iostream>
 #include <vector>
 #include "SortingUtils.hpp"
