@@ -27,7 +27,6 @@ void setFactors(const int order, int& mult_factor, int& add_factor) {
     Time complexity
     ---------------
     O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
-    This space is used for count sorting each key and temporarily creating a sorted array.
 
     Space complexity
     ----------------
