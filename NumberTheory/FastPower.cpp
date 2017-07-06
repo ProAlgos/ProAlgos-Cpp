@@ -1,47 +1,67 @@
 /*
-<Fast Power>
---------------
-Fast Power is an optimized algorithm to compute exponentiation in a short time.
+    Fast Power
+    ----------------
+    Fast Power is an optimized algorithm to compute exponentiation in a short time.
+    It calculates the power by squaring, meaning we divide the power by 2 on each step and multiply
+    the base by itself. We keep doing this until the power is 0 where we return 1.
 
 
-Time Complexity
------------------
-O(log(N)) where N is the power the number is raised to.
+    Time Complexity
+    -----------------
+    O(log(N)) where N is the exponent.
 
-Space Complexity
-------------------
-O(log(N)) where N is the power the number is raised to.
+    Space Complexity
+    -----------------
+    O(log(N)) where N is the exponent.
 
 */
 #include <iostream>
 
 using namespace std;
-typedef long long ll;
+typedef unsigned long long ull;
 
-//Function that returns x raised to the power of y
-ll fastPower (ll x,ll y)
+//Function that returns base raised to the exponent
+ull fast_power (ull base,ull exponent)
 {
-    if (y==0) return 1;
+    if (exponent==0) return 1;
 
-    if (y%2==1)
+    if (exponent%2==1)  //If the power is odd
     {
-        return fastPower(x,y-1) * x;
+        return fast_power(base,exponent-1) * base;
     }
-    else
+    else    //If the power is even
     {
-        x = fastPower(x,y/2);
-        return (x*x);
+        base = fast_power(base,exponent/2);
+        return (base*base);
     }
 }
 
-//Testing the function
+
 int main()
 {
-    int base,power;
-    cout<<"Enter the number and the power it's raised to:"<<endl;
+    //Testing the function
+    int base,exponent;
+    cout<<"Enter the number and its exponent:"<<endl;
 
-    cin>>base>>power;
+    cin>>base>>exponent;
 
-    cout<<fastPower(base,power);
+    cout<<endl<<fast_power(base,exponent)<<endl;
+    
+    //Sample Tests
+    TEST_CASE("Base cases", "[fast_power]") {
+        REQUIRE(fast_power(2,2) == 4);
+        REQUIRE(fast_power(2,4) == 16);
+}
+
+    TEST_CASE("Normal cases", "[fast_power]") {
+        REQUIRE(fast_power(3,4) == 81);
+        REQUIRE(fast_power(7,9) == 40353607);
+        REQUIRE(fast_power(15,10) == 576650390625);
+}
+
+    TEST_CASE("Overflow cases", "[fast_power]") {
+        REQUIRE(fast_power(2,100) == 0);
+        REQUIRE(fast_power(10,99) == 0);
+}
     return 0;
 }
