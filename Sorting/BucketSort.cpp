@@ -24,7 +24,7 @@
 using namespace std;
 const int MAX_BUCKETS = 99999; //  maximum number of Buckets
 
-void bucket_sort (vector<int>& values, const int order, const bool to_show_state)
+void bucket_sort (vector<int>& values, const bool to_show_state)
 {
     array<int, MAX_BUCKETS > buckets ; //Create MAX_BUCKETS number of empty buckets  
     for (size_t i = 0; i < MAX_BUCKETS; ++i) 
@@ -56,7 +56,7 @@ int main() {
     bool to_show_state;
     get_whether_to_show_state(to_show_state);
 
-    bucket_sort(values, order, to_show_state);
+    bucket_sort(values, to_show_state);
 
     cout << "\nThe values in " << order_text << " order are:\n";
     display_state(values);
