@@ -3,7 +3,7 @@
     Find a way to place N non-attacking queens on an N×N chessboard
 	
     Time complexity:
-    O(N^N), where N is the number of queens
+    O(N!), where N is the number of queens
 
     Space complexity:
     O(1), constant amount of extra space
