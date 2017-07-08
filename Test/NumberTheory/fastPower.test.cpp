@@ -6,6 +6,11 @@
 
 
 TEST_CASE("Base cases", "[fast_power]") {
+    //REQUIRE(fast_power(0,0) == undefined);
+    REQUIRE(fast_power(0,1) == 0);
+    REQUIRE(fast_power(1,0) == 1);
+    REQUIRE(fast_power(1,1) == 1);
+    REQUIRE(fast_power(2,2) == 4);
     REQUIRE(fast_power(2,2) == 4);
     REQUIRE(fast_power(2,4) == 16);
 }
@@ -17,8 +22,8 @@ TEST_CASE("Normal cases", "[fast_power]") {
 }
 
 TEST_CASE("Overflow cases", "[fast_power]") {
-    REQUIRE(fast_power(2,100) == 0);
-    REQUIRE(fast_power(10,99) == 0);
+    REQUIRE(fast_power(2,100) == 68719476736);
+    REQUIRE(fast_power(10,99) == 4440381706574496940U);
 }
 
 #undef FAST_POWER_TEST

@@ -41,13 +41,20 @@ ull fast_power (ull base,ull exponent)
 int main()
 {
     //Testing the function
-    int base,exponent;
+    ull base,exponent;
     cout<<"Enter the number and its exponent:"<<endl;
 
     cin>>base>>exponent;
 
-    cout<<endl<<fast_power(base,exponent)<<endl;
-   
+    if (base == 0 && exponent == 0)
+    {
+        cout<<"undefined"<<endl;
+    }
+    else
+    {
+        cout<<endl<<fast_power(base,exponent)<<endl;
+    }
+
     return 0;
 }
 
