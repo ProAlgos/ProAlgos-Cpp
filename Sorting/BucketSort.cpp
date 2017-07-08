@@ -28,15 +28,15 @@ void bucket_sort (vector<int>& values, const bool to_show_state)
 {
     array<int, MAX_BUCKETS > buckets ; //Create MAX_BUCKETS number of empty buckets  
     for (size_t i = 0; i < MAX_BUCKETS; ++i) 
-	buckets[i] = 0;
-	//Increment the number of times each element is present in the input array. 
-	//Insert them in the buckets
-	for (size_t i = 0; i < values.size(); ++i)  
-	    ++buckets[values[i]];
-	    //Sort using insertion sort and concatenate 
-	    for (size_t i = 0, j = 0; j < MAX_BUCKETS; ++j)  
-		for (int k = buckets[j]; k > 0; --k) 
-		values[i++] = j;
+	 buckets[i] = 0;
+	 //Increment the number of times each element is present in the input array. 
+	 //Insert them in the buckets
+	 for (size_t i = 0; i < values.size(); ++i)  
+	     ++buckets[values[i]];
+	     //Sort using insertion sort and concatenate 
+	     for (size_t i = 0, j = 0; j < MAX_BUCKETS; ++j)  
+		 for (int k = buckets[j]; k > 0; --k) 
+		 values[i++] = j;
 		       
                 if (to_show_state)
                    display_state(values);
