@@ -35,11 +35,12 @@ void bucket_sort (vector<int>& values, const bool to_show_state)
 	     ++buckets[values[i]];
 	     //Sort using insertion sort and concatenate 
 	     for (size_t i = 0, j = 0; j < MAX_BUCKETS; ++j)  
-		 for (int k = buckets[j]; k > 0; --k) 
+		 for (int k = buckets[j]; k > 0; --k) {
 		 values[i++] = j;
 		       
                 if (to_show_state)
                    display_state(values);
+		 }	 
 }
 
 int main() {
