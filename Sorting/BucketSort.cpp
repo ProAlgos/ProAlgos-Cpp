@@ -30,7 +30,7 @@ void bucket_sort (vector<int>& values, const bool to_show_state)
     for (size_t i = 0; i < MAX_BUCKETS; ++i) 
 	buckets[i] = 0;
 	//Increment the number of times each element is present in the input array. 
-        //Insert them in the buckets
+	//Insert them in the buckets
 	for (size_t i = 0; i < values.size(); ++i)  
 	    ++buckets[values[i]];
 	    //Sort using insertion sort and concatenate 
