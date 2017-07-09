@@ -2,7 +2,8 @@
     Author:
     Varun Jayathirtha (www.github.com/varunjm)
 
-    Binary Search Tree:
+    Binary Search Tree
+    ------------------
     A graph data structure where each node has a unidirectional path to at most
     two node, none of which are itself or its predecessors, i.e the graph is
     acyclic. The first node is called the root node. Another important feature
@@ -31,17 +32,20 @@ BinarySearchTree::BinarySearchTree() {
 
 /*
     Insert
+    ------
     This traverses the tree to find the right spot to insert the newly given
     value. At each node, it checks if the node has a value lesser than or equal
     to itself, if so it goes to its left subtree. Otherwise it goes to the right
     subtree. When it meets an end point i.e. NULL it inserts the new Node along
     with the new value
 
-    Time complexity:
+    Time complexity
+    ---------------
     Average case : O(log n), where n is the number of nodes in the tree
     Worst case : O(n)
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(1)
 */
 

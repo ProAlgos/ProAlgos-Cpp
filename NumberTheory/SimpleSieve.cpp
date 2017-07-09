@@ -1,13 +1,16 @@
 /*
-    Prime numbers using simple Sieve of Eratosthenes:
+    Prime numbers using simple Sieve of Eratosthenes
+    ------------------------------------------------
     Given a number N, find all prime numbers upto N (inclusive) using the simple
     Sieve of Eratosthenes method, which efficiently finds primes in the order of
     10^7. (The efficiency limit is due to poor cache utilisation.)
 
-    Time complexity:
+    Time complexity
+    ---------------
     O(N * log(log(N))), where N is the number upto which primes have to be found
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(N), where N is the number upto which primes have to be found
 */
 

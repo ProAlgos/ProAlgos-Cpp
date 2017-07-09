@@ -1,14 +1,17 @@
 /*
-    Knuth-Morris-Pratt (KMP) algorithm:
+    Knuth-Morris-Pratt (KMP) algorithm
+    ----------------------------------
     A string searching algorithm that searches for a given "pattern" in a "text".
     It uses the fact that when a mismatch occurs, one can jump further in the text
     than a naive algorithm would (i.e. 1 step). The KMP algorithm can jump up to
     all the length of the search pattern.
 
-    Time complexity:
+    Time complexity
+    ---------------
     O(N + M), where N is the pattern size and M is the text size.
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(N), where N is the pattern size.
 */
 
