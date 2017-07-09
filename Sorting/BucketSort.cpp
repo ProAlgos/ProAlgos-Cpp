@@ -27,11 +27,12 @@ const int MAX_BUCKETS = 99999; //  maximum number of Buckets
 void bucket_sort (vector<int>& values, const bool to_show_state) {
     array<int, MAX_BUCKETS > buckets ; //Create MAX_BUCKETS number of empty buckets  
     
+    //Intialize all buckets to 0	
     for (size_t i = 0; i < MAX_BUCKETS; ++i) 
 	 buckets[i] = 0;
-	 //Increment the number of times each element is present in the input array. 
-	 //Insert them in the buckets
 	
+    //Increment the number of times each element is present in the input array. 
+    //Insert them in the buckets
     for (size_t i = 0; i < values.size(); ++i)  
 	 ++buckets[values[i]];
 	
