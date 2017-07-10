@@ -28,7 +28,7 @@ using namespace std;
     O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
-void count_sort(vector<int>& values, const int extractor, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
+void count_sort(vector<int>& values, const int extractor, const bool to_show_state, const int mult_factor, const int add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
     for(int value : values)
@@ -71,10 +71,10 @@ int getMaxVal(const vector<int> values) {
     O(N + B), where N is the number of elements and B is the base for representing the numbers(10 in case of decimal system)
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
-void radix_sort(vector<int>& values, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
+void radix_sort(vector<int>& values, const bool to_show_state, const int mult_factor, const int add_factor) {
     int m = getMaxVal(values);
     for (int extractor = 1; m/extractor > 0; extractor *= 10) {
-        count_sort(values, extractor, order, to_show_state, mult_factor, add_factor);
+        count_sort(values, extractor, to_show_state, mult_factor, add_factor);
     }
 }
 
@@ -104,7 +104,7 @@ int main() {
       	add_factor = 9;
     }
 
-    radix_sort(values, order, to_show_state, mult_factor, add_factor);
+    radix_sort(values, to_show_state, mult_factor, add_factor);
 
     cout << "\nThe values in " << order_text << " order are:" << endl;
     display_state(values);
