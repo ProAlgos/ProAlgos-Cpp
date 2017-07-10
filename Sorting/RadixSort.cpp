@@ -27,24 +27,23 @@ using namespace std;
     O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
-void count_sort(vector<int>& values, const size_t size, const int I, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
+void count_sort(vector<int>& values, const int I, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
     int counter[10] = {0};
-    int* output = (int*)malloc(size*sizeof(int));
-    for(int i = 0; i < size; i++)
+    vector<int> output(values.size());
+    for(int i = 0; i < values.size(); i++)
         counter[add_factor + (mult_factor * ((values[i]/I) % 10))]++;
     for(int i = 1; i < 10; i++)
         counter[i] += counter[i - 1];
-    for(int i = size - 1; i >= 0; i--) {
+    for(int i = values.size() - 1; i >= 0; i--) {
         output[counter[add_factor + (mult_factor * ((values[i]/I) % 10))] - 1] = values[i];
         counter[add_factor + (mult_factor * ((values[i]/I) % 10))]--;
     }
 
-    for(int i = 0; i < size; i++)
-        values[i] = output[i];
+    values = output;
 
     if(to_show_state) {
         cout << "Printing the current state..." << endl;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < values.size(); i++) {
             cout << values[i] << "\t";
         }
         cout << endl;
@@ -52,9 +51,9 @@ void count_sort(vector<int>& values, const size_t size, const int I, const int o
 }
 
 //This function returns the maximum value in the vector
-int getMaxVal(const vector<int> values, const size_t size) {
+int getMaxVal(const vector<int> values) {
     int max_val = values[0];
-    for (int i = 1; i < size; i++) {
+    for (int i = 1; i < values.size(); i++) {
     if (values[i] > max_val)
             max_val = values[i];
     }
@@ -75,10 +74,10 @@ int getMaxVal(const vector<int> values, const size_t size) {
     O(N + B), where N is the number of elements and B is the base for representing the numbers(10 in case of decimal system)
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
-void radix_sort(vector<int>& values, const size_t size, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
-    int m = getMaxVal(values, size);
+void radix_sort(vector<int>& values, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
+    int m = getMaxVal(values);
     for (int i = 1; m/i > 0; i *= 10) {
-        count_sort(values, size, i, order, to_show_state, mult_factor, add_factor);
+        count_sort(values, i, order, to_show_state, mult_factor, add_factor);
     }
 }
 
@@ -108,7 +107,7 @@ int main() {
       	add_factor = 9;
     }
 
-    radix_sort(values, size, order, to_show_state, mult_factor, add_factor);
+    radix_sort(values, order, to_show_state, mult_factor, add_factor);
 
     cout << "\nThe values in " << order_text << " order are:" << endl;
     display_state(values);
