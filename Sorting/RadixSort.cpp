@@ -31,13 +31,13 @@ using namespace std;
 void count_sort(vector<int>& values, const int extractor, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
-    for(int i = 0; i < values.size(); i++)
-        counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))]++;
+    for(int value : values)
+        counter[add_factor + (mult_factor * ((value/extractor) % 10))]++;
     for(int i = 1; i < 10; i++)
         counter[i] += counter[i - 1];
-    for(int i = values.size() - 1; i >= 0; i--) {
-        output[counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))] - 1] = values[i];
-        counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))]--;
+    for(int value : values) {
+        output[counter[add_factor + (mult_factor * ((value/extractor) % 10))] - 1] = value;
+        counter[add_factor + (mult_factor * ((value/extractor) % 10))]--;
     }
 
     values = output;
