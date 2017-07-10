@@ -43,11 +43,7 @@ void count_sort(vector<int>& values, const int I, const int order, const bool to
     values = output;
 
     if(to_show_state) {
-        cout << "Printing the current state..." << endl;
-        for (int i = 0; i < values.size(); i++) {
-            cout << values[i] << "\t";
-        }
-        cout << endl;
+    	display_state(values);
     }
 }
 
