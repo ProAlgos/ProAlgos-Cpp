@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include <array>
 #include "SortingUtils.hpp"
 
 using namespace std;
@@ -28,7 +29,7 @@ using namespace std;
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
 void count_sort(vector<int>& values, const int I, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
-    int counter[10] = {0};
+    array<int, 10> counter{0};
     vector<int> output(values.size());
     for(int i = 0; i < values.size(); i++)
         counter[add_factor + (mult_factor * ((values[i]/I) % 10))]++;
