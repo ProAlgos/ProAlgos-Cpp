@@ -12,12 +12,6 @@
 using namespace std;
 
 // The setFactors function sets the factors which depend on whether the sorting is needed to be done in ascending or descending order
-void setFactors(const int order, int& mult_factor, int& add_factor) {
-    if(order == -1) {
-        mult_factor = -1;
-        add_factor = 9;
-    }
-}
 
 /*
     count_sort
@@ -109,7 +103,10 @@ int main() {
     //These factors depend on whether the sorting is needed to be done in ascending or descending order
     int mult_factor = 1;
     int add_factor = 0;
-    setFactors(order, mult_factor, add_factor);
+    if(order == -1) {
+        mult_factor = -1;
+      	add_factor = 9;
+    }
 
     radix_sort(values, size, order, to_show_state, mult_factor, add_factor);
 
