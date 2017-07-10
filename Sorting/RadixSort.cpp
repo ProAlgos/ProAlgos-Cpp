@@ -28,16 +28,16 @@ using namespace std;
     O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
-void count_sort(vector<int>& values, const int I, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
+void count_sort(vector<int>& values, const int extractor, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
     for(int i = 0; i < values.size(); i++)
-        counter[add_factor + (mult_factor * ((values[i]/I) % 10))]++;
+        counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))]++;
     for(int i = 1; i < 10; i++)
         counter[i] += counter[i - 1];
     for(int i = values.size() - 1; i >= 0; i--) {
-        output[counter[add_factor + (mult_factor * ((values[i]/I) % 10))] - 1] = values[i];
-        counter[add_factor + (mult_factor * ((values[i]/I) % 10))]--;
+        output[counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))] - 1] = values[i];
+        counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))]--;
     }
 
     values = output;
@@ -73,8 +73,8 @@ int getMaxVal(const vector<int> values) {
 */
 void radix_sort(vector<int>& values, const int order, const bool to_show_state, const int mult_factor, const int add_factor) {
     int m = getMaxVal(values);
-    for (int i = 1; m/i > 0; i *= 10) {
-        count_sort(values, i, order, to_show_state, mult_factor, add_factor);
+    for (int extractor = 1; m/extractor > 0; extractor *= 10) {
+        count_sort(values, extractor, order, to_show_state, mult_factor, add_factor);
     }
 }
 
