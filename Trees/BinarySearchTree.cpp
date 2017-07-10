@@ -1,5 +1,6 @@
 /*
-    Author:
+    Author
+    ------
     Varun Jayathirtha (www.github.com/varunjm)
 
     Binary Search Tree
@@ -87,15 +88,21 @@ bool BinarySearchTree::insert(int value) {
 
 /*
     Remove
+    ------
     This traverses the tree to find the given value. At each node, it checks if
     the node has a value equal to the given value, if so it finds the inorder
     successor of the node, and replaces the value to be deleted with that number.
     Otherwise, it searches in the left subtree if the value is smaller than
     node value and it searches the right subtree if the value is larger.
 
-    Time complexity:
+    Time complexity
+    ---------------
     Average case : O(log n), where n is the number of nodes in the tree
     Worst case : O(n)
+    
+    Space complexity
+    ----------------
+    O(1)
 */
 
 bool BinarySearchTree::remove(int value) {
@@ -170,17 +177,20 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
 
 /*
     Search
+    ------
     This traverses the tree to find the presence of number in the tree. At each 
     node, it checks if the node has a value lesser than itself, if so it goes 
     to its left subtree. If it is greater it goes to the right subtree. When it 
     node with the matching value or reaches the end of the tree it returns either 
     true or false appropriately.
 
-    Time complexity:
+    Time complexity
+    ---------------
     Average case : O(log n), where n is the number of nodes in the tree
     Worst case : O(n)
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(1)
 */
 
@@ -207,17 +217,20 @@ bool BinarySearchTree::search(int value) {
 }
 
 /*
-    In order traversal:
+    Inorder traversal
+    -----------------
     This Algorithm visits and displays each node in the following order starting
     with the root node. The Left subtree, followed by Parent, followed by the
     Right subtree. This traversal gives the values stored in the tree in a
     sorted order.
 
-    Time complexity:
+    Time complexity
+    ---------------
     Average case : O(n), where n is the number of nodes in the tree
     Worst case : O(n)
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(n), where n is the number if nodes in the tree
 */
 
@@ -260,16 +273,19 @@ void BinarySearchTree::traversal_inorder_iterative() {
 }
 
 /*
-    Pre order traversal:
+    Preorder traversal
+    ------------------
     This Algorithm visits and displays each node in the following order starting
     with the root node. Parent, followed by the Left subtree, followed by the
     Right subtree.
 
-    Time complexity:
+    Time complexity
+    ---------------
     Average case : O(n), where n is the number of nodes in the tree
     Worst case : O(n)
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(n), where n is the number if nodes in the tree
 */
 
@@ -313,16 +329,19 @@ void BinarySearchTree::traversal_preorder_iterative() {
 }
 
 /*
-    Pre order traversal:
+    Postorder traversal
+    -------------------
     This Algorithm visits and displays each node in the following order starting
     with the root node. The Left subtree, followed by the Right subtree,
     followed by the Parent.
 
-    Time complexity:
+    Time complexity
+    ---------------
     Average case : O(n), where n is the number of nodes in the tree
     Worst case : O(n)
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(n), where n is the number if nodes in the tree
 */
 
