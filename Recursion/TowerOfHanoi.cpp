@@ -35,7 +35,7 @@
 
 	Space complexity
 	----------------
-	No idea...
+	No idea... I think its O(1)
 	O(...), where <description of variable(s)>
 */
 
