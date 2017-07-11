@@ -1,15 +1,18 @@
 /*
-    Euclid's GCD algorithm:
+    Euclid's GCD algorithm
+    ----------------------
     Basic Euclidean Algorithm is used to find GCD of two numbers say a and b. 
     The Euclidean algorithm is based on the principle that the greatest common divisor
     of two numbers does not change if the larger number is replaced by its difference with
     the smaller number.
     Below is a recursive C++ function to evaluate gcd using Euclid’s algorithm.
     
-    Time complexity:
+    Time complexity
+    ---------------
     O(log10(M)), where M = min(A, B) is the smaller of the input integers A and B
     
-    Space complexity:
+    Space complexity
+    ----------------
     O(1)
 */
 
