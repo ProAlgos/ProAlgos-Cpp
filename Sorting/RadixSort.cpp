@@ -8,6 +8,7 @@
 #include <iostream>
 #include <vector>
 #include <array>
+#include <algorithm>
 #include "SortingUtils.hpp"
 
 using namespace std;
@@ -49,12 +50,7 @@ void count_sort(vector<int>& values, const int extractor, const bool to_show_sta
 
 //This function returns the maximum value in the vector
 int getMaxVal(const vector<int> values) {
-    int max_val = values[0];
-    for (int i = 1; i < values.size(); i++) {
-    if (values[i] > max_val)
-            max_val = values[i];
-    }
-    return max_val;
+    return *max_element(values.begin(), values.end());
 }
 
 /*
@@ -72,8 +68,8 @@ int getMaxVal(const vector<int> values) {
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
 void radix_sort(vector<int>& values, const bool to_show_state, const int mult_factor, const int add_factor) {
-    int m = getMaxVal(values);
-    for (int extractor = 1; m/extractor > 0; extractor *= 10) {
+    int max_value = getMaxVal(values);
+    for (int extractor = 1; max_value/extractor > 0; extractor *= 10) {
         count_sort(values, extractor, to_show_state, mult_factor, add_factor);
     }
 }
