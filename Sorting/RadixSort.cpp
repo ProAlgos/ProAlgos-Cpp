@@ -13,8 +13,6 @@
 
 using namespace std;
 
-// The setFactors function sets the factors which depend on whether the sorting is needed to be done in ascending or descending order
-
 /*
     count_sort
     ----------
@@ -29,16 +27,21 @@ using namespace std;
     O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
+
+int counter_accessor = [&](const int& value) {
+    return add_factor + (mult_factor * ((value/extractor) % 10));
+};
+
 void count_sort(vector<int>& values, const int extractor, const bool to_show_state, const int mult_factor, const int add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
     for(int value : values)
-    	counter[add_factor + (mult_factor * ((value/extractor) % 10))]++;
+        counter[counter_accessor(value)]++;
     for(int i = 1; i < 10; i++)
         counter[i] += counter[i - 1];
     for(int i = values.size() - 1; i >= 0; i--) {
-        output[counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))] - 1] = values[i];
-        counter[add_factor + (mult_factor * ((values[i]/extractor) % 10))]--;
+        output[counter[counter_accessor(values[i])] - 1] = values[i];
+        counter[counter_accessor(values[i])]--;
     }
 
     values = output;
@@ -70,8 +73,8 @@ int getMaxVal(const vector<int> values) {
 void radix_sort(vector<int>& values, const bool to_show_state, const int mult_factor, const int add_factor) {
     int max_value = getMaxVal(values);
 
-    //Extracor variable divides the number by multiples of 10 unless the number becomes 0 as it is used to extract individual digits 
-    //in a particular position of the number by using mod 10 on the divided number as Radix sort sorts position-wise using Count Sort 
+    //Extractor variable divides the number by multiples of 10 unless the number becomes 0 as it is used to extract individual digits
+    //in a particular position of the number by using mod 10 on the divided number as Radix sort sorts position-wise using Count Sort
     for (int extractor = 1; max_value/extractor > 0; extractor *= 10) {
         count_sort(values, extractor, to_show_state, mult_factor, add_factor);
     }
