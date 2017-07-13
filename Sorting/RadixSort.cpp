@@ -69,6 +69,9 @@ int getMaxVal(const vector<int> values) {
 */
 void radix_sort(vector<int>& values, const bool to_show_state, const int mult_factor, const int add_factor) {
     int max_value = getMaxVal(values);
+
+    //Extracor variable divides the number by multiples of 10 unless the number becomes 0 as it is used to extract individual digits 
+    //in a particular position of the number by using mod 10 on the divided number as Radix sort sorts position-wise using Count Sort 
     for (int extractor = 1; max_value/extractor > 0; extractor *= 10) {
         count_sort(values, extractor, to_show_state, mult_factor, add_factor);
     }
