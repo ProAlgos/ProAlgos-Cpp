@@ -1,12 +1,15 @@
 /*
-    Longest common subsequence algorithm:
+    Longest common subsequence algorithm
+    ------------------------------------
     Given two strings, find their longest common subsequence (not sub-string).
     A classic dynamic programming algorithm for string processing.
 
-    Time complexity:
+    Time complexity
+    ----------------
     O(M*N), where M and N are the lengths of the two strings.
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(M*N), where M and N are the lengths of the two strings.
 */
 

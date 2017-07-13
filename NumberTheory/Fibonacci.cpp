@@ -1,13 +1,16 @@
 /*
-    Fibonacci number:
+    Fibonacci number
+    -----------------
     Find the N-th Fibonacci number, given the value of N.
     (The Fibonacci sequence is characterized by the fact that every number
     after the first two is the sum of the two preceding ones.)
 
-    Time complexity:
+    Time complexity
+    ---------------
     O(N), where N is the term of the Fibonacci sequence to calculate
 
-    Space complexity:
+    Space complexity
+    ----------------
     O(1), constant amount of extra space
 */
 
