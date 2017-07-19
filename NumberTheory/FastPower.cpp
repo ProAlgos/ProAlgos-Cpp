@@ -16,23 +16,24 @@
 
 */
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 typedef unsigned long long ull;
 
 //Function that returns base raised to the exponent
-ull fast_power (ull base,ull exponent)
+ull fast_power (ull base,ull exponent,ull mod)
 {
     if (exponent==0) return 1;
 
     if (exponent%2==1)  //If the power is odd
     {
-        return fast_power(base,exponent-1) * base;
+        return (fast_power(base,exponent-1,mod) * base)%mod;
     }
     else    //If the power is even
     {
-        base = fast_power(base,exponent/2);
-        return (base*base);
+        base = fast_power(base,exponent/2,mod);
+        return (base*base)%mod;
     }
 }
 
@@ -52,7 +53,17 @@ int main()
     }
     else
     {
-        cout<<endl<<fast_power(base,exponent)<<endl;
+        int digits_required = floor(exponent * log10(base)) + 1;
+
+        if (digits_required > 19)
+        {
+            cout<<endl<<fast_power(base,exponent,1000000007)<<endl;
+            cout<<"*The output is modulo 10^9+7"<<endl;
+        }
+        else
+        {
+            cout<<endl<<fast_power(base,exponent,ULLONG_MAX)<<endl;
+        }
     }
 
     return 0;
