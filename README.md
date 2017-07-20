@@ -2,7 +2,7 @@
 Implementation of well-known (and some rare) algorithms, mostly in C++.
 
 ## Contents
-For algorithms and data structures in C++, check out the list [here](C++/README.md).
+For algorithms and data structures in C++, check out the list [here](C++).
 
 ## My goal
 > Add atleast 1 algorithm to the repo every week.
