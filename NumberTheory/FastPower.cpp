@@ -22,7 +22,7 @@ using namespace std;
 typedef unsigned long long ull;
 
 //Function that returns base raised to the exponent
-ull fast_power (ull base,ull exponent,ull mod)
+ull fast_power (ull base,ull exponent,ull mod = ULLONG_MAX)
 {
     if (exponent==0) return 1;
 
@@ -62,7 +62,7 @@ int main()
         }
         else
         {
-            cout<<endl<<fast_power(base,exponent,ULLONG_MAX)<<endl;
+            cout<<endl<<fast_power(base,exponent)<<endl;
         }
     }
 
