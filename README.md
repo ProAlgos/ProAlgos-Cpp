@@ -1,4 +1,6 @@
 # Algos
+[![Build Status](https://travis-ci.org/faheel/Algos.svg?branch=master)](https://travis-ci.org/faheel/Algos)
+
 Implementation of well-known (and some rare) algorithms, mostly in C++.
 
 ## Contents
