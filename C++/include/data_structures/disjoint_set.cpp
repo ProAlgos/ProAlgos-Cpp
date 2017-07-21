@@ -14,7 +14,7 @@
     -----------
 */
 
-DisjointSet::DisjointSet(size_t num_nodes = 0) {
+DisjointSet::DisjointSet(size_t num_nodes) {
     set.resize(num_nodes);
 
     // initially all elements are parents of themselves, with rank 0
