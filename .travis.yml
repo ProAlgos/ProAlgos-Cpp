@@ -3,38 +3,52 @@ sudo: true
 
 matrix:
   include:
-    # Linux C++14 g++ build
+    # Linux g++ build
     - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+
+    # Linux clang++ build
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang-4.0
+      env:
+        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+
+    # OSX g++ build
+    - os: osx
+      osx_image: xcode8.3
       compiler: gcc
-      addons:
-        apt:
-          sources: ['ubuntu-toolchain-r-test']
-          packages: ['g++-6']
-      env: COMPILER='g++-6'
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
 
-    # Linux C++14 clang++ build
-    - os: linux
-      compiler: clang
-      addons:
-        apt:
-          sources: ['llvm-toolchain-precise-3.8', 'ubuntu-toolchain-r-test']
-          packages: ['clang-3.8', 'g++-6']
-      env: COMPILER='clang++-3.8'
-
-    # OSX C++14 Clang build
+    # OSX clang++ build
     - os: osx
       osx_image: xcode8.3
       compiler: clang
-      env: COMPILER='clang++'
+      env:
+        - MATRIX_EVAL="CC=clang && CXX=clang++"
+
+before_install:
+  - eval "${MATRIX_EVAL}"
 
 install: true
 
 before_script:
-  - export CXX=${COMPILER}
   - cd ${TRAVIS_BUILD_DIR}
 
 script:
   - cd C++
-  - make -O -j2
+  - make -j2
   # run all tests
   - find . -type f -name "*.test" -exec {} -s \;
