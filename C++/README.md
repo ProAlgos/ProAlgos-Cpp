@@ -4,8 +4,6 @@
 Implementation of well-known (and some rare) algorithms, in C++.
 
 ## Contents
-List of algorithms and data structures in C++:
-
 :white_check_mark: = has unit tests
 
 ### Algorithms
