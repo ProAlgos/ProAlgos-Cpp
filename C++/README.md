@@ -51,5 +51,8 @@ Simply run `make` to compile all of the code, including the unit tests. Note tha
 
 To remove all of the files created during compilation, run `make clean`. You need not do this every time you make a change to a file and want to recompile it to see how it works. Just run `make`, and it will re-compile just those files whose contents have changed. For more information on `make`, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
+## Unit tests
+If you would like to (and you should) add unit tests for the code you are contributing, or for some existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
+
 ## C++ Coding Guidelines
 If want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in making your code conform to the style followed in this project.
