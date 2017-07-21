@@ -18,9 +18,9 @@ matrix:
       compiler: clang
       addons:
         apt:
-          sources: ['llvm-toolchain-precise-3.8', 'ubuntu-toolchain-r-test']
-          packages: ['clang-3.8']
-      env: COMPILER='clang++-3.8'
+          sources: ['llvm-toolchain-precise-3.6', 'ubuntu-toolchain-r-test']
+          packages: ['clang-3.6', 'g++-6']
+      env: COMPILER='clang++-3.6'
 
     # OSX C++14 Clang build
     - os: osx
@@ -37,4 +37,4 @@ before_script:
 script:
   - cd C++
   - make -j 2
-  - for test in $(find . -type f -name "*.test"); do ./$test; done
+  - for test in $(find . -type f -name "*.test"); do ./$test -s; done
