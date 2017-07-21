@@ -25,27 +25,17 @@ matrix:
       env:
         - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
 
-    # OSX g++ build
+    # OSX g++ and clang++ builds
     - os: osx
       osx_image: xcode8.3
-      compiler: gcc
-      env:
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-
-    # OSX clang++ build
-    - os: osx
-      osx_image: xcode8.3
-      compiler: clang
-      env:
-        - MATRIX_EVAL="CC=clang && CXX=clang++"
+      compiler:
+        - gcc
+        - clang
 
 before_install:
   - eval "${MATRIX_EVAL}"
 
 install: true
-
-before_script:
-  - cd ${TRAVIS_BUILD_DIR}
 
 script:
   - cd C++
