@@ -42,12 +42,17 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * [Disjoint-set](include/data_structures/disjoint_set.cpp) :white_check_mark:
 
 ## Compiling
-Simply run **`make`** to compile all of the code, including the unit tests. Note that:
-* Executable binaries will be created in sub-directories under the `bin` directory.
-* Any intermediate build files will be created in sub-directories under the `build` directory,
-* Executable test binaries will have `.test` at the end of their name.
+To compile the source files, run **`make all`**. Doing so will:
+* create executable binaries in sub-directories under the `bin` directory, and
+* create intermediate build files in sub-directories under the `build` directory.
 
-To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make a change to a file and want to recompile it to see how it works. Just run **`make`**, and it will re-compile just those files whose contents have changed. For more information on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
+The sub-directories will be the same as they are under `source`.
+
+To compile and run the tests, run **`make test`**. This will compile all the tests (in the same way as described above) and will run them, displaying the results. Note that the test binaries will have `.test` at the end of their name.
+
+To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose contents have changed.
+
+To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
 ## Unit tests
 If you would like to (and you should) add unit tests for the code you are contributing, or for some existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).

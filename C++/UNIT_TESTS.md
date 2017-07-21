@@ -35,4 +35,4 @@
     #endif
     ```
 
-**And that's it!** Now you can compile the test using **`make`** from the `C++` directory, and then run it from the `bin` directory to see the test results :crossed_fingers:.
+**And that's it!** Now you can compile the test using **`make test`** from the `C++` directory, which will also run all of the tests for you. In order to run only a specific test and see its results, run it manually from the `bin` directory.
