@@ -1,7 +1,7 @@
 ## Adding unit tests for C++ code
 
-1. Under the [`test` directory](test), locate (or create, if doesn't exist) the directory having the same relative path from `test` as from `src` or `include`.
-**Eg.** if you added the source code to `src/dir1`, locate or create the directory `test/dir1`.
+1. Under the [`test` directory](test), locate (or create, if doesn't exist) the directory having the same relative path from `test` as from `source` or `include`.
+**Eg.** if you added the source code to `source/dir1/`, locate or create the directory `test/dir1`.
 
 1. Create a file with the same name as the corresponding source file for which you are writing tests, except that the extension should be `.test.cpp` instead of just `.cpp`.
 
@@ -11,7 +11,7 @@
     #define CATCH_CONFIG_MAIN
 
     #include "third_party/catch.hpp"
-    #include "src/path_to/source_file.cpp"
+    #include "source/path_to/source_file.cpp"
 
     // Add your test cases here:
 

@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
-#include "src/number_theory/fast_exponentiation.cpp"
+#include "source/number_theory/fast_exponentiation.cpp"
 
 
 TEST_CASE("Base cases", "[fast_exp]") {

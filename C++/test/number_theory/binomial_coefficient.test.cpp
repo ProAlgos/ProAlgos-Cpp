@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
-#include "src/number_theory/binomial_coefficient.cpp"
+#include "source/number_theory/binomial_coefficient.cpp"
 
 TEST_CASE("Base cases", "[binomial_coefficient]") {
     REQUIRE(binomial_coefficient(0, 0) == 1);

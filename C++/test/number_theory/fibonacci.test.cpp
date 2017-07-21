@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
-#include "src/number_theory/fibonacci.cpp"
+#include "source/number_theory/fibonacci.cpp"
 
 TEST_CASE("Base cases", "[fibonacci]") {
     REQUIRE(fibonacci(0) == 0);

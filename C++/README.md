@@ -10,34 +10,34 @@ List of algorithms and data structures in C++:
 
 ### Algorithms
 * Backtracking
-  * [N-Queens](src/backtracking/n_queens.cpp)
+  * [N-Queens](source/backtracking/n_queens.cpp)
 * Maximum sum contiguous subarray
-  * [Kadane's algorithm](src/maximum_subarray/kadane.cpp)
+  * [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
 * Number theory
-  * [Binomial coefficient](src/number_theory/binomial_coefficient.cpp) :white_check_mark:
+  * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
-    * [Greatest common divisor](src/number_theory/gcd.cpp) (GCD)
-    * [Extended Euclidean algorithm](src/number_theory/extended_euclid.cpp) (Bézout coefficients and GCD)
-  * [Fast exponentiation](src/number_theory/fast_exponentiation.cpp) :white_check_mark:
-  * [Nth Fibonacci number](src/number_theory/fibonacci.cpp) :white_check_mark:
-  * [Perfect number check](src/number_theory/perfect_number_check.cpp)
+    * [Greatest common divisor](source/number_theory/gcd.cpp) (GCD)
+    * [Extended Euclidean algorithm](source/number_theory/extended_euclid.cpp) (Bézout coefficients and GCD)
+  * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
+  * [Nth Fibonacci number](source/number_theory/fibonacci.cpp) :white_check_mark:
+  * [Perfect number check](source/number_theory/perfect_number_check.cpp)
   * Prime numbers
-    * [Sieve of Eratosthenes (simple)](src/number_theory/sieve_of_eratosthenes.cpp)
+    * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
 * Searching
-  * [Binary search](src/searching/binary_search.cpp)
+  * [Binary search](source/searching/binary_search.cpp)
 * Sorting
-  * [Bubble sort](src/sorting/bubble_sort.cpp)
-  * [Counting sort (stable)](src/sorting/counting_sort.cpp)
-  * [Heap sort](src/sorting/heap_sort.cpp)
-  * [Insertion sort](src/sorting/insertion_sort.cpp)
-  * [Merge sort](src/sorting/merge_sort.cpp)
-  * [Quick sort](src/sorting/quick_sort.cpp)
-  * [Selection sort](src/sorting/selection_sort.cpp)
-  * [Shell sort](src/sorting/shell_sort.cpp)
+  * [Bubble sort](source/sorting/bubble_sort.cpp)
+  * [Counting sort (stable)](source/sorting/counting_sort.cpp)
+  * [Heap sort](source/sorting/heap_sort.cpp)
+  * [Insertion sort](source/sorting/insertion_sort.cpp)
+  * [Merge sort](source/sorting/merge_sort.cpp)
+  * [Quick sort](source/sorting/quick_sort.cpp)
+  * [Selection sort](source/sorting/selection_sort.cpp)
+  * [Shell sort](source/sorting/shell_sort.cpp)
 * String
-  * [Longest common subsequence](src/string/lcs.cpp)
+  * [Longest common subsequence](source/string/lcs.cpp)
   * Searching
-    * [Knuth-Morris-Pratt](src/string/kmp.cpp)
+    * [Knuth-Morris-Pratt](source/string/kmp.cpp)
 
 ### Data structures
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
