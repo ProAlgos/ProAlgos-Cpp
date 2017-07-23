@@ -1,6 +1,6 @@
 /*
- *  Catch v1.9.4
- *  Generated: 2017-05-16 13:51:55.506519
+ *  Catch v1.9.6
+ *  Generated: 2017-06-27 12:19:54.557875
  *  ----------------------------------------------------------
  *  This file has been merged from multiple headers. Please don't edit it directly
  *  Copyright (c) 2012 Two Blue Cubes Ltd. All rights reserved.
@@ -220,7 +220,7 @@
 
 // Use __COUNTER__ if the compiler supports it
 #if ( defined _MSC_VER && _MSC_VER >= 1300 ) || \
-    ( defined __GNUC__  && __GNUC__ >= 4 && __GNUC_MINOR__ >= 3 ) || \
+    ( defined __GNUC__  && ( __GNUC__ > 4 || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3 )) ) || \
     ( defined __clang__ && __clang_major__ >= 3 )
 
 #define CATCH_INTERNAL_CONFIG_COUNTER
@@ -927,22 +927,24 @@ namespace Catch {
         template<typename T> STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& operator && ( T const& );
         template<typename T> STATIC_ASSERT_Expression_Too_Complex_Please_Rewrite_As_Binary_Comparison& operator || ( T const& );
 
-	private:
-		DecomposedExpression& operator = (DecomposedExpression const&);
+    private:
+        DecomposedExpression& operator = (DecomposedExpression const&);
     };
 
     struct AssertionInfo
     {
         AssertionInfo() {}
-        AssertionInfo(  std::string const& _macroName,
+        AssertionInfo(  char const * _macroName,
                         SourceLineInfo const& _lineInfo,
-                        std::string const& _capturedExpression,
-                        ResultDisposition::Flags _resultDisposition );
+                        char const * _capturedExpression,
+                        ResultDisposition::Flags _resultDisposition,
+                        char const * _secondArg = "");
 
-        std::string macroName;
+        char const * macroName;
         SourceLineInfo lineInfo;
-        std::string capturedExpression;
+        char const * capturedExpression;
         ResultDisposition::Flags resultDisposition;
+        char const * secondArg;
     };
 
     struct AssertionResultData
@@ -1217,7 +1219,7 @@ namespace Catch {
 
         template<typename T>
         ResultBuilder& operator << ( T const& value ) {
-            m_stream.oss << value;
+            m_stream().oss << value;
             return *this;
         }
 
@@ -1250,7 +1252,12 @@ namespace Catch {
     private:
         AssertionInfo m_assertionInfo;
         AssertionResultData m_data;
-        CopyableStream m_stream;
+
+        static CopyableStream &m_stream()
+        {
+            static CopyableStream s;
+            return s;
+        }
 
         bool m_shouldDebugBreak;
         bool m_shouldThrow;
@@ -1571,7 +1578,7 @@ std::string toString( std::nullptr_t );
 
 #ifdef __OBJC__
     std::string toString( NSString const * const& nsstring );
-    std::string toString( NSString * CATCH_ARC_STRONG const& nsstring );
+    std::string toString( NSString * CATCH_ARC_STRONG & nsstring );
     std::string toString( NSObject* const& nsObject );
 #endif
 
@@ -1855,7 +1862,7 @@ public:
     }
 
     virtual void reconstructExpression( std::string& dest ) const CATCH_OVERRIDE {
-        dest = Catch::toString( m_truthy );
+        dest = Catch::toString( m_lhs );
     }
 
 private:
@@ -3490,16 +3497,16 @@ return @ desc; \
 #include <crtdbg.h>
 class LeakDetector {
 public:
-	LeakDetector() {
-		int flag = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
-		flag |= _CRTDBG_LEAK_CHECK_DF;
-		flag |= _CRTDBG_ALLOC_MEM_DF;
-		_CrtSetDbgFlag(flag);
-		_CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE | _CRTDBG_MODE_DEBUG);
-		_CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDERR);
-		// Change this to leaking allocation's number to break there
-		_CrtSetBreakAlloc(-1);
-	}
+    LeakDetector() {
+        int flag = _CrtSetDbgFlag(_CRTDBG_REPORT_FLAG);
+        flag |= _CRTDBG_LEAK_CHECK_DF;
+        flag |= _CRTDBG_ALLOC_MEM_DF;
+        _CrtSetDbgFlag(flag);
+        _CrtSetReportMode(_CRT_WARN, _CRTDBG_MODE_FILE | _CRTDBG_MODE_DEBUG);
+        _CrtSetReportFile(_CRT_WARN, _CRTDBG_FILE_STDERR);
+        // Change this to leaking allocation's number to break there
+        _CrtSetBreakAlloc(-1);
+    }
 };
 #else
 class LeakDetector {};
@@ -3938,6 +3945,7 @@ namespace Catch {
             listTags( false ),
             listReporters( false ),
             listTestNamesOnly( false ),
+            listExtraInfo( false ),
             showSuccessfulTests( false ),
             shouldDebugBreak( false ),
             noThrow( false ),
@@ -3957,6 +3965,7 @@ namespace Catch {
         bool listTags;
         bool listReporters;
         bool listTestNamesOnly;
+        bool listExtraInfo;
 
         bool showSuccessfulTests;
         bool shouldDebugBreak;
@@ -4015,6 +4024,7 @@ namespace Catch {
         bool listTestNamesOnly() const { return m_data.listTestNamesOnly; }
         bool listTags() const { return m_data.listTags; }
         bool listReporters() const { return m_data.listReporters; }
+        bool listExtraInfo() const { return m_data.listExtraInfo; }
 
         std::string getProcessName() const { return m_data.processName; }
 
@@ -5276,6 +5286,10 @@ namespace Catch {
             .describe( "list all/matching test cases names only" )
             .bind( &ConfigData::listTestNamesOnly );
 
+        cli["--list-extra-info"]
+            .describe( "list all/matching test cases with more info" )
+            .bind( &ConfigData::listExtraInfo );
+
         cli["--list-reporters"]
             .describe( "list all reporters" )
             .bind( &ConfigData::listReporters );
@@ -5804,8 +5818,9 @@ namespace Catch {
         }
 
         std::size_t matchedTests = 0;
-        TextAttributes nameAttr, tagsAttr;
+        TextAttributes nameAttr, descAttr, tagsAttr;
         nameAttr.setInitialIndent( 2 ).setIndent( 4 );
+        descAttr.setIndent( 4 );
         tagsAttr.setIndent( 6 );
 
         std::vector<TestCase> matchedTestCases = filterTests( getAllTestCasesSorted( config ), testSpec, config );
@@ -5820,6 +5835,13 @@ namespace Catch {
             Colour colourGuard( colour );
 
             Catch::cout() << Text( testCaseInfo.name, nameAttr ) << std::endl;
+            if( config.listExtraInfo() ) {
+                Catch::cout() << "    " << testCaseInfo.lineInfo << std::endl;
+                std::string description = testCaseInfo.description;
+                if( description.empty() )
+                    description = "(NO DESCRIPTION)";
+                Catch::cout() << Text( description, descAttr ) << std::endl;
+            }
             if( !testCaseInfo.tags.empty() )
                 Catch::cout() << Text( testCaseInfo.tagsAsString, tagsAttr ) << std::endl;
         }
@@ -5843,9 +5865,12 @@ namespace Catch {
             matchedTests++;
             TestCaseInfo const& testCaseInfo = it->getTestCaseInfo();
             if( startsWith( testCaseInfo.name, '#' ) )
-               Catch::cout() << '"' << testCaseInfo.name << '"' << std::endl;
+               Catch::cout() << '"' << testCaseInfo.name << '"';
             else
-               Catch::cout() << testCaseInfo.name << std::endl;
+               Catch::cout() << testCaseInfo.name;
+            if ( config.listExtraInfo() )
+                Catch::cout() << "\t@" << testCaseInfo.lineInfo;
+            Catch::cout() << std::endl;
         }
         return matchedTests;
     }
@@ -5937,7 +5962,7 @@ namespace Catch {
 
     inline Option<std::size_t> list( Config const& config ) {
         Option<std::size_t> listedCount;
-        if( config.listTests() )
+        if( config.listTests() || ( config.listExtraInfo() && !config.listTestNamesOnly() ) )
             listedCount = listedCount.valueOr(0) + listTests( config );
         if( config.listTestNamesOnly() )
             listedCount = listedCount.valueOr(0) + listTestsNamesOnly( config );
@@ -6647,7 +6672,7 @@ namespace Catch {
             static_cast<void>(m_reporter->assertionEnded(AssertionStats(result, m_messages, m_totals)));
 
             // Reset working state
-            m_lastAssertionInfo = AssertionInfo( std::string(), m_lastAssertionInfo.lineInfo, "{Unknown expression after the reported line}" , m_lastAssertionInfo.resultDisposition );
+            m_lastAssertionInfo = AssertionInfo( "", m_lastAssertionInfo.lineInfo, "{Unknown expression after the reported line}" , m_lastAssertionInfo.resultDisposition );
             m_lastResult = result;
         }
 
@@ -6777,7 +6802,7 @@ namespace Catch {
             double duration = 0;
             m_shouldReportUnexpected = true;
             try {
-                m_lastAssertionInfo = AssertionInfo( "TEST_CASE", testCaseInfo.lineInfo, std::string(), ResultDisposition::Normal );
+                m_lastAssertionInfo = AssertionInfo( "TEST_CASE", testCaseInfo.lineInfo, "", ResultDisposition::Normal );
 
                 seedRng( *m_config );
 
@@ -6829,9 +6854,9 @@ namespace Catch {
     private:
 
         ResultBuilder makeUnexpectedResultBuilder() const {
-            return ResultBuilder(   m_lastAssertionInfo.macroName.c_str(),
+            return ResultBuilder(   m_lastAssertionInfo.macroName,
                                     m_lastAssertionInfo.lineInfo,
-                                    m_lastAssertionInfo.capturedExpression.c_str(),
+                                    m_lastAssertionInfo.capturedExpression,
                                     m_lastAssertionInfo.resultDisposition );
         }
 
@@ -8008,14 +8033,16 @@ namespace Catch {
 
 namespace Catch {
 
-    AssertionInfo::AssertionInfo(   std::string const& _macroName,
+    AssertionInfo::AssertionInfo(   char const * _macroName,
                                     SourceLineInfo const& _lineInfo,
-                                    std::string const& _capturedExpression,
-                                    ResultDisposition::Flags _resultDisposition )
+                                    char const * _capturedExpression,
+                                    ResultDisposition::Flags _resultDisposition,
+                                    char const * _secondArg)
     :   macroName( _macroName ),
         lineInfo( _lineInfo ),
         capturedExpression( _capturedExpression ),
-        resultDisposition( _resultDisposition )
+        resultDisposition( _resultDisposition ),
+        secondArg( _secondArg )
     {}
 
     AssertionResult::AssertionResult() {}
@@ -8042,24 +8069,30 @@ namespace Catch {
     }
 
     bool AssertionResult::hasExpression() const {
-        return !m_info.capturedExpression.empty();
+        return m_info.capturedExpression[0] != 0;
     }
 
     bool AssertionResult::hasMessage() const {
         return !m_resultData.message.empty();
     }
 
+    std::string capturedExpressionWithSecondArgument( char const * capturedExpression, char const * secondArg ) {
+        return (secondArg[0] == 0 || secondArg[0] == '"' && secondArg[1] == '"')
+            ? capturedExpression
+            : std::string(capturedExpression) + ", " + secondArg;
+    }
+
     std::string AssertionResult::getExpression() const {
         if( isFalseTest( m_info.resultDisposition ) )
-            return '!' + m_info.capturedExpression;
+            return '!' + capturedExpressionWithSecondArgument(m_info.capturedExpression, m_info.secondArg);
         else
-            return m_info.capturedExpression;
+            return capturedExpressionWithSecondArgument(m_info.capturedExpression, m_info.secondArg);
     }
     std::string AssertionResult::getExpressionInMacro() const {
-        if( m_info.macroName.empty() )
-            return m_info.capturedExpression;
+        if( m_info.macroName[0] == 0 )
+            return capturedExpressionWithSecondArgument(m_info.capturedExpression, m_info.secondArg);
         else
-            return m_info.macroName + "( " + m_info.capturedExpression + " )";
+            return std::string(m_info.macroName) + "( " + capturedExpressionWithSecondArgument(m_info.capturedExpression, m_info.secondArg) + " )";
     }
 
     bool AssertionResult::hasExpandedExpression() const {
@@ -8309,7 +8342,7 @@ namespace Catch {
     }
 
     inline Version libraryVersion() {
-        static Version version( 1, 9, 4, "", 0 );
+        static Version version( 1, 9, 6, "", 0 );
         return version;
     }
 
@@ -8661,6 +8694,10 @@ namespace Catch {
         m_timer.start();
     }
 
+#if defined(_MSC_VER)
+#pragma warning(push)
+#pragma warning(disable:4996) // std::uncaught_exception is deprecated in C++17
+#endif
     Section::~Section() {
         if( m_sectionIncluded ) {
             SectionEndInfo endInfo( m_info, m_assertions, m_timer.getElapsedSeconds() );
@@ -8670,6 +8707,9 @@ namespace Catch {
                 getResultCapture().sectionEnded( endInfo );
         }
     }
+#if defined(_MSC_VER)
+#pragma warning(pop)
+#endif
 
     // This indicates whether the section should be executed or not
     Section::operator bool() const {
@@ -8985,7 +9025,7 @@ std::string toString( std::nullptr_t ) {
             return "nil";
         return "@" + toString([nsstring UTF8String]);
     }
-    std::string toString( NSString * CATCH_ARC_STRONG const& nsstring ) {
+    std::string toString( NSString * CATCH_ARC_STRONG & nsstring ) {
         if( !nsstring )
             return "nil";
         return "@" + toString([nsstring UTF8String]);
@@ -9002,26 +9042,23 @@ std::string toString( std::nullptr_t ) {
 
 namespace Catch {
 
-    std::string capturedExpressionWithSecondArgument( std::string const& capturedExpression, std::string const& secondArg ) {
-        return secondArg.empty() || secondArg == "\"\""
-            ? capturedExpression
-            : capturedExpression + ", " + secondArg;
-    }
     ResultBuilder::ResultBuilder(   char const* macroName,
                                     SourceLineInfo const& lineInfo,
                                     char const* capturedExpression,
                                     ResultDisposition::Flags resultDisposition,
                                     char const* secondArg )
-    :   m_assertionInfo( macroName, lineInfo, capturedExpressionWithSecondArgument( capturedExpression, secondArg ), resultDisposition ),
+    :   m_assertionInfo( macroName, lineInfo, capturedExpression, resultDisposition, secondArg ),
         m_shouldDebugBreak( false ),
         m_shouldThrow( false ),
         m_guardException( false )
-    {}
+    {
+        m_stream().oss.str("");
+    }
 
     ResultBuilder::~ResultBuilder() {
 #if defined(CATCH_CONFIG_FAST_COMPILE)
         if ( m_guardException ) {
-            m_stream.oss << "Exception translation was disabled by CATCH_CONFIG_FAST_COMPILE";
+            m_stream().oss << "Exception translation was disabled by CATCH_CONFIG_FAST_COMPILE";
             captureResult( ResultWas::ThrewException );
             getCurrentContext().getResultCapture()->exceptionEarlyReported();
         }
@@ -9044,7 +9081,7 @@ namespace Catch {
 
     void ResultBuilder::useActiveException( ResultDisposition::Flags resultDisposition ) {
         m_assertionInfo.resultDisposition = resultDisposition;
-        m_stream.oss << Catch::translateActiveException();
+        m_stream().oss << Catch::translateActiveException();
         captureResult( ResultWas::ThrewException );
     }
 
@@ -9065,7 +9102,7 @@ namespace Catch {
         assert( !isFalseTest( m_assertionInfo.resultDisposition ) );
         AssertionResultData data = m_data;
         data.resultType = ResultWas::Ok;
-        data.reconstructedExpression = m_assertionInfo.capturedExpression;
+        data.reconstructedExpression = capturedExpressionWithSecondArgument(m_assertionInfo.capturedExpression, m_assertionInfo.secondArg);
 
         std::string actualMessage = Catch::translateActiveException();
         if( !matcher.match( actualMessage ) ) {
@@ -9131,13 +9168,13 @@ namespace Catch {
             data.negate( expr.isBinaryExpression() );
         }
 
-        data.message = m_stream.oss.str();
+        data.message = m_stream().oss.str();
         data.decomposedExpression = &expr; // for lazy reconstruction
         return AssertionResult( m_assertionInfo, data );
     }
 
     void ResultBuilder::reconstructExpression( std::string& dest ) const {
-        dest = m_assertionInfo.capturedExpression;
+        dest = capturedExpressionWithSecondArgument(m_assertionInfo.capturedExpression, m_assertionInfo.secondArg);
     }
 
     void ResultBuilder::setExceptionGuard() {
@@ -10028,20 +10065,6 @@ namespace Catch {
     };
 
 }
-// #included from: catch_reenable_warnings.h
-
-#define TWOBLUECUBES_CATCH_REENABLE_WARNINGS_H_INCLUDED
-
-#ifdef __clang__
-#    ifdef __ICC // icpc defines the __clang__ macro
-#        pragma warning(pop)
-#    else
-#        pragma clang diagnostic pop
-#    endif
-#elif defined __GNUC__
-#    pragma GCC diagnostic pop
-#endif
-
 
 namespace Catch {
     class XmlReporter : public StreamingReporterBase {
@@ -11303,7 +11326,7 @@ extern "C" int wmain (int argc, wchar_t * argv[], wchar_t * []) {
 int main (int argc, char * argv[]) {
 #endif
 
-	int result = Catch::Session().run( argc, argv );
+    int result = Catch::Session().run( argc, argv );
     return ( result < 0xff ? result : 0xff );
 }
 
@@ -11503,6 +11526,20 @@ int main (int argc, char * const argv[]) {
 #define AND_THEN( desc ) SECTION( std::string("     And: ") + desc, "" )
 
 using Catch::Detail::Approx;
+
+// #included from: internal/catch_reenable_warnings.h
+
+#define TWOBLUECUBES_CATCH_REENABLE_WARNINGS_H_INCLUDED
+
+#ifdef __clang__
+#    ifdef __ICC // icpc defines the __clang__ macro
+#        pragma warning(pop)
+#    else
+#        pragma clang diagnostic pop
+#    endif
+#elif defined __GNUC__
+#    pragma GCC diagnostic pop
+#endif
 
 #endif // TWOBLUECUBES_SINGLE_INCLUDE_CATCH_HPP_INCLUDED
 
