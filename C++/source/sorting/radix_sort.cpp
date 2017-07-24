@@ -9,7 +9,7 @@
 #include <vector>
 #include <array>
 #include <algorithm>
-#include "SortingUtils.hpp"
+#include "sorting/utils.hpp"
 
 using namespace std;
 
@@ -20,25 +20,20 @@ using namespace std;
 
     Time complexity
     ---------------
-    O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
-    Hence, the above expression becomes O(N + 10) = O(N)
+    O(N), where N is the number of keys.
 
     Space complexity
     ----------------
-    O(N + B), where N is the number of keys and B is the base for representing the numbers(10 in case of decimal system)
-    Hence, the above expression becomes O(N + 10) = O(N)
-    This space is used for count sorting each key and temporarily creating a sorted array.
+    O(N), where N is the number of keys.
 */
-
 void count_sort(vector<int>& values, const int extractor, const bool to_show_state, const int mult_factor, const int add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
-    // auto counter_accessor = [] (const int value, const int mult_factor, const int add_factor, const int extractor) {
-    //     return add_factor + (mult_factor * ((value/extractor) % 10));
-    // };
+
     auto counter_accessor = [] (const int value) {
         return add_factor + (mult_factor * ((value/extractor) % 10));
     };
+
     for(int value : values)
         counter[counter_accessor(value, mult_factor, add_factor, extractor)]++;
     for(int i = 1; i < 10; i++)
@@ -56,7 +51,7 @@ void count_sort(vector<int>& values, const int extractor, const bool to_show_sta
 }
 
 //This function returns the maximum value in the vector
-int getMaxVal(const vector<int> values) {
+int getMaxVal(const vector<int>& values) {
     return *max_element(values.begin(), values.end());
 }
 
@@ -67,14 +62,13 @@ int getMaxVal(const vector<int> values) {
 
     Time complexity
     ---------------
-    O(D * N), where N is the number of keys, D is the number of digits in input integers.
+    O(N), where N is the number of keys.
 
     Space complexity
     ----------------
-    O(N + B), where N is the number of elements and B is the base for representing the numbers(10 in case of decimal system)
-    This space is used for count sorting each key and temporarily creating a sorted array.
+    O(N), where N is the number of keys.
 */
-void radix_sort(vector<int>& values, const bool to_show_state, const int mult_factor, const int add_factor) {
+void radix_sort(vector<int>& values, const bool& to_show_state, const int& mult_factor, const int& add_factor) {
     int max_value = getMaxVal(values);
 
     //Extractor variable divides the number by multiples of 10 unless the number becomes 0 as it is used to extract individual digits
