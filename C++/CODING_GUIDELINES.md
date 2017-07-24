@@ -10,10 +10,15 @@ This document is not yet complete.
 ### Contents
 - [Naming](#naming)
   - [General naming rules](#general-naming-rules)
+  - [File names](#file-names)
+  - [Type names](#type-names)
+  - [Variable names](#variable-names)
+  - [Constant names](#constant-names)
+  - [Function names](#function-names)
+  - [Enumerator names](#enumerator-names)
 - [Formatting](#formatting)
   - [Tabs vs. Spaces](#tabs-vs-spaces)
   - [Horizontal whitespace](#horizontal-whitespace)
-- [Compiling](#compiling)
 
 ## Naming
 
@@ -26,7 +31,6 @@ and do not abbreviate by deleting letters within a word.
 - Certain universally-known abbreviations are OK, such as `i` for an iteration variable and `T` for a template parameter.
 
 #### Good
-
 ```C++
 int price_count_reader;    // No abbreviation.
 int num_errors;            // "num" is a widespread convention.
@@ -34,7 +38,6 @@ int num_dns_connections;   // Most people know what "DNS" stands for.
 ```
 
 #### Bad
-
 ```C++
 int n;                     // Meaningless.
 int nerr;                  // Ambiguous abbreviation.
@@ -42,6 +45,80 @@ int n_comp_conns;          // Ambiguous abbreviation.
 int wgc_connections;       // Only your group knows what this stands for.
 int pc_reader;             // Lots of things can be abbreviated "pc".
 int cstmr_id;              // Deletes internal letters.
+```
+
+### File names
+- File and directory names should be all lowercase, with word separators (such as dashes and spaces) replaced with an underscore `_`.
+- All source files should have the extenstion `.cpp`, unit test files `.test.cpp`, and header files `.hpp`.
+
+#### Examples
+- Source file: `insertion_sort.cpp`, `n_queens.cpp`
+- Unit test file: `fast_exponentiation.test.cpp`, `fibonacci.test.cpp`
+- Header file: `disjoint_set.hpp`, `binary_search_tree.hpp`
+- Directory: `number_theory`, `backtracking`
+
+### Type names
+The names of all types - **classes**, **structs**, **type aliases** and **enums** - have the same naming convention: they should start with a capital letter and have a capital letter for each new word, with no underscores (Pascal case).
+
+#### Examples
+```C++
+// classes and structs
+class UrlTable { ... };
+class UrlTableTester { ... };
+struct UrlTableProperties { ... };
+
+// typedefs
+typedef hash_map<UrlTableProperties *, string> PropertiesMap;
+
+// using aliases
+using PropertiesMap = hash_map<UrlTableProperties *, string>;
+
+// enums
+enum UrlTableErrors { ... };
+```
+
+### Variable names
+The names of variables (including function parameters) and data members are all lowercase, with underscores between words.
+
+#### Examples
+`table_name`, `num_dns_connections`, `left_child`.
+
+### Constant names
+Variables declared `const` or `constexpr`, and whose value is fixed for the duration of the program, are all uppercase, with underscores between words. All such variables with static storage duration (i.e. statics and globals) should be named this way.
+
+#### Examples
+```C++
+const double PI = 3.14159265;
+const int MAX_BOARD_SIZE = 16;
+```
+
+### Function names
+- Function names follow the same rules as those for variable names: all lowercase with underscores between words.
+- Accessors (get funtions) should have the same name as the variable (eg. `tree.root()`), and mutators (set functions) should start with `set_` (eg. `tree.set_root(new_root)`).
+
+#### Examples
+```C++
+add_table_entry()
+is_reversable()
+delete_url()
+```
+
+### Enumerator names
+Enumerators should be named like constants (eg. `ENUM_NAME`). Note that the enumeration name (name of the `enum`) is a type, and should therefore be named using Pascal case, as mentioned under [Type names](#type-names).
+
+#### Examples
+```C++
+enum UrlTableErrors {
+    OK,
+    OUT_OF_MEMORY,
+    MALFORMED_INPUT
+};
+
+enum TraversalOrder: short {
+    PRE_ORDER,
+    IN_ORDER,
+    POST_ORDER
+};
 ```
 
 ## Formatting
