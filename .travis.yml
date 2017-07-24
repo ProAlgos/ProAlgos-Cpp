@@ -1,0 +1,46 @@
+language: cpp
+sudo: true
+
+matrix:
+  include:
+    # Linux g++ build
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+
+    # Linux clang++ build
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-4.0
+          packages:
+            - clang-4.0
+      env:
+        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+
+    # OSX g++ build
+    - os: osx
+      osx_image: xcode8.3
+      compiler: gcc
+
+    # OSX clang++ build
+    - os: osx
+      osx_image: xcode8.3
+      compiler: clang
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+
+install: true
+
+script:
+  - cd C++
+  - make all
+  - make test

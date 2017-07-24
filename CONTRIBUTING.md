@@ -23,7 +23,7 @@
 - Before submitting or updating a pull request, make sure that your code runs without any errors or warnings.
 
 ## C++ coding guidelines
-If you are contributing C++ code to this repo, make sure to read the [C++ Coding Guidelines](C++_CODING_GUIDELINES.md).
+If you are contributing C++ code to this repo, make sure to read the [C++ Coding Guidelines](C++/CODING_GUIDELINES.md).
 
 ## Code of Conduct
 This project has a [Code of Conduct](CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
