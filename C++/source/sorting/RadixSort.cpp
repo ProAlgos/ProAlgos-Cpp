@@ -30,13 +30,15 @@ using namespace std;
     This space is used for count sorting each key and temporarily creating a sorted array.
 */
 
-auto counter_accessor = [] (const int value, const int mult_factor, const int add_factor, const int extractor) {
-    return add_factor + (mult_factor * ((value/extractor) % 10));
-};
-
 void count_sort(vector<int>& values, const int extractor, const bool to_show_state, const int mult_factor, const int add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
+    // auto counter_accessor = [] (const int value, const int mult_factor, const int add_factor, const int extractor) {
+    //     return add_factor + (mult_factor * ((value/extractor) % 10));
+    // };
+    auto counter_accessor = [] (const int value) {
+        return add_factor + (mult_factor * ((value/extractor) % 10));
+    };
     for(int value : values)
         counter[counter_accessor(value, mult_factor, add_factor, extractor)]++;
     for(int i = 1; i < 10; i++)
