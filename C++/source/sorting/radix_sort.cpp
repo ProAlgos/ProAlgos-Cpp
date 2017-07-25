@@ -35,12 +35,12 @@ void count_sort(vector<int>& values, const int& extractor, const bool& to_show_s
     };
 
     for(int value : values)
-        counter[counter_accessor(value, mult_factor, add_factor, extractor)]++;
+        counter[counter_accessor(value)]++;
     for(int i = 1; i < 10; i++)
         counter[i] += counter[i - 1];
     for(int i = values.size() - 1; i >= 0; i--) {
-        output[counter[counter_accessor(values[i], mult_factor, add_factor, extractor)] - 1] = values[i];
-        counter[counter_accessor(values[i], mult_factor, add_factor, extractor)]--;
+        output[counter[counter_accessor(values[i])] - 1] = values[i];
+        counter[counter_accessor(values[i])]--;
     }
 
     values = output;
