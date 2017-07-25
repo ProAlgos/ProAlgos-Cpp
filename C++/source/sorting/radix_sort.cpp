@@ -26,11 +26,11 @@ using namespace std;
     ----------------
     O(N), where N is the number of keys.
 */
-void count_sort(vector<int>& values, const int extractor, const bool to_show_state, const int mult_factor, const int add_factor) {
+void count_sort(vector<int>& values, const int& extractor, const bool& to_show_state, const int& mult_factor, const int& add_factor) {
     array<int, 10> counter{0};
     vector<int> output(values.size());
 
-    auto counter_accessor = [] (const int value) {
+    auto counter_accessor = [&] (const int value) {
         return add_factor + (mult_factor * ((value/extractor) % 10));
     };
 
