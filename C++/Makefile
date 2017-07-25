@@ -7,6 +7,9 @@ CXXFLAGS += -Wall -Wextra -pedantic-errors
 # flags for dependency generation
 CXXFLAGS += -MMD -MP
 
+# flag for code coverage
+CXXFLAGS += --coverage
+
 # include directories
 INCLUDES += -Iinclude -I.
 
@@ -46,7 +49,7 @@ DEPENDENCIES += $(TEST_DEPENDENCIES)
 all: dirs $(PROG_EXECUTABLES)
 
 .PHONY: test
-test: test_dirs $(TEST_EXECUTABLES)
+test: test-dirs $(TEST_EXECUTABLES)
 	find . -type f -name "*.test" -exec {} \;
 
 build/%.o: source/%.cpp
@@ -68,8 +71,8 @@ bin/%: build/%.o
 dirs:
 	mkdir -p $(patsubst %, build/%, $(PROG_DIRS)) $(patsubst %, bin/%, $(PROG_DIRS))
 
-.PHONY: test_dirs
-test_dirs:
+.PHONY: test-dirs
+test-dirs:
 	mkdir -p $(patsubst %, build/%, $(TEST_DIRS)) $(patsubst %, bin/%, $(TEST_DIRS))
 
 .PHONY: clean
