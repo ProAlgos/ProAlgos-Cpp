@@ -2,7 +2,8 @@
     Radix sort
     ----------
     An efficient, key-index-based, comparision based sorting algorithm.
-    It sorts based on the keys obtained on each index of the numbers to be sorteed.
+    It sorts based on the keys obtained on each index of the numbers to be sorted.
+    IT CAN BE USED TO SORT ONLY POSITIVE NUMBERS.
 */
 
 #include <iostream>
