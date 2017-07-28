@@ -1,10 +1,14 @@
 #include <cstdlib> // std::malloc(), std::realloc()
 
 /*
+	Author
+	------
+	Ryan Young (github.com/ryoung9550)
+
 	Brief
 	-------
 	Dynamic Array is an implementation from scratch based
-	off of the SDL std::vector
+	off of the STL std::vector
 */
 
 template<class T>
