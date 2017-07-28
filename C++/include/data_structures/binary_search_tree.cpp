@@ -13,7 +13,7 @@
     subtree.
 */
 
-#include "BinarySearchTree.hpp"
+#include "binary_search_tree.hpp"
 #include <iostream>
 #include <stack>
 
