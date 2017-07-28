@@ -1,5 +1,11 @@
 # c++ version
+GCC_MAJOR:=$(shell echo $(GCC_VERSION) | cut -d'.' -f1)
+
+ifeq ($(GCC_MAJOR),5)
 CXXFLAGS += -std=c++14
+else
+CXXFLAGS += -std=c++1y
+endif
 
 # warning flags
 CXXFLAGS += -Wall -Wextra -pedantic-errors
