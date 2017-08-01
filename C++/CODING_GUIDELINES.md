@@ -1,11 +1,9 @@
 # C++ Coding Guidelines
 
-Most of the sections in these guidelines are adapted from the
-[Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
+Most of the sections in these guidelines are adapted from the [C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines) and the [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html).
 Only those sections that are relevant to this project have been included here.
-You can read the complete guide to know more of the good practises of writing C++ code.
 
-This document is not yet complete.
+**This document is a work in progress.**
 
 ### Contents
 - [Naming](#naming)
@@ -19,6 +17,8 @@ This document is not yet complete.
 - [Formatting](#formatting)
   - [Tabs vs. Spaces](#tabs-vs-spaces)
   - [Horizontal whitespace](#horizontal-whitespace)
+- [Functions](#functions)
+  - [Parameter passing](#parameter-passing)
 
 ## Naming
 
@@ -124,7 +124,7 @@ enum TraversalOrder: short {
 ## Formatting
 
 ### Tabs vs. Spaces
-Use soft tabs that are 4 spaces long. :grin:
+Use soft tabs that are 4 spaces long.
 
 ### Horizontal whitespace
 
@@ -180,3 +180,26 @@ Use soft tabs that are 4 spaces long. :grin:
   ++y;
   z = !y;
   ```
+
+## Functions
+- “Package” meaningful operations as carefully named functions.
+- Keep functions short and simple.
+- A function should perform a single logical operation.
+- Use a lambda when a function won’t do (to capture local variables, or to write a local function).
+
+### Parameter passing
+For input parameters, pass cheaply-copied types by value and others by reference to `const`.
+
+#### Good
+```C++
+void f1(const string& s);  // pass by reference to const; always cheap
+
+void f2(int x);            // unbeatable
+```
+
+#### Bad
+```C++
+void f3(string s);         // potentially expensive
+
+void f4(const int& x);     // overhead on access in f4()
+```
