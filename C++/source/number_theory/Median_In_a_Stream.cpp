@@ -33,6 +33,7 @@ typedef long long ll;
 priority_queue <ll> great;
 priority_queue<ll,vector <ll>,greater<ll> > shorter;
 
+
 void add(ll num)
 {
 	if(!great.empty() and num < great.top())
@@ -62,15 +63,15 @@ ll median()
 }
 int main()
 {
-	ios::sync_with_stdio(false);
+    ios::sync_with_stdio(false);
 	cin.tie(NULL);
-	ll t;
-	cin>>t;
-	while(t--)
+	ll num_elements;
+	cin>>num_elements;
+	while(num_elements)
 	{
-		ll x;
-		cin>>x;
-		add(x);
+		ll num;
+		cin>>num;
+		add(num);
 		cout<<median()<<endl;
 	}
 	return 0;
