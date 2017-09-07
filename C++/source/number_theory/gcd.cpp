@@ -19,11 +19,15 @@
 #include <iostream>
 using namespace std;
 
+// Function to return maximum/minimum of a and b
+int max(int a, int b) { a>b ? a : b; }
+int min(int a, int b) { a<b ? a : b; }
+
 // Function to return gcd of a and b
 int gcd(int a, int b) {
-    if (a == 0)
-        return b;
-    return gcd(b%a, a);
+    if (min(a, b) == 0)
+        return max(a, b);
+    return gcd(max(a, b) % min(a, b), min(a, b));
 }
 
 // Driver program to test above function
