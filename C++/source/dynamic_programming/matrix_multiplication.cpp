@@ -66,15 +66,23 @@ ULL matrix_chain_order(const vector<int>& values, vector<vector<int>>& bracket)
                 {
                     multiplications[i][j] = temp_mults;
 
-                    // Each entry bracket[i,j]=k shows where to split the product values
-                    // i,i+1....j for the minimum cost.
-                    bracket[i][j] = k;
+                    if(!bracket.empty()) {
+                        // Each entry bracket[i,j]=k shows where to split the product values
+                        // i,i+1....j for the minimum cost.
+                        bracket[i][j] = k;
+                    }
                 }
             }
         }
     }
 
     return multiplications[1][size - 1];
+}
+
+ULL matrix_chain_order(const vector<int>& values)
+{
+    vector<vector<int>> bracket = vector<vector<int>>();
+    return matrix_chain_order(values, bracket);
 }
 
 void get_input_size(size_t& size) {
@@ -102,12 +110,12 @@ int main()
 
     vector<int> values(size);
     get_input_values(values, size);
-    
+
     // bracket[i][j] stores optimal break point in subexpression from i to j.
     vector<vector<int>> bracket(size, vector<int>(size, 0));
     ULL cost = matrix_chain_order(values, bracket);
     cout << "Optimal Cost is : " << cost << endl;
-    
+
     // The first matrix is printed as 'A', next as 'B' and so on
     char name = 'A';
     cout << "Optimal Parenthesization is : ";
