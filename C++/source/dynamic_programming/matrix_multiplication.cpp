@@ -18,12 +18,14 @@
 
 using namespace std;
 
+typedef unsigned long long int ULL;
+
 // Function for printing the optimal parenthesization of matrix chain product
-void print_brackets(int begin, int end, const vector<vector<int>> &bracket, char &name)
+void print_brackets(int begin, int end, const vector<vector<int>>& bracket, char& name)
 {
-    // If only one matrix left in current segment
     if (begin == end)
     {
+        // If only one matrix left in current segment
         cout << name++;
         return;
     }
@@ -40,18 +42,15 @@ void print_brackets(int begin, int end, const vector<vector<int>> &bracket, char
     cout << ")";
 }
 
-void matrix_chain_order(const vector<int> &values)
+ULL matrix_chain_order(const vector<int>& values, vector<vector<int>>& bracket)
 {
     int size = values.size();
-    vector<vector<int>> multiplications(size, vector<int>(size, 0));
+    if (size <= 2) return 0;
+    vector<vector<ULL>> multiplications(size, vector<ULL>(size, 0));
 
-    // bracket[i][j] stores optimal break point in
-    // subexpression from i to j.
-    vector<vector<int>> bracket(size, vector<int>(size, 0));
-
-    /* multiplications[i,j] = Minimum number of scalar multiplications
-    needed to compute the matrix A[i]A[i+1]...A[j] =
-    A[i..j] where dimension of A[i] is p[i-1] x p[i] */
+    // multiplications[i,j] = Minimum number of scalar multiplications
+    // needed to compute the matrix A[i]A[i+1]...A[j] =
+    // A[i..j] where dimension of A[i] is p[i-1] x p[i]
 
     for (int chain_length = 2; chain_length < size; chain_length++)
     {
@@ -61,13 +60,12 @@ void matrix_chain_order(const vector<int> &values)
             multiplications[i][j] = INT_MAX;
             for (int k = i; k <= j - 1; k++)
             {
-                int temp_mults = multiplications[i][k] + multiplications[k + 1][j] + values[i - 1] * values[k] * values[j];
+                ULL temp_mults = multiplications[i][k] + multiplications[k + 1][j] + values[i - 1] * values[k] * values[j];
                 if (temp_mults < multiplications[i][j])
                 {
                     multiplications[i][j] = temp_mults;
 
-                    // Each entry bracket[i,j]=k shows
-                    // where to split the product arr
+                    // Each entry bracket[i,j]=k shows where to split the product values
                     // i,i+1....j for the minimum cost.
                     bracket[i][j] = k;
                 }
@@ -75,20 +73,45 @@ void matrix_chain_order(const vector<int> &values)
         }
     }
 
-    // The first matrix is printed as 'A', next as 'B',
-    // and so on
-    char name = 'A';
-
-    cout << "Optimal Parenthesization is : ";
-    print_brackets(1, size - 1, bracket, name);
-    cout << "\nOptimal Cost is : " << multiplications[1][size - 1] << endl;
+    return multiplications[1][size - 1];
 }
 
-// Driver code
+void get_input_size(size_t& size) {
+    cout << "Enter the input size : ";
+    cin >> size;
+
+    if ((int) size <= 1) {
+        cout << "Invalid input size! Try again.\n";
+        get_input_size(size);
+    }
+}
+
+void get_input_values(vector<int>& values, const size_t& size) {
+    cout << "Enter " << size << " integers :";
+    for (int& val: values)
+        cin >> val;
+    cin.ignore();
+}
+
+#ifndef MATRIX_MULTIPLICATION_TEST
 int main()
 {
-    int arr[] = {40, 20, 30, 10, 30};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    matrix_chain_order(vector<int>(arr, arr + n));
+    size_t size;
+    get_input_size(size);
+
+    vector<int> values(size);
+    get_input_values(values, size);
+    
+    // bracket[i][j] stores optimal break point in subexpression from i to j.
+    vector<vector<int>> bracket(size, vector<int>(size, 0));
+    ULL cost = matrix_chain_order(values, bracket);
+    cout << "Optimal Cost is : " << cost << endl;
+    
+    // The first matrix is printed as 'A', next as 'B' and so on
+    char name = 'A';
+    cout << "Optimal Parenthesization is : ";
+    print_brackets(1, size - 1, bracket, name);
+    cout << endl;
     return 0;
 }
+#endif
