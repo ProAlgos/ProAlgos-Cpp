@@ -14,7 +14,8 @@
 */
 
 #include <iostream>
-#include <bits/stdc++.h>
+#include <vector>
+#include <climits>
 
 using namespace std;
 
