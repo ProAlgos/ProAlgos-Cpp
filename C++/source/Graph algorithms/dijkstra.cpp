@@ -23,20 +23,7 @@
 #include<climits>
 using namespace std;
 
-#define MAX 10001
-
-vector < pair <int,int> > adj[MAX];
-bool visited[MAX];
-int dist[MAX];
-
-void initialise (int total_vertex) {
-	for (int i=0;i<=total_vertex;i++) {
-		dist[i] = INT_MAX;
-		visited[i] = 0;
-	}
-}
-
-void dijkstra (int start) {
+void dijkstra (vector <pair <int,int> > adj[],vector <bool> &visited,vector <int> &dist,int start) {
 	dist[start] = 0;
 	multiset < pair <int,int> > s;
 	s.insert(make_pair(0,start));
@@ -61,12 +48,14 @@ void dijkstra (int start) {
 }
 
 int main () {
-	int no_of_vertex,no_of_edges,source;
+	int num_vertex,num_edges,source;
 	cout<<"Enter no. of vertex and edges in graph ";
-	cin>>no_of_vertex>>no_of_edges;
-	initialise(no_of_vertex);
+	cin>>num_vertex>>num_edges;
+	vector < pair <int,int> > adj[num_vertex+1];
+	vector <bool> visited (num_vertex+1,0);
+	vector <int> dist (num_vertex+1,INT_MAX);
 	cout<<"Enter edges and cost associated with that edge\n";
-	while (no_of_edges--) {
+	while (num_edges--) {
 		int vertex1,vertex2,cost;
 		cin>>vertex1>>vertex2>>cost;
 		adj[vertex1].push_back(make_pair(cost,vertex2));
@@ -74,9 +63,9 @@ int main () {
 	}
 	cout<<"Enter source vertex\n";
 	cin>>source;
-	dijkstra(source);
+	dijkstra(adj,visited,dist,source);
 	cout<<"Minimum distence from source vertex to all other vertex is \n";
-	for (int i=1;i<=no_of_vertex;i++) {
+	for (int i=1;i<=num_vertex;i++) {
 		cout<<dist[i]<<" ";
 	}
 	cout<<"\n";
