@@ -38,7 +38,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Searching
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
 * Dynamic Programming
-  * [Matrix Chain Multiplication](source/dynamic_programming/matrix_multiplication.cpp)
+  * [Matrix Chain Multiplication](source/dynamic_programming/matrix_multiplication.cpp) :white_check_mark:
 
 ### Data structures
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
