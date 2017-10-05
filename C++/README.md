@@ -9,6 +9,9 @@ Implementation of well-known (and some rare) algorithms, in C++.
 ### Algorithms
 * Backtracking
   * [N-Queens](source/backtracking/n_queens.cpp)
+  * [Rat-in-a-Maze](source/backtracking/rat_in_a_maze.cpp)
+  * [Sudoku](source/backtracking/sudoku.cpp)
+  * [The-Knight-Tour](source/backtracking/knight_tour.cpp)
 * Maximum sum contiguous subarray
   * [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
 * Number theory
