@@ -18,14 +18,14 @@
 
 using namespace std;
 
-int linearSearch(const int value, const vector<int> &vect) {
+size_t linear_search(const int value, const vector<int> &vect) {
 
     // Search all the elements in the array
-    for(i = 0; i < vect.length(); i++) {
+    for(unsigned i = 0; i < vect.size(); i++) {
         // If the element at index i matches the target value
         // return the position i
         if(vect[i] == value) {
-            return i;
+            return i + 1;
         }
     }
 
@@ -33,6 +33,7 @@ int linearSearch(const int value, const vector<int> &vect) {
     return -1;
 }
 
+#ifndef LINEAR_SEARCH_TEST
 int main() {
     int value;
     cout << "Enter the value to search for: ";
@@ -47,12 +48,13 @@ int main() {
     for(int& val: inputVect)
         cin >> val;
 
-    int index = linearSearch(value, inputVect);
+    int index = linear_search(value, inputVect);
     cout << "\n";
     if(index != -1)
-        cout << "Found " << value << " at position " << (index + 1) << "\n";
+        cout << "Found " << value << " at position " << index << "\n";
     else
-        cout << "Either " << value << " is not present among the input values\n"
+        cout << value << " is not present among the input values\n";
 
     return 0;
 }
+#endif
