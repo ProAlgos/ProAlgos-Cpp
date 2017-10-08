@@ -1,4 +1,4 @@
-# Algos: C++
+﻿# Algos: C++
 [![Build Status](https://travis-ci.org/faheel/Algos.svg?branch=master)](https://travis-ci.org/faheel/Algos)
 
 Implementation of well-known (and some rare) algorithms, in C++.
@@ -17,7 +17,9 @@ Implementation of well-known (and some rare) algorithms, in C++.
     * [Greatest common divisor](source/number_theory/gcd.cpp) (GCD)
     * [Extended Euclidean algorithm](source/number_theory/extended_euclid.cpp) (Bézout coefficients and GCD)
   * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
-  * [Nth Fibonacci number](source/number_theory/fibonacci.cpp) :white_check_mark:
+  * Nth Fibonacci number
+    * [Standard algorithm](source/number_theory/fibonacci.cpp) :white_check_mark:
+    * [Efficient algorithm](source/number_theory/fibonacci_efficient.cpp) :white_check_mark:
   * [Perfect number check](source/number_theory/perfect_number_check.cpp)
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
