@@ -28,9 +28,9 @@ vector< vector<ULL> > matrix_product(const vector< vector<ULL> > &first_matrix, 
     // Example: If First[n, m] and Second[m, p], then their product will be Product[n, p]
     vector< vector<ULL> > product_of_matrices(first_matrix.size(), vector<ULL> (second_matrix[0].size()));
 
-    for (int i = 0; i < first_matrix.size(); i++) // For previous example i:1..n
-            for (int j = 0; j < second_matrix[0].size(); j++) // For previous example j:1..p
-                for (int k = 0; k < second_matrix.size(); k++) // For previous example k:1..m
+    for (int i = 0; i < (int) first_matrix.size(); i++) // For previous example i:1..n
+            for (int j = 0; j < (int) second_matrix[0].size(); j++) // For previous example j:1..p
+                for (int k = 0; k < (int) second_matrix.size(); k++) // For previous example k:1..m
                     product_of_matrices[i][j] += first_matrix[i][k] * second_matrix[k][j];
     return product_of_matrices;
 }
@@ -81,7 +81,7 @@ void getInput(int &n) {
     }
 }
 
-#ifndef FIBONACCI_TEST
+#ifndef FIBONACCI_EFFICIENT_TEST
 int main() {
     int n;
     getInput(n);
