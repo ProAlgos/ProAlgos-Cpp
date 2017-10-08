@@ -1,4 +1,4 @@
-#define FIBONACCI_TEST
+#define FIBONACCI_EFFICIENT_TEST
 #define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
@@ -24,4 +24,4 @@ TEST_CASE("Overflow cases", "[fibonacci]") {
     REQUIRE(fibonacci(1500) == 13173307912845686352U);
 }
 
-#undef FIBONACCI_TEST
+#undef FIBONACCI_EFFICIENT_TEST

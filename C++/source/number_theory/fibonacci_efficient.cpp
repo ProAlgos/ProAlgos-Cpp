@@ -23,34 +23,34 @@ typedef unsigned long long int ULL;
 
 const int MAX_N = 93;   // fibonacci(94) goes beyond the range of ULL
 
+// Product of two matrices. Their sizes must be [n, m] and [m, p]
+vector< vector<ULL> > matrix_product(const vector< vector<ULL> > &first_matrix, const vector< vector<ULL> > &second_matrix) {
+    // Example: If First[n, m] and Second[m, p], then their product will be Product[n, p]
+    vector< vector<ULL> > product_of_matrices(first_matrix.size(), vector<ULL> (second_matrix[0].size()));
+
+    for (int i = 0; i < first_matrix.size(); i++) // For previous example i:1..n
+            for (int j = 0; j < second_matrix[0].size(); j++) // For previous example j:1..p
+                for (int k = 0; k < second_matrix.size(); k++) // For previous example k:1..m
+                    product_of_matrices[i][j] += first_matrix[i][k] * second_matrix[k][j];
+    return product_of_matrices;
+}
+
 // Binary exponentiation (of matrix)
 vector< vector<ULL> > pow_matrix(const vector< vector<ULL> > &matrix, const int n) {
     if (n == 1)
         return matrix;
-    else if (n % 2 == 0) {
-        // a ^ n = a ^ (n / 2) * a ^ (n / 2)
-        vector< vector<ULL> > tmp_matrix = pow_matrix(matrix, n / 2);
-        vector< vector<ULL> > sqr_tmp_matrix(2, vector<ULL> (2, 0));
 
-        // matrix product
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                for (int k = 0; k < 2; k++)
-                    sqr_tmp_matrix[i][j] += tmp_matrix[i][k] * tmp_matrix[k][j];
-        return sqr_tmp_matrix;
+    vector< vector<ULL> > tmp_matrix;
+    vector< vector<ULL> > product_of_matrices;
+    if (n % 2 == 0) {
+        tmp_matrix = pow_matrix(matrix, n / 2); // a ^ n = a ^ (n / 2) * a ^ (n / 2)
+        product_of_matrices = matrix_product(tmp_matrix, tmp_matrix);
     }
     else {
-        // a ^ n = a * a ^ (n - 1)
-        vector< vector<ULL> > tmp_matrix = pow_matrix(matrix, n - 1);
-        vector< vector<ULL> > sqr_tmp_matrix(2, vector<ULL> (2, 0));
-
-        // matrix product
-        for (int i = 0; i < 2; i++)
-            for (int j = 0; j < 2; j++)
-                for (int k = 0; k < 2; k++)
-                    sqr_tmp_matrix[i][j] += tmp_matrix[i][k] * matrix[k][j];
-        return sqr_tmp_matrix;
+        tmp_matrix = pow_matrix(matrix, n - 1); // a ^ n = a ^ (n - 1) * a
+        product_of_matrices = matrix_product(tmp_matrix, matrix);
     }
+    return product_of_matrices;
 }
 
 ULL fibonacci(const int n) {
