@@ -21,6 +21,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Perfect number check](source/number_theory/perfect_number_check.cpp)
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
+    * [Euler's Sieve (more simple)](source/number_theory/euler_sieve.cpp)
 * Searching
   * [Binary search](source/searching/binary_search.cpp)
 * Sorting
