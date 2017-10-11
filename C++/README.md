@@ -18,8 +18,8 @@ Implementation of well-known (and some rare) algorithms, in C++.
     * [Extended Euclidean algorithm](source/number_theory/extended_euclid.cpp) (Bézout coefficients and GCD)
   * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
   * Nth Fibonacci number
-    * [Standard algorithm for O(N) time](source/number_theory/fibonacci.cpp) :white_check_mark:
-    * [Efficient algorithm for O(log N) time](source/number_theory/fibonacci_efficient.cpp) :white_check_mark:
+    * [Linear time algorithm](source/number_theory/fibonacci.cpp) :white_check_mark:
+    * [Logarithmic time algorithm](source/number_theory/fibonacci_efficient.cpp) :white_check_mark:
   * [Perfect number check](source/number_theory/perfect_number_check.cpp)
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
