@@ -19,3 +19,8 @@ int abs_without_branching(int x) {
   int sign = x >> 31;
   return ( sign + x ) ^ sign ; 
 }
+
+int main()
+{
+    cout << abs_without_branching(-199) << " " << abs_without_branching(5) << endl;
+}
