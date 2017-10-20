@@ -61,4 +61,4 @@ To know what happens in the background when **`make`** runs, you may read the [M
 If you would like to (and you should) add unit tests for the code you are contributing, or for some existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
 
 ## C++ Coding Guidelines
-If want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in making your code conform to the style followed in this project.
+If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in making your code conform to the style followed in this project.

@@ -7,7 +7,7 @@ Implementation of well-known (and some rare) algorithms, mostly in C++.
 For algorithms and data structures in C++, check out the list [here](C++).
 
 ## My goal
-> Add atleast 1 algorithm to the repo every week.
+> Add at least 1 algorithm to the repo every week.
 
 ### Want to contribute to open-source and help me achieve the goal?
 1. **Fork** the repo
