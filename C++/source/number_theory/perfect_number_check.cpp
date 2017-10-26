@@ -24,7 +24,7 @@ bool is_perfect(ULL num) {
     ULL sum = 1;
     for (ULL divisor = 2; divisor <= sqrt(num); divisor++) {
         if (num % divisor == 0)
-            sum += divisor + num/divisor;
+            sum += divisor + num/divisor;// checking the condition of perfect number
     }
 
     if (sum == num)
@@ -38,9 +38,9 @@ int main() {
     cin >> num;
 
     if (is_perfect(num))
-        cout << num << " is a perfect number\n";
+        cout << num << " is a perfect number\n";    //executed if return from function is true
     else
-        cout << num << " is not a perfect number\n";
+        cout << num << " is not a perfect number\n";    //executed if return from function is false
 
     return 0;
 }
