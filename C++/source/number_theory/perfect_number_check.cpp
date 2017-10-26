@@ -24,7 +24,7 @@ bool is_perfect(ULL num) {
     ULL sum = 1;
     for (ULL divisor = 2; divisor <= sqrt(num); divisor++) {
         if (num % divisor == 0)
-            sum += divisor + num/divisor;
+            sum += divisor + num/divisor;// checking the condition of perfect number
     }
 
     if (sum == num)
