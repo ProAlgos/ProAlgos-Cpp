@@ -37,7 +37,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Shell sort](source/sorting/shell_sort.cpp)
 * String
   * [Longest common subsequence](source/string/lcs.cpp)
-  * Searching [search a pattern within string]
+  * Searching (Pattern matching)
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
 
 ### Data structures
