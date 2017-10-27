@@ -37,7 +37,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Shell sort](source/sorting/shell_sort.cpp)
 * String
   * [Longest common subsequence](source/string/lcs.cpp)
-  * Searching
+  * Searching (Pattern matching)
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
 
 ### Data structures
@@ -58,7 +58,7 @@ To remove all of the files created during compilation, run **`make clean`**. You
 To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
 ## Unit tests
-If you would like to (and you should) add unit tests for the code you are contributing, or for some existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
+If you would like to (and you should) add unit tests for the code you are contributing, or for some of the existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
 
 ## C++ Coding Guidelines
-If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in making your code conform to the style followed in this project.
+If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in ensuring that your code conforms to the style followed in this project.
