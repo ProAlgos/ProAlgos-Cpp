@@ -11,6 +11,8 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [N-Queens](source/backtracking/n_queens.cpp)
 * Maximum sum contiguous subarray
   * [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
+* Dynamic programming
+  * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
@@ -39,8 +41,6 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Longest common subsequence](source/string/lcs.cpp)
   * Searching (Pattern matching)
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
-* Dynamic Programming
-  * [Matrix Chain Multiplication](source/dynamic_programming/matrix_multiplication.cpp) :white_check_mark:
 
 ### Data structures
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
