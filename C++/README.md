@@ -9,10 +9,9 @@ Implementation of well-known (and some rare) algorithms, in C++.
 ### Algorithms
 * Backtracking
   * [N-Queens](source/backtracking/n_queens.cpp)
-* Maximum sum contiguous subarray
-  * [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
 * Dynamic programming
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
+  * Maximum sum contiguous subarray: [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
@@ -39,7 +38,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Shell sort](source/sorting/shell_sort.cpp)
 * String
   * [Longest common subsequence](source/string/lcs.cpp)
-  * Searching (Pattern matching)
+  * Searching (pattern matching)
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
 
 ### Data structures
