@@ -1,0 +1,55 @@
+//Linear search template
+
+#ifndef SLINEAR_H
+#define SLINEAR_H
+
+namespace fm
+{
+    template <typename T>
+    class sLinear {
+    
+        T *_list;
+        T _item;
+        int _sizeOfList;
+
+    public:
+        sLinear(); // constructor
+        sLinear(T *myArray, T item, int size);
+        ~sLinear();
+        int findItem();
+
+    };
+
+    //------public methods------
+    template <typename T>
+    sLinear<T>::sLinear() {
+        _list = nullptr;
+        _sizeOfList = 0;
+    }
+
+    template <typename T>
+    sLinear<T>::sLinear(T *myArray, T item, int size) {
+        _list = myArray;
+        _item = item;
+        _sizeOfList = size;
+    }
+
+    template <typename T>
+    sLinear<T>::~sLinear() {
+        _list = nullptr;
+        _sizeOfList = 0;
+    }
+
+    template <typename T>
+    int sLinear<T>::findItem() {
+        while (_list != nullptr) {
+            for (int i = 0; i < _sizeOfList; i++) {
+                if (_list[i] == _item) {
+                    return i + 1;
+                }
+            }
+            return -1;
+        }
+    }
+}
+#endif
