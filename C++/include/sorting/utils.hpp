@@ -12,6 +12,10 @@
 
 using namespace std;
 
+//default values
+const int order = 1;
+const bool to_show_state = false;
+
 /*
     Input utils
     -----------
