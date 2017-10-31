@@ -25,7 +25,7 @@
 
 using namespace std;
 
-size_t partition(vector<int>& values, const size_t start, const size_t end, const int order) {
+size_t partition(vector<int>& values, const size_t start, const size_t end, const int order = 1) {
     // choose a random index between start & end
     size_t random_index = start + (rand() % (end - start + 1));
 
@@ -53,7 +53,7 @@ size_t partition(vector<int>& values, const size_t start, const size_t end, cons
     return i-1;     // pivot's index
 }
 
-void quick_sort(vector<int>& values, const int start, const int end, const int order, const bool to_show_state) {
+void quick_sort(vector<int>& values, const int start, const int end, const int order = 1, const bool to_show_state = false) {
     if (start < end) {
         size_t pivot_index = partition(values, start, end, order);
 

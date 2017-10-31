@@ -22,7 +22,7 @@
 
 using namespace std;
 
-void selection_sort(vector<int>& values, const int order, const bool to_show_state) {
+void selection_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     size_t i, j;
 
     // index of either the current minimum or maximum value, depending on the order:

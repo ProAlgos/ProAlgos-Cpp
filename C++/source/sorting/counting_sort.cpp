@@ -21,7 +21,7 @@
 
 using namespace std;
 
-void counting_sort(vector<int>& values, const int order, const bool to_show_state) {
+void counting_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
 
     int min_value = values[0];
     int max_value = values[0];

@@ -36,7 +36,7 @@ void heapify(vector<int>& heap, int parent, const int last) {
     }
 }
 
-void heap_sort(vector<int>& heap, const int size, const bool to_show_state) {
+void heap_sort(vector<int>& heap, const int size, const bool to_show_state = false) {
     // remove the largest node, replace it with the last node, and re-heapify the heap
 
     if (to_show_state)
@@ -53,7 +53,7 @@ void heap_sort(vector<int>& heap, const int size, const bool to_show_state) {
     }
 }
 
-void make_heap(vector<int>& heap, const int size, const bool to_show_state) {
+void make_heap(vector<int>& heap, const int size, const bool to_show_state = false) {
     /*
         makes an ordered heap by heapifying from highest indexed non-leaf node (curr_node)
         to the top node (index[0])
