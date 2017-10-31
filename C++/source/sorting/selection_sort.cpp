@@ -1,10 +1,10 @@
 /*
     Selection sort
     --------------
-    A simple in-place comparision sorting algorithm.
-    It sorts a list by finding the smallest / largest element (considering sorting order) from
-    the unsorted sublist and swapping it with the leftmost unsorted element, moving the sublist
-    boundaries one element to the right.
+    A simple in-place comparision-based sorting algorithm.
+    It sorts a list by finding the smallest / largest element (depending on the
+    sorting order) from the unsorted sublist and swapping it with the leftmost
+    unsorted element, moving the sublist boundary one element to the right.
 
     Time complexity
     ---------------
@@ -23,11 +23,9 @@
 using namespace std;
 
 void selection_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
+    size_t current_extreme_index;   // index of either the current minimum or
+                                    // maximum value, depending on the order
     size_t i, j;
-
-    // index of either the current minimum or maximum value, depending on the order:
-    size_t current_extreme_index;
-
     for (i = 0; i < values.size() - 1; i++) {
         current_extreme_index = i;
         j = i + 1;
