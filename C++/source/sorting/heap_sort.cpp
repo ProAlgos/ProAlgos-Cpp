@@ -20,9 +20,12 @@
 
 using namespace std;
 
+/*
+    heapify
+    -------
+    Creates a max heap from a vector of integers.
+*/
 void heapify(vector<int>& heap, int parent, const int last) {
-    // creates a max heap from a vector of integers
-
     int child = parent*2 + 1;
     while (child <= last) {    // travel down the children
         if (child + 1 <= last and heap[child + 1] > heap[child])
@@ -36,9 +39,13 @@ void heapify(vector<int>& heap, int parent, const int last) {
     }
 }
 
-void heap_sort(vector<int>& heap, const int size, const bool to_show_state) {
-    // remove the largest node, replace it with the last node, and re-heapify the heap
-
+/*
+    heap_sort
+    ---------
+    Removes the largest element, replaces it with the last element, and calls
+    heapify to recreate the max heap.
+*/
+void heap_sort(vector<int>& heap, const int size, const bool to_show_state = false) {
     if (to_show_state)
         cout << "\nPerforming heap sort on the heap...\n";
 
@@ -53,16 +60,17 @@ void heap_sort(vector<int>& heap, const int size, const bool to_show_state) {
     }
 }
 
-void make_heap(vector<int>& heap, const int size, const bool to_show_state) {
-    /*
-        makes an ordered heap by heapifying from highest indexed non-leaf node (curr_node)
-        to the top node (index[0])
-    */
-
+/*
+    make_heap
+    ---------
+    Makes an ordered heap by heapifying from highest indexed non-leaf node (curr_node)
+    to the top node (heap[0]).
+*/
+void make_heap(vector<int>& heap, const int size, const bool to_show_state = false) {
     if (to_show_state)
         cout << "\nMaking initial heap...\n";
 
-    for (int curr_node = (size/2) - 1; curr_node >= 0; curr_node--) {
+    for (int curr_node = size/2 - 1; curr_node >= 0; curr_node--) {
         heapify(heap, curr_node, size);
 
         if (to_show_state)

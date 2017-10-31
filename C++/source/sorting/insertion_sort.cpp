@@ -20,7 +20,7 @@
 
 using namespace std;
 
-void insertion_sort(vector<int>& values, const int order, const bool to_show_state) {
+void insertion_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     size_t i, j;
     int currentValue;
 

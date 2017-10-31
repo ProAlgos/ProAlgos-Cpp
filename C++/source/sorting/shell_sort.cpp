@@ -22,7 +22,7 @@
 
 using namespace std;
 
-void shell_sort(vector<int>& values, const int order, const bool to_show_state) {
+void shell_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     int n = values.size();
     int temp;
     int i, j;

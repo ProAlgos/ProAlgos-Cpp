@@ -21,7 +21,7 @@
 
 using namespace std;
 
-void bubble_sort(vector<int>& values, const int order, const bool to_show_state) {
+void bubble_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     bool swapped;
     size_t i, j;
 

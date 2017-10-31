@@ -2,8 +2,8 @@
     Counting sort (stable)
     ----------------------
     An integer sorting algorithm that operates by counting the number of objects
-    that have each distinct key value, and using arithmetic on those counts
-    to determine the positions of each key value in the output sequence.
+    that have each distinct key value, and using arithmetic on those counts to
+    determine the positions of each key value in the output sequence.
 
     Time complexity
     ---------------
@@ -21,13 +21,12 @@
 
 using namespace std;
 
-void counting_sort(vector<int>& values, const int order, const bool to_show_state) {
-
+void counting_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     int min_value = values[0];
     int max_value = values[0];
 
     // find minimum and maximum values in input vector
-    for (const int& value : values) {
+    for (int value: values) {
         if (value < min_value)
             min_value = value;
         else if (value > max_value)
@@ -40,9 +39,8 @@ void counting_sort(vector<int>& values, const int order, const bool to_show_stat
     // calculate frequencies of each unique value in input vector
     // freq[0] is number of min_value occurencies and so on
     vector<int> freq(unique_values, 0);
-    for (const int &value : values) {
+    for (int value: values)
         ++freq[value - min_value];
-    }
 
     // start and end indices, for calculating cumulative frequency
     int start = 1;
@@ -57,9 +55,8 @@ void counting_sort(vector<int>& values, const int order, const bool to_show_stat
     // calculate cumulative frequency:
     // freq[i] will now be the number of elements in the sorted array that are
     // less than or equal to value[i]
-    for (int i = start; i != end; i += order) {
+    for (int i = start; i != end; i += order)
         freq[i] += freq[i - order];
-    }
 
     // place values in sorted order by iterating input vector in reversed order,
     // to maintain sorting stability

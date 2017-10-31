@@ -22,7 +22,7 @@
 
 using namespace std;
 
-void merge(vector<int>& values, const size_t start, const size_t end, const int order) {
+void merge(vector<int>& values, const size_t start, const size_t end, const int order = 1) {
     size_t mid = (start + end) / 2;
     size_t index1 = start;
     size_t index2 = mid + 1;
@@ -43,20 +43,21 @@ void merge(vector<int>& values, const size_t start, const size_t end, const int 
     }
 
     size_t s = start;
-    for (const int& sortedVal: temp_vect)
-       values[s++] = sortedVal;
+    for (int sorted_value: temp_vect)
+       values[s++] = sorted_value;
 }
 
-void merge_sort(vector<int>& values, const size_t start, const size_t end, const int order, const bool toShowState) {
+void merge_sort(vector<int>& values, const size_t start, const size_t end,
+        const int order = 1, const bool to_show_state = false) {
     if (start < end) {
         size_t mid = (start + end) / 2;
 
-        merge_sort(values, start, mid, order, toShowState);
-        merge_sort(values, mid+1, end, order, toShowState);
+        merge_sort(values, start, mid, order, to_show_state);
+        merge_sort(values, mid + 1, end, order, to_show_state);
 
         merge(values, start, end, order);
 
-        if (toShowState)
+        if (to_show_state)
             display_state(values);
     }
 }

@@ -2,14 +2,14 @@
     Quick sort
     ----------
     An efficient, comparison-based, in-place, divide and conquer sorting algorithm.
-    It picks an element as pivot, partitions the given array around the picked pivot and then
-    recursively calls itself on those partitions.
+    It picks an element as pivot, partitions the given array around the picked
+    pivot and then recursively calls itself on those partitions.
 
     Time complexity
     ---------------
-    Absolute Worst case: O(N^2),
-    Expected Worst case: O(N * log(N)),
-    Where N is the number of elements.
+    Absolute worst case: O(N^2)
+    Expected worst case: O(N * log(N))
+    where N is the number of elements.
 
     Space complexity
     ----------------
@@ -25,7 +25,7 @@
 
 using namespace std;
 
-size_t partition(vector<int>& values, const size_t start, const size_t end, const int order) {
+size_t partition(vector<int>& values, const size_t start, const size_t end, const int order = 1) {
     // choose a random index between start & end
     size_t random_index = start + (rand() % (end - start + 1));
 
@@ -53,7 +53,8 @@ size_t partition(vector<int>& values, const size_t start, const size_t end, cons
     return i-1;     // pivot's index
 }
 
-void quick_sort(vector<int>& values, const int start, const int end, const int order, const bool to_show_state) {
+void quick_sort(vector<int>& values, const int start, const int end, const int order = 1,
+        const bool to_show_state = false) {
     if (start < end) {
         size_t pivot_index = partition(values, start, end, order);
 
