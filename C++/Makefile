@@ -50,7 +50,7 @@ all: dirs $(PROG_EXECUTABLES)
 
 .PHONY: test
 test: test-dirs $(TEST_EXECUTABLES)
-	find . -type f -name "*.test" -exec {} \;
+	find * -name *.test -exec sh -c "echo {}:; ./{}" \;
 
 build/%.o: source/%.cpp
 	printf '\e[94m%s\e[0m%s' 'Compiling source' ': $@ ... '
@@ -58,12 +58,12 @@ build/%.o: source/%.cpp
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
 build/%.o: test/%.cpp
-	printf '\e[94m%s\e[0m%s' 'Compiling test' ': $@ ... '
+	printf '\e[94m%s\e[0m%s' 'Compiling test  ' ': $@ ... '
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) -o $@ $<
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
 bin/%: build/%.o
-	printf '\e[96m%s\e[0m%s' 'Creating binary' ': $@ ... '
+	printf '\e[96m%s\e[0m%s' 'Creating binary ' ': $@ ... '
 	$(CXX) $(CXXFLAGS) -o $@ $<
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
