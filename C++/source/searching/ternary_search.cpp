@@ -2,7 +2,7 @@
 	Ternary Search
 	--------------
 	A searching algorithm that finds the position of a maximum(minimum) value within an unimodal array (in 0-indexation).
-	
+
 	Time complexity
 	---------------
 	O(log(N)), where N is the number of elements in the array.
@@ -17,14 +17,14 @@
 
 using namespace std;
 
-int ternarySearch(const vector<int>& Vect, const bool pattern) { 
+int ternarySearch(const vector<int>& Vect, const bool pattern) {
 /*
 	The function needs to be given an array and a bool 'pattern', where:
 	pattern = false, if values in array are ascending, then descending, while their indices are ascending. If pattern equals "false", the function finds the position of a maximum value.
 	pattern = true, if values in array are descending, then ascending, while their indices are ascending. If pattern equals "true", the function finds the position of a minimum value.
 */
 	int left = 0;
-	int right = (int)Vect.size() - 1; 
+	int right = (int)Vect.size() - 1;
 	//left and right are the edges of the interval of search.
 	bool changed = true;
 	while (right - left > 1 && changed) { //if the interval is not shrinking, its size already equals O(1).
@@ -56,12 +56,13 @@ int ternarySearch(const vector<int>& Vect, const bool pattern) {
 	if (pattern) return min_index; else return max_index;
 }
 
-int main() 
+#ifndef TERNARY_SEARCH_TEST
+int main()
 {
-	int size;
+	int sz;
 	cout << "Enter the input size:\n";
-	cin >> size;
-	vector <int> inputVect(size); //supposely unimodal array
+	cin >> sz;
+	vector <int> inputVect(sz); //supposely unimodal array
 	cout << "Enter array values:\n";
 	for (int& val : inputVect)
 		cin >> val;
@@ -69,7 +70,7 @@ int main()
 	cout << "Enter 0 if the values in input are ascending then descending, 1 in other case: \n";
 	cin >> pattern;
 	int index = ternarySearch(inputVect, pattern);
-	index += 1;
 	if (pattern) cout << "Minimum value has position " << index << "\n"; else cout << "Maximum value has position " << index << "\n";
 	return 0;
 }
+#endif
