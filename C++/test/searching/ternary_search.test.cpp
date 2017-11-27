@@ -13,24 +13,26 @@ unsigned int nextRand24() {
 }
 
 vector <int> nextRandUnimodal(int sz, bool pattern) {
-    vector <int> res;
-    res.clear();
-    int prev = nextRand24() % 1000;
-    prev *= -1;
-    res.push_back(prev);
-    int md;
-    bool was = false;
-    if (!pattern) md = 1; else md = -1;
-    for (int i = 0; i < sz; i++) {
-        int del = (nextRand24() % 15) * md;
-        prev += del;
-        res.push_back(prev);
-        if (i > sz / 2 + nextRand24() % 15 && !was) {
-            md *= -1;
-            was = true;
-        }
-    }
+	vector <int> res;
+	res.clear();
+	int prev = nextRand24() % 1000;
+	if (!pattern) prev *= -1;
+	res.push_back(prev);
+	int md;
+	bool was = false;
+	if (!pattern) md = 1; else md = -1;
+	for (int i = 0; i < sz; i++) {
+		int del = (nextRand24() % 15) * md;
+		prev += del;
+		res.push_back(prev);
+		if (i > sz / 2 + nextRand24() % 15 && !was) {
+			md *= -1;
+			was = true;
+		}
+	}
+	return res;
 }
+
 
 int solve(vector <int> &Vect, bool pattern) {
     if (!pattern) {
