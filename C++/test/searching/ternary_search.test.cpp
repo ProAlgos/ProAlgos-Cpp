@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
-#include "source/searching/ternary_search.cpp"
+#include "searching/ternary_search.cpp"
 #include <bits/stdc++.h>
 
 unsigned int cur = 0;
@@ -25,7 +25,7 @@ vector <int> nextRandUnimodal(int sz, bool pattern) {
 		int del = (nextRand24() % 15) * md;
 		prev += del;
 		res.push_back(prev);
-		if (i > sz / 2 + nextRand24() % 15 && !was) {
+		if (i > sz / 2 + (int)nextRand24() % 15 && !was) {
 			md *= -1;
 			was = true;
 		}
@@ -35,22 +35,23 @@ vector <int> nextRandUnimodal(int sz, bool pattern) {
 
 
 int solve(vector <int> &Vect, bool pattern) {
+    int ans;
     if (!pattern) {
-        int ans = -1e9;
+        ans = -1e9;
         for (int i : Vect) ans = max(ans, i);
     } else {
-        int ans = 1e9;
+        ans = 1e9;
         for (int i : Vect) ans = min(ans, i);
     }
     return ans;
 }
 
-TEST_CASE("Base cases", "[ternary search]") {
+TEST_CASE("Base cases", "[ternary_search]") {
     REQUIRE(ternary_search(vector <int> ({-5}), false) == -5);
     REQUIRE(ternary_search(vector <int> ({5}), true) == 5);
 }
 
-TEST_CASE("Integer cases", "[ternary search]") {
+TEST_CASE("Integer cases", "[ternary_search]") {
     for (int i = 0; i < 10; i++) {
         bool pattern = bool(nextRand24() % 2);
         vector <int> a = nextRandUnimodal(nextRand24() % 1000), pattern);
