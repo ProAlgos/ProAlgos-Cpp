@@ -2,7 +2,7 @@
 #define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
-#include "searching/ternary_search.cpp"
+#include "source/searching/ternary_search.cpp"
 #include <bits/stdc++.h>
 
 unsigned int cur = 0;
