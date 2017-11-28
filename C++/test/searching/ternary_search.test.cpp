@@ -39,16 +39,16 @@ int solve(vector <int> &Vect, bool pattern) {
     if (!pattern) {
         val = -1e9;
         for (int i = 0; i < (int)Vect.size(); i++) {
-            if (val < a[i]){
-                val = a[i];
+            if (val < Vect[i]){
+                val = Vect[i];
                 ans = i;
             }
         }
     } else {
         val = 1e9;
         for (int i = 0; i < (int)Vect.size(); i++) {
-            if (val > a[i]){
-                val = a[i];
+            if (val > Vect[i]){
+                val = Vect[i];
                 ans = i;
             }
         }

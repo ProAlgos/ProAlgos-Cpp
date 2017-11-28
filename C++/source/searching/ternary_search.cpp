@@ -56,6 +56,7 @@ int ternarySearch(const vector<int>& Vect, const bool pattern) {
 	if (pattern) return min_index; else return max_index;
 }
 
+#ifndef TERNARY_SEARCH_TEST
 int main()
 {
 	int sz;
@@ -72,3 +73,4 @@ int main()
 	if (pattern) cout << "Minimum value has position " << index << "\n"; else cout << "Maximum value has position " << index << "\n";
 	return 0;
 }
+#endif
