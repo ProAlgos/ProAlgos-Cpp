@@ -57,8 +57,10 @@ int solve(vector <int> &Vect, bool pattern) {
 }
 
 TEST_CASE("Base cases", "[ternary search]") {
-    REQUIRE(ternarySearch(vector <int> ({-5}), false) == -5);
-    REQUIRE(ternarySearch(vector <int> ({5}), true) == 5);
+    REQUIRE(ternarySearch(vector <int> ({-5}), false) == 0);
+    REQUIRE(ternarySearch(vector <int> ({5}), true) == 0);
+    REQUIRE(ternarySearch(vector <int> ({4, 5}), false) == 1);
+    REQUIRE(ternarySearch(vector <int> ({4, 5}), true) == 0);
 }
 
 TEST_CASE("Integer cases", "[ternary search]") {
