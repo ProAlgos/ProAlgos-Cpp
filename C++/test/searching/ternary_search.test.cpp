@@ -35,27 +35,37 @@ vector <int> nextRandUnimodal(int sz, bool pattern) {
 
 
 int solve(vector <int> &Vect, bool pattern) {
-    int ans;
+    int val, ans;
     if (!pattern) {
-        ans = -1e9;
-        for (int i : Vect) ans = max(ans, i);
+        val = -1e9;
+        for (int i = 0; i < (int)Vect.size(); i++) {
+            if (val < a[i]){
+                val = a[i];
+                ans = i;
+            }
+        }
     } else {
-        ans = 1e9;
-        for (int i : Vect) ans = min(ans, i);
+        val = 1e9;
+        for (int i = 0; i < (int)Vect.size(); i++) {
+            if (val > a[i]){
+                val = a[i];
+                ans = i;
+            }
+        }
     }
     return ans;
 }
 
-TEST_CASE("Base cases", "[ternary_search]") {
-    REQUIRE(ternary_search(vector <int> ({-5}), false) == -5);
-    REQUIRE(ternary_search(vector <int> ({5}), true) == 5);
+TEST_CASE("Base cases", "[ternary search]") {
+    REQUIRE(ternarySearch(vector <int> ({-5}), false) == -5);
+    REQUIRE(ternarySearch(vector <int> ({5}), true) == 5);
 }
 
-TEST_CASE("Integer cases", "[ternary_search]") {
+TEST_CASE("Integer cases", "[ternary search]") {
     for (int i = 0; i < 10; i++) {
         bool pattern = bool(nextRand24() % 2);
-        vector <int> a = nextRandUnimodal(nextRand24() % 1000), pattern);
+        vector <int> a = nextRandUnimodal(nextRand24() % 1000, pattern);
         int answer = solve(a, pattern);
-        REQUIRE(ternary_search(a, pattern) == answer);
+        REQUIRE(ternarySearch(a, pattern) == answer);
     }
 }
