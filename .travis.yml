@@ -37,7 +37,6 @@ matrix:
 
 before_install:
   - eval "${MATRIX_EVAL}"
-  - pip install --user pyyaml cpp-coveralls
 
 install: true
 
@@ -45,6 +44,3 @@ script:
   - cd C++
   - make all
   - make test
-
-after_success:
-  - coveralls -i C++

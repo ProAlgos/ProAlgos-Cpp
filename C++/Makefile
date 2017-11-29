@@ -7,9 +7,6 @@ CXXFLAGS += -Wall -Wextra -pedantic-errors
 # flags for dependency generation
 CXXFLAGS += -MMD -MP
 
-# flag for code coverage
-CXXFLAGS += --coverage
-
 # include directories
 INCLUDES += -Iinclude -I.
 
