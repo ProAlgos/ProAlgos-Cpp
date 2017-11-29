@@ -25,7 +25,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
 * Searching
   * [Binary search](source/searching/binary_search.cpp)
-  * [Ternary search](source/searching/ternary_search.cpp)
+  * [Ternary search](source/searching/ternary_search.cpp) :white_check_mark:
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp)
   * [Counting sort (stable)](source/sorting/counting_sort.cpp)
