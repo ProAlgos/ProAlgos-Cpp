@@ -3,7 +3,8 @@
 
 #include "third_party/catch.hpp"
 #include "source/searching/ternary_search.cpp"
-#include <bits/stdc++.h>
+#include <vector>
+#include <algorithm>
 
 unsigned int cur = 0;
 unsigned int a = 13674324, b = 1233;
