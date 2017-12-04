@@ -71,7 +71,7 @@ void make_heap(vector<int>& heap, const int size, const bool to_show_state = fal
         cout << "\nMaking initial heap...\n";
 
     for (int curr_node = size/2 - 1; curr_node >= 0; curr_node--) {
-        heapify(heap, curr_node, size);
+        heapify(heap, curr_node, size - 1);    //last_element = heap_size - 1
 
         if (to_show_state)
             display_state(heap);
