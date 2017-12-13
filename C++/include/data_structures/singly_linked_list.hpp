@@ -1,5 +1,8 @@
+#include <climits>
 #ifndef SINGLY_LINKED_LIST
 #define SINGLY_LINKED_LIST
+
+#define ERROR_VAL INT_MIN
 
 template <class T>
 struct Node {
@@ -56,9 +59,9 @@ public:
     void insert_back(const T&);
     void delete_front(void);
     void delete_back(void);
-    T& value_at(int);
-    T& operator[](int);
-    const T& operator[](int) const;
+    T value_at(int);
+    T operator[](int);
+    const T operator[](int) const;
     void erase(int);
     void erase(int, int);
     void clear(void);
