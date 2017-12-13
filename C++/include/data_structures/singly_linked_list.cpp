@@ -7,7 +7,7 @@ Node<T>::Node(const T& value, const Node<T> *next) {
 }
 
 template <class T>    
-Node<T>::Node(const Node& n) {
+Node<T>::Node(const Node<T> &n) {
     this->value = n.value;
     this->next = n.next;
 }
@@ -19,7 +19,7 @@ Node<T>& Node<T>::operator=(const Node<T> &rhs) {
 }
 
 template<class T>
-~Node() {
+Node<T>::~Node() {
     this->next = nullptr;
 }
 
@@ -34,42 +34,93 @@ void Node<T>::set_value(const T& other) {
 }
     
 template <class T>
-Node *Node<T>::get_next(void) {
+Node<T> *Node<T>::get_next(void) {
     return this->next;
 }
 
 template <class T>    
-void set_next(const Node *next) {
+void set_next(const Node<T> *next) {
     this->next = next;
 }
 
-
-template <class T>
-class SinglyLinkedList{
-private:
-    Node<T> *head;
-    Node<T> *tail;
-    int size;
 template <class T>
 SinglyLinkedList<T>::SinglyLinkedList() {
     size = 0;
     head = tail = nullptr;
 }
-    SinglyLinkedList(const SinglyLinkedList&);
-    SinglyLinkedList& operator=(const SinglyLinkedList&);
-    ~SinglyLinkedList();
-    bool is_empty(void);
-    int length(void) const;
-    void insert_front(const T&);
-    void insert_back(const T&);
-    void delete_front(void);
-    void delete_back(void);
-    T& value_at(int);
-    T& operator[](int);
-    const T& operator[](int) const;
-    void erase(int);
-    void erase(int, int);
-    void clear(void);
-};
 
-#endif
+template<class T>    
+SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList& list) {
+    //Copy
+}
+    
+template<class T>
+SinglyLinkedList& SinglyLinkedList<T>:operator=(const SinglyLinkedList& rhs) {
+    //Copy
+}
+
+template<class T>    
+SinglyLinkedList<T>::~SinglyLinkedList() {
+    //Iterate over the list and delete nodes
+}
+
+template<class T>    
+bool SinglyLinkedList<T>::is_empty(void) {
+    return size == 0;
+}
+
+template<class T>    
+int SinglyLinkedList<T>::length(void) const {
+    return size;
+}
+    
+template<class T>
+void SinglyLinkedList<T>::insert_front(const T& value) {
+    //Assign value to temp
+    //temp points to head
+    //update head
+}
+
+template<class T>
+void SinglyLinkedList<T>::insert_back(const T& value) {
+}
+    
+template<class T>
+void SinglyLinkedList<T>::delete_front(void) {
+
+}
+    
+template<class T>
+void SinglyLinkedList<T>::delete_back(void) {
+
+}
+    
+template<class T>
+T& SinglyLinkedList<T>::value_at(int index) {
+
+}
+    
+template<class T>
+T& SinglyLinkedList<T>::operator[](int index) {
+
+}
+    
+template<class T>
+const T& SinglyLinkedList<T>::operator[](int index) const {
+
+}
+    
+template<class T>
+void SinglyLinkedList<T>::erase(int pos) {
+
+}
+    
+template<class T>
+void SinglyLinkedList<T>::erase(int from, int to) {
+
+}
+    
+template<class T>
+void SinglyLinkedList<T>::clear(void) {
+    //Iterate over list and delete elements
+}
