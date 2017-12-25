@@ -1,56 +1,62 @@
 /*
-    Author
-    ------
-    Sarvesh P.
-
-    Singly Linked List
+    Singly linked list
     ------------------
     A linked list is a common data structure used to maintain a dynamic list of
     similar elements. The list is maintained so that each element points to the
-    next element and stores some data. To improve performance, the head and 
-    tail elements are stored to keep a track of insertions and deletions
+    next element and stores some data. To improve performance, the head and
+    tail elements are stored to keep a track of insertions and deletions.
+
+    Author
+    ------
+    Sarvesh P.
 */
 
 #include "singly_linked_list.hpp"
 
 
 /*
-    Node Class
-    ----------
-    Helper class for the nodes in the list
+    ==========================================================================
+    Node class
+    ==========================================================================
+*/
 
+
+/*
     Constructor
     -----------
 */
 
-
-template <class T>
+template<class T>
 Node<T>::Node(const T& value, Node<T> * const next) {
     this->value = value;
     this->next = next;
 }
 
+
 /*
-    Copy Constructor
+    Copy constructor
     ----------------
 */
 
-template <class T>    
+template<class T>
 Node<T>::Node(const Node<T> &n) {
     this->value = n.value;
     this->next = n.next;
 }
+
+
 /*
     Assignment operator
     -------------------
     This copies the RHS (right-hand-side value) to 'this' instance
 */
 
-template <class T>
+template<class T>
 Node<T>& Node<T>::operator=(const Node<T> &rhs) {
      this->value = rhs.value;
      return *this;
 }
+
 
 /*
     Destructor
@@ -62,62 +68,74 @@ Node<T>::~Node() {
     this->next = nullptr;
 }
 
+
 /*
-    Getters and Setters
+    Getters and setters
     -------------------
 */
 
-template <class T>    
+template<class T>
 T& Node<T>::get_value(void) {
     return this->value;
 }
 
-template <class T>    
+template<class T>
 void Node<T>::set_value(const T& other) {
     this->value = other;
 }
-    
-template <class T>
+
+template<class T>
 Node<T> *Node<T>::get_next(void) {
     return this->next;
 }
 
-template <class T>    
+template<class T>
 void set_next(Node<T> * const next) {
     this->next = next;
 }
+
+
+/*
+    ==========================================================================
+    SinglyLinkedList class
+    ==========================================================================
+*/
+
 
 /*
     Constructor
     -----------
 */
 
-template <class T>
+template<class T>
 SinglyLinkedList<T>::SinglyLinkedList() {
     size = 0;
     head = tail = nullptr;
 }
+
 
 /*
     Destructor
     ----------
 */
 
-template<class T>    
+template<class T>
 SinglyLinkedList<T>::~SinglyLinkedList() {
     clear();
 }
 
+
 /*
-    Empty check
-    -----------
+    is_empty
+    --------
     Returns true if the list is empty
 */
 
-template<class T>    
+template<class T>
 bool SinglyLinkedList<T>::is_empty(void) {
     return size == 0;
 }
+
 
 /*
     size
@@ -125,101 +143,146 @@ bool SinglyLinkedList<T>::is_empty(void) {
     Returns the number of elements in this list
 */
 
-template<class T>    
+template<class T>
 int SinglyLinkedList<T>::length(void) const {
     return size;
 }
 
+
 /*
-    insertion
-    ---------
-    This inserts an element at the head or tail of the list. Since the head and
-    tail are maintained the performance is constant time.
+    =========
+    Insertion
+    =========
+*/
+
+
+/*
+    insert_front
+    ------------
+    Inserts an element at the head of the list.
 
     Time complexity
     ---------------
-    O(1)
+    O(1).
 
     Space complexity
     ----------------
-    O(1)
+    O(1).
 */
 
 template<class T>
 void SinglyLinkedList<T>::insert_front(const T& value) {
     Node<T> *temp = new Node<T>(value, head);
-    if(head == nullptr) {
+    if (head == nullptr)
         tail = temp;
-    } 
+
     head = temp;
     size++;
 }
 
-template<class T>
-void SinglyLinkedList<T>::insert_back(const T& value) {
-    Node<T> *temp = new Node<T>(value, nullptr);
-    if(tail == nullptr) {
-        head = temp;
-    } else {
-        tail->set_next(temp);
-    }
-    tail = temp;
-    ++size;
-}
-    
+
 /*
-    deletion
-    --------
-    This involves removal of element from the head or the tail. To remove an
-    element from the tail, the list needs to be iterated through since the 
-    second-last element is needed.
+    insert_rear
+    -----------
+    Inserts an element at the tail of the list.
 
     Time complexity
     ---------------
-    delete_front: O(1)
-    delete_back : O(N), where N is the number of nodes in the list
-    
+    O(1).
+
     Space complexity
     ----------------
-    O(1)
+    O(1).
+*/
+
+template<class T>
+void SinglyLinkedList<T>::insert_rear(const T& value) {
+    Node<T> *temp = new Node<T>(value, nullptr);
+    if (tail == nullptr)
+        head = temp;
+    else
+        tail->set_next(temp);
+
+    tail = temp;
+    ++size;
+}
+
+
+/*
+    ========
+    Deletion
+    ========
+*/
+
+
+/*
+    delete_front
+    ------------
+    Removes the element from at the head.
+
+    Time complexity
+    ---------------
+    O(1).
+
+    Space complexity
+    ----------------
+    O(1).
 */
 
 template<class T>
 void SinglyLinkedList<T>::delete_front(void) {
     Node<T> *temp = head;
-    if(temp == nullptr) return;
-    head = head->get_next(); 
-    delete temp;
-    temp = nullptr;
-    --size;    
-}
-    
-template<class T>
-void SinglyLinkedList<T>::delete_back(void) {
-    Node<T> *temp = head;
-    if(temp == nullptr) 
+    if (temp == nullptr)
         return;
-    if(temp == tail) {
+
+    head = head->get_next();
+    delete temp;
+    --size;
+}
+
+
+/*
+    delete_rear
+    ------------
+    Removes the element from at the tail. To remove an element from the tail,
+    the list needs to be iterated through since the second-last element is needed.
+
+    Time complexity
+    ---------------
+    O(N), where N is the number of nodes in the list.
+
+    Space complexity
+    ----------------
+    O(1).
+*/
+
+template<class T>
+void SinglyLinkedList<T>::delete_rear(void) {
+    Node<T> *temp = head;
+    if (temp == nullptr)
+        return;
+    if (temp == tail) {
         delete temp;
         head = tail = nullptr;
         --size;
         return;
     }
-    while(temp->get_next() != tail) {
+
+    while (temp->get_next() != tail)
         temp = temp->get_next();
-    }
     tail = temp;
     temp = temp->get_next();
     delete temp;
-    temp = nullptr;
     tail->set_next(nullptr);
     --size;
 }
 
 /*
-    indexing
-    --------
-    This is used to find the value of the element at a particular position
+    ========
+    Indexing
+    ========
+    This is used to find the value of the element at a particular position in
+    the list.
 
     Time complexity
     ---------------
@@ -229,37 +292,41 @@ void SinglyLinkedList<T>::delete_back(void) {
     ----------------
     O(1)
 */
-    
+
 template<class T>
 T SinglyLinkedList<T>::value_at(int index) {
-    int i;
-    Node *temp = head;
-    if((size == 0)||(index > size)) 
+    if (size == 0 or index > size)
         return ERROR_VAL;
-    for(i = 0; i != index; temp = temp->get_next(), ++i);
-    return temp->get_value(); 
+
+    Node *temp = head;
+    int i = 0;
+    while (i++ != index)
+        temp = temp->get_next();
+
+    return temp->get_value();
 }
-    
+
 template<class T>
 T SinglyLinkedList<T>::operator[](int index) {
     return value_at(index);
 }
-    
+
 template<class T>
 const T SinglyLinkedList<T>::operator[](int index) const {
     return value_at(index);
 }
-    
+
+
 /*
     clear
     -----
-    This is used to empty the list and remove all the elements
+    This is used to empty the list and remove all the elements.
 */
 
 template<class T>
 void SinglyLinkedList<T>::clear(void) {
     Node<T> *temp = head;
-    while(temp != nullptr) {
+    while (temp != nullptr) {
         temp = temp->get_next();
         delete head;
         head = temp;
