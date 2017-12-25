@@ -11,18 +11,18 @@ private:
     Node<T> *next;
     Node(void);
 public:
-    Node(const T&, const Node<T> *);
+    Node(const T&, Node<T> * const);
     Node(const Node&);
     Node<T>& operator=(const Node<T> &);
     ~Node();
     T& get_value(void);
     void set_value(const T&);
     Node<T> *get_next(void);
-    void set_next(const Node<T> *);
+    void set_next(Node<T> * const);
 
     //Inline friend functions
     friend bool operator==(const Node& lhs, const Node& rhs) {
-        return lhs->value == rhs->value;
+        return lhs.value == rhs.value;
     }
     friend bool operator!=(const Node& lhs, const Node& rhs) {
         return !operator==(lhs, rhs);
@@ -34,7 +34,7 @@ public:
         return !operator>(lhs, rhs);
     }
     friend bool operator>(const Node& lhs, const Node& rhs) {
-        return lhs->value > rhs->value;
+        return lhs.value > rhs.value;
     }
     friend bool operator<(const Node& lhs, const Node& rhs) {
         return operator>(rhs,lhs);
@@ -50,8 +50,6 @@ private:
 
 public:
     SinglyLinkedList();
-    SinglyLinkedList(const SinglyLinkedList&);
-    SinglyLinkedList& operator=(const SinglyLinkedList&);
     ~SinglyLinkedList();
     bool is_empty(void);
     int length(void) const;
@@ -62,8 +60,6 @@ public:
     T value_at(int);
     T operator[](int);
     const T operator[](int) const;
-    void erase(int);
-    void erase(int, int);
     void clear(void);
 };
 

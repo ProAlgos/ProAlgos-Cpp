@@ -1,7 +1,7 @@
 #include "include/data_structures/singly_linked_list.hpp"
 
 template <class T>
-Node<T>::Node(const T& value, const Node<T> *next) {
+Node<T>::Node(const T& value, Node<T> * const next) {
     this->value = value;
     this->next = next;
 }
@@ -39,7 +39,7 @@ Node<T> *Node<T>::get_next(void) {
 }
 
 template <class T>    
-void set_next(const Node<T> *next) {
+void set_next(Node<T> * const next) {
     this->next = next;
 }
 
@@ -47,24 +47,6 @@ template <class T>
 SinglyLinkedList<T>::SinglyLinkedList() {
     size = 0;
     head = tail = nullptr;
-}
-
-template<class T>    
-SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList& list) {
-    Node *start, *temp;
-    start = list.head;
-    while(start != nullptr) {
-        if(this->head == nullptr) {
-            this->head = new Node(start);
-        } else {
-        
-        }
-    }
-}
-    
-template<class T>
-SinglyLinkedList& SinglyLinkedList<T>:operator=(const SinglyLinkedList& rhs) {
-    //Copy-and-swap
 }
 
 template<class T>    
@@ -123,6 +105,7 @@ void SinglyLinkedList<T>::delete_back(void) {
         delete temp;
         head = tail = nullptr;
         --size;
+        return;
     }
     while(temp->get_next() != tail) {
         temp = temp->get_next();
@@ -156,16 +139,6 @@ const T SinglyLinkedList<T>::operator[](int index) const {
 }
     
 template<class T>
-void SinglyLinkedList<T>::erase(int pos) {
-
-}
-    
-template<class T>
-void SinglyLinkedList<T>::erase(int from, int to) {
-
-}
-    
-template<class T>
 void SinglyLinkedList<T>::clear(void) {
     Node<T> *temp = head;
     while(temp != nullptr) {
@@ -174,4 +147,5 @@ void SinglyLinkedList<T>::clear(void) {
         head = temp;
     }
     head = tail = nullptr;
+    size = 0;
 }
