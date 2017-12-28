@@ -1,5 +1,4 @@
 #define FIBONACCI_EFFICIENT_TEST
-#define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
 #include "source/number_theory/fibonacci_efficient.cpp"

@@ -1,5 +1,4 @@
 #define FAST_EXPONENTIATION_TEST
-#define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
 #include "source/number_theory/fast_exponentiation.cpp"

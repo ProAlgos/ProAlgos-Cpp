@@ -1,5 +1,4 @@
 #define TERNARY_SEARCH_TEST
-#define CATCH_CONFIG_MAIN
 
 #include <vector>
 #include <algorithm>

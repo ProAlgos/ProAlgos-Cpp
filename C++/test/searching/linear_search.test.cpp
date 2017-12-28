@@ -1,5 +1,4 @@
 #define LINEAR_SEARCH_TEST
-#define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
 #include "source/searching/linear_search.cpp"

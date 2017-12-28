@@ -1,5 +1,4 @@
 #define MATRIX_CHAIN_MULT_TEST
-#define CATCH_CONFIG_MAIN
 
 #include "third_party/catch.hpp"
 #include "source/dynamic_programming/matrix_chain_mult.cpp"
