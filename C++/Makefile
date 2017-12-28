@@ -19,12 +19,12 @@ SOURCES := $(PROG_SOURCES)
 SOURCES += $(TEST_SOURCES)
 
 PROG_OBJECTS := $(patsubst source/%.cpp, build/%.o, $(PROG_SOURCES))
-TEST_OBJECTS := $(patsubst   test/%.cpp, build/%.o, $(TEST_SOURCES))
+TEST_OBJECTS := $(patsubst   test/%.cpp, build/test/%.o, $(TEST_SOURCES))
 OBJECTS := $(PROG_OBJECTS)
 OBJECTS += $(TEST_OBJECTS)
 
 PROG_EXECUTABLES := $(patsubst source/%.cpp, bin/%, $(PROG_SOURCES))
-TEST_EXECUTABLES := $(patsubst   test/%.cpp, bin/%, $(TEST_SOURCES))
+TEST_EXECUTABLES := $(patsubst   test/%.cpp, bin/test/%, $(TEST_SOURCES))
 EXECUTABLES := $(PROG_EXECUTABLES)
 EXECUTABLES += $(TEST_EXECUTABLES)
 
@@ -49,19 +49,34 @@ all: dirs $(PROG_EXECUTABLES)
 test: test-dirs $(TEST_EXECUTABLES)
 	find * -name *.test -exec sh -c "echo {}:; ./{}" \;
 
+# compile objects from source files
 build/%.o: source/%.cpp
 	printf '\e[94m%s\e[0m%s' 'Compiling source' ': $@ ... '
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) -o $@ $<
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
-build/%.o: test/%.cpp
+# create program binaries
+bin/%: build/%.o
+	printf '\e[96m%s\e[0m%s' 'Creating binary ' ': $@ ... '
+	$(CXX) $(CXXFLAGS) -o $@ $<
+	printf '\e[92m%s\e[0m\n' 'Done!'
+
+# compile object file for Catch test runner
+build/test/test_runner.o:
+	printf '\e[94m%s\e[0m%s' 'Compiling test runner' ' ... '
+	$(CXX) -c $(CXXFLAGS) $(INCLUDES) test/test_runner.cpp -o build/test/test_runner.o
+	printf '\e[92m%s\e[0m\n' 'Done!'
+
+# compile test objects from source files
+build/test/%.o: test/%.cpp
 	printf '\e[94m%s\e[0m%s' 'Compiling test  ' ': $@ ... '
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) -o $@ $<
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
-bin/%: build/%.o
+# create test binaries from compiled objects and the test runner
+bin/test/%: build/test/%.o build/test/test_runner.o
 	printf '\e[96m%s\e[0m%s' 'Creating binary ' ': $@ ... '
-	$(CXX) $(CXXFLAGS) -o $@ $<
+	$(CXX) $(CXXFLAGS) -o $@ $+
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
 .PHONY: dirs
@@ -70,7 +85,7 @@ dirs:
 
 .PHONY: test-dirs
 test-dirs:
-	mkdir -p $(patsubst %, build/%, $(TEST_DIRS)) $(patsubst %, bin/%, $(TEST_DIRS))
+	mkdir -p $(patsubst %, build/test/%, $(TEST_DIRS)) $(patsubst %, bin/test/%, $(TEST_DIRS))
 
 .PHONY: clean
 clean:
