@@ -85,5 +85,7 @@ before_install:
 install: true
 
 script:
-  - cd C++
-  - make all && make test
+  - |
+    cd C++
+    make
+    make test
