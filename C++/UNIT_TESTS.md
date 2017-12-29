@@ -8,7 +8,6 @@
 1. Add the following code to the test file:
     ```C++
     #define NAME_OF_FILE_TEST
-    #define CATCH_CONFIG_MAIN
 
     #include "third_party/catch.hpp"
     #include "source/path_to/source_file.cpp"
