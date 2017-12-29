@@ -1,5 +1,5 @@
 # Algos
-[![Build Status](https://travis-ci.org/faheel/Algos.svg?branch=master)](https://travis-ci.org/faheel/Algos)
+[![Travis status][travis-shield]][travis-link]
 
 Implementation of well-known (and some rare) algorithms, mostly in C++.
 
@@ -11,7 +11,7 @@ For algorithms and data structures in C++, check out the list [here](C++).
 
 ### Want to contribute to open-source and help me achieve the goal?
 1. **Fork** the repo
-2. Create a **branch** and **add your implementation** of an algorithm that is not already in the repo 
+2. Create a **branch** and **add your implementation** of an algorithm that is not already in the repo
 3. Submit a **pull request** (after reading the [contributing guidelines](CONTRIBUTING.md))
 
 #### Want to suggest some algorithms to add?
@@ -19,3 +19,7 @@ Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a n
 
 ## License
 This project is licensed under the terms of the [MIT license](LICENSE.md).
+
+
+[travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
+[travis-link]: https://travis-ci.org/faheel/Algos

@@ -1,5 +1,5 @@
 ﻿# Algos: C++
-[![Build Status](https://travis-ci.org/faheel/Algos.svg?branch=master)](https://travis-ci.org/faheel/Algos)
+[![Travis status][travis-shield]][travis-link]
 
 Implementation of well-known (and some rare) algorithms, in C++.
 
@@ -66,3 +66,7 @@ If you would like to (and you should) add unit tests for the code you are contri
 
 ## C++ Coding Guidelines
 If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in ensuring that your code conforms to the style followed in this project.
+
+
+[travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
+[travis-link]: https://travis-ci.org/faheel/Algos
