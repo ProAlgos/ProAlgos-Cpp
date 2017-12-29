@@ -24,7 +24,7 @@ OBJECTS := $(PROG_OBJECTS)
 OBJECTS += $(TEST_OBJECTS)
 
 PROG_EXECUTABLES := $(patsubst source/%.cpp, bin/%, $(PROG_SOURCES))
-TEST_EXECUTABLES := $(patsubst   test/%.cpp, bin/test/%, $(TEST_SOURCES))
+TEST_EXECUTABLES := $(patsubst   test/%.cpp, bin/%, $(TEST_SOURCES))
 EXECUTABLES := $(PROG_EXECUTABLES)
 EXECUTABLES += $(TEST_EXECUTABLES)
 
@@ -74,7 +74,7 @@ build/test/%.o: test/%.cpp
 	printf '\e[92m%s\e[0m\n' 'Done!'
 
 # create test binaries from compiled objects and the test runner
-bin/test/%: build/test/%.o build/test/test_runner.o
+bin/%: build/test/%.o build/test/test_runner.o
 	printf '\e[96m%s\e[0m%s' 'Creating binary ' ': $@ ... '
 	$(CXX) $(CXXFLAGS) -o $@ $+
 	printf '\e[92m%s\e[0m\n' 'Done!'
@@ -85,7 +85,7 @@ dirs:
 
 .PHONY: test-dirs
 test-dirs:
-	mkdir -p $(patsubst %, build/test/%, $(TEST_DIRS)) $(patsubst %, bin/test/%, $(TEST_DIRS))
+	mkdir -p $(patsubst %, build/test/%, $(TEST_DIRS)) $(patsubst %, bin/%, $(TEST_DIRS))
 
 .PHONY: clean
 clean:
