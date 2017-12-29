@@ -50,7 +50,7 @@ void getInput(int &n) {
     }
 }
 
-#ifndef FIBONACCI_TEST
+#ifndef FIBONACCI_TEST //to check whether the FIBONACCI_TEST has been #defined earlier in the file or in an included file
 int main() {
     int n;
     getInput(n);
@@ -59,4 +59,4 @@ int main() {
 
     return 0;
 }
-#endif
+#endif // end of #ifndef
