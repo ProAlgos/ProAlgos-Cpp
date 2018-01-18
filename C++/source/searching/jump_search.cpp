@@ -52,5 +52,3 @@ int main()
     cout << "\nNumber " << x << " is at index " << index;
     return 0;
 }
-
-//Contributed by Aanjaneya Singh Dhoni
