@@ -25,7 +25,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
 * Searching
-  * [Binary search](source/searching/binary_search.cpp)
+  * [Binary search](source/searching/binary_search.cpp) :white_check_mark:
   * [Linear search](source/searching/linear_search.cpp) :white_check_mark:
   * [Ternary search](source/searching/ternary_search.cpp) :white_check_mark:
 * Sorting
