@@ -37,6 +37,7 @@ int binarySearch(const int value, const vector<int>& sortedVect, const int low, 
     return -1;
 }
 
+#ifndef BINARY_SEARCH_TEST
 int main() {
     int value;
     cout << "Enter the value to search for : ";
@@ -60,3 +61,5 @@ int main() {
 
     return 0;
 }
+#endif  // BINARY_SEARCH_TEST
+
