@@ -111,7 +111,7 @@ int main() {
     }
     cout << "Longest Increasing Subsequence is" << endl;
     vector<int> ans = longest_increasing_subsequence(input);
-    for(int i = 0; i < ans.size(); i++){
+    for(int i = 0; i < (int)ans.size(); i++){
         cout << ans[i] << " ";
     }
     cout << endl;
