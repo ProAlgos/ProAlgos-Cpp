@@ -5,7 +5,7 @@
 
    Time complexity
    --------------
-   O(N), where N is size of array
+   O(N^2), where N is size of array
 
    Space complexity
    ---------------
@@ -19,31 +19,37 @@
 
 using namespace std;
 
-int find_prev_smaller(const vector<int> &a, int x) {
-    for(int i = x-1; i >= 0; i--) {
-        if(a[i] < a[x]) {
+/*
+    Returns index i of the closest smaller value to current_index 
+    in vector input, such that i < current_index
+ */
+int find_prev_smaller(const vector<int> &input, int current_index) {
+    for(int i = current_index - 1; i >= 0; i--) {
+        if(input[i] < input[current_index]) {
             return i;
         }
     }
     return -1;
 }
 
-int index_of_max(const vector<int> &a) {
+/*
+    Returns index of the max value in input vector
+ */
+int index_of_max(const vector<int> &input) {
     int max = INT_MIN;
     int max_i = 0;
-    for(int i = 0; i < (int)a.size(); i++) {
-        if(a[i] > max) {
-            max = a[i];
+    for(int i = 0; i < (int)input.size(); i++) {
+        if(input[i] > max) {
+            max = input[i];
             max_i = i;
         }
     }
     return max_i;
 }
 
-vector<int> longest_increasing_subsequence(const vector<int> &a) {
-    vector<int> lis_count(a.size());
-    vector<int> lis_prev(a.size());
-    vector<int> ans;
+vector<int> longest_increasing_subsequence(const vector<int> &input) {
+    vector<int> lis_count(input.size());
+    vector<int> lis_prev(input.size());
 
     /*
         Initializing index 0.
@@ -59,8 +65,8 @@ vector<int> longest_increasing_subsequence(const vector<int> &a) {
        If an element has no smaller before it, then values 
        are same as that of index 0
      */
-    for(int i = 1; i < (int)a.size(); i++) {
-        int previous_smaller_index = find_prev_smaller(a, i);
+    for(int i = 1; i < (int)input.size(); i++) {
+        int previous_smaller_index = find_prev_smaller(input, i);
         if(previous_smaller_index == -1) {
             lis_count[i] = 1;
             lis_prev[i] = -1;
@@ -72,14 +78,15 @@ vector<int> longest_increasing_subsequence(const vector<int> &a) {
             lis_prev[i] = previous_smaller_index;
         }
     }
+    
     /*
        Find the max value of lis_count to find the size and last index of the LIS.
        From there, you can backtrack to the value where lis_prev is -1.
        Add all these values to the vector ans
      */
-
+    vector<int> ans;
     for(int i = index_of_max(lis_count); i >= 0; i = lis_prev[i]) {
-        ans.push_back(a[i]);
+        ans.push_back(input[i]);
     }
 
     /*
@@ -91,6 +98,23 @@ vector<int> longest_increasing_subsequence(const vector<int> &a) {
 
 #ifndef LONGEST_INCREASING_SUBSEQUENCE_TEST
 int main() {
+    /*
+        Take input from user and print longest_increasing_subsequence
+     */
+    int n;
+    cout << "Enter size of the input array" << endl;
+    cin >> n;
+    vector<int> input(n);
+    cout << "Enter the input array" << endl;
+    for(int i = 0; i < n; i++){
+        cin >> input[i];
+    }
+    cout << "Longest Increasing Subsequence is" << endl;
+    vector<int> ans = longest_increasing_subsequence(input);
+    for(int i = 0; i < ans.size(); i++){
+        cout << ans[i] << " ";
+    }
+    cout << endl;
     return 0;
 }
 #endif
