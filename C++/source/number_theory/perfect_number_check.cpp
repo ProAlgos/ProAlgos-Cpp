@@ -3,11 +3,9 @@
     --------------------
     Checks whether the given number is perfect or not.
     A perfect number is one whose sum of divisors is equal to the number itself.
-
     Time complexity
     ---------------
     O(sqrt(N)), where N is the number being checked.
-
     Space complexity
     ----------------
     O(1).
