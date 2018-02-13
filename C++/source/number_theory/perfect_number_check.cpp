@@ -3,9 +3,11 @@
     --------------------
     Checks whether the given number is perfect or not.
     A perfect number is one whose sum of divisors is equal to the number itself.
+
     Time complexity
     ---------------
     O(sqrt(N)), where N is the number being checked.
+
     Space complexity
     ----------------
     O(1).
@@ -29,7 +31,7 @@ bool is_perfect(ULL num) {
         return true;
     return false;
 }
-
+#ifndef PERFECT_NUMBER_CHECK_TEST
 int main() {
     ULL num;
     cout << "Enter a positive integer less than 2^64 : ";
@@ -42,3 +44,4 @@ int main() {
 
     return 0;
 }
+#endif
