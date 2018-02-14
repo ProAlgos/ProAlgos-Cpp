@@ -25,7 +25,7 @@
 
     Time complexity
     ---------------
-    Worst case: O(...), where <description of variable(s)>    
+    O(...), where <description of variable(s)>    
 
     Space complexity
     ----------------
