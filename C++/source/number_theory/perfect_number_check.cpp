@@ -31,7 +31,7 @@ bool is_perfect(ULL num) {
         return true;
     return false;
 }
-
+#ifndef PERFECT_NUMBER_CHECK_TEST
 int main() {
     ULL num;
     cout << "Enter a positive integer less than 2^64 : ";
@@ -44,3 +44,4 @@ int main() {
 
     return 0;
 }
+#endif
