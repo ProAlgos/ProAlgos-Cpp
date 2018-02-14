@@ -1,6 +1,10 @@
-# C++
-## Binaries
-bin
+# Binaries
+bin/
 
-## Intermediate build files
-build
+# Intermediate build files
+build/
+
+# Files related to IDE and code editors
+.idea/
+.vscode/
+*.swp
