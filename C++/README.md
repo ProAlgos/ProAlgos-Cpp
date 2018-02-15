@@ -8,7 +8,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 
 ### Algorithms
 * Backtracking
-  * [N-Queens](source/backtracking/n_queens.cpp)
+  * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
 * Dynamic programming
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
