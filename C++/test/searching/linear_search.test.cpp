@@ -1,7 +1,6 @@
-#define LINEAR_SEARCH_TEST
-
 #include "third_party/catch.hpp"
-#include "source/searching/linear_search.cpp"
+#include "algorithms/searching/linear_search.hpp"
+
 
 TEST_CASE("Base cases", "[linear search]") {
     REQUIRE(linear_search(1, vector<int>({1})) == 0);
@@ -22,5 +21,3 @@ TEST_CASE("Mixed cases", "[linear search]") {
     REQUIRE(linear_search(std::string("/"), vector<std::string>({"1", "/", "*", "-", "0"})) == 1);
     REQUIRE(linear_search(1.25, vector<double>({0.0, 6.15, 0.3, 1.25, 4})) == 3);
 }
-
-#undef LINEAR_SEARCH_TEST
