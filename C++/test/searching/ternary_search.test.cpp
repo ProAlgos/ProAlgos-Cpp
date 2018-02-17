@@ -1,8 +1,7 @@
-#include <vector>
 #include <algorithm>
 
-#include "algorithms/searching/ternary_search.hpp"
 #include "third_party/catch.hpp"
+#include "algorithms/searching/ternary_search.hpp"
 
 using namespace std;
 
