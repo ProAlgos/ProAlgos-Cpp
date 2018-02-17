@@ -55,5 +55,8 @@ int binary_search(const T& value, const std::vector<T>& sorted_values,
 
 template <typename T>
 int binary_search(const T& value, const std::vector<T>& sorted_values) {
+    if (sorted_values.size() == 0)
+        return -1;
+    
     return binary_search(value, sorted_values, 0, sorted_values.size() - 1);
 }
