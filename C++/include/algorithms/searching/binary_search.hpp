@@ -26,19 +26,20 @@
 */
 
 template <typename T>
-int binary_search(const T& value, const std::vector<T>& sorted_values, const int low, const int high) {
-    int mid = (low + high) / 2;
+int binary_search(const T& value, const std::vector<T>& sorted_values,
+        const int low, const int high) {
+    int mid = low + (high - low) / 2;
 
     if (value == sorted_values[mid])
         return mid;
     else if (low <= high) {
         if (value < sorted_values[mid]) {
             // value must be between indices low and mid-1, if exists
-            return binary_search(value, sorted_values, low, mid-1);
+            return binary_search(value, sorted_values, low, mid - 1);
         }
         else if (value > sorted_values[mid]) {
-            // value must be between indices mid-1 and high, if exists
-            return binary_search(value, sorted_values, mid+1, high);
+            // value must be between indices mid+1 and high, if exists
+            return binary_search(value, sorted_values, mid + 1, high);
         }
     }
 
