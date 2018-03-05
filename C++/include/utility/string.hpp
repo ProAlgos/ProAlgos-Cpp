@@ -34,14 +34,3 @@ std::vector<std::string> split_string(std::string sentence, char delimiter)
 
     return words;       //returns all the splited parts.
 }
-
-
-int main(){
-	std::string test = "I knew you were trouble";
-	std::vector<std::string> res = split_string(test, ' ');
-
-	for(int i = 0; i < res.size(); i++){
-		std::cout<<res[i]<<std::endl;
-	}
-	return 0;
-}
