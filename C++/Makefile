@@ -2,9 +2,14 @@
 .SILENT:
 
 # compile tests using CMake
+.PHONY: default
+default: dirs
+	cd build && cmake .. && make
+
+# compile tests using CMake
 .PHONY: test
 test: dirs
-	cd build && cmake .. && make
+	scripts/run_tests.sh
 
 # create bin and build directories
 .PHONY: dirs
