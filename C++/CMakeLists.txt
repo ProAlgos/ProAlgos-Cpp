@@ -46,3 +46,12 @@ target_link_libraries(linear_search test_runner)
 add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
+
+# ============================================================================
+# Data structures
+# ============================================================================
+
+# Disjoint set
+add_executable(disjoint_set
+        test/data_structure/disjoint_set.cpp)
+target_link_libraries(disjoint_set test_runner)

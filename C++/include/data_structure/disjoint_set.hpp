@@ -3,10 +3,38 @@
     ------------
     A disjoint-set data structure (also called a union–find data structure or
     merge–find set) keeps track of a set of elements partitioned into a number
-    of disjoint (nonoverlapping) subsets.
+    of disjoint (non-overlapping) subsets.
 */
 
-#include "disjoint_set.hpp"
+#ifndef DISJOINT_SET_HPP
+#define DISJOINT_SET_HPP
+
+#include <cstddef>
+#include <vector>
+
+struct Element {
+    int parent;
+    int rank;
+};
+
+
+/*
+    DisjointSet
+    -----------
+    Class implementing the disjoint-set data structure.
+*/
+
+class DisjointSet {
+    std::vector<Element> set;
+
+    public:
+        DisjointSet(size_t);
+
+        int find(int);
+        void join(int, int);
+
+        size_t size() const;
+};
 
 
 /*
@@ -95,3 +123,5 @@ void DisjointSet::join(int x, int y) {
 size_t DisjointSet::size() const {
     return set.size();
 }
+
+#endif  // DISJOINT_SET_HPP
