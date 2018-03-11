@@ -1,5 +1,5 @@
 #include "third_party/catch.hpp"
-#include "algorithms/searching/binary_search.hpp"
+#include "algorithm/searching/binary_search.hpp"
 
 using namespace std;
 
