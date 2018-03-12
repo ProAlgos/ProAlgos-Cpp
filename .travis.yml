@@ -94,4 +94,4 @@ install:
     fi
 
 script:
-  - cd C++ && make
+  - cd ${TRAVIS_BUILD_DIR}/C++ && make && make test
