@@ -1,5 +1,5 @@
 /*
-    N-Queens problem
+    N queens problem
     ----------------
     Find a way to place N non-attacking queens on an N×N chessboard.
 	
@@ -36,18 +36,18 @@ class NQueensSolver {
 
 public:
     NQueensSolver(const size_t);
-    void solve();
-    bool can_place_queens();
-    int num_solutions() const;
-    Board get_solution();
-    std::vector<Board> get_solutions();
-    void show_solution();
-    void show_all_solutions();
+    bool can_place_queens() const;
+    size_t num_solutions() const;
+    Board get_solution() const;
+    std::vector<Board> get_solutions() const;
+    void print_solution() const;
+    void print_all_solutions() const;
 
 private:
+    void solve();
     bool place_queens(Board&, const size_t);
     bool is_safe(const Board&, const int, const int) const;
-    void show_solution(const Board&) const;
+    void print_solution(const Board&) const;
 };
 
 
@@ -59,12 +59,97 @@ private:
 NQueensSolver::NQueensSolver(const size_t num_queens) {
     N = num_queens;    
     is_solved = false;
+    solve();
 }
 
 
 /*
     ==========================================================================
     Public interface
+    ==========================================================================
+*/
+
+
+/*
+    can_place_queens
+    ----------------
+    Returns whether it is possible to place N queens on an NxN chessboard.
+*/
+
+bool NQueensSolver::can_place_queens() const {
+    return bool(solutions.size());
+}
+
+
+/*
+    num_solutions
+    -------------
+    Returns the number of ways in which N queens can be placed on an NxN
+    chessboard.
+*/
+
+size_t NQueensSolver::num_solutions() const {
+    return solutions.size();
+}
+
+
+/*
+    get_solution
+    ------------
+    Returns an NxN boolean matrix in which all N queens have been placed.
+    The cells that are marked 'true' are where queens are placed, and all
+    the other cells marked 'false' are empty.
+*/
+
+Board NQueensSolver::get_solution() const {
+    return solutions[0];
+}
+
+
+/*
+    get_solutions
+    -------------
+    Returns a list of NxN boolean matrices, all of which are valid solutions
+    to the N-Queens problem. In each matrix, the cells that are marked 'true'
+    are where queens are placed, and all the other cells marked 'false' are
+    empty.
+*/
+
+std::vector<Board> NQueensSolver::get_solutions() const {    
+    return solutions;
+}
+
+
+/*
+    print_solution
+    --------------
+    Prints a solution for the N-Queens problem. 'Q' is printed for a queen,
+    and '.' is printed for an empty cell.
+*/
+
+void NQueensSolver::print_solution() const {
+    print_solution(solutions[0]);
+}
+
+
+/*
+    print_all_solutions
+    -------------------
+    Prints all possible solution for the N-Queens problem. 'Q' is printed for
+    a queen, and '.' is printed for an empty cell.
+*/
+
+void NQueensSolver::print_all_solutions() const {
+    for (const Board& board: solutions) {
+        print_solution(board);
+        std::cout << "\n";
+    }
+}
+
+
+/*
+    ==========================================================================
+    Private methods
     ==========================================================================
 */
 
@@ -81,105 +166,6 @@ void NQueensSolver::solve() {
     place_queens(board, 0);
     is_solved = true;
 }
-
-
-/*
-    can_place_queens
-    ----------------
-    Returns whether it is possible to place N queens on an NxN chessboard.
-*/
-
-bool NQueensSolver::can_place_queens() {
-    if (!is_solved)
-        solve();
-    
-    return bool(solutions.size());
-}
-
-
-/*
-    num_solutions
-    -------------
-    Returns the number of ways in which N queens can be placed on an NxN
-    chessboard.
-*/
-
-int NQueensSolver::num_solutions() const {
-    return solutions.size();
-}
-
-
-/*
-    get_solution
-    ------------
-    Returns an NxN boolean matrix in which all N queens have been placed.
-    The cells that are marked 'true' are where queens are placed, and all
-    the other cells marked 'false' are empty.
-*/
-
-Board NQueensSolver::get_solution() {
-    if (!is_solved)
-        solve();
-    
-    return solutions[0];
-}
-
-
-/*
-    get_solutions
-    -------------
-    Returns a list of NxN boolean matrices, all of which are valid solutions
-    to the N-Queens problem. In each matrix, the cells that are marked 'true'
-    are where queens are placed, and all the other cells marked 'false' are
-    empty.
-*/
-
-std::vector<Board> NQueensSolver::get_solutions() {
-    if (!is_solved)
-        solve();
-    
-    return solutions;
-}
-
-
-/*
-    show_solution
-    -------------
-    Prints a solution for the N-Queens problem. 'Q' is printed for a queen,
-    and '.' is printed for an empty cell.
-*/
-
-void NQueensSolver::show_solution() {
-    if (!is_solved)
-        solve();
-    
-    show_solution(solutions[0]);
-}
-
-
-/*
-    show_all_solutions
-    ------------------
-    Prints all possible solution for the N-Queens problem. 'Q' is printed for
-    a queen, and '.' is printed for an empty cell.
-*/
-
-void NQueensSolver::show_all_solutions() {
-    if (!is_solved)
-        solve();
-    
-    for (const Board& board: solutions) {
-        show_solution(board);
-        std::cout << "\n";
-    }
-}
-
-
-/*
-    ==========================================================================
-    Private methods
-    ==========================================================================
-*/
 
 
 /*
@@ -240,13 +226,13 @@ bool NQueensSolver::is_safe(const Board& board, const int row, const int col) co
 
 
 /*
-    show_solution
-    -------------
+    print_solution
+    --------------
     Prints a given solved board. 'Q' is printed for a queen, and '.' is printed
     for an empty cell.
 */
 
-void NQueensSolver::show_solution(const Board& board) const {
+void NQueensSolver::print_solution(const Board& board) const {
     size_t row, col;
     for (row = 0; row < N; row++) {
         for (col = 0; col < N; col++) {
