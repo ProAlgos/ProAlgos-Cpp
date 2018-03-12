@@ -26,8 +26,8 @@ Node* get_node() {
     return newNode;
 }
 
-BinarySearchTree::BinarySearchTree() {
-    root = get_node();
+BinarySearchTree::BinarySearchTree() :
+    root{ get_node() } {
     root->value = INF;
 }
 
