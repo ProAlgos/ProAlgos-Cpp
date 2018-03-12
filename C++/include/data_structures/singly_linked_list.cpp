@@ -27,9 +27,9 @@
 */
 
 template<class T>
-Node<T>::Node(const T& value, Node<T> * const next) {
-    this->value = value;
-    this->next = next;
+Node<T>::Node(const T& value, Node<T> * const next) :
+    value{ value },
+    next{ next } {
 }
 
 
@@ -39,9 +39,9 @@ Node<T>::Node(const T& value, Node<T> * const next) {
 */
 
 template<class T>
-Node<T>::Node(const Node<T> &n) {
-    this->value = n.value;
-    this->next = n.next;
+Node<T>::Node(const Node<T> &n) 
+    value{ n.value }, 
+    next{ n.next } {
 }
 
 
@@ -108,9 +108,10 @@ void set_next(Node<T> * const next) {
 */
 
 template<class T>
-SinglyLinkedList<T>::SinglyLinkedList() {
-    size = 0;
-    head = tail = nullptr;
+SinglyLinkedList<T>::SinglyLinkedList() :
+    size{ 0 },
+    head{ nullptr },
+    tail{ nullptr } {
 }
 
 
