@@ -12,6 +12,9 @@
     O(N^2), where N is the number of queens.
 */
 
+#ifndef N_QUEENS_HPP
+#define N_QUEENS_HPP
+
 #include <iostream>
 #include <vector>
 
@@ -256,3 +259,5 @@ void NQueensSolver::show_solution(const Board& board) const {
         std::cout << '\n';
     }
 }
+
+#endif  // N_QUEENS_HPP
