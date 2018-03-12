@@ -42,3 +42,5 @@ std::string optimal_parenthesization = chain_multiplier.optimal_parenthesization
 Time               | Space
 -------------------|-------------------
 _O(N<sup>3</sup>)_ | _O(N<sup>2</sup>)_
+
+where N is the number of matrices.
