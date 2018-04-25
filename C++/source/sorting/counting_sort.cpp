@@ -74,6 +74,7 @@ void counting_sort(vector<int>& values, const int order = 1, const bool to_show_
     values.assign(sorted.begin(), sorted.end());
 }
 
+#ifndef COUNTING_SORT_TEST
 int main() {
     size_t size;
     get_input_size(size);
@@ -95,3 +96,4 @@ int main() {
 
     return 0;
 }
+#endif // COUNTING_SORT_TEST
