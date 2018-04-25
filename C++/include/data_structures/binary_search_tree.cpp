@@ -13,7 +13,7 @@
     subtree.
 */
 
-#include "BinarySearchTree.hpp"
+#include "data_structures/binary_search_tree.hpp"
 #include <iostream>
 #include <stack>
 
@@ -99,7 +99,7 @@ bool BinarySearchTree::insert(int value) {
     ---------------
     Average case : O(log n), where n is the number of nodes in the tree
     Worst case : O(n)
-    
+
     Space complexity
     ----------------
     O(1)
@@ -113,7 +113,7 @@ bool BinarySearchTree::remove(int value) {
 
     Node* current = root;
     Node* parent = nullptr;
-    
+
     while (true) {
         if (value == current->value) {
             remove_current_node(current, parent);
@@ -178,10 +178,10 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
 /*
     Search
     ------
-    This traverses the tree to find the presence of number in the tree. At each 
-    node, it checks if the node has a value lesser than itself, if so it goes 
-    to its left subtree. If it is greater it goes to the right subtree. When it 
-    node with the matching value or reaches the end of the tree it returns either 
+    This traverses the tree to find the presence of number in the tree. At each
+    node, it checks if the node has a value lesser than itself, if so it goes
+    to its left subtree. If it is greater it goes to the right subtree. When it
+    node with the matching value or reaches the end of the tree it returns either
     true or false appropriately.
 
     Time complexity
@@ -194,7 +194,7 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
     O(1)
 */
 
-bool BinarySearchTree::search(int value) {
+bool BinarySearchTree::search(int value) const {
     Node* current = root;
 
     while (true) {
@@ -395,6 +395,41 @@ void BinarySearchTree::traversal_postorder_iterative() {
     } while (!traversal.empty());
 }
 
+/*
+    Lowest common ancestor
+    -------------------
+    Given the values of two nodes, find the lowest common ancestor node between
+    these two. A node can be the ancestor of itself. If there is no node for
+    either value or the tree is empty, then nullptr is returned.
+
+    Time complexity
+    ---------------
+    Average case: O(log n), where n is the number of nodes in the tree.
+    Worst case: O(n), if the tree has degenerated to a linked list.
+
+    Space complexity
+    ----------------
+    O(1)
+*/
+Node* BinarySearchTree::lowest_common_ancestor(int valueA, int valueB) const {
+    // Find the nodes for both values
+    if(!search(valueA) || !search(valueB))
+        return nullptr;
+
+    auto current = root;
+    while(current) {
+        if(current->value > valueA && current->value > valueB)
+            current = current->left_child;
+        else if(current->value < valueA && current->value < valueB)
+            current = current->right_child;
+        else
+            break;
+    }
+
+    return current;
+}
+
+#ifndef BINARY_SEARCH_TREE_TEST
 int main() {
     BinarySearchTree tree;
 
@@ -411,6 +446,13 @@ int main() {
 
     cout << "Post Order Traversal: \n";
     tree.traversal_postorder_recursive();
+
+    cout << "Lowest common ancestor between 5 and 12: ";
+    auto ancestor = tree.lowest_common_ancestor(5, 12);
+    if(ancestor)
+        cout << ancestor->value << "\n";
+    else
+        cout << "Not found\n";
 
     cout << "Searching 10 : ";
     if(tree.search(10))
@@ -437,3 +479,4 @@ int main() {
         cout << "Not found!\n";
     return 0;
 }
+#endif // BINARY_SEARCH_TREE_TEST

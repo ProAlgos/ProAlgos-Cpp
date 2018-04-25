@@ -26,13 +26,14 @@ public:
     BinarySearchTree();
     bool insert(int);
     bool remove(int);
-    bool search(int);
+    bool search(int) const;
     void traversal_inorder_recursive();
     void traversal_inorder_iterative();
     void traversal_preorder_recursive();
     void traversal_preorder_iterative();
     void traversal_postorder_recursive();
     void traversal_postorder_iterative();
+    Node* lowest_common_ancestor(int, int) const;
 };
 
 #endif
