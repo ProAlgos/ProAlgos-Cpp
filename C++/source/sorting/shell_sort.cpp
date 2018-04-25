@@ -44,6 +44,7 @@ void shell_sort(vector<int>& values, const int order = 1, const bool to_show_sta
     }
 }
 
+#ifndef SHELL_SORT_TEST
 int main() {
     size_t size;
     get_input_size(size);
@@ -65,3 +66,4 @@ int main() {
 
     return 0;
 }
+#endif // SHELL_SORT_TEST
