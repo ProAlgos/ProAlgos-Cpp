@@ -81,6 +81,7 @@ void make_heap(vector<int>& heap, const int size, const bool to_show_state = fal
         cout << "Initial heap has been made.\n";
 }
 
+#ifndef HEAP_SORT_TEST
 int main() {
     size_t size;
     get_input_size(size);
@@ -105,3 +106,4 @@ int main() {
 
     return 0;
 }
+#endif // HEAP_SORT_TEST
