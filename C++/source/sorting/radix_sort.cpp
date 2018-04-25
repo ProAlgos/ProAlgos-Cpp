@@ -86,6 +86,7 @@ void radix_sort(vector<int>& values, const int mult_factor, const int add_factor
         count_sort(values, extractor, to_show_state, mult_factor, add_factor);
 }
 
+#ifndef RADIX_SORT_TEST
 int main() {
     // number of elements to be sorted
     size_t size;
@@ -118,3 +119,4 @@ int main() {
 
     return 0;
 }
+#endif // RADIX_SORT_TEST
