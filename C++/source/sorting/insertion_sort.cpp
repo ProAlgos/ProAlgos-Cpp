@@ -40,6 +40,7 @@ void insertion_sort(vector<int>& values, const int order = 1, const bool to_show
     }
 }
 
+#ifndef INSERTION_SORT_TEST
 int main() {
     size_t size;
     get_input_size(size);
@@ -61,3 +62,4 @@ int main() {
 
     return 0;
 }
+#endif // INSERTION_SORT_TEST
