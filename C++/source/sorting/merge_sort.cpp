@@ -62,6 +62,7 @@ void merge_sort(vector<int>& values, const size_t start, const size_t end,
     }
 }
 
+#ifndef MERGE_SORT_TEST
 int main() {
     size_t size;
     get_input_size(size);
@@ -83,3 +84,4 @@ int main() {
 
     return 0;
 }
+#endif // MERGE_SORT_TEST
