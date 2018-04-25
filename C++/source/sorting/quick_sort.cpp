@@ -69,6 +69,7 @@ void quick_sort(vector<int>& values, const int start, const int end, const int o
     }
 }
 
+#ifndef QUICK_SORT_TEST
 int main() {
     size_t size;
     get_input_size(size);
@@ -91,3 +92,4 @@ int main() {
 
     return 0;
 }
+#endif // QUICK_SORT_TEST
