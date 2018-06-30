@@ -5,8 +5,8 @@
 
 	Time Complexity
 	---------------
-	O(N^2), worst case
-	O(N^2/2^p), average case where p is the number of increments
+	O(N^2), worst case where N is the number of elements
+	O(N^2/2^p), average case where p is the number of increments and N is the number of elements
 
 	Space Complexity
 	----------------
