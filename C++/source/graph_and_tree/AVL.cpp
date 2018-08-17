@@ -15,7 +15,7 @@
 
 	Space complexity
 	----------------
-	O(N), where N is the number of nodex.
+	O(N), where N is the number of nodes.
 */
 
 #include <iostream>
