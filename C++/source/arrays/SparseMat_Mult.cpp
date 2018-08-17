@@ -24,6 +24,8 @@
 #include <iostream>
 #include <iomanip>
 
+using namespace std;
+
 class sparseMatrix{
 private:
 public:
@@ -54,16 +56,16 @@ protected:
 sparseMatrix transpose(sparseMatrix a);
 
 void sparseMatrix::write() {
-	std::cout << std::setw(5) << std::setfill(' ') << rowSum << " ";
-	std::cout << std::setw(5) << std::setfill(' ') << colSum << " ";
-	std::cout << std::setw(5) << std::setfill(' ') << valueSum << " \n";
-	std::cout << std::setw(20) << std::setfill('-') << "-";
-	std::cout << "\n";
+	cout << setw(5) << setfill(' ') << rowSum << " ";
+	cout << setw(5) << setfill(' ') << colSum << " ";
+	cout << setw(5) << setfill(' ') << valueSum << " \n";
+	cout << setw(20) << setfill('-') << "-";
+	cout << "\n";
 
 	for (int i = 0; i < valueSum; i++) {
-		std::cout << std::setw(5) << std::setfill(' ') << row[i] << " ";
-		std::cout << std::setw(5) << std::setfill(' ') << col[i] << " ";
-		std::cout << std::setw(5) << std::setfill(' ') << value[i] << " \n";
+		cout << setw(5) << setfill(' ') << row[i] << " ";
+		cout << setw(5) << setfill(' ') << col[i] << " ";
+		cout << setw(5) << setfill(' ') << value[i] << " \n";
 	}
 }
 
@@ -84,7 +86,7 @@ sparseMatrix sparseMatrix::mult(sparseMatrix a) {
 							result.value[k] += value[i] * a.value[j];
 							check = true;
 							break;
-							//std::cout<<i<<" "<<j<<" "<<value[i]<<" "<<a.value[j]<<" "<<k<<"\n";
+							//cout<<i<<" "<<j<<" "<<value[i]<<" "<<a.value[j]<<" "<<k<<"\n";
 						}
 					}
 					if (check == false && col[i] == a.row[j]) {
@@ -93,7 +95,7 @@ sparseMatrix sparseMatrix::mult(sparseMatrix a) {
 						result.value[result.valueSum] = value[i] * a.value[j];
 						result.valueSum++;
 
-						//std::cout<<i<<" "<<j<<" "<<value[i]<<" "<<a.value[j]<<" "<<result.valueSum<<"\n";
+						//cout<<i<<" "<<j<<" "<<value[i]<<" "<<a.value[j]<<" "<<result.valueSum<<"\n";
 					}
 				}
 			}
@@ -126,32 +128,32 @@ sparseMatrix transpose(sparseMatrix a) {
 
 int main() {
 	int r, c, v;
-	std::cin >> r >> c >> v;
+	cin >> r >> c >> v;
 	sparseMatrix a(v);
 	a.rowSum = r;
 	a.colSum = c;
 	a.valueSum = v;
 
 	for (int i = 0; i < v; i++) {
-		std::cin >> a.row[i] >> a.col[i] >> a.value[i];
+		cin >> a.row[i] >> a.col[i] >> a.value[i];
 	}
 
-	std::cin >> r >> c >> v;
+	cin >> r >> c >> v;
 	sparseMatrix b(v);
 	b.rowSum = r;
 	b.colSum = c;
 	b.valueSum = v;
 
 	for (int i = 0; i < v; i++) {
-		std::cin >> b.row[i] >> b.col[i] >> b.value[i];
+		cin >> b.row[i] >> b.col[i] >> b.value[i];
 	}
 	//a.write();
-	//std::cout<<"\n\n";
+	//cout<<"\n\n";
 	//transpose(a).write();
 
-	std::cout << "\nYou are entered\n\n";
+	cout << "\nYou are entered\n\n";
 	a.write();
-	std::cout << "\nAnd\n\n";
+	cout << "\nAnd\n\n";
 	b.write();
 	
 	a.mult(b).write();
