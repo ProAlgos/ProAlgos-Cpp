@@ -10,10 +10,12 @@
 	This code takes each index-value pair (i,v) in the sparse row, multiplies v
 	with the i th value of x, and sums the results, It can write matrices and
 	calculate matrix transpose.
+	
 	Time complexity
 	---------------
-	O(column + element), where column is matrxi column numbers and element is
+	O(column + element), where column is matrix column numbers and element is
 	number of non-zero elements
+	
 	Space complexity
 	----------------
 	O(2N)
