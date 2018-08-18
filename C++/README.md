@@ -7,11 +7,20 @@ Implementation of well-known (and some rare) algorithms, in C++.
 :white_check_mark: = has unit tests
 
 ### Algorithms
+* Array and Linkedlist
+  * [Polynomial multiplication using linked list](source/array_and_linkedlist/polynomial_mult.cpp)
+  * [Sparse Matrix Multiplication](source/array_and_linkedlist/sparse_mat_mult.cpp)
 * Backtracking
   * [N-Queens](source/backtracking/n_queens.cpp)
 * Dynamic programming
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
+* Graph and Tree
+  * [AVL (Adelson-Velskii and Landis) tree](source/graph_and_tree/AVL.cpp)
+  * [Bellman–Ford](source/graph_and_tree/Bellman–Ford.cpp)
+  * [Kruskal's Minimum Spanning Tree (MST)](source/graph_and_tree/Kruskal-MST.cpp)
+  * [Prim's Minimum Spanning Tree (MST)](source/graph_and_tree/Prim-MST.cpp)
+  * [Salin's Minimum Spanning Tree (MST)](source/graph_and_tree/Salin-MST.cpp)
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
@@ -30,6 +39,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Ternary search](source/searching/ternary_search.cpp) :white_check_mark:
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp)
+  * [Bucket_sort](source/sorting/bucket_sort.cpp)
   * [Counting sort (stable)](source/sorting/counting_sort.cpp)
   * [Heap sort](source/sorting/heap_sort.cpp)
   * [Insertion sort](source/sorting/insertion_sort.cpp)
