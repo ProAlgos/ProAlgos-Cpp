@@ -1,5 +1,6 @@
 # Algos
 [![Travis status][travis-shield]][travis-link]
+[![Gitter](https://img.shields.io/gitter/room/Algos/Algos.svg?style=for-the-badge)](https://gitter.im/Algos-f)
 
 Implementation of well-known (and some rare) algorithms, mostly in C++.
 
