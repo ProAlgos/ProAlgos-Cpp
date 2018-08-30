@@ -4,3 +4,7 @@ bin
 
 ## Intermediate build files
 build
+
+
+## Swap Files
+*.swp
