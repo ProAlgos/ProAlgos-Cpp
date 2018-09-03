@@ -18,7 +18,7 @@
 #include "bubble_sort.h"
 #include "utils.hpp"
 
-void BubbleSort::bubble_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
+static void BubbleSort::bubble_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
 	size_t size;
 	get_input_size(size);
 
