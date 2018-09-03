@@ -1,4 +1,4 @@
-> The code in this repo is being reorganised in the [`reorganise` branch](). Please make all new PRs to that branch.
+> The code in this repo is being reorganised in the [`reorganise` branch](https://github.com/faheel/Algos/tree/reorganise). Please make all new PRs to that branch.
 
 # Algos
 [![Travis status][travis-shield]][travis-link]
