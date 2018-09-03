@@ -4,6 +4,8 @@
 #include <vector>
 
 class BubbleSort() {
+private:
+	BubbleSort() {}
 public:
-	void bubble_sort(std::vector<int>& values, const int order = 1, const bool to_show_state = false);
+	static void bubble_sort(std::vector<int>& values, const int order = 1, const bool to_show_state = false);
 };
