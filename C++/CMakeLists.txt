@@ -19,6 +19,15 @@ add_library(test_runner STATIC
 # Algorithms
 # ============================================================================
 
+# ---------
+# String
+# ---------
+
+# Edit distance Problem
+add_executable(edit_distance
+        test/algorithm/string/edit_distance.cpp)
+target_link_libraries(edit_distance test_runner)
+
 # -------------------
 # Dynamic programming
 # -------------------
