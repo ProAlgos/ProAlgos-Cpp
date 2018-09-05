@@ -28,6 +28,11 @@ add_executable(matrix_chain_multiplication
         test/algorithm/dynamic_programming/matrix_chain_multiplication.cpp)
 target_link_libraries(matrix_chain_multiplication test_runner)
 
+# 0-1 Knapsack Problem
+add_executable(0_1_knapsack
+        test/algorithm/dynamic_programming/0_1_knapsack.cpp)
+target_link_libraries(0_1_knapsack test_runner)
+
 # ---------
 # Searching
 # ---------
