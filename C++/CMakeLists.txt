@@ -28,6 +28,11 @@ add_executable(matrix_chain_multiplication
         test/algorithm/dynamic_programming/matrix_chain_multiplication.cpp)
 target_link_libraries(matrix_chain_multiplication test_runner)
 
+# Longest Increasing Subsequence
+add_executable(longest_increasing_subsequence
+        test/algorithm/dynamic_programming/longest_increasing_subsequence.cpp)
+target_link_libraries(longest_increasing_subsequence test_runner)
+
 # ---------
 # Searching
 # ---------
