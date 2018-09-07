@@ -38,6 +38,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp)
   * [Shell sort](source/sorting/shell_sort.cpp)
+  * [Comb sort](source/include/sorting/comb_sort.hpp)
 * String
   * [Longest common subsequence](source/string/lcs.cpp)
   * Searching (pattern matching)
