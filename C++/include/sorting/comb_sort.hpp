@@ -18,28 +18,28 @@
 
 #include "./utils.hpp"
 
-void comb_sort(vector<int>& input, const int order = 1, const bool to_show_state = true){
-	unsigned int gap = input.size();
-	double shrink_factor = 1.3; //suggested as the optimal size
-	bool sorted = false;
+void comb_sort(vector<int>& input, const int order = 1, const bool to_show_state = true) {
+    unsigned int gap = input.size();
+    double shrink_factor = 1.3; //suggested as the optimal size
+    bool sorted = false;
 
-	while(!sorted){
-		gap = (gap / shrink_factor); //This should automatically floor bc it is an int
+    while(!sorted) {
+        gap = (gap / shrink_factor); //This should automatically floor bc it is an int
 		
+        sorted = false;
+        if(gap == 1 || gap == 0)
+            sorted = true;
+
+	for(int i = 0; i + gap < input.size(); i++) {
+            if(order * input[i] > order * input[i+gap]) {
+	        swap(input[i], input[i+gap]);
 		sorted = false;
-		if(gap == 1 || gap == 0)
-			sorted = true;
-
-		for(int i = 0; i + gap < input.size(); i++){
-			if(order * input[i] > order * input[i+gap]){
-				swap(input[i], input[i+gap]);
-				sorted = false;
-			}
+	    }
 		
-			if(to_show_state)
-				display_state(input);
-		}
-		
+	    if(to_show_state)
+	        display_state(input);
 	}
+		
+    }
 	
 }
