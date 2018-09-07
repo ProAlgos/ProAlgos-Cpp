@@ -6,7 +6,7 @@
 default: dirs
 	cd build && cmake .. && make
 
-# compile tests using CMake
+# run tests
 .PHONY: test
 test: dirs
 	scripts/run_tests.sh
