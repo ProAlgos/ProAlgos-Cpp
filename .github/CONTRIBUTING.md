@@ -55,11 +55,11 @@ Follow the steps below to contribute to the project:
 2. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
-   git checkout master
-   git pull upstream master
+   git checkout reorganise
+   git pull upstream reorganise
    ```
 
-3. Create a new branch (off the `master` branch) to contain your code for a
+3. Create a new branch (off the `reorganise` branch) to contain your code for a
    specific algorithm or data structure:
 
    ```bash
@@ -72,7 +72,7 @@ Follow the steps below to contribute to the project:
 5. Locally merge (or rebase) the upstream development branch into your branch:
 
    ```bash
-   git pull [--rebase] upstream master
+   git pull [--rebase] upstream reorganise
    ```
 
 6. Push your branch up to your fork:
@@ -82,7 +82,7 @@ Follow the steps below to contribute to the project:
    ```
 
 7. [Open a pull request][pr-guide] with a clear title and description against the
-   `master` branch.
+   `reorganise` branch.
 
 ## Code of Conduct
 
