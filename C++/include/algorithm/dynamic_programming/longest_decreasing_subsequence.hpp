@@ -20,7 +20,7 @@ O(n)
 #include <iostream>
 #include <vector>
 
-int longest_subsequence(std::vector<int>& input,  const bool to_show_state = true) {//order of 1 means increasing subsequence, -1 for decreasing subsequence
+int longest_decreasing_subsequence(std::vector<int>& input,  const bool to_show_state = true) {//order of 1 means increasing subsequence, -1 for decreasing subsequence
     int elements = input.size();//number of elements in the vector
 	
 	if (elements == 1 || elements == 0) {
