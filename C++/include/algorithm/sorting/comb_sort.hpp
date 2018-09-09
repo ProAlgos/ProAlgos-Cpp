@@ -30,13 +30,13 @@ void comb_sort (vector<int>& input, const int order = 1, const bool to_show_stat
             sorted = true;
 	}
 			for (int i = 0; i + gap < input.size(); i++) {
-					if (order * input[i] > order * input[i+gap]) {
+				if (order * input[i] > order * input[i+gap]) {
 					swap(input[i], input[i+gap]);
-				sorted = false;
+					sorted = false;
 				}
-				
-				if (to_show_state)
+				if (to_show_state) {
 					display_state(input);
+				}
 			}
     }
 }
