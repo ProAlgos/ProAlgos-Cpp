@@ -1,7 +1,8 @@
 #include "third_party/catch.hpp"
 #include "algorithm/searching/binary_search.hpp"
 
-using namespace std;
+using std::vector;
+using std::string;
 
 TEST_CASE("Base cases", "[searching][binary_search]") {
     REQUIRE(binary_search(0, vector<int>()) == -1);

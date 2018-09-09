@@ -10,7 +10,9 @@
 
 #define EXIT_INPUT_SIZE_IS_ZERO 2    // exit code for when input size is 0
 
-using namespace std;
+using std::cin;
+using std::cout;
+using std::string;
 
 /*
     Input utils
