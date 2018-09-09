@@ -1,7 +1,8 @@
 #include "third_party/catch.hpp"
 #include "algorithm/searching/linear_search.hpp"
 
-using namespace std;
+using std::vector;
+using std::string;
 
 TEST_CASE("Base cases", "[searching][linear_search]") {
     REQUIRE(linear_search(0, vector<int>()) == -1);
