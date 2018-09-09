@@ -6,7 +6,7 @@
    locate or create the directory `test/algorithms/some_dir`.
 
 1. Create a file with the same name as the corresponding header file for which
-   you are writing tests, except that the extension should be `.test.cpp`.
+   you are writing tests, except that the extension should be `.cpp`.
 
 1. Add the following code to the test file:
     ```c++
