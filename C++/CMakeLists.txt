@@ -34,7 +34,7 @@ target_link_libraries(matrix_chain_multiplication test_runner)
 
 # Greatest common denominator
 add_executable(greatest_common_denominator
-        test/algorithm/number_theory/greatest_common_denominator.cpp test/algorithm/number_theory/greatest_common_denominator.cpp)
+        test/algorithm/number_theory/greatest_common_denominator.cpp)
 target_link_libraries(greatest_common_denominator test_runner)
 
 # ---------
