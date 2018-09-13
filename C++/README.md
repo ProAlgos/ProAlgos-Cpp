@@ -42,6 +42,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Longest common subsequence](source/string/lcs.cpp)
   * Searching (pattern matching)
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
+  * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
 
 ### Data structures
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
