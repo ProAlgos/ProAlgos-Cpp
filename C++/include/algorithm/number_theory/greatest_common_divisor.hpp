@@ -1,7 +1,7 @@
 /*
-    Euclid's greatest common denominator algorithm
-    ----------------------------------------------
-    The basic Euclidean algorithm is used to find the greatest common denominator of two
+    Euclid's greatest common divisor algorithm
+    ------------------------------------------
+    The basic Euclidean algorithm is used to find the greatest common divisor of two
     numbers, a and b. The Euclidean algorithm is based on the principle that the greatest
     common divisor of two numbers does not change if the larger number is replaced by its
     difference with the smaller number.
@@ -16,12 +16,12 @@
 */
 
 /*
-    greatest_common_denominator
-    ---------------------------
-    Returns the greatest common denominator of integers a and b.
+    greatest_common_divisor
+    -----------------------
+    Returns the greatest common divisor of integers a and b.
 */
 
-int greatest_common_denominator(int a, int b) {
+int greatest_common_divisor(int a, int b) {
     a = abs(a);
     b = abs(b);
 
@@ -29,5 +29,5 @@ int greatest_common_denominator(int a, int b) {
         return b;
     }
 
-    return greatest_common_denominator(b % a, a);
+    return greatest_common_divisor(b % a, a);
 }
