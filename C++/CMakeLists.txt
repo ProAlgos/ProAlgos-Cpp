@@ -19,9 +19,9 @@ add_library(test_runner STATIC
 # Algorithms
 # ============================================================================
 
-# ---------
+# ------
 # String
-# ---------
+# ------
 
 # Edit distance Problem
 add_executable(edit_distance
@@ -36,6 +36,11 @@ target_link_libraries(edit_distance test_runner)
 add_executable(matrix_chain_multiplication
         test/algorithm/dynamic_programming/matrix_chain_multiplication.cpp)
 target_link_libraries(matrix_chain_multiplication test_runner)
+
+# 0-1 knapsack
+add_executable(0_1_knapsack
+        test/algorithm/dynamic_programming/0_1_knapsack.cpp)
+target_link_libraries(0_1_knapsack test_runner)
 
 # -------------
 # Number theory
