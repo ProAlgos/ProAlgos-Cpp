@@ -15,7 +15,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
-    * [Greatest common divisor](source/number_theory/gcd.cpp) (GCD)
+    * [Greatest common divisor](include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
     * [Extended Euclidean algorithm](source/number_theory/extended_euclid.cpp) (Bézout coefficients and GCD)
   * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
   * Nth Fibonacci number
