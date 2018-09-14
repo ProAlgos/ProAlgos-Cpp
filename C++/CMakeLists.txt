@@ -51,6 +51,11 @@ add_executable(greatest_common_divisor
         test/algorithm/number_theory/greatest_common_divisor.cpp)
 target_link_libraries(greatest_common_divisor test_runner)
 
+# Extended Euclidean
+add_executable(extended_euclidean
+        test/algorithm/number_theory/extended_euclidean.cpp)
+target_link_libraries(extended_euclidean test_runner)
+
 # ---------
 # Searching
 # ---------
