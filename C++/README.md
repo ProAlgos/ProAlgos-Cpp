@@ -30,6 +30,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp)
+  * [Comb sort](source/include/sorting/comb_sort.hpp)
   * [Counting sort (stable)](source/sorting/counting_sort.cpp)
   * [Heap sort](source/sorting/heap_sort.cpp)
   * [Insertion sort](source/sorting/insertion_sort.cpp)
@@ -38,7 +39,6 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp)
   * [Shell sort](source/sorting/shell_sort.cpp)
-  * [Comb sort](source/include/sorting/comb_sort.hpp)
 * String
   * [Longest common subsequence](source/string/lcs.cpp)
   * Searching (pattern matching)
