@@ -26,7 +26,17 @@
    at the [existing unit tests][unit-tests] to get a clearer idea about how the
    tests are written.
 
-**And that's it!** Now you can compile the test using **`make test`** from the
+1. Add an entry for your unit test in `CMakeLists.txt`. For example, if your
+   unit test is `test/algorithm/some_dir/some_test.cpp`, add the following
+   entry for it:
+   ```cmake
+   add_executable(some_test
+           test/algorithm/some_dir/some_test.cpp)
+   target_link_libraries(some_test test_runner)
+   ```
+   
+
+**That's it!** Now you can compile the test using **`make test`** from the
 `C++` directory, which will also run all of the tests for you. In order to run
 only a specific test and see its results, run it manually from the `bin` directory.
 
