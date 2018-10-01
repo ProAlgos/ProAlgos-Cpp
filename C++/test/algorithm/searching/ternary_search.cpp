@@ -1,10 +1,9 @@
-#define TERNARY_SEARCH_TEST
-
-#include <vector>
 #include <algorithm>
 
-#include "source/searching/ternary_search.cpp"
 #include "third_party/catch.hpp"
+#include "algorithm/searching/ternary_search.hpp"
+
+using std::vector;
 
 /*
     TODO: refactor
@@ -85,5 +84,3 @@ TEST_CASE("Normal cases", "[searching][ternary_search]") {
         REQUIRE(ternary_search(values, pattern) == expected_index);
     }
 }
-
-#undef TERNARY_SEARCH_TEST

@@ -8,15 +8,16 @@ Implementation of well-known (and some rare) algorithms, in C++.
 
 ### Algorithms
 * Backtracking
-  * [N-Queens](source/backtracking/n_queens.cpp)
+  * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
 * Dynamic programming
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
+  * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
-    * [Greatest common divisor](source/number_theory/gcd.cpp) (GCD)
-    * [Extended Euclidean algorithm](source/number_theory/extended_euclid.cpp) (Bézout coefficients and GCD)
+    * [Greatest common divisor](include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
+    * [Extended Euclidean algorithm](include/algorithm/number_theory/extended_euclidean.hpp) (Bézout coefficients) :white_check_mark:
   * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
   * Nth Fibonacci number
     * [Linear time algorithm](source/number_theory/fibonacci.cpp) :white_check_mark:
@@ -25,9 +26,9 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
 * Searching
-  * [Binary search](source/searching/binary_search.cpp) :white_check_mark:
-  * [Linear search](source/searching/linear_search.cpp) :white_check_mark:
-  * [Ternary search](source/searching/ternary_search.cpp) :white_check_mark:
+  * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
+  * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
+  * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp)
   * [Counting sort (stable)](source/sorting/counting_sort.cpp)
@@ -42,6 +43,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Longest common subsequence](source/string/lcs.cpp)
   * Searching (pattern matching)
     * [Knuth-Morris-Pratt](source/string/kmp.cpp)
+  * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
 
 ### Data structures
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
