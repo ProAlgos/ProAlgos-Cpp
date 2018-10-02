@@ -1,5 +1,7 @@
 /*
-    Various utility functions used for data validation
+    Utility Functions for Data Validation
+    to_upper_case: 
+        Takes a string input and returns a string output
 */
 #include <string>
 #include <random>
@@ -9,7 +11,8 @@
 
 #define LOW_A 97
 #define LOW_Z 122
-
+/*Takes a string input and returns a string output
+The string will have all its alphabetical characters in upper case.*/
 std::string to_upper_case(std::string &s){
     std::string upper;
     for(int i = 0; i<s.length();i++){
@@ -21,7 +24,8 @@ std::string to_upper_case(std::string &s){
     }
     return upper;
 }
-
+/*Takes a string input and returns a string output
+The string will have all its alphabetical characters in lower case.*/
 std::string to_lower_case(std::string &s){
     std::string lower;
     for(int i = 0; i<s.length();i++){
@@ -33,7 +37,7 @@ std::string to_lower_case(std::string &s){
     }
     return lower;
 }
-
+/*Takes a min and max as input to form a range. Returns a random double value found in between the range*/
 double get_random_double(double min, double max){
     std::mt19937 generator;
     generator.seed(std::time(0));    
@@ -41,7 +45,7 @@ double get_random_double(double min, double max){
     double random_double_value = random_double(generator);
     return random_double_value;
 }
-
+/*Takes a min and max as input to form a range. Returns a random int value found in between the range*/
 int get_random_int(int min, int max){
     std::mt19937 generator;
     generator.seed(std::time(0));
