@@ -28,6 +28,11 @@ add_executable(edit_distance
         test/algorithm/string/edit_distance.cpp)
 target_link_libraries(edit_distance test_runner)
 
+# Knuth-Morris-Pratt
+add_executable(knuth_morris_pratt
+        test/algorithm/string/knuth_morris_pratt.cpp)
+target_link_libraries(knuth_morris_pratt test_runner)
+
 # -------------------
 # Dynamic programming
 # -------------------
