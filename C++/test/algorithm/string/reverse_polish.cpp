@@ -1,4 +1,4 @@
-#include "reverse_polish.cpp"
+#include "reverse_polish.hpp"
 #define CATCH_CONFIG_MAIN
 #define REVERSE_POLISH_TEST
 #include "third_party/catch.hpp"
