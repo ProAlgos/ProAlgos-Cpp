@@ -28,6 +28,11 @@ add_executable(edit_distance
         test/algorithm/string/edit_distance.cpp)
 target_link_libraries(edit_distance test_runner)
 
+# Shunting yard (reverse polish)
+add_executable(reverse_polish
+        test/algorithm/string/reverse_polish.cpp)
+target_link_libraries(reverse_polish test_runner)
+
 # -------------------
 # Dynamic programming
 # -------------------
