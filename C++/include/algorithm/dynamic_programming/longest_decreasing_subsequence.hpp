@@ -18,13 +18,15 @@ O(n)
 
 #include <iostream>
 #include <vector>
-
+/*
+ *	Function finds the longest_decreasing_subsequence for a vector input
+ */
 int longest_decreasing_subsequence(std::vector<int>& input,  const bool to_show_state = true) {
     int elements = input.size(); //number of elements in the vector
     if (elements == 1 || elements == 0) {
         return elements; //base case
     }
-    int array[elements];//array to store the longest increasing subsequence at each location, this can then be used to backtrack and find what was the longest sequence
+    int array[elements]; //array to store the longest increasing subsequence at each location, this can then be used to backtrack and find what was the longest sequence
     int max = 0; //max represents current largest size 
 
     for (int i = 0; i < elements; i++) {
@@ -51,7 +53,7 @@ int longest_decreasing_subsequence(std::vector<int>& input,  const bool to_show_
                     sub.push_back(input.at(i));
                     counter--;  
                 } else if (input.at(i) - sub.at(sub.size() - 1) > 0) {
-                    sub.push_back( input.at(i));
+                    sub.push_back(input.at(i));
                     counter--;
                 }
         }   
