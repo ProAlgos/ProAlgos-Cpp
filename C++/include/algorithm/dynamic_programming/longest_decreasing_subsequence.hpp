@@ -18,10 +18,14 @@ O(n)
 
 #include <iostream>
 #include <vector>
+
+using std::vector;
+using std::cout;
+using std::endl;
 /*
  *	Function finds the longest_decreasing_subsequence for a vector input
  */
-int longest_decreasing_subsequence(std::vector<int>& input,  const bool to_show_state = true) {
+int longest_decreasing_subsequence(vector<int>& input,  const bool to_show_state = false) {
     int elements = input.size(); //number of elements in the vector
     if (elements == 1 || elements == 0) {
         return elements; //base case
@@ -58,10 +62,10 @@ int longest_decreasing_subsequence(std::vector<int>& input,  const bool to_show_
                 }
         }   
         for (int i = max-1; i > -1; i--) {
-            std::cout << sub.at(i) << ", ";
+            cout << sub.at(i) << ", ";
         }
 
-        std::cout << std::endl;
+        cout << endl;
     }
     return max;  
 } 
