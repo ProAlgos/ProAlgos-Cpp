@@ -42,6 +42,11 @@ add_executable(0_1_knapsack
         test/algorithm/dynamic_programming/0_1_knapsack.cpp)
 target_link_libraries(0_1_knapsack test_runner)
 
+# Kadane's
+add_executable(kadane
+        test/algorithm/dynamic_programming/kadane.cpp)
+target_link_libraries(kadane test_runner)
+
 # -------------
 # Number theory
 # -------------

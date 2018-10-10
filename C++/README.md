@@ -12,7 +12,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * Dynamic programming
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
-  * Maximum sum contiguous subarray: [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
+  * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
