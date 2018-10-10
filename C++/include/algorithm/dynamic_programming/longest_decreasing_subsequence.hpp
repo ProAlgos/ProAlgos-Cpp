@@ -64,6 +64,6 @@ int longest_decreasing_subsequence(std::vector<int>& input,  const bool to_show_
         std::cout << std::endl;
     }
     return max;  
-}; 
+} 
 
 #endif
