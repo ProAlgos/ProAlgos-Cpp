@@ -49,7 +49,7 @@ int longest_decreasing_subsequence(vector<int>& input,  const bool to_show_state
         }
     }
     if (to_show_state) { //if this is true print out the subsequence
-        std::vector<int> sub; //this vector will be populated with the ordered subsequence
+        vector<int> sub; //this vector will be populated with the ordered subsequence
         int counter = max;
         for (int i = elements - 1; i > -1; i--) {
             if (array[i] == counter)
