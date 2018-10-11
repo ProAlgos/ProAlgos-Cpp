@@ -23,6 +23,11 @@ The difference between turnaround time and burst time of a process.
 
 [AVERAGE_TURNAROUND_TIME = TOTAL_TURNAROUND_TIMES / NUMBER OF PROCESSES]
 
+Time Complexity:
+----------------
+O(n) , Every time since this depends upon the variable n, number of processes
+
+
 */
 #include<iostream.h>
 using namespace std;
