@@ -24,7 +24,7 @@ using std::make_tuple;
 using std::vector;
 
 /*
-    maximumSubarray
+    maximum_subarray
     ---------------
     Takes an array of integers as an argument and computes the maximum sum that
     can be computed from any (contiguous) subarray of that array. Uses Kadane's
@@ -37,7 +37,9 @@ using std::vector;
     that value.
 */
 
-tuple<int, size_t, size_t> maximumSubarray(const vector<int> &values)
+#define kadane maximum_subarray
+
+tuple<int, size_t, size_t> maximum_subarray(const vector<int> &values)
 {
     int maxSum, currentSum;
     size_t nextStart, start, end;
