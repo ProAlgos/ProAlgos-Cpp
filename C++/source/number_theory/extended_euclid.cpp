@@ -78,6 +78,7 @@ void get_positive_int(int& var, const string& var_name) {
     } while (var < 0);
 }
 
+#ifndef EXTENDED_EUCLID_TEST
 int main() {
     int a, b;
     get_positive_int(a, "a");
@@ -90,3 +91,4 @@ int main() {
 
     return 0;
 }
+#endif

@@ -15,7 +15,6 @@
     ----------------
     O(1)
 */
-
 #include <iostream>
 using namespace std;
 
@@ -26,6 +25,7 @@ int gcd(int a, int b) {
     return gcd(b%a, a);
 }
 
+#ifndef GCD_TEST
 // Driver program to test above function
 int main() {
     int a, b;
@@ -34,3 +34,4 @@ int main() {
     cout << "GCD of " << a << " and " << b << " is: " << gcd(a, b) << endl;
     return 0;
 }
+#endif
