@@ -6,6 +6,7 @@ using std::vector;
 TEST_CASE("Base cases", "[longest_decreasing_subsequence]") {
 	REQUIRE(longest_decreasing_subsequence(vector<int>({}) == 0);
 	REQUIRE(longest_decreasing_subsequence(vector<int>({1}) == 1);
+	REQUIRE(longest_decreasing_subsequence(vector<int>({11}) == 1);
 }
 
 TEST_CASE("Test cases", "[longest_decreasing_subsequence]") {
