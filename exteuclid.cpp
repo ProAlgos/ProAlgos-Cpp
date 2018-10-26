@@ -42,13 +42,17 @@ int main()
 	cin>>a>>b;
 	
 	if(gcd(a,b)==1)
-	
+	{
 		euclid(a,b,&x1,&y1);
 
-	while(x1<0)
-		{
-			x1+=b;
-		}
+		while(x1<0)
+			{
+				x1+=b;
+			}
 
-	cout<<"modular inverse of "<<a<<" wrt to "<<b<<" = "<<x1;
+		cout<<"modular inverse of "<<a<<" wrt to "<<b<<" = "<<x1;
+	}
+
+	else
+	cout<<"\nExtended euclidean algorithm failed";
 }
