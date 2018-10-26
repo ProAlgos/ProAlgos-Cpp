@@ -13,7 +13,7 @@ int gcd(int a,int b)
 	return b;
 
 	else
-	return (b%a,a);
+	return gcd(b%a,a);
 }
 
 
