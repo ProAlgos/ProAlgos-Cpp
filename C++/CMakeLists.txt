@@ -83,3 +83,7 @@ target_link_libraries(ternary_search test_runner)
 add_executable(disjoint_set
         test/data_structure/disjoint_set.cpp)
 target_link_libraries(disjoint_set test_runner)
+
+add_executable(doubly_linked_list
+        test/data_structures/doubly_linked_list.cpp)
+target_link_libraries(doubly_linked_list test_runner)
