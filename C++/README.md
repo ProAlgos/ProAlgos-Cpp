@@ -47,6 +47,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
 * [Disjoint-set](include/data_structures/disjoint_set.cpp) :white_check_mark:
 * [Singly linked list](include/data_structures/singly_linked_list.cpp)
+* [Doubly linked list](include/data_structure/doubly_linked_list.cpp)
 
 ## Compiling
 To compile the source files, run **`make all`**. Doing so will:
