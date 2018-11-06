@@ -31,6 +31,8 @@ struct Node {
 
         Node<T> operator=(const Node<T> &rhs) {
             this->value = rhs.value;
+            this->prev = rhs.prev;
+            this->next = rhs.next;
             return *this;
         }
 
