@@ -1,25 +1,45 @@
+#ifndef KADANE_HPP
+#define KADANE_HPP
+
 /*
-    Kadane's algorithm:
+    Kadane's Algorithm
     ------------------
     Used for finding the contiguous subarray within a one-dimensional array
     of integers which has the largest sum.
-    
+
     Time complexity
     ---------------
     O(N), where N is the number of elements in the original array.
-    
+
     Space complexity
     ----------------
-    O(1).
+    O(1)
 */
 
-#include <iostream>
 #include <tuple>
 #include <vector>
 
-using namespace std;
+using std::tuple;
+using std::make_tuple;
+using std::vector;
 
-tuple<int, size_t, size_t> maximumSubarray(const vector<int> &values)
+/*
+    maximum_subarray
+    ---------------
+    Takes an array of integers as an argument and computes the maximum sum that
+    can be computed from any (contiguous) subarray of that array. Uses Kadane's
+    Algorithm, which employs dynamic programming.
+
+    Return value
+    ------------
+    tuple<int, size_t, size_t>, in which int is the maximum subarray value and
+    size_t to size_t represents the indices of the passed subarray that sum to
+    that value.
+*/
+
+#define kadane maximum_subarray
+
+tuple<int, size_t, size_t> maximum_subarray(const vector<int> &values)
 {
     int maxSum, currentSum;
     size_t nextStart, start, end;
@@ -44,26 +64,4 @@ tuple<int, size_t, size_t> maximumSubarray(const vector<int> &values)
     return make_tuple(maxSum, start, end);
 }
 
-int main()
-{
-    size_t size;
-    cout << "Enter the input size : ";
-    cin >> size;
-
-    vector<int> values(size);
-    cout << "Enter " << size << " integers :\n";
-    for (int &val : values)
-        cin >> val;
-
-    int maxSum;
-    size_t start, end;
-    tie(maxSum, start, end) = maximumSubarray(values);
-
-    cout << "\nThe contiguous subarray with the largest sum is:\n";
-    for (size_t i = start; i <= end; i++)
-        cout << values[i] << " ";
-    cout << "\n(from position " << start + 1 << " to " << end + 1 << ")\n\n";
-    cout << "Sum of its elements is " << maxSum << '\n';
-
-    return 0;
-}
+#endif // KADANE_HPP
