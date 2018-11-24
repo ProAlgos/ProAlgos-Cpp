@@ -19,15 +19,6 @@ add_library(test_runner STATIC
 # Algorithms
 # ============================================================================
 
-# ------
-# String
-# ------
-
-# Edit distance Problem
-add_executable(edit_distance
-        test/algorithm/string/edit_distance.cpp)
-target_link_libraries(edit_distance test_runner)
-
 # -------------------
 # Dynamic programming
 # -------------------
@@ -74,6 +65,20 @@ target_link_libraries(linear_search test_runner)
 add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
+
+# ------
+# String
+# ------
+
+# Edit distance Problem
+add_executable(edit_distance
+        test/algorithm/string/edit_distance.cpp)
+target_link_libraries(edit_distance test_runner)
+
+# Longest common subsequence
+add_executable(longest_common_subsequence
+        test/algorithm/string/longest_common_subsequence.cpp)
+target_link_libraries(longest_common_subsequence test_runner)
 
 # ============================================================================
 # Data structures
