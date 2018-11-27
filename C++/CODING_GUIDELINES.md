@@ -49,12 +49,12 @@ int cstmr_id;              // Deletes internal letters.
 
 ### File names and locations
 - File and directory names should be all lowercase, with word separators (such as dashes and spaces) replaced with an underscore `_`.
-- All source files should be located in `/include/<algorithm or data_structure>/<type>` and have the extension `.hpp`.
-- All unit test files should be located in `/test/<algorithm or data_structure>/<type>` and have the extension `.cpp`.
+- All source files should be located in `include/<algorithm or data_structure>/<type>` and have the extension `.hpp`.
+- All unit test files should be located in `test/<algorithm or data_structure>/<type>` and have the extension `.cpp`.
 
 #### Example
-- Source file: `lowest_common_subsequence.hpp` in `/include/algorithm/string`
-- Unit test file: `lowest_common_subsequence.cpp` in `/test/algorithm/string`
+- Source file: `lowest_common_subsequence.hpp` in `include/algorithm/string`
+- Unit test file: `lowest_common_subsequence.cpp` in `test/algorithm/string`
 
 ### Type names
 The names of all types - **classes**, **structs**, **type aliases** and **enums** - have the same naming convention: they should start with a capital letter and have a capital letter for each new word, with no underscores (Pascal case).
