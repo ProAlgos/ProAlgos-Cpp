@@ -1,7 +1,13 @@
-#include <iostream>
+#include "sorting/utils.hpp"
 
-// for size_t
-#include <string>
+template<class T>
+void display_state(const T* values, size_t beg, size_t end) {
+    // since we're passing by value, this works fine
+    for (; beg < end; beg++) {
+        std::cout << values[beg] << ' ';
+    }
+    std::cout << std::endl;
+}
 
 /**
  * Works on [beg, end).
@@ -54,13 +60,40 @@ size_t partition(T* arr, size_t beg, size_t end) {
  * Easy way to call: quicksort(c_style_array, 0, length_of_array);
  */
 template<class T>
-void quicksort(T* arr, size_t beg, size_t end) {
+void quicksort(T* arr, size_t beg, size_t end, bool to_show_state = false) {
     if (end - beg <= 1) {
         return;
     }
 
     size_t ctr = partition(arr, beg, end);
 
-    quicksort(arr, beg, ctr);
-    quicksort(arr, ctr, end);
+    quicksort(arr, beg, ctr, to_show_state);
+    quicksort(arr, ctr, end, to_show_state);
+
+    if (to_show_state) {
+        std::cout << "[" << beg << ", " << end << "): ";
+        display_state<T>(arr, beg, end);
+    }
+}
+
+int main() {
+    size_t size;
+    get_input_size(size);
+
+    int* values = new int[size];
+    std::cout << "\nEnter " << size << " integers :\n";
+    for (size_t i = 0; i < size; i++) {
+        std::cin >> values[i];
+    }
+    std::cin.ignore();
+
+    bool to_show_state;
+    get_whether_to_show_state(to_show_state);
+
+    quicksort<int>(values, 0, size, to_show_state);
+
+    std::cout << "\nThe values are:" << std::endl;
+    display_state<int>(values, 0, size);
+
+    return 0;
 }
