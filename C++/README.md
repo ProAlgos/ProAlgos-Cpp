@@ -35,6 +35,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Insertion sort](source/sorting/insertion_sort.cpp)
   * [Merge sort](source/sorting/merge_sort.cpp)
   * [Quick sort](source/sorting/quick_sort.cpp)
+  * [Quick sort (median-of-3 partitioning)](source/sorting/median_of_3_quicksort.cpp)
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp)
   * [Shell sort](source/sorting/shell_sort.cpp)
