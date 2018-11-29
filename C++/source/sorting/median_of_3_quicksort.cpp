@@ -1,3 +1,17 @@
+/*
+    Quicksort (median-of-3 partitioning)
+    ----------
+    Same as quick_sort.cpp except using median-of-3 partitioning.
+    Time complexity
+    ---------------
+    Worst case (extremely rare): O(N^2)
+    General worst case: O(N * log(N))
+    where N is the number of elements.
+    Space complexity
+    ----------------
+    O(1).
+*/
+
 #include "sorting/utils.hpp"
 
 template<class T>
