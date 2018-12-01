@@ -109,5 +109,7 @@ int main() {
     std::cout << "\nThe values are:" << std::endl;
     display_state<int>(values, 0, size);
 
+    delete[] values;
+
     return 0;
 }
