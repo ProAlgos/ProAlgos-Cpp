@@ -42,15 +42,21 @@ target_link_libraries(kadane test_runner)
 # Number theory
 # -------------
 
+# Extended Euclidean
+add_executable(extended_euclidean
+        test/algorithm/number_theory/extended_euclidean.cpp)
+target_link_libraries(extended_euclidean test_runner)
+
+# Fibonacci
+add_executable(fibonacci
+        test/algorithm/number_theory/fibonacci.cpp)
+target_link_libraries(fibonacci test_runner)
+
 # Greatest common divisor
 add_executable(greatest_common_divisor
         test/algorithm/number_theory/greatest_common_divisor.cpp)
 target_link_libraries(greatest_common_divisor test_runner)
 
-# Extended Euclidean
-add_executable(extended_euclidean
-        test/algorithm/number_theory/extended_euclidean.cpp)
-target_link_libraries(extended_euclidean test_runner)
 
 # ---------
 # Searching
