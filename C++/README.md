@@ -21,7 +21,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
   * Nth Fibonacci number
     * [Linear time algorithm](include/algorithm/number_theory/fibonacci.hpp) :white_check_mark:
-    * [Logarithmic time algorithm](source/number_theory/fibonacci_efficient.cpp) :white_check_mark:
+    * [Logarithmic time algorithm](include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
   * [Perfect number check](source/number_theory/perfect_number_check.cpp) :white_check_mark:
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
