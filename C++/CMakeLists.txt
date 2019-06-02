@@ -52,6 +52,11 @@ add_executable(fibonacci
         test/algorithm/number_theory/fibonacci.cpp)
 target_link_libraries(fibonacci test_runner)
 
+# Fibonacci efficient
+add_executable(fibonacci_efficient
+        test/algorithm/number_theory/fibonacci_efficient.cpp)
+target_link_libraries(fibonacci_efficient test_runner)
+
 # Greatest common divisor
 add_executable(greatest_common_divisor
         test/algorithm/number_theory/greatest_common_divisor.cpp)
