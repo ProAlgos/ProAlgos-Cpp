@@ -42,7 +42,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
-    * [Knuth-Morris-Pratt](source/string/kmp.cpp)
+    * [Knuth-Morris-Pratt](include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
 
 ### Data structures

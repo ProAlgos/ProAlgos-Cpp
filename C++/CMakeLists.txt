@@ -85,6 +85,11 @@ add_executable(longest_common_subsequence
         test/algorithm/string/longest_common_subsequence.cpp)
 target_link_libraries(longest_common_subsequence test_runner)
 
+# Knuth-Morris-Pratt
+add_executable(knuth_morris_pratt
+        test/algorithm/string/knuth_morris_pratt.cpp)
+target_link_libraries(knuth_morris_pratt test_runner)
+
 # ============================================================================
 # Data structures
 # ============================================================================
