@@ -12,7 +12,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * Dynamic programming
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
-  * Maximum sum contiguous subarray: [Kadane's algorithm](source/maximum_subarray/kadane.cpp)
+  * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
 * Number theory
   * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
   * Euclidean algorithms
@@ -40,9 +40,9 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Selection sort](source/sorting/selection_sort.cpp)
   * [Shell sort](source/sorting/shell_sort.cpp)
 * String
-  * [Longest common subsequence](source/string/lcs.cpp)
+  * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
-    * [Knuth-Morris-Pratt](source/string/kmp.cpp)
+    * [Knuth-Morris-Pratt](include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
   * [Shunting yard (reverse polish)](include/algorithm/string/reverse_polish.hpp) :white_check_mark:
 ### Data structures

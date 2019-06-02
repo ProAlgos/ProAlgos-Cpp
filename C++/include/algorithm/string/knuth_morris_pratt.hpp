@@ -1,3 +1,6 @@
+#ifndef KNUTH_MORRIS_PRATT
+#define KNUTH_MORRIS_PRATT
+
 /*
     Knuth-Morris-Pratt (KMP) algorithm
     ----------------------------------
@@ -19,18 +22,22 @@
 #include <string>
 #include <vector>
 
-using namespace std;
+using std::vector;
+using std::string;
+
 
 vector<int> preprocess(string pattern) {
-    // table of partial matches (to know where to jump in case of a mismatch)
+    // Table of partial matches (to know where to jump in case of a mismatch)
     vector<int> table(pattern.length(), -1);
     size_t i = 0;
     int j = -1;
 
-    // look for matches
+    // Look for matches
     while (i < pattern.length()) {
-        while (j >= 0 and pattern[i] != pattern[j])     // if there's a mismatch
+        // Reset j with table if mismatch is found
+        while (j >= 0 and pattern[i] != pattern[j]) {
             j = table[j];       // reset j with the table
+        }
 
         i++, j++;   // advance both counters when there's a match, or when j is reset
         table[i] = j;   // set the index to jump to
@@ -46,10 +53,12 @@ vector<int> search(string pattern, string text) {
     size_t i = 0;
     int j = 0;
 
-    // iterate over the entire text
+    // Iterate over the entire text
     while (i < text.length()) {
-        while (j >= 0 and text[i] != pattern[j])    // if there's a mismatch
+        // Reset j with table if mismatch is found
+        while (j >= 0 and text[i] != pattern[j]) {
             j = table[j];       // reset j with the table
+        }
 
         i++, j++;   // advance both counters when there's a match, or when j is reset
 
@@ -62,27 +71,4 @@ vector<int> search(string pattern, string text) {
     return indices;
 }
 
-int main() {
-    string text;
-    cout << "Enter some text : ";
-    getline(cin, text);
-
-    string pattern;
-    cout << "\nEnter the pattern to search : ";
-    getline(cin, pattern);
-
-    vector<int> indices = search(pattern, text);
-
-    if (indices.size() == 1)
-        cout << "\nPattern found at index " << indices[0] << "\n";
-    else if (indices.size() > 1) {
-        cout << "\nPattern found at indices : ";
-        for (int index : indices)
-            cout << index << ", ";
-        cout << "\b\b \n";      // remove comma from the end
-    }
-    else
-        cout << "\nCouldn\'t find the pattern!\n";
-
-    return 0;
-}
+#endif
