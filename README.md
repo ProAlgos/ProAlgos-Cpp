@@ -29,6 +29,10 @@ guidelines][contrib-guide], so be sure to check them out.
 Just [create a new issue](https://github.com/faheel/Algos/issues/new) and I'll
 handle it from there :smile:
 
+## Maintainers
+
+This repo is being actively maintained by @alxmjo, and inactively by @faheel.
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).
