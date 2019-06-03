@@ -42,6 +42,11 @@ target_link_libraries(kadane test_runner)
 # Number theory
 # -------------
 
+# Binomial coefficient
+add_executable(binomial_coefficient
+        test/algorithm/number_theory/binomial_coefficient.cpp)
+target_link_libraries(binomial_coefficient test_runner)
+
 # Extended Euclidean
 add_executable(extended_euclidean
         test/algorithm/number_theory/extended_euclidean.cpp)
