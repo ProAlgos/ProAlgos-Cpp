@@ -18,7 +18,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Euclidean algorithms
     * [Greatest common divisor](include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
     * [Extended Euclidean algorithm](include/algorithm/number_theory/extended_euclidean.hpp) (Bézout coefficients) :white_check_mark:
-  * [Fast exponentiation](source/number_theory/fast_exponentiation.cpp) :white_check_mark:
+  * [Fast exponentiation](include/algorithm/number_theory/fast_exponentiation.hpp) :white_check_mark:
   * Nth Fibonacci number
     * [Linear time algorithm](include/algorithm/number_theory/fibonacci.hpp) :white_check_mark:
     * [Logarithmic time algorithm](include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:

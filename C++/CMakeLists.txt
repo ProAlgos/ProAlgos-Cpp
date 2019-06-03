@@ -47,6 +47,11 @@ add_executable(extended_euclidean
         test/algorithm/number_theory/extended_euclidean.cpp)
 target_link_libraries(extended_euclidean test_runner)
 
+# Fast exponentiation
+add_executable(fast_exponentiation
+        test/algorithm/number_theory/fast_exponentiation.cpp)
+target_link_libraries(fast_exponentiation test_runner)
+
 # Fibonacci
 add_executable(fibonacci
         test/algorithm/number_theory/fibonacci.cpp)
