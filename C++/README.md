@@ -14,7 +14,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
 * Number theory
-  * [Binomial coefficient](source/number_theory/binomial_coefficient.cpp) :white_check_mark:
+  * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms
     * [Greatest common divisor](include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
     * [Extended Euclidean algorithm](include/algorithm/number_theory/extended_euclidean.hpp) (Bézout coefficients) :white_check_mark:
