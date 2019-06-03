@@ -77,6 +77,11 @@ add_executable(perfect_number_check
         test/algorithm/number_theory/perfect_number_check.cpp)
 target_link_libraries(perfect_number_check test_runner)
 
+# Sieve of Eratosthenes
+add_executable(sieve_of_eratosthenes
+        test/algorithm/number_theory/sieve_of_eratosthenes.cpp)
+target_link_libraries(sieve_of_eratosthenes test_runner)
+
 # ---------
 # Searching
 # ---------

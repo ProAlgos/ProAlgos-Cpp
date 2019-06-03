@@ -24,7 +24,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
     * [Logarithmic time algorithm](include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
   * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
-    * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
+    * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
 * Searching
   * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
   * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
