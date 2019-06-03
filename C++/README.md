@@ -22,7 +22,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Nth Fibonacci number
     * [Linear time algorithm](include/algorithm/number_theory/fibonacci.hpp) :white_check_mark:
     * [Logarithmic time algorithm](include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
-  * [Perfect number check](source/number_theory/perfect_number_check.cpp) :white_check_mark:
+  * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](source/number_theory/sieve_of_eratosthenes.cpp)
 * Searching
