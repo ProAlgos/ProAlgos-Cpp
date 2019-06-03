@@ -62,6 +62,10 @@ add_executable(greatest_common_divisor
         test/algorithm/number_theory/greatest_common_divisor.cpp)
 target_link_libraries(greatest_common_divisor test_runner)
 
+# Perfect number check
+add_executable(perfect_number_check
+        test/algorithm/number_theory/perfect_number_check.cpp)
+target_link_libraries(perfect_number_check test_runner)
 
 # ---------
 # Searching
