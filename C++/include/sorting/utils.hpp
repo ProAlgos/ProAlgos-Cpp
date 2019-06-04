@@ -1,3 +1,6 @@
+#ifndef UTILS_HPP
+#define UTILS_HPP
+
 /*
     Various utility functions (for input, output etc.)
     used in programs that implement sorting algorithms
@@ -13,6 +16,8 @@
 using std::cin;
 using std::cout;
 using std::string;
+using std::swap;
+using std::vector;
 
 /*
     Input utils
@@ -79,3 +84,5 @@ void display_state(const vector<int>& values) {
         cout << val << ' ';
     cout << '\n';
 }
+
+#endif
