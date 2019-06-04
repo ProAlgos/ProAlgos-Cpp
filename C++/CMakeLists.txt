@@ -101,6 +101,14 @@ add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
 
+# -------
+# Sorting
+# -------
+
+add_executable(sorting
+        test/algorithm/sorting/sorting.cpp)
+target_link_libraries(sorting test_runner)
+
 # ------
 # String
 # ------

@@ -30,7 +30,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
   * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
 * Sorting
-  * [Bubble sort](source/sorting/bubble_sort.cpp)
+  * [Bubble sort](include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:
   * [Counting sort (stable)](source/sorting/counting_sort.cpp)
   * [Heap sort](source/sorting/heap_sort.cpp)
   * [Insertion sort](source/sorting/insertion_sort.cpp)
