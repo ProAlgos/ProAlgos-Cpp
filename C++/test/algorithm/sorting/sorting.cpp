@@ -5,10 +5,13 @@
 
 // Prototypes
 int generate_random_int(int, int);
-vector<int> generate_unsorted_vector();
+vector<int> generate_unsorted_vector(int max_size = 1000);
 
 // Pointer to function
 using sorting_function = void(*)(vector<int>&, int, bool);
+
+// Constant value
+const int TIMES_TO_RUN = 20;
 
 TEST_CASE("Sort in ascending order", "[sorting]") {
 	// Sorting algorithms
@@ -18,7 +21,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
 
 	vector<int> original, algo_sorted, std_sorted;
 
-	int times_to_run = 20;
+	int times_to_run = TIMES_TO_RUN;
 	while (times_to_run--) {
 		original = algo_sorted = std_sorted = generate_unsorted_vector();
 		std::sort(std_sorted.begin(), std_sorted.end());
@@ -40,7 +43,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
 
 	vector<int> original, algo_sorted, std_sorted;
 
-	int times_to_run = 20;
+	int times_to_run = TIMES_TO_RUN;
 	while (times_to_run--) {
 		original = algo_sorted = std_sorted = generate_unsorted_vector();
 		std::sort(std_sorted.rbegin(), std_sorted.rend());
@@ -57,15 +60,16 @@ TEST_CASE("Sort in descending order", "[sorting]") {
 /*
 	generate_unsorted_vector
 	------------------------
-	Generates a vector with a random size (up to 100) and fills with random integers.
+	Creates a vector of random size and populates it with random integers.
+ 	Default for max_size is set in function declaration.
 */
-vector<int> generate_unsorted_vector() {
+vector<int> generate_unsorted_vector(int max_size) {
 	vector<int> v;
-	auto vectorSize = (size_t) generate_random_int(1, 1000);
-	v.reserve(vectorSize);
+	auto vector_size = (size_t) generate_random_int(1, max_size);
+	v.reserve(vector_size);
 
-	for (int i = 0; i < (int) vectorSize; i++) {
-		v.push_back(generate_random_int(-32767, 32767));
+	for (int i = 0; i < (int) vector_size; i++) {
+		v.push_back(generate_random_int(std::numeric_limits<int>::min(), std::numeric_limits<int>::max()));
 	}
 	return v;
 }
@@ -77,6 +81,6 @@ vector<int> generate_unsorted_vector() {
 */
 int generate_random_int(int min, int max) {
 	std::default_random_engine generator(std::random_device{}());
-	std::uniform_int_distribution<> intRange(min, max);
-	return intRange(generator);
+	std::uniform_int_distribution<> int_range(min, max);
+	return int_range(generator);
 }
