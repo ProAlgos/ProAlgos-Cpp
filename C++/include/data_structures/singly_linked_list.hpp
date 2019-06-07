@@ -20,7 +20,7 @@ struct Node {
 
     public:
         Node(const T&, Node<T> * const);
-        Node(const Node&);
+        Node(const Node<T> &);
         Node<T>& operator=(const Node<T> &);
         ~Node();
         T& get_value(void);
@@ -64,6 +64,8 @@ class SinglyLinkedList {
     public:
         SinglyLinkedList();
         ~SinglyLinkedList();
+        SinglyLinkedList(const SinglyLinkedList<T> &);
+        SinglyLinkedList(SinglyLinkedList<T> &&);
         bool is_empty(void);
         int length(void) const;
         void insert_front(const T&);

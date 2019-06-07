@@ -90,7 +90,7 @@ Node<T> *Node<T>::get_next(void) {
 }
 
 template<class T>
-void set_next(Node<T> * const next) {
+void Node<T>::set_next(Node<T> * const next) {
     this->next = next;
 }
 
@@ -122,6 +122,41 @@ SinglyLinkedList<T>::SinglyLinkedList() {
 template<class T>
 SinglyLinkedList<T>::~SinglyLinkedList() {
     clear();
+}
+
+
+/*
+    Copy constructor
+    ----------------
+*/
+
+template<class T>
+SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T> &list) {
+    size = list.size;
+    head = tail = nullptr;
+
+    Node<T>* current_pointer = list.head;
+    while(current_pointer != nullptr) {
+        insert_rear(current_pointer->value);
+        current_pointer = current_pointer->next;
+    }    
+}
+
+
+/*
+    Move constructor
+    ----------------
+    Uses move semantics introduced in C++ 11 and further
+*/
+
+template<class T>
+SinglyLinkedList<T>::SinglyLinkedList(SinglyLinkedList<T> &&rvalue_list) {
+    size = rvalue_list.size;
+    head = rvalue_list.head;
+    tail = rvalue_list.tail;
+
+    rvalue_list.head = nullptr;
+    rvalue_list.tail = nullptr;
 }
 
 
@@ -298,7 +333,7 @@ T SinglyLinkedList<T>::value_at(int index) {
     if (size == 0 or index > size)
         return ERROR_VAL;
 
-    Node *temp = head;
+    Node<T> *temp = head;
     int i = 0;
     while (i++ != index)
         temp = temp->get_next();
