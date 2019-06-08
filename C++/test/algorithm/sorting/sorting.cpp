@@ -2,6 +2,7 @@
 #include <limits>
 #include "third_party/catch.hpp"
 #include "algorithm/sorting/bubble_sort.hpp"
+#include "algorithm/sorting/counting_sort.hpp"
 
 // Prototypes
 int generate_random_int(int, int);
@@ -16,7 +17,8 @@ const int TIMES_TO_RUN = 20;
 TEST_CASE("Sort in ascending order", "[sorting]") {
 	// Sorting algorithms
 	vector<sorting_function> sorting_functions = {
-			bubble_sort
+			bubble_sort,
+			counting_sort
 	};
 
 	vector<int> original, algo_sorted, std_sorted;
@@ -38,7 +40,8 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
 TEST_CASE("Sort in descending order", "[sorting]") {
 	// Sorting algorithms
 	vector<sorting_function> sorting_functions = {
-			bubble_sort
+			bubble_sort,
+			counting_sort
 	};
 
 	vector<int> original, algo_sorted, std_sorted;
@@ -69,7 +72,7 @@ vector<int> generate_unsorted_vector(int max_size) {
 	v.reserve(vector_size);
 
 	for (int i = 0; i < (int) vector_size; i++) {
-		v.push_back(generate_random_int(std::numeric_limits<int>::min(), std::numeric_limits<int>::max()));
+		v.push_back(generate_random_int(std::numeric_limits<short>::min(), std::numeric_limits<short>::max()));
 	}
 	return v;
 }
