@@ -37,7 +37,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Merge sort](include/algorithm/sorting/merge_sort.hpp) :white_check_mark:
   * [Quick sort](include/algorithm/sorting/quick_sort.hpp) :white_check_mark:
   * [Radix sort](include/algorithm/sorting/radix_sort.hpp) 
-  * [Selection sort](source/sorting/selection_sort.cpp)
+  * [Selection sort](include/algorithm/sorting/selection_sort.hpp) :white_check_mark:
   * [Shell sort](source/sorting/shell_sort.cpp)
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
