@@ -12,6 +12,8 @@
 */
 
 #include "singly_linked_list.hpp"
+#include <iostream>
+#include <algorithm>
 
 
 /*
@@ -82,16 +84,18 @@ T& Node<T>::get_value(void) {
 template<class T>
 void Node<T>::set_value(const T& other) {
     this->value = other;
+    return;
 }
 
 template<class T>
-Node<T> *Node<T>::get_next(void) {
+Node<T> * Node<T>::get_next(void) {
     return this->next;
 }
 
 template<class T>
 void Node<T>::set_next(Node<T> * const next) {
     this->next = next;
+    return;
 }
 
 
@@ -135,10 +139,10 @@ SinglyLinkedList<T>::SinglyLinkedList(const SinglyLinkedList<T> &list) {
     size = list.size;
     head = tail = nullptr;
 
-    Node<T>* current_pointer = list.head;
-    while(current_pointer != nullptr) {
-        insert_rear(current_pointer->value);
-        current_pointer = current_pointer->next;
+    Node<T> * current_pointer = list.head;
+    while (current_pointer != nullptr) {
+        insert_rear(current_pointer->get_value());
+        current_pointer = current_pointer->get_next();
     }    
 }
 
@@ -161,14 +165,30 @@ SinglyLinkedList<T>::SinglyLinkedList(SinglyLinkedList<T> &&rvalue_list) {
 
 
 /*
+    Assignment operator
+    -------------------
+    Copies the rhs value to lhs
+*/
+
+template<class T>
+SinglyLinkedList<T>& SinglyLinkedList<T>::operator=(SinglyLinkedList<T> rhs) {
+    std::swap(head,rhs.head);
+    std::swap(tail,rhs.tail);
+    std::swap(size,rhs.size);
+
+    return *this;
+}
+
+
+/*
     is_empty
     --------
     Returns true if the list is empty
 */
 
 template<class T>
-bool SinglyLinkedList<T>::is_empty(void) {
-    return size == 0;
+bool SinglyLinkedList<T>::is_empty(void) const {
+    return (size == 0);
 }
 
 
@@ -207,12 +227,13 @@ int SinglyLinkedList<T>::length(void) const {
 
 template<class T>
 void SinglyLinkedList<T>::insert_front(const T& value) {
-    Node<T> *temp = new Node<T>(value, head);
-    if (head == nullptr)
+    Node<T> * temp = new Node<T>(value, head);
+    if (head == nullptr) {
         tail = temp;
-
+    }
     head = temp;
     size++;
+    return;
 }
 
 
@@ -232,14 +253,16 @@ void SinglyLinkedList<T>::insert_front(const T& value) {
 
 template<class T>
 void SinglyLinkedList<T>::insert_rear(const T& value) {
-    Node<T> *temp = new Node<T>(value, nullptr);
-    if (tail == nullptr)
+    Node<T> * temp = new Node<T>(value, nullptr);
+    if (tail == nullptr) {
         head = temp;
-    else
+    }
+    else {
         tail->set_next(temp);
-
+    }
     tail = temp;
     ++size;
+    return;
 }
 
 
@@ -266,13 +289,16 @@ void SinglyLinkedList<T>::insert_rear(const T& value) {
 
 template<class T>
 void SinglyLinkedList<T>::delete_front(void) {
-    Node<T> *temp = head;
-    if (temp == nullptr)
+    Node<T> * temp = head;
+    if (temp == nullptr) {
         return;
-
-    head = head->get_next();
-    delete temp;
-    --size;
+    }
+    else {
+        head = head->get_next();
+        delete temp;
+        --size;
+        return;
+    }
 }
 
 
@@ -293,23 +319,26 @@ void SinglyLinkedList<T>::delete_front(void) {
 
 template<class T>
 void SinglyLinkedList<T>::delete_rear(void) {
-    Node<T> *temp = head;
-    if (temp == nullptr)
+    Node<T> * temp = head;
+    if (temp == nullptr) {
         return;
-    if (temp == tail) {
+    }
+    else if (temp == tail) {
         delete temp;
         head = tail = nullptr;
         --size;
         return;
     }
-
-    while (temp->get_next() != tail)
+    else {
+        while (temp->get_next() != tail)
+            temp = temp->get_next();
+        tail = temp;
         temp = temp->get_next();
-    tail = temp;
-    temp = temp->get_next();
-    delete temp;
-    tail->set_next(nullptr);
-    --size;
+        delete temp;
+        tail->set_next(nullptr);
+        --size;
+        return;
+    }
 }
 
 /*
@@ -330,15 +359,17 @@ void SinglyLinkedList<T>::delete_rear(void) {
 
 template<class T>
 T SinglyLinkedList<T>::value_at(int index) {
-    if (size == 0 or index > size)
+    if (size == 0 or index > size) {
         return ERROR_VAL;
-
-    Node<T> *temp = head;
-    int i = 0;
-    while (i++ != index)
-        temp = temp->get_next();
-
-    return temp->get_value();
+    }
+    else {
+        Node<T> * temp = head;
+        int i = 0;
+        while (i++ != index) {
+            temp = temp->get_next();
+        }
+        return temp->get_value();
+    }
 }
 
 template<class T>
@@ -360,7 +391,7 @@ const T SinglyLinkedList<T>::operator[](int index) const {
 
 template<class T>
 void SinglyLinkedList<T>::clear(void) {
-    Node<T> *temp = head;
+    Node<T> * temp = head;
     while (temp != nullptr) {
         temp = temp->get_next();
         delete head;
@@ -368,4 +399,106 @@ void SinglyLinkedList<T>::clear(void) {
     }
     head = tail = nullptr;
     size = 0;
+    return;
+}
+
+/*
+    print
+    -----
+    Auxiliary function to print the linked list.
+*/
+
+template<class T>
+void SinglyLinkedList<T>::print(void) {
+    if (size <= 0) {
+        std::cout << "Empty List";
+    }
+    else {
+        Node<T> * current = head;
+        while (current != nullptr) {
+            std::cout << current->get_value() << " ";
+            current = current->get_next();
+        }
+    }
+    std::cout << '\n';
+    return;
+}
+
+template<class T>
+void SinglyLinkedList<T>::print(void) const {
+    if (size <= 0) {
+        std::cout << "Empty List";
+    }
+    else {
+        Node<T> * current = head;
+        while (current != nullptr) {
+            std::cout << current->get_value() << " ";
+            current = current->get_next();
+        }
+    }
+    std::cout << '\n';
+    return;
+}
+
+/*
+    ==========
+    Algorithms
+    ==========
+*/
+
+
+/*
+    reverse_list
+    ------------
+    Reverses a linked list in place, by changing pointers
+    (iterative implementation)
+
+    Time complexity
+    ---------------
+    O(N), where N is the number of nodes in the list
+
+    Space complexity
+    ----------------
+    O(1)
+*/
+
+template<class T>
+void SinglyLinkedList<T>::reverse_list(void) {
+    if (head == tail) {
+        //if linked list is null or has single element, nothing is to be done
+        return;
+    }
+    else {
+        Node<T> * new_tail = head;
+        Node<T> * prev_pointer = nullptr;
+
+        while (head != tail) {
+            Node<T> * temp = head->get_next();
+
+            head->set_next(prev_pointer);
+            prev_pointer = head;
+            head = temp;
+        }
+        head->set_next(prev_pointer);
+        tail = new_tail;
+        return;
+    }
+}
+
+int main() {
+    SinglyLinkedList<int> list;
+    list.insert_front(4);
+    list.insert_rear(7);
+    list.insert_front(list.length());
+
+    const SinglyLinkedList<int> list2 = list;
+    SinglyLinkedList<int>list3 = list;
+
+    list2.print();
+    list.insert_rear(11);
+    list3.reverse_list();
+    list3.print();
+    list.print();    
+
+    return 0;
 }

@@ -25,7 +25,7 @@ struct Node {
         ~Node();
         T& get_value(void);
         void set_value(const T&);
-        Node<T> *get_next(void);
+        Node<T> * get_next(void);
         void set_next(Node<T> * const);
 
         // inline friend functions:
@@ -57,8 +57,8 @@ struct Node {
 
 template<class T>
 class SinglyLinkedList {
-    Node<T> *head;
-    Node<T> *tail;
+    Node<T> * head;
+    Node<T> * tail;
     int size;
 
     public:
@@ -66,7 +66,8 @@ class SinglyLinkedList {
         ~SinglyLinkedList();
         SinglyLinkedList(const SinglyLinkedList<T> &);
         SinglyLinkedList(SinglyLinkedList<T> &&);
-        bool is_empty(void);
+        SinglyLinkedList<T>& operator=(SinglyLinkedList<T>);
+        bool is_empty(void) const;
         int length(void) const;
         void insert_front(const T&);
         void insert_rear(const T&);
@@ -76,6 +77,9 @@ class SinglyLinkedList {
         T operator[](int);
         const T operator[](int) const;
         void clear(void);
+        void print(void);
+        void print(void) const;
+        void reverse_list(void);
 };
 
 #endif  // SINGLY_LINKED_LIST_HPP
