@@ -6,6 +6,7 @@
 #include "algorithm/sorting/heap_sort.hpp"
 #include "algorithm/sorting/insertion_sort.hpp"
 #include "algorithm/sorting/merge_sort.hpp"
+#include "algorithm/sorting/quick_sort.hpp"
 
 // Prototypes
 int generate_random_int(int, int);
@@ -24,7 +25,8 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
 			counting_sort,
 			heap_sort,
 			insertion_sort,
-			merge_sort
+			merge_sort,
+			quick_sort
 	};
 
 	vector<int> original, algo_sorted, std_sorted;
@@ -50,7 +52,8 @@ TEST_CASE("Sort in descending order", "[sorting]") {
 			counting_sort,
 			heap_sort,
 			insertion_sort,
-			merge_sort
+			merge_sort,
+			quick_sort
 	};
 
 	vector<int> original, algo_sorted, std_sorted;

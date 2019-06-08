@@ -35,7 +35,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Heap sort](include/algorithm/sorting/heap_sort.hpp) :white_check_mark:
   * [Insertion sort](include/algorithm/sorting/insertion_sort.hpp) :white_check_mark:
   * [Merge sort](include/algorithm/sorting/merge_sort.hpp) :white_check_mark:
-  * [Quick sort](source/sorting/quick_sort.cpp)
+  * [Quick sort](include/algorithm/sorting/quick_sort.hpp) :white_check_mark:
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp)
   * [Shell sort](source/sorting/shell_sort.cpp)
