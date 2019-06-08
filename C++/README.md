@@ -33,7 +33,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Bubble sort](include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:
   * [Counting sort (stable)](include/algorithm/sorting/counting_sort.hpp) :white_check_mark:
   * [Heap sort](include/algorithm/sorting/heap_sort.hpp) :white_check_mark:
-  * [Insertion sort](source/sorting/insertion_sort.cpp)
+  * [Insertion sort](include/algorithm/sorting/insertion_sort.hpp) :white_check_mark:
   * [Merge sort](source/sorting/merge_sort.cpp)
   * [Quick sort](source/sorting/quick_sort.cpp)
   * [Radix sort](source/sorting/radix_sort.cpp)

@@ -4,6 +4,7 @@
 #include "algorithm/sorting/bubble_sort.hpp"
 #include "algorithm/sorting/counting_sort.hpp"
 #include "algorithm/sorting/heap_sort.hpp"
+#include "algorithm/sorting/insertion_sort.hpp"
 
 // Prototypes
 int generate_random_int(int, int);
@@ -20,7 +21,8 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
 	vector<sorting_function> sorting_functions = {
 			bubble_sort,
 			counting_sort,
-			heap_sort
+			heap_sort,
+			insertion_sort
 	};
 
 	vector<int> original, algo_sorted, std_sorted;
@@ -44,7 +46,8 @@ TEST_CASE("Sort in descending order", "[sorting]") {
 	vector<sorting_function> sorting_functions = {
 			bubble_sort,
 			counting_sort,
-			heap_sort
+			heap_sort,
+			insertion_sort
 	};
 
 	vector<int> original, algo_sorted, std_sorted;
