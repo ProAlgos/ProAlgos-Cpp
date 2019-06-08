@@ -20,6 +20,7 @@
 
 using std::vector;
 
+// Merge sorted halves
 void merge(vector<int>& values, const size_t start, const size_t end, const int order = 1) {
 	size_t mid = (start + end) / 2;
 	size_t index1 = start;
@@ -52,13 +53,14 @@ void merge(vector<int>& values, const size_t start, const size_t end, const int 
 		values[s++] = sorted_value;
 }
 
-void sort(vector<int>& values, const size_t start, const size_t end,
+// Carry out merge sort
+void merge_sort_internal(vector<int>& values, const size_t start, const size_t end,
 				const int order = 1, const bool to_show_state = false) {
 	if (start < end) {
 		size_t mid = (start + end) / 2;
 
-		sort(values, start, mid, order, to_show_state);
-		sort(values, mid + 1, end, order, to_show_state);
+		merge_sort_internal(values, start, mid, order, to_show_state);
+		merge_sort_internal(values, mid + 1, end, order, to_show_state);
 
 		merge(values, start, end, order);
 
@@ -68,7 +70,8 @@ void sort(vector<int>& values, const size_t start, const size_t end,
 	}
 }
 
+// Wrapper function
 void merge_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
 	size_t size = values.size();
-	sort(values, 0, size-1, order, to_show_state);
+	merge_sort_internal(values, 0, size-1, order, to_show_state);
 }
