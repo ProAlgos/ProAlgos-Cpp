@@ -1,5 +1,5 @@
 #include "third_party/catch.hpp"
-#include "data_structure/disjoint_set.hpp"
+#include "data_structure/set/disjoint_set.hpp"
 
 TEST_CASE("Create a large set containing 10^8 elements", "[disjoint-set]") {
     /*

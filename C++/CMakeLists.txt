@@ -132,7 +132,20 @@ target_link_libraries(knuth_morris_pratt test_runner)
 # Data structures
 # ============================================================================
 
+# -----------
+# Linked list
+# -----------
+
+# Singly-linked list
+add_executable(singly_linked_list
+        test/data_structure/linked_list/singly_linked_list.cpp)
+target_link_libraries(singly_linked_list test_runner)
+
+# ---
+# Set
+# ---
+
 # Disjoint set
 add_executable(disjoint_set
-        test/data_structure/disjoint_set.cpp)
+        test/data_structure/set/disjoint_set.cpp)
 target_link_libraries(disjoint_set test_runner)
