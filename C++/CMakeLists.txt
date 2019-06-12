@@ -149,3 +149,12 @@ target_link_libraries(singly_linked_list test_runner)
 add_executable(disjoint_set
         test/data_structure/set/disjoint_set.cpp)
 target_link_libraries(disjoint_set test_runner)
+
+# ----
+# Tree
+# ----
+
+# Binary search tree
+add_executable(binary_search_tree
+        test/data_structure/tree/binary_search_tree.cpp)
+target_link_libraries(binary_search_tree test_runner)
