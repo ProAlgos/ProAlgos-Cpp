@@ -42,13 +42,13 @@ matrix:
     # Linux Clang 5 build
     - os: linux
       compiler: clang
-      dist: xenial
-      #addons:
-      #  apt:
-      #    sources:
-      #      - llvm-toolchain-trusty-5.0
-      #    packages:
-      #      - clang-5.0
+      dist: trusty
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-trusty-5.0
+          packages:
+            - clang-5.0
       env:
         - COMPILER='clang++-5.0'
 
