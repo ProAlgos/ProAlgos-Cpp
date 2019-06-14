@@ -21,20 +21,20 @@ const int ERROR_VAL = INT_MIN;
 */
 
 template<class T>
-struct Node {
+class Node {
 	T value;
-	Node<T> *next;
+	Node<T>* next;
 	Node(void);
 
 public:
-	Node(const T&, Node<T> * const);
+	Node(const T&, Node<T>* const);
 	Node(const Node&);
-	Node<T>& operator=(const Node<T> &);
+	Node<T>& operator=(const Node<T>&);
 	~Node();
 	T& get_value(void);
 	void set_value(const T&);
-	Node<T> *get_next(void);
-	void set_next(Node<T> * const);
+	Node<T>* get_next(void);
+	void set_next(Node<T>* const);
 
 	// inline friend functions:
 	friend bool operator==(const Node& lhs, const Node& rhs) {
@@ -64,8 +64,8 @@ public:
 
 template<class T>
 class SinglyLinkedList {
-	Node<T> *head;
-	Node<T> *tail;
+	Node<T>* head;
+	Node<T>* tail;
 	int size;
 
 public:
@@ -93,7 +93,7 @@ public:
 */
 
 template<class T>
-Node<T>::Node(const T& value, Node<T> * const next) {
+Node<T>::Node(const T& value, Node<T>* const next) {
 	this->value = value;
 	this->next = next;
 }
@@ -105,7 +105,7 @@ Node<T>::Node(const T& value, Node<T> * const next) {
 */
 
 template<class T>
-Node<T>::Node(const Node<T> &n) {
+Node<T>::Node(const Node<T>& n) {
 	this->value = n.value;
 	this->next = n.next;
 }
@@ -118,9 +118,9 @@ Node<T>::Node(const Node<T> &n) {
 */
 
 template<class T>
-Node<T>& Node<T>::operator=(const Node<T> &rhs) {
+Node<T>& Node<T>::operator=(const Node<T>& rhs) {
 	this->value = rhs.value;
-	return *this;
+	return* this;
 }
 
 
@@ -151,12 +151,12 @@ void Node<T>::set_value(const T& other) {
 }
 
 template<class T>
-Node<T> *Node<T>::get_next(void) {
+Node<T>* Node<T>::get_next(void) {
 	return this->next;
 }
 
 template<class T>
-void Node<T>::set_next(Node<T> * const next) {
+void Node<T>::set_next(Node<T>* const next) {
 	this->next = next;
 }
 
@@ -236,7 +236,7 @@ int SinglyLinkedList<T>::length(void) const {
 
 template<class T>
 void SinglyLinkedList<T>::insert_front(const T& value) {
-	Node<T> *temp = new Node<T>(value, head);
+	Node<T>* temp = new Node<T>(value, head);
 	if (head == nullptr)
 		tail = temp;
 
@@ -261,7 +261,7 @@ void SinglyLinkedList<T>::insert_front(const T& value) {
 
 template<class T>
 void SinglyLinkedList<T>::insert_rear(const T& value) {
-	Node<T> *temp = new Node<T>(value, nullptr);
+	Node<T>* temp = new Node<T>(value, nullptr);
 	if (tail == nullptr)
 		head = temp;
 	else
@@ -287,7 +287,7 @@ void SinglyLinkedList<T>::insert_rear(const T& value) {
 
 template<class T>
 void SinglyLinkedList<T>::delete_front(void) {
-	Node<T> *temp = head;
+	Node<T>* temp = head;
 	if (temp == nullptr)
 		return;
 
@@ -314,7 +314,7 @@ void SinglyLinkedList<T>::delete_front(void) {
 
 template<class T>
 void SinglyLinkedList<T>::delete_rear(void) {
-	Node<T> *temp = head;
+	Node<T>* temp = head;
 	if (temp == nullptr)
 		return;
 	if (temp == tail) {
@@ -353,7 +353,7 @@ T SinglyLinkedList<T>::value_at(int index) {
 	if (size == 0 or index > size)
 		return ERROR_VAL;
 
-	Node<T> *temp = head;
+	Node<T>* temp = head;
 	int i = 0;
 	while (i++ != index)
 		temp = temp->get_next();
@@ -380,7 +380,7 @@ const T SinglyLinkedList<T>::operator[](int index) const {
 
 template<class T>
 void SinglyLinkedList<T>::clear(void) {
-	Node<T> *temp = head;
+	Node<T>* temp = head;
 	while (temp != nullptr) {
 		temp = temp->get_next();
 		delete head;
