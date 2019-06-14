@@ -42,7 +42,6 @@ matrix:
     # Linux Clang 5 build
     - os: linux
       compiler: clang
-      dist: trusty
       addons:
         apt:
           sources:
