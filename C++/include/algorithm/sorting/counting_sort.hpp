@@ -15,7 +15,7 @@
 */
 
 #include <vector>
-#include "sorting/utils.hpp"
+#include "utils.hpp"
 
 using std::vector;
 
