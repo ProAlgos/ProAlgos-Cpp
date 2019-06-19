@@ -140,7 +140,7 @@ bool BinarySearchTree::insert(int value) {
 */
 
 bool BinarySearchTree::remove(int value) {
-	// If tree is empty remove is unsucessful
+	// If tree is empty remove is unsuccessful
 	if (root->value == INF) {
 		return false;
 	}
@@ -151,12 +151,13 @@ bool BinarySearchTree::remove(int value) {
 	while (true) {
 		if (value == current->value) {
 			remove_current_node(current, parent);
+			return true;
 		} else {
 			parent = current;
 
-			if (current->value < value) {  // Search in the right subtree
+			if (current->value < value) {  	// Search in the right subtree
 				current = current->right_child;
-			} else {                    // Search in the left subtree
+			} else {                    	// Search in the left subtree
 				current = current->left_child;
 			}
 
@@ -173,14 +174,15 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
 	Node* successorParent = nullptr;
 
 	// If current node has no children
-	if (current->right_child == nullptr and current->left_child == nullptr) {
-		if(parent == nullptr) {
+	if (current->right_child == nullptr && current->left_child == nullptr) {
+		if (parent == nullptr) {
 			current->value = INF;
 		} else {
-			if(parent->left_child == current)
+			if (parent->left_child == current) {
 				parent->left_child = nullptr;
-			else
+			} else {
 				parent->right_child = nullptr;
+			}
 
 			delete current;
 		}
@@ -194,7 +196,7 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
 		successor = current->right_child;
 		successorParent = nullptr;
 
-		while(successor->left_child != nullptr) {
+		while (successor->left_child != nullptr) {
 			successorParent = successor;
 			successor = successor->left_child;
 		}
