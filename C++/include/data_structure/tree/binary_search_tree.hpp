@@ -9,7 +9,6 @@
     subtree.
 */
 
-
 #ifndef ALGOS_BINARY_SEARCH_TREE_HPP
 #define ALGOS_BINARY_SEARCH_TREE_HPP
 
@@ -83,10 +82,9 @@ BinarySearchTree::BinarySearchTree() {
     ----------------
     O(1)
 */
-
 bool BinarySearchTree::insert(int value) {
 	// If first insertion, replace the value of the already created node
-	if(root->value == INF) {
+	if (root->value == INF) {
 		root->value = value;
 		return true;
 	}
@@ -138,7 +136,6 @@ bool BinarySearchTree::insert(int value) {
     ----------------
     O(1)
 */
-
 bool BinarySearchTree::remove(int value) {
 	// If tree is empty remove is unsuccessful
 	if (root->value == INF) {
@@ -167,7 +164,6 @@ bool BinarySearchTree::remove(int value) {
 		}
 	}
 }
-
 void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
 	Node* toBeDeleted;
 	Node* successor;
@@ -229,7 +225,6 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
     ----------------
     O(1)
 */
-
 bool BinarySearchTree::search(int value) {
 	Node* current = root;
 
@@ -240,7 +235,7 @@ bool BinarySearchTree::search(int value) {
 			} else {
 				current = current->left_child;
 			}
-		} else if(value > current->value) {
+		} else if (value > current->value) {
 			if (current->right_child == nullptr) {
 				return false;
 			} else {
@@ -269,7 +264,6 @@ bool BinarySearchTree::search(int value) {
     ----------------
     O(n), where n is the number if nodes in the tree
 */
-
 void BinarySearchTree::traversal_inorder_helper(Node* tree, vector<int>& values) {
 	if (tree == nullptr or tree->value == INF) {
 		return;
@@ -328,7 +322,6 @@ vector<int> BinarySearchTree::traversal_inorder_iterative() {
     ----------------
     O(n), where n is the number if nodes in the tree
 */
-
 void BinarySearchTree::traversal_preorder_helper(Node* tree, vector<int>& values) {
 	if (tree == nullptr or tree->value == INF) {
 		return;
@@ -388,7 +381,6 @@ vector<int> BinarySearchTree::traversal_preorder_iterative() {
     ----------------
     O(n), where n is the number if nodes in the tree
 */
-
 void BinarySearchTree::traversal_postorder_helper(Node* tree, vector<int>& values) {
 	if (tree == nullptr or tree->value == INF) {
 		return;
