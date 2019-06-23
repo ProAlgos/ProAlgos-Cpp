@@ -84,10 +84,6 @@ matrix:
     # Linux Clang 7 build
     - os: linux
       compiler: clang
-      addons:
-        apt:
-          packages:
-            - clang-7.0
       env:
         - COMPILER='clang++-7.0'
 
