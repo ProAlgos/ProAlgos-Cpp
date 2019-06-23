@@ -3,18 +3,6 @@ language: cpp
 
 matrix:
   include:
-    # Linux GCC 6 build
-    - os: linux
-      compiler: gcc
-      addons:
-        apt:
-          sources:
-            - ubuntu-toolchain-r-test
-          packages:
-            - g++-6
-      env:
-        - COMPILER='g++-6'
-
     # Linux GCC 7 build
     - os: linux
       compiler: gcc
@@ -51,26 +39,6 @@ matrix:
       env:
         - COMPILER='g++-9'
 
-    # Linux Clang 4 build
-    - os: linux
-      compiler: clang
-      addons:
-        apt:
-          packages:
-            - clang-4.0
-      env:
-        - COMPILER='clang++-4.0'
-
-    # Linux Clang 5 build
-    - os: linux
-      compiler: clang
-      addons:
-        apt:
-          packages:
-            - clang-5.0
-      env:
-        - COMPILER='clang++-5.0'
-    
     # Linux Clang 6 build
     - os: linux
       compiler: clang
@@ -84,8 +52,26 @@ matrix:
     # Linux Clang 7 build
     - os: linux
       compiler: clang
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-xenial-7
+          packages:
+            - clang-7.0
       env:
         - COMPILER='clang++-7.0'
+    
+    # Linux Clang 8 build
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-xenial-8
+          packages:
+            - clang-8.0
+      env:
+        - COMPILER='clang++-8.0'
 
     # macOS Xcode8 GCC build
     - os: osx
