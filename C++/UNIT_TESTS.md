@@ -1,4 +1,4 @@
-## Adding unit tests for C++ code
+# Adding unit tests for C++ code
 
 1. Under the [`test` directory](test), locate (or create, if it doesn't exist)
    the directory having the same relative path from `test` as from `include`.
@@ -9,14 +9,17 @@
    you are writing tests, except that the extension should be `.cpp`.
 
 1. Add the following code to the test file:
-    ```c++
+
+    ```cpp
     #include "third_party/catch.hpp"
     #include "path/to/header_file.hpp"
     ```
+
     The path to the header file is relative from the `include` directory. So,
     for instance, if you need to include the header file
     `include/algorithms/searching/linear_search.hpp`, you can write:
-    ```c++
+
+    ```cpp
     #include "algorithms/searching/linear_search.hpp"
     ```
 
@@ -29,17 +32,16 @@
 1. Add an entry for your unit test in `CMakeLists.txt`. For example, if your
    unit test is `test/algorithm/some_dir/some_test.cpp`, add the following
    entry for it:
+
    ```cmake
    add_executable(some_test
            test/algorithm/some_dir/some_test.cpp)
    target_link_libraries(some_test test_runner)
    ```
-   
 
 **That's it!** Now you can compile the test using **`make test`** from the
 `C++` directory, which will also run all of the tests for you. In order to run
 only a specific test and see its results, run it manually from the `bin` directory.
-
 
 [catch]: https://github.com/catchorg/Catch2
 [catch-tutorial]: https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md#writing-tests

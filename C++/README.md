@@ -1,12 +1,15 @@
 ﻿# Algos: C++
+
 [![Travis status][travis-shield]][travis-link]
 
 Implementation of well-known (and some rare) algorithms, in C++.
 
 ## Contents
+
 :white_check_mark: = has unit tests
 
 ### Algorithms
+
 * Backtracking
   * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
 * Dynamic programming
@@ -36,7 +39,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Insertion sort](include/algorithm/sorting/insertion_sort.hpp) :white_check_mark:
   * [Merge sort](include/algorithm/sorting/merge_sort.hpp) :white_check_mark:
   * [Quick sort](include/algorithm/sorting/quick_sort.hpp) :white_check_mark:
-  * [Radix sort](include/algorithm/sorting/radix_sort.hpp) 
+  * [Radix sort](include/algorithm/sorting/radix_sort.hpp)
   * [Selection sort](include/algorithm/sorting/selection_sort.hpp) :white_check_mark:
   * [Shell sort](include/algorithm/sorting/shell_sort.hpp) :white_check_mark:
 * String
@@ -46,15 +49,18 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
 
 ### Data structures
+
 * Linked List
-    * [Singly linked list](include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
+  * [Singly linked list](include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
 * Set
-    * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
+  * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
 * Tree
-    * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
+  * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 
 ## Compiling
+
 To compile the source files, run **`make all`**. Doing so will:
+
 * create executable binaries in sub-directories under the `bin` directory, and
 * create intermediate build files in sub-directories under the `build` directory.
 
@@ -67,11 +73,12 @@ To remove all of the files created during compilation, run **`make clean`**. You
 To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
 ## Unit tests
+
 If you would like to (and you should) add unit tests for the code you are contributing, or for some of the existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
 
 ## C++ Coding Guidelines
-If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in ensuring that your code conforms to the style followed in this project.
 
+If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in ensuring that your code conforms to the style followed in this project.
 
 [travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/faheel/Algos

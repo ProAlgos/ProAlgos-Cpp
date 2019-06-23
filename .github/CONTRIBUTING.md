@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-### Contents
+## Contents
 
 * [General guidelines](#general-guidelines)
 * [C++ coding guidelines](#c-coding-guidelines)
