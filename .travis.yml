@@ -10,8 +10,6 @@ matrix:
         apt:
           sources:
             - ubuntu-toolchain-r-test
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - g++-6
       env:
@@ -40,6 +38,18 @@ matrix:
             - g++-8
       env:
         - COMPILER='g++-8'
+    
+    # Linux GCC 9 build
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-9
+      env:
+        - COMPILER='g++-9'
 
     # Linux Clang 4 build
     - os: linux
@@ -66,12 +76,20 @@ matrix:
       compiler: clang
       addons:
         apt:
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
             - clang-6.0
       env:
         - COMPILER='clang++-6.0'
+    
+    # Linux Clang 7 build
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          packages:
+            - clang-7.0
+      env:
+        - COMPILER='clang++-7.0'
 
     # macOS Xcode8 GCC build
     - os: osx
