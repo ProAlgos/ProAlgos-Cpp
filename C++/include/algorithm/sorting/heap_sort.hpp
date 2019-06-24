@@ -13,6 +13,9 @@
     O(1).
 */
 
+#ifndef HEAP_SORT_HPP
+#define HEAP_SORT_HPP
+
 #include <vector>
 #include "utils.hpp"
 
@@ -100,3 +103,5 @@ void heap_sort(vector<int>& values, const int order = 1, const bool to_show_stat
         reverse(values.begin(), values.end());
     }
 }
+
+#endif // HEAP_SORT_HPP

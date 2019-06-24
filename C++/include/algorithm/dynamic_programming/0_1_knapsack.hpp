@@ -42,4 +42,4 @@ LL knapsack (LL capacity, LL numberOfItems, vector<LL> weights, vector<LL> value
     return maxItems[numberOfItems][capacity];
 }
 
-#endif
+#endif // KNAPSACK_0_1_HPP

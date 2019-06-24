@@ -13,6 +13,9 @@
     O(1).
 */
 
+#ifndef INSERTION_SORT_HPP
+#define INSERTION_SORT_HPP
+
 #include <vector>
 #include "utils.hpp"
 
@@ -43,3 +46,5 @@ void insertion_sort(vector<int>& values, const int order = 1, const bool to_show
         }
     }
 }
+
+#endif // INSERTION_SORT_HPP

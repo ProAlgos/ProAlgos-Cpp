@@ -15,6 +15,9 @@
     O(1).
 */
 
+#ifndef SELECTION_SORT_HPP
+#define SELECTION_SORT_HPP
+
 #include <vector>
 #include "utils.hpp"
 
@@ -40,3 +43,5 @@ void selection_sort(vector<int>& values, const int order = 1, const bool to_show
         }
     }
 }
+
+#endif // SELECTION_SORT_HPP

@@ -14,6 +14,9 @@
     O(1).
 */
 
+#ifndef FIBONACCI_HPP
+#define FIBONACCI_HPP
+
 typedef unsigned long long int ULL;
 
 const int MAX_N = 93;   // fibonacci(94) goes beyond the range of ULL
@@ -36,3 +39,5 @@ ULL fibonacci(const int n) {
 
     return fn;
 }
+
+#endif // FIBONACCI_HPP

@@ -13,8 +13,10 @@
     O(1).
 */
 
-#include <vector>
+#ifndef LINEAR_SEARCH_HPP
+#define LINEAR_SEARCH_HPP
 
+#include <vector>
 
 /*
     linear_search
@@ -31,3 +33,5 @@ int linear_search(const T& element, const std::vector<T>& values) {
 
     return -1;  // no match is found
 }
+
+#endif // LINEAR_SEARCH_HPP

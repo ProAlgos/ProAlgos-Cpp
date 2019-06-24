@@ -14,6 +14,9 @@
     O(1).
 */
 
+#ifndef FIBONACCI_EFFICIENT_HPP
+#define FIBONACCI_EFFICIENT_HPP
+
 #include <vector>
 
 using std::vector;
@@ -75,3 +78,5 @@ ULL fibonacci(const int n) {
 
     return fn;
 }
+
+#endif // FIBONACCI_EFFICIENT_HPP

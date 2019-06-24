@@ -16,6 +16,9 @@
     O(M*N), where M and N are the lengths of the two strings.
 */
 
+#ifndef LONGEST_COMMON_SUBSEQUENCE_HPP
+#define LONGEST_COMMON_SUBSEQUENCE_HPP
+
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -64,3 +67,5 @@ string get_lcs(const string& s1, const string& s2) {
 
     return string(lcs.rbegin(), lcs.rend());    // return the reversed string
 }
+
+#endif // LONGEST_COMMON_SUBSEQUENCE_HPP

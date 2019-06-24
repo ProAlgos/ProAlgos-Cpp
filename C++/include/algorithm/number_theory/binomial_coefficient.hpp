@@ -17,6 +17,9 @@
     O(N * K), where N and K are as mentioned above.
 */
 
+#ifndef BINOMIAL_COEFFICIENT_HPP
+#define BINOMIAL_COEFFICIENT_HPP
+
 #include <vector>
 
 using std::vector;
@@ -98,3 +101,5 @@ ULL binomial_coefficient(int n, int k) {
 
     return calc_binomial_coefficient(n, k, cache);
 }
+
+# endif // BINOMIAL_COEFFICIENT_HPP

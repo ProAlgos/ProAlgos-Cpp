@@ -1,6 +1,3 @@
-#ifndef KNUTH_MORRIS_PRATT
-#define KNUTH_MORRIS_PRATT
-
 /*
     Knuth-Morris-Pratt (KMP) algorithm
     ----------------------------------
@@ -17,6 +14,9 @@
     ----------------
     O(N), where N is the pattern size.
 */
+
+#ifndef KNUTH_MORRIS_PRATT_HPP
+#define KNUTH_MORRIS_PRATT_HPP
 
 #include <iostream>
 #include <string>
@@ -71,4 +71,4 @@ vector<int> search(string pattern, string text) {
     return indices;
 }
 
-#endif
+#endif // KNUTH_MORRIS_PRATT_HPP

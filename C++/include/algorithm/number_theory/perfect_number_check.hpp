@@ -13,6 +13,9 @@
     O(1).
 */
 
+#ifndef PERFECT_NUMBER_CHECK_HPP
+#define PERFECT_NUMBER_CHECK_HPP
+
 #include <cmath>
 
 typedef unsigned long long ULL;
@@ -24,7 +27,10 @@ bool is_perfect(ULL num) {
             sum += divisor + num/divisor;
     }
 
-    if (sum == num)
+    if (sum == num) {
         return true;
+    }
     return false;
 }
+
+#endif // PERFECT_NUMBER_CHECK_HPP

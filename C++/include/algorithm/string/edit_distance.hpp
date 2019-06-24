@@ -14,11 +14,13 @@
     O(M*N), where M and N are the lengths of the two strings.
 */
 
+#ifndef EDIT_DISTANCE_HPP
+#define EDIT_DISTANCE_HPP
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
-
 
 /*
     get_edit_distance
@@ -65,3 +67,5 @@ int get_edit_distance (std::string str1, std::string str2) {
 
     return dp[length1][length2];    // the edit distance
 }
+
+#endif // EDIT_DISTANCE_HPP

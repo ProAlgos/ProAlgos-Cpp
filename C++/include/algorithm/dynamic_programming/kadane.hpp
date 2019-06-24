@@ -1,6 +1,3 @@
-#ifndef KADANE_HPP
-#define KADANE_HPP
-
 /*
     Kadane's Algorithm
     ------------------
@@ -15,6 +12,9 @@
     ----------------
     O(1)
 */
+
+#ifndef KADANE_HPP
+#define KADANE_HPP
 
 #include <tuple>
 #include <vector>

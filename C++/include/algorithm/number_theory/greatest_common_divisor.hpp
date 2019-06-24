@@ -21,6 +21,9 @@
     Returns the greatest common divisor of integers a and b.
 */
 
+#ifndef GREATEST_COMMON_DIVISOR_HPP
+#define GREATEST_COMMON_DIVISOR_HPP
+
 int greatest_common_divisor(int a, int b) {
     a = abs(a);
     b = abs(b);
@@ -31,3 +34,5 @@ int greatest_common_divisor(int a, int b) {
 
     return greatest_common_divisor(b % a, a);
 }
+
+#endif // GREATEST_COMMON_DIVISOR_HPP

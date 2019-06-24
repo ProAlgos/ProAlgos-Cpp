@@ -9,8 +9,8 @@
     subtree.
 */
 
-#ifndef ALGOS_BINARY_SEARCH_TREE_HPP
-#define ALGOS_BINARY_SEARCH_TREE_HPP
+#ifndef BINARY_SEARCH_TREE_HPP
+#define BINARY_SEARCH_TREE_HPP
 
 #include <climits>
 #include <stack>
@@ -436,4 +436,4 @@ vector<int> BinarySearchTree::traversal_postorder_iterative() {
     return values;
 }
 
-#endif //ALGOS_BINARY_SEARCH_TREE_HPP
+#endif // BINARY_SEARCH_TREE_HPP

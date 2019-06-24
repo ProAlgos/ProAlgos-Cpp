@@ -14,6 +14,9 @@
     O(1).
 */
 
+#ifndef BUBBLE_SORT_HPP
+#define BUBBLE_SORT_HPP
+
 #include <vector>
 #include "utils.hpp"
 
@@ -39,3 +42,5 @@ void bubble_sort(vector<int>& values, const int order = 1, const bool to_show_st
             break;
     }
 }
+
+#endif // BUBBLE_SORT_HPP

@@ -16,6 +16,9 @@
     O(1).
 */
 
+#ifndef QUICK_SORT_HPP
+#define QUICK_SORT_HPP
+
 #include <cstdlib>      // rand(), srand()
 #include <ctime>        // time()
 #include <vector>
@@ -74,3 +77,5 @@ void quick_sort(vector<int>& values, const int order = 1, const bool to_show_sta
     size_t size = values.size();
     quick_sort_internal(values, 0, size - 1, order, to_show_state);
 }
+
+#endif // QUICK_SORT_HPP

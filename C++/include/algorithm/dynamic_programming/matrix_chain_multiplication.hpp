@@ -199,4 +199,4 @@ void MatrixChainMultiplier::find_optimal_parenthesization(int begin, int end,
     parenthesized_result += ')';
 }
 
-#endif  // MATRIX_CHAIN_MULTIPLICATION_HPP
+#endif // MATRIX_CHAIN_MULTIPLICATION_HPP

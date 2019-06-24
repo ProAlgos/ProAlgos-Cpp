@@ -9,6 +9,9 @@
     only.
 */
 
+#ifndef RADIX_SORT_HPP
+#define RADIX_SORT_HPP
+
 #include <algorithm>
 #include <array>
 #include <iostream>
@@ -103,3 +106,5 @@ void radix_sort(vector<int>& values, const int order = 1, const bool to_show_sta
 
     radix_sort_internal(values, mult_factor, add_factor, to_show_state);
 }
+
+#endif // RADIX_SORT_HPP

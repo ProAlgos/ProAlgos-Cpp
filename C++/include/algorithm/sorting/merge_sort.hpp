@@ -15,6 +15,9 @@
     This space is used for merging two halves of the array.
 */
 
+#ifndef MERGE_SORT_HPP
+#define MERGE_SORT_HPP
+
 #include <vector>
 #include "utils.hpp"
 
@@ -75,3 +78,5 @@ void merge_sort(vector<int>& values, const int order = 1, const bool to_show_sta
     size_t size = values.size();
     merge_sort_range(values, 0, size - 1, order, to_show_state);
 }
+
+#endif // MERGE_SORT_HPP

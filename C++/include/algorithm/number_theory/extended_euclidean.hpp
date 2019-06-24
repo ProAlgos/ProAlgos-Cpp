@@ -13,6 +13,9 @@
     O(1).
 */
 
+#ifndef EXTENDED_EUCLIDEAN_HPP
+#define EXTENDED_EUCLIDEAN_HPP
+
 #include <array>
 
 using std::array;
@@ -50,3 +53,5 @@ array<int, 2> extended_euclidean(int a, int b) {
     }
     return aM;
 }
+
+# endif // EXTENDED_EUCLIDEAN_HPP

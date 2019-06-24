@@ -1,10 +1,10 @@
-#ifndef UTILS_HPP
-#define UTILS_HPP
-
 /*
     Various utility functions (for input, output etc.)
     used in programs that implement sorting algorithms
 */
+
+#ifndef UTILS_HPP
+#define UTILS_HPP
 
 #include <algorithm>    // swap, min, max, reverse
 #include <cstdlib>      // exit
@@ -85,4 +85,4 @@ void display_state(const vector<int>& values) {
     cout << '\n';
 }
 
-#endif
+#endif // UTILS_HPP

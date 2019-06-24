@@ -13,8 +13,10 @@
     O(1).
 */
 
-#include <vector>
+#ifndef BINARY_SEARCH_HPP
+#define BINARY_SEARCH_HPP
 
+#include <vector>
 
 /*
     binary_search
@@ -60,3 +62,5 @@ int binary_search(const T& value, const std::vector<T>& sorted_values) {
     
     return binary_search(value, sorted_values, 0, sorted_values.size() - 1);
 }
+
+#endif // BINARY_SEARCH_HPP

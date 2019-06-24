@@ -14,6 +14,9 @@
     O(N + K), where N is the number of elements and K the size of the frequency array.
 */
 
+#ifndef COUNTING_SORT_HPP
+#define COUNTING_SORT_HPP
+
 #include <vector>
 #include "utils.hpp"
 
@@ -76,3 +79,5 @@ void counting_sort(vector<int>& values, const int order = 1, const bool to_show_
 
     values.assign(sorted.begin(), sorted.end());
 }
+
+#endif // COUNTING_SORT_HPP

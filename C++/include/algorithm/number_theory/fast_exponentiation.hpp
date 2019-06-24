@@ -14,6 +14,9 @@
     O(log(E)), where E is the exponent.
 */
 
+#ifndef FAST_EXPONENTIATION_HPP
+#define FAST_EXPONENTIATION_HPP
+
 #include <climits>
 #include <cmath>
 
@@ -66,3 +69,5 @@ ULL fast_exp(ULL base, ULL exponent, ULL mod = ULLONG_MAX) {
     // the exponent is even
     return square(fast_exp(base, exponent/2, mod)) % mod;
 }
+
+#endif // FAST_EXPONENTIATION_HPP

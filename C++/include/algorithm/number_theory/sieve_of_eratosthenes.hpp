@@ -14,6 +14,9 @@
     O(N), where N is the number up to which primes have to be found
 */
 
+#ifndef SIEVE_OF_ERATOSTHENES_HPP
+#define SIEVE_OF_ERATOSTHENES_HPP
+
 #include <cmath>
 #include <vector>
 
@@ -52,3 +55,5 @@ vector<int> getPrimes(const unsigned int &primeLimit) {
 
     return primes;
 }
+
+#endif // SIEVE_OF_ERATOSTHENES_HPP
