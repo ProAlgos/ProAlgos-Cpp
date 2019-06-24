@@ -61,7 +61,7 @@ Follow the steps below to contribute to the project:
    git pull upstream master
    ```
 
-3. Create a new branch (off the `master` branch) to contain your code for a
+3. Create a new branch (from the `master` branch) to contain your code for a
    specific algorithm or data structure:
 
    ```bash
