@@ -20,22 +20,22 @@
 using std::vector;
 
 void bubble_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
-	bool swapped;
-	size_t i, j;
+    bool swapped;
+    size_t i, j;
 
-	for (i = 0; i < values.size() - 1; i++) {
-		swapped = false;
-		for (j = 0; i + j < values.size() - 1; j++) {
-			// 'order' is -1 for descending, so the inequality is reversed:
-			if (order * values[j] > order * values[j+1]) {
-				swap(values[j], values[j+1]);
-				swapped = true;
+    for (i = 0; i < values.size() - 1; i++) {
+        swapped = false;
+        for (j = 0; i + j < values.size() - 1; j++) {
+            // 'order' is -1 for descending, so the inequality is reversed:
+            if (order * values[j] > order * values[j+1]) {
+                swap(values[j], values[j+1]);
+                swapped = true;
 
-				if (to_show_state)
-					display_state(values);
-			}
-		}
-		if (!swapped)
-			break;
-	}
+                if (to_show_state)
+                    display_state(values);
+            }
+        }
+        if (!swapped)
+            break;
+    }
 }

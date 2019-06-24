@@ -22,46 +22,46 @@ using std::vector;
 const int INF = INT_MAX;
 
 struct Node {
-	int value;
-	Node* left_child;
-	Node* right_child;
+    int value;
+    Node* left_child;
+    Node* right_child;
 };
 
 Node* get_node();
 
 class BinarySearchTree {
 private:
-	Node* root;
+    Node* root;
 
-	void remove_current_node(Node* current, Node* parent);
-	void traversal_inorder_helper(Node* tree, vector<int>& values);
-	void traversal_preorder_helper(Node* tree, vector<int>& values);
-	void traversal_postorder_helper(Node* tree, vector<int>& values);
+    void remove_current_node(Node* current, Node* parent);
+    void traversal_inorder_helper(Node* tree, vector<int>& values);
+    void traversal_preorder_helper(Node* tree, vector<int>& values);
+    void traversal_postorder_helper(Node* tree, vector<int>& values);
 
 public:
 
-	BinarySearchTree();
-	bool insert(int);
-	bool remove(int);
-	bool search(int);
-	vector<int> traversal_inorder_recursive();
-	vector<int> traversal_inorder_iterative();
-	vector<int> traversal_preorder_recursive();
-	vector<int> traversal_preorder_iterative();
-	vector<int> traversal_postorder_recursive();
-	vector<int> traversal_postorder_iterative();
+    BinarySearchTree();
+    bool insert(int);
+    bool remove(int);
+    bool search(int);
+    vector<int> traversal_inorder_recursive();
+    vector<int> traversal_inorder_iterative();
+    vector<int> traversal_preorder_recursive();
+    vector<int> traversal_preorder_iterative();
+    vector<int> traversal_postorder_recursive();
+    vector<int> traversal_postorder_iterative();
 };
 
 Node* get_node() {
-	Node* newNode = new Node();
-	newNode->left_child = newNode->right_child = nullptr;
+    Node* newNode = new Node();
+    newNode->left_child = newNode->right_child = nullptr;
 
-	return newNode;
+    return newNode;
 }
 
 BinarySearchTree::BinarySearchTree() {
-	root = get_node();
-	root->value = INF;
+    root = get_node();
+    root->value = INF;
 }
 
 /*
@@ -83,39 +83,39 @@ BinarySearchTree::BinarySearchTree() {
     O(1)
 */
 bool BinarySearchTree::insert(int value) {
-	// If first insertion, replace the value of the already created node
-	if (root->value == INF) {
-		root->value = value;
-		return true;
-	}
+    // If first insertion, replace the value of the already created node
+    if (root->value == INF) {
+        root->value = value;
+        return true;
+    }
 
-	Node* current = root;
-	Node* newNode = get_node();
+    Node* current = root;
+    Node* newNode = get_node();
 
-	// Failed to allocate memory to a new node
-	if (newNode == nullptr) {
-		return false;
-	}
+    // Failed to allocate memory to a new node
+    if (newNode == nullptr) {
+        return false;
+    }
 
-	while (true) {
-		if (value <= current->value) {
-			if (current->left_child == nullptr) {
-				current->left_child = newNode;
-				current->left_child->value = value;
-				return true;
-			} else {
-				current = current->left_child;
-			}
-		} else {
-			if (current->right_child == nullptr) {
-				current->right_child = newNode;
-				current->right_child->value = value;
-				return true;
-			} else {
-				current = current->right_child;
-			}
-		}
-	}
+    while (true) {
+        if (value <= current->value) {
+            if (current->left_child == nullptr) {
+                current->left_child = newNode;
+                current->left_child->value = value;
+                return true;
+            } else {
+                current = current->left_child;
+            }
+        } else {
+            if (current->right_child == nullptr) {
+                current->right_child = newNode;
+                current->right_child->value = value;
+                return true;
+            } else {
+                current = current->right_child;
+            }
+        }
+    }
 }
 
 /*
@@ -137,74 +137,74 @@ bool BinarySearchTree::insert(int value) {
     O(1)
 */
 bool BinarySearchTree::remove(int value) {
-	// If tree is empty remove is unsuccessful
-	if (root->value == INF) {
-		return false;
-	}
+    // If tree is empty remove is unsuccessful
+    if (root->value == INF) {
+        return false;
+    }
 
-	Node* current = root;
-	Node* parent = nullptr;
+    Node* current = root;
+    Node* parent = nullptr;
 
-	while (true) {
-		if (value == current->value) {
-			remove_current_node(current, parent);
-			return true;
-		} else {
-			parent = current;
+    while (true) {
+        if (value == current->value) {
+            remove_current_node(current, parent);
+            return true;
+        } else {
+            parent = current;
 
-			if (current->value < value) {  	// Search in the right subtree
-				current = current->right_child;
-			} else {                    	// Search in the left subtree
-				current = current->left_child;
-			}
+            if (current->value < value) {   // Search in the right subtree
+                current = current->right_child;
+            } else {                        // Search in the left subtree
+                current = current->left_child;
+            }
 
-			if (current == nullptr) {
-				return false;
-			}
-		}
-	}
+            if (current == nullptr) {
+                return false;
+            }
+        }
+    }
 }
 void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
-	Node* toBeDeleted;
-	Node* successor;
-	Node* successorParent = nullptr;
+    Node* toBeDeleted;
+    Node* successor;
+    Node* successorParent = nullptr;
 
-	// If current node has no children
-	if (current->right_child == nullptr && current->left_child == nullptr) {
-		if (parent == nullptr) {
-			current->value = INF;
-		} else {
-			if (parent->left_child == current) {
-				parent->left_child = nullptr;
-			} else {
-				parent->right_child = nullptr;
-			}
+    // If current node has no children
+    if (current->right_child == nullptr && current->left_child == nullptr) {
+        if (parent == nullptr) {
+            current->value = INF;
+        } else {
+            if (parent->left_child == current) {
+                parent->left_child = nullptr;
+            } else {
+                parent->right_child = nullptr;
+            }
 
-			delete current;
-		}
-	} else if (current->right_child == nullptr) {
-		toBeDeleted = current->left_child;
-		current->value = current->left_child->value;
-		current->right_child = current->left_child->right_child;
-		current->left_child = current->left_child->left_child;
-		delete toBeDeleted;
-	} else {
-		successor = current->right_child;
-		successorParent = nullptr;
+            delete current;
+        }
+    } else if (current->right_child == nullptr) {
+        toBeDeleted = current->left_child;
+        current->value = current->left_child->value;
+        current->right_child = current->left_child->right_child;
+        current->left_child = current->left_child->left_child;
+        delete toBeDeleted;
+    } else {
+        successor = current->right_child;
+        successorParent = nullptr;
 
-		while (successor->left_child != nullptr) {
-			successorParent = successor;
-			successor = successor->left_child;
-		}
+        while (successor->left_child != nullptr) {
+            successorParent = successor;
+            successor = successor->left_child;
+        }
 
-		if (successorParent == nullptr) {
-			current->right_child = successor->right_child;
-		} else {
-			successorParent->left_child = successor->right_child;
-		}
-		current->value = successor->value;
-		delete successor;
-	}
+        if (successorParent == nullptr) {
+            current->right_child = successor->right_child;
+        } else {
+            successorParent->left_child = successor->right_child;
+        }
+        current->value = successor->value;
+        delete successor;
+    }
 }
 
 /*
@@ -226,25 +226,25 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
     O(1)
 */
 bool BinarySearchTree::search(int value) {
-	Node* current = root;
+    Node* current = root;
 
-	while (true) {
-		if (value < current->value) {
-			if (current->left_child == nullptr) {
-				return false;
-			} else {
-				current = current->left_child;
-			}
-		} else if (value > current->value) {
-			if (current->right_child == nullptr) {
-				return false;
-			} else {
-				current = current->right_child;
-			}
-		} else {
-			return true;
-		}
-	}
+    while (true) {
+        if (value < current->value) {
+            if (current->left_child == nullptr) {
+                return false;
+            } else {
+                current = current->left_child;
+            }
+        } else if (value > current->value) {
+            if (current->right_child == nullptr) {
+                return false;
+            } else {
+                current = current->right_child;
+            }
+        } else {
+            return true;
+        }
+    }
 }
 
 /*
@@ -265,45 +265,45 @@ bool BinarySearchTree::search(int value) {
     O(n), where n is the number if nodes in the tree
 */
 void BinarySearchTree::traversal_inorder_helper(Node* tree, vector<int>& values) {
-	if (tree == nullptr or tree->value == INF) {
-		return;
-	}
+    if (tree == nullptr or tree->value == INF) {
+        return;
+    }
 
-	traversal_inorder_helper(tree->left_child, values);
-	values.push_back(tree->value);
-	traversal_inorder_helper(tree->right_child, values);
+    traversal_inorder_helper(tree->left_child, values);
+    values.push_back(tree->value);
+    traversal_inorder_helper(tree->right_child, values);
 }
 
 vector<int> BinarySearchTree::traversal_inorder_recursive()  {
-	vector<int> values;
-	traversal_inorder_helper(root, values);
-	return values;
+    vector<int> values;
+    traversal_inorder_helper(root, values);
+    return values;
 }
 
 vector<int> BinarySearchTree::traversal_inorder_iterative() {
-	vector<int> values;
-	if (root->value == INF) {
-		return values; // empty vector
-	}
+    vector<int> values;
+    if (root->value == INF) {
+        return values; // empty vector
+    }
 
-	stack<Node*> traversal;
-	Node* current = root;
-	bool complete = false;
+    stack<Node*> traversal;
+    Node* current = root;
+    bool complete = false;
 
-	while (!complete) {
-		if (current != nullptr) {
-			traversal.push(current);
-			current = current->left_child;
-		} else if (!traversal.empty()) {
-			current = traversal.top();
-			traversal.pop();
-			values.push_back(current->value);
-			current = current->right_child;
-		} else {
-			complete = true;
-		}
-	}
-	return values;
+    while (!complete) {
+        if (current != nullptr) {
+            traversal.push(current);
+            current = current->left_child;
+        } else if (!traversal.empty()) {
+            current = traversal.top();
+            traversal.pop();
+            values.push_back(current->value);
+            current = current->right_child;
+        } else {
+            complete = true;
+        }
+    }
+    return values;
 }
 
 /*
@@ -323,46 +323,46 @@ vector<int> BinarySearchTree::traversal_inorder_iterative() {
     O(n), where n is the number if nodes in the tree
 */
 void BinarySearchTree::traversal_preorder_helper(Node* tree, vector<int>& values) {
-	if (tree == nullptr or tree->value == INF) {
-		return;
-	}
+    if (tree == nullptr or tree->value == INF) {
+        return;
+    }
 
-	values.push_back(tree->value);
-	traversal_preorder_helper(tree->left_child, values);
-	traversal_preorder_helper(tree->right_child, values);
+    values.push_back(tree->value);
+    traversal_preorder_helper(tree->left_child, values);
+    traversal_preorder_helper(tree->right_child, values);
 }
 
 vector<int> BinarySearchTree::traversal_preorder_recursive() {
-	vector<int> values;
-	traversal_preorder_helper(root, values);
-	return values;
+    vector<int> values;
+    traversal_preorder_helper(root, values);
+    return values;
 }
 
 vector<int> BinarySearchTree::traversal_preorder_iterative() {
-	vector<int> values;
-	if (root->value == INF) {
-		return values; // empty vector
-	}
+    vector<int> values;
+    if (root->value == INF) {
+        return values; // empty vector
+    }
 
-	stack<Node*> traversal;
-	Node* current;
+    stack<Node*> traversal;
+    Node* current;
 
-	traversal.push(root);
+    traversal.push(root);
 
-	while (!traversal.empty()) {
-		current = traversal.top();
-		traversal.pop();
-		values.push_back(current->value);
+    while (!traversal.empty()) {
+        current = traversal.top();
+        traversal.pop();
+        values.push_back(current->value);
 
-		if (current->right_child != nullptr) {
-			traversal.push(current->right_child);
-		}
+        if (current->right_child != nullptr) {
+            traversal.push(current->right_child);
+        }
 
-		if (current->left_child != nullptr) {
-			traversal.push(current->left_child);
-		}
-	}
-	return values;
+        if (current->left_child != nullptr) {
+            traversal.push(current->left_child);
+        }
+    }
+    return values;
 }
 
 /*
@@ -382,58 +382,58 @@ vector<int> BinarySearchTree::traversal_preorder_iterative() {
     O(n), where n is the number if nodes in the tree
 */
 void BinarySearchTree::traversal_postorder_helper(Node* tree, vector<int>& values) {
-	if (tree == nullptr or tree->value == INF) {
-		return;
-	} else {
-		traversal_postorder_helper(tree->left_child, values);
-		traversal_postorder_helper(tree->right_child, values);
-		values.push_back(tree->value);
-	}
+    if (tree == nullptr or tree->value == INF) {
+        return;
+    } else {
+        traversal_postorder_helper(tree->left_child, values);
+        traversal_postorder_helper(tree->right_child, values);
+        values.push_back(tree->value);
+    }
 }
 
 vector<int> BinarySearchTree::traversal_postorder_recursive() {
-	vector<int> values;
-	traversal_postorder_helper(root, values);
-	return values;
+    vector<int> values;
+    traversal_postorder_helper(root, values);
+    return values;
 }
 
 vector<int> BinarySearchTree::traversal_postorder_iterative() {
-	vector<int> values;
-	if (root->value == INF) {
-		return values; // empty vector
-	}
+    vector<int> values;
+    if (root->value == INF) {
+        return values; // empty vector
+    }
 
-	stack<Node*> traversal;
-	Node* current = root;
+    stack<Node*> traversal;
+    Node* current = root;
 
-	do
-	{
-		while (current)
-		{
-			if (current->right_child)
-				traversal.push(current->right_child);
-			traversal.push(current);
+    do
+    {
+        while (current)
+        {
+            if (current->right_child)
+                traversal.push(current->right_child);
+            traversal.push(current);
 
-			current = current->left_child;
-		}
+            current = current->left_child;
+        }
 
-		current = traversal.top();
-		traversal.pop();
+        current = traversal.top();
+        traversal.pop();
 
-		// If the popped item has a right child and the right child is not
-		// processed yet, then make sure right child is processed before root
-		if (current->right_child and traversal.empty() == false and traversal.top() == current->right_child)
-		{
-			traversal.pop();
-			traversal.push(current);
-			current= current->right_child;
-		} else {
-			values.push_back(current->value);
-			current = nullptr;
-		}
-	} while (!traversal.empty());
+        // If the popped item has a right child and the right child is not
+        // processed yet, then make sure right child is processed before root
+        if (current->right_child and traversal.empty() == false and traversal.top() == current->right_child)
+        {
+            traversal.pop();
+            traversal.push(current);
+            current= current->right_child;
+        } else {
+            values.push_back(current->value);
+            current = nullptr;
+        }
+    } while (!traversal.empty());
 
-	return values;
+    return values;
 }
 
 #endif //ALGOS_BINARY_SEARCH_TREE_HPP

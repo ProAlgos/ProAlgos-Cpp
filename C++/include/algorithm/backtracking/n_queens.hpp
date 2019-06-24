@@ -2,7 +2,7 @@
     N queens problem
     ----------------
     Find a way to place N non-attacking queens on an N×N chessboard.
-	
+
     Time complexity
     ---------------
     O(N!), where N is the number of queens.
@@ -57,7 +57,7 @@ private:
 */
 
 NQueensSolver::NQueensSolver(const size_t num_queens) {
-    N = num_queens;    
+    N = num_queens;
     is_solved = false;
     solve();
 }
@@ -115,7 +115,7 @@ Board NQueensSolver::get_solution() const {
     empty.
 */
 
-std::vector<Board> NQueensSolver::get_solutions() const {    
+std::vector<Board> NQueensSolver::get_solutions() const {
     return solutions;
 }
 
