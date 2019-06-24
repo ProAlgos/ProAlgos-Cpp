@@ -1,94 +1,22 @@
-# c++ version
-CXXFLAGS += -std=c++14
-
-# warning flags
-CXXFLAGS += -Wall -Wextra -pedantic-errors
-
-# flags for dependency generation
-CXXFLAGS += -MMD -MP
-
-# include directories
-INCLUDES += -Iinclude -I.
-
-PROG_DIRS := $(patsubst source/%, %, $(wildcard source/*))
-TEST_DIRS := $(patsubst   test/%, %, $(wildcard   test/*))
-
-PROG_SOURCES := $(wildcard source/*/*.cpp)
-TEST_SOURCES := $(wildcard   test/*/*.cpp)
-SOURCES := $(PROG_SOURCES)
-SOURCES += $(TEST_SOURCES)
-
-PROG_OBJECTS := $(patsubst source/%.cpp, build/%.o, $(PROG_SOURCES))
-TEST_OBJECTS := $(patsubst   test/%.cpp, build/test/%.o, $(TEST_SOURCES))
-OBJECTS := $(PROG_OBJECTS)
-OBJECTS += $(TEST_OBJECTS)
-
-PROG_EXECUTABLES := $(patsubst source/%.cpp, bin/%, $(PROG_SOURCES))
-TEST_EXECUTABLES := $(patsubst   test/%.cpp, bin/%, $(TEST_SOURCES))
-EXECUTABLES := $(PROG_EXECUTABLES)
-EXECUTABLES += $(TEST_EXECUTABLES)
-
-PROG_DEPENDENCIES := $(patsubst source/%.cpp, build/%.d, $(PROG_SOURCES))
-TEST_DEPENDENCIES := $(patsubst   test/%.cpp, build/%.d, $(TEST_SOURCES))
-DEPENDENCIES := $(PROG_DEPENDENCIES)
-DEPENDENCIES += $(TEST_DEPENDENCIES)
-
 # prevent printing of recipes
 .SILENT:
 
-# keep intermediate object files after compilation
-.SECONDARY: $(OBJECTS)
+# compile tests using CMake
+.PHONY: default
+default: dirs
+	cd build && cmake .. && make
 
-# include generated dependencies
--include $(DEPENDENCIES)
-
-.PHONY: all
-all: dirs $(PROG_EXECUTABLES)
-
+# run tests
 .PHONY: test
-test: test-dirs $(TEST_EXECUTABLES)
-	find * -name *.test -exec sh -c "echo {}:; ./{}" \;
+test: dirs
+	scripts/run_tests.sh
 
-# compile objects from source files
-build/%.o: source/%.cpp
-	printf '\e[94m%s\e[0m%s' 'Compiling source' ': $@ ... '
-	$(CXX) -c $(CXXFLAGS) $(INCLUDES) -o $@ $<
-	printf '\e[92m%s\e[0m\n' 'Done!'
-
-# create program binaries
-bin/%: build/%.o
-	printf '\e[96m%s\e[0m%s' 'Creating binary ' ': $@ ... '
-	$(CXX) $(CXXFLAGS) -o $@ $<
-	printf '\e[92m%s\e[0m\n' 'Done!'
-
-# compile object file for Catch test runner
-build/test/test_runner.o:
-	printf '\e[94m%s\e[0m%s' 'Compiling test runner' ' ... '
-	$(CXX) -c $(CXXFLAGS) $(INCLUDES) test/test_runner.cpp -o build/test/test_runner.o
-	printf '\e[92m%s\e[0m\n' 'Done!'
-
-# compile test objects from source files
-build/test/%.o: test/%.cpp
-	printf '\e[94m%s\e[0m%s' 'Compiling test  ' ': $@ ... '
-	$(CXX) -c $(CXXFLAGS) $(INCLUDES) -o $@ $<
-	printf '\e[92m%s\e[0m\n' 'Done!'
-
-# create test binaries from compiled objects and the test runner
-bin/%: build/test/%.o build/test/test_runner.o
-	printf '\e[96m%s\e[0m%s' 'Creating binary ' ': $@ ... '
-	$(CXX) $(CXXFLAGS) -o $@ $+
-	printf '\e[92m%s\e[0m\n' 'Done!'
-
+# create bin and build directories
 .PHONY: dirs
 dirs:
-	mkdir -p $(patsubst %, build/%, $(PROG_DIRS)) $(patsubst %, bin/%, $(PROG_DIRS))
+	mkdir -p bin build
 
-.PHONY: test-dirs
-test-dirs:
-	mkdir -p $(patsubst %, build/test/%, $(TEST_DIRS)) $(patsubst %, bin/%, $(TEST_DIRS))
-
+# clean build files
 .PHONY: clean
 clean:
-	printf "\e[91m%s\e[0m%s" 'Removing all binaries and build files' ' ... '
-	rm -f $(EXECUTABLES) $(OBJECTS) $(DEPENDENCIES)
-	printf '\e[92m%s\e[0m\n' 'Done!'
+	cd build && make clean

@@ -1,28 +1,43 @@
-> The code in this repo is being reorganised in the [`reorganise` branch](https://github.com/faheel/Algos/tree/reorganise). Please make all new PRs to that branch.
-
 # Algos
+
 [![Travis status][travis-shield]][travis-link]
 [![Gitter](https://img.shields.io/gitter/room/Algos/Algos.svg?style=for-the-badge)](https://gitter.im/Algos-f)
 
 Implementation of well-known (and some rare) algorithms, mostly in C++.
 
 ## Contents
+
 For algorithms and data structures in C++, check out the list [here](C++).
 
 ## My goal
+
 > Add at least 1 algorithm to the repo every week.
 
 ### Want to contribute to open-source and help me achieve the goal?
-1. **Fork** the repo
-2. Create a **branch** and **add your implementation** of an algorithm that is not already in the repo
-3. Submit a **pull request** (after reading the [contributing guidelines](CONTRIBUTING.md))
 
-#### Want to suggest some algorithms to add?
-Just [create a new issue](https://github.com/faheel/algos/issues/new "Create a new issue") and I'll handle it from there :smile:
+1. Read the [**contribution guidelines**][contrib-guide]
+2. **Fork** the repo
+3. Create a **branch** and **add your implementation** of an algorithm (or
+   data structure) that is not already in the repo
+4. Add **unit tests** for the code you've added
+5. Submit a **pull request**
+
+You can find more details regarding the steps above in the [contribution
+guidelines][contrib-guide], so be sure to check them out.
+
+### Want to suggest some algorithms to add?
+
+Just [create a new issue](https://github.com/faheel/Algos/issues/new) and I'll
+handle it from there :smile:
+
+## Maintainers
+
+This repo is being actively maintained by @alxmjo, and inactively by @faheel.
 
 ## License
-This project is licensed under the terms of the [MIT license](LICENSE.md).
 
+This project is licensed under the terms of the [MIT license](LICENSE.md).
 
 [travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/faheel/Algos
+[contrib-guide]: .github/CONTRIBUTING.md
