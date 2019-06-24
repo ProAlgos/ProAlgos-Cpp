@@ -52,15 +52,15 @@ string get_lcs(const string& s1, const string& s2) {
 
     string lcs;
     while (i != 0 and j != 0) {
-        if (s1[i - 1] == s2[j - 1]) {	// if there's a match
-            lcs += s1[i - 1];		// save the character
+        if (s1[i - 1] == s2[j - 1]) {   // if there's a match
+            lcs += s1[i - 1];       // save the character
             i--, j--;
         } else if (lengths[i - 1][j] > lengths[i][j - 1]) {
             i--;    // move to the left
         } else {
-            j--;	// move to the right
+            j--;    // move to the right
         }
     }
 
-    return string(lcs.rbegin(), lcs.rend());	// return the reversed string
+    return string(lcs.rbegin(), lcs.rend());    // return the reversed string
 }

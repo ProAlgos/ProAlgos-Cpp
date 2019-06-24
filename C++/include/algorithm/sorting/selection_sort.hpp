@@ -21,22 +21,22 @@
 using std::vector;
 
 void selection_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
-	size_t current_extreme_index;   // index of either the current minimum or maximum value, depending on the order
-	size_t i, j;
-	for (i = 0; i < values.size() - 1; i++) {
-		current_extreme_index = i;
-		j = i + 1;
-		while (j < values.size()) {
-			// 'order' is -1 for descending, so the inequality is reversed:
-			if (order * values[j] < order * values[current_extreme_index]) {
-				current_extreme_index = j;
-			}
-			j++;
-		}
-		swap(values[i], values[current_extreme_index]);
+    size_t current_extreme_index;   // index of either the current minimum or maximum value, depending on the order
+    size_t i, j;
+    for (i = 0; i < values.size() - 1; i++) {
+        current_extreme_index = i;
+        j = i + 1;
+        while (j < values.size()) {
+            // 'order' is -1 for descending, so the inequality is reversed:
+            if (order * values[j] < order * values[current_extreme_index]) {
+                current_extreme_index = j;
+            }
+            j++;
+        }
+        swap(values[i], values[current_extreme_index]);
 
-		if (to_show_state) {
-			display_state(values);
-		}
-	}
+        if (to_show_state) {
+            display_state(values);
+        }
+    }
 }

@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-### Contents
+## Contents
 
 * [General guidelines](#general-guidelines)
 * [C++ coding guidelines](#c-coding-guidelines)
@@ -18,19 +18,21 @@
   and worst-case complexities are different, mention both of them.
 
     The format for the _"description comment"_ (which is written at the beginning) should be:
-    ```
+
+    ```text
     <Name of algorithm>
     -------------------
     <Brief description>
 
     Time complexity
     ---------------
-    O(...), where <description of variable(s)>    
+    O(...), where <description of variable(s)>
 
     Space complexity
     ----------------
     O(...), where <description of variable(s)>
     ```
+
 * Before you push your changes to GitHub, make sure that your code compiles and runs without any errors or warnings.
 
 ## C++ coding guidelines
@@ -55,11 +57,11 @@ Follow the steps below to contribute to the project:
 2. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
-   git checkout reorganise
-   git pull upstream reorganise
+   git checkout master
+   git pull upstream master
    ```
 
-3. Create a new branch (off the `reorganise` branch) to contain your code for a
+3. Create a new branch (off the `master` branch) to contain your code for a
    specific algorithm or data structure:
 
    ```bash
@@ -72,7 +74,7 @@ Follow the steps below to contribute to the project:
 5. Locally merge (or rebase) the upstream development branch into your branch:
 
    ```bash
-   git pull [--rebase] upstream reorganise
+   git pull [--rebase] upstream master
    ```
 
 6. Push your branch up to your fork:
@@ -82,12 +84,11 @@ Follow the steps below to contribute to the project:
    ```
 
 7. [Open a pull request][pr-guide] with a clear title and description against the
-   `reorganise` branch.
+   `master` branch.
 
 ## Code of Conduct
 
 This project has a [Code of Conduct](CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
-
 
 [fork-guide]: https://help.github.com/fork-a-repo/
 [rebase-guide]: https://help.github.com/articles/interactive-rebase

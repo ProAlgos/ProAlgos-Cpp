@@ -1,8 +1,4 @@
 /*
-    Author
-    ------
-    Varun Jayathirtha (www.github.com/varunjm)
-
     Binary Search Tree
     ------------------
     A graph data structure where each node has a unidirectional path to at most
@@ -13,11 +9,48 @@
     subtree.
 */
 
-#include "BinarySearchTree.hpp"
-#include <iostream>
-#include <stack>
+#ifndef ALGOS_BINARY_SEARCH_TREE_HPP
+#define ALGOS_BINARY_SEARCH_TREE_HPP
 
-using namespace std;
+#include <climits>
+#include <stack>
+#include <vector>
+
+using std::stack;
+using std::vector;
+
+const int INF = INT_MAX;
+
+struct Node {
+    int value;
+    Node* left_child;
+    Node* right_child;
+};
+
+Node* get_node();
+
+class BinarySearchTree {
+private:
+    Node* root;
+
+    void remove_current_node(Node* current, Node* parent);
+    void traversal_inorder_helper(Node* tree, vector<int>& values);
+    void traversal_preorder_helper(Node* tree, vector<int>& values);
+    void traversal_postorder_helper(Node* tree, vector<int>& values);
+
+public:
+
+    BinarySearchTree();
+    bool insert(int);
+    bool remove(int);
+    bool search(int);
+    vector<int> traversal_inorder_recursive();
+    vector<int> traversal_inorder_iterative();
+    vector<int> traversal_preorder_recursive();
+    vector<int> traversal_preorder_iterative();
+    vector<int> traversal_postorder_recursive();
+    vector<int> traversal_postorder_iterative();
+};
 
 Node* get_node() {
     Node* newNode = new Node();
@@ -49,10 +82,9 @@ BinarySearchTree::BinarySearchTree() {
     ----------------
     O(1)
 */
-
 bool BinarySearchTree::insert(int value) {
     // If first insertion, replace the value of the already created node
-    if(root->value == INF) {
+    if (root->value == INF) {
         root->value = value;
         return true;
     }
@@ -99,30 +131,30 @@ bool BinarySearchTree::insert(int value) {
     ---------------
     Average case : O(log n), where n is the number of nodes in the tree
     Worst case : O(n)
-    
+
     Space complexity
     ----------------
     O(1)
 */
-
 bool BinarySearchTree::remove(int value) {
-    // If tree is empty remove is unsucessful
+    // If tree is empty remove is unsuccessful
     if (root->value == INF) {
         return false;
     }
 
     Node* current = root;
     Node* parent = nullptr;
-    
+
     while (true) {
         if (value == current->value) {
             remove_current_node(current, parent);
+            return true;
         } else {
             parent = current;
 
-            if (current->value < value) {  // Search in the right subtree
+            if (current->value < value) {   // Search in the right subtree
                 current = current->right_child;
-            } else {                    // Search in the left subtree
+            } else {                        // Search in the left subtree
                 current = current->left_child;
             }
 
@@ -132,21 +164,21 @@ bool BinarySearchTree::remove(int value) {
         }
     }
 }
-
 void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
     Node* toBeDeleted;
     Node* successor;
     Node* successorParent = nullptr;
 
     // If current node has no children
-    if (current->right_child == nullptr and current->left_child == nullptr) {
-        if(parent == nullptr) {
+    if (current->right_child == nullptr && current->left_child == nullptr) {
+        if (parent == nullptr) {
             current->value = INF;
         } else {
-            if(parent->left_child == current)
+            if (parent->left_child == current) {
                 parent->left_child = nullptr;
-            else
+            } else {
                 parent->right_child = nullptr;
+            }
 
             delete current;
         }
@@ -160,7 +192,7 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
         successor = current->right_child;
         successorParent = nullptr;
 
-        while(successor->left_child != nullptr) {
+        while (successor->left_child != nullptr) {
             successorParent = successor;
             successor = successor->left_child;
         }
@@ -178,10 +210,10 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
 /*
     Search
     ------
-    This traverses the tree to find the presence of number in the tree. At each 
-    node, it checks if the node has a value lesser than itself, if so it goes 
-    to its left subtree. If it is greater it goes to the right subtree. When it 
-    node with the matching value or reaches the end of the tree it returns either 
+    This traverses the tree to find the presence of number in the tree. At each
+    node, it checks if the node has a value lesser than itself, if so it goes
+    to its left subtree. If it is greater it goes to the right subtree. When it
+    node with the matching value or reaches the end of the tree it returns either
     true or false appropriately.
 
     Time complexity
@@ -193,7 +225,6 @@ void BinarySearchTree::remove_current_node(Node* current, Node* parent) {
     ----------------
     O(1)
 */
-
 bool BinarySearchTree::search(int value) {
     Node* current = root;
 
@@ -204,7 +235,7 @@ bool BinarySearchTree::search(int value) {
             } else {
                 current = current->left_child;
             }
-        } else if(value > current->value) {
+        } else if (value > current->value) {
             if (current->right_child == nullptr) {
                 return false;
             } else {
@@ -233,24 +264,26 @@ bool BinarySearchTree::search(int value) {
     ----------------
     O(n), where n is the number if nodes in the tree
 */
-
-void BinarySearchTree::traversal_inorder_helper(Node* tree) {
+void BinarySearchTree::traversal_inorder_helper(Node* tree, vector<int>& values) {
     if (tree == nullptr or tree->value == INF) {
         return;
     }
 
-    traversal_inorder_helper(tree->left_child);
-    cout << tree->value << endl;
-    traversal_inorder_helper(tree->right_child);
+    traversal_inorder_helper(tree->left_child, values);
+    values.push_back(tree->value);
+    traversal_inorder_helper(tree->right_child, values);
 }
 
-void BinarySearchTree::traversal_inorder_recursive()  {
-    traversal_inorder_helper(root);
+vector<int> BinarySearchTree::traversal_inorder_recursive()  {
+    vector<int> values;
+    traversal_inorder_helper(root, values);
+    return values;
 }
 
-void BinarySearchTree::traversal_inorder_iterative() {
+vector<int> BinarySearchTree::traversal_inorder_iterative() {
+    vector<int> values;
     if (root->value == INF) {
-        return;
+        return values; // empty vector
     }
 
     stack<Node*> traversal;
@@ -264,12 +297,13 @@ void BinarySearchTree::traversal_inorder_iterative() {
         } else if (!traversal.empty()) {
             current = traversal.top();
             traversal.pop();
-            cout << current->value << endl;
+            values.push_back(current->value);
             current = current->right_child;
         } else {
             complete = true;
         }
     }
+    return values;
 }
 
 /*
@@ -288,24 +322,26 @@ void BinarySearchTree::traversal_inorder_iterative() {
     ----------------
     O(n), where n is the number if nodes in the tree
 */
-
-void BinarySearchTree::traversal_preorder_helper(Node* tree) {
+void BinarySearchTree::traversal_preorder_helper(Node* tree, vector<int>& values) {
     if (tree == nullptr or tree->value == INF) {
         return;
     }
 
-    cout << tree->value << endl;
-    traversal_preorder_helper(tree->left_child);
-    traversal_preorder_helper(tree->right_child);
+    values.push_back(tree->value);
+    traversal_preorder_helper(tree->left_child, values);
+    traversal_preorder_helper(tree->right_child, values);
 }
 
-void BinarySearchTree::traversal_preorder_recursive() {
-    traversal_preorder_helper(root);
+vector<int> BinarySearchTree::traversal_preorder_recursive() {
+    vector<int> values;
+    traversal_preorder_helper(root, values);
+    return values;
 }
 
-void BinarySearchTree::traversal_preorder_iterative() {
+vector<int> BinarySearchTree::traversal_preorder_iterative() {
+    vector<int> values;
     if (root->value == INF) {
-        return;
+        return values; // empty vector
     }
 
     stack<Node*> traversal;
@@ -316,7 +352,7 @@ void BinarySearchTree::traversal_preorder_iterative() {
     while (!traversal.empty()) {
         current = traversal.top();
         traversal.pop();
-        cout << current->value << endl;
+        values.push_back(current->value);
 
         if (current->right_child != nullptr) {
             traversal.push(current->right_child);
@@ -326,6 +362,7 @@ void BinarySearchTree::traversal_preorder_iterative() {
             traversal.push(current->left_child);
         }
     }
+    return values;
 }
 
 /*
@@ -344,24 +381,26 @@ void BinarySearchTree::traversal_preorder_iterative() {
     ----------------
     O(n), where n is the number if nodes in the tree
 */
-
-void BinarySearchTree::traversal_postorder_helper(Node* tree) {
+void BinarySearchTree::traversal_postorder_helper(Node* tree, vector<int>& values) {
     if (tree == nullptr or tree->value == INF) {
         return;
     } else {
-        traversal_postorder_helper(tree->left_child);
-        traversal_postorder_helper(tree->right_child);
-        cout << tree->value << endl;
+        traversal_postorder_helper(tree->left_child, values);
+        traversal_postorder_helper(tree->right_child, values);
+        values.push_back(tree->value);
     }
 }
 
-void BinarySearchTree::traversal_postorder_recursive() {
-    traversal_postorder_helper(root);
+vector<int> BinarySearchTree::traversal_postorder_recursive() {
+    vector<int> values;
+    traversal_postorder_helper(root, values);
+    return values;
 }
 
-void BinarySearchTree::traversal_postorder_iterative() {
+vector<int> BinarySearchTree::traversal_postorder_iterative() {
+    vector<int> values;
     if (root->value == INF) {
-        return;
+        return values; // empty vector
     }
 
     stack<Node*> traversal;
@@ -389,51 +428,12 @@ void BinarySearchTree::traversal_postorder_iterative() {
             traversal.push(current);
             current= current->right_child;
         } else {
-            cout << current->value << endl;
+            values.push_back(current->value);
             current = nullptr;
         }
     } while (!traversal.empty());
+
+    return values;
 }
 
-int main() {
-    BinarySearchTree tree;
-
-    tree.insert(10);
-    tree.insert(14);
-    tree.insert(12);
-    tree.insert(5);
-
-    cout << "In Order Traversal: \n";
-    tree.traversal_inorder_recursive();
-
-    cout << "Pre Order Traversal: \n";
-    tree.traversal_preorder_recursive();
-
-    cout << "Post Order Traversal: \n";
-    tree.traversal_postorder_recursive();
-
-    cout << "Searching 10 : ";
-    if(tree.search(10))
-        cout << "Found!\n";
-    else
-        cout << "Not found!\n";
-
-    cout << "Removing 10\n";
-    tree.remove(10);
-
-    cout << "In Order Traversal: \n";
-    tree.traversal_inorder_iterative();
-
-    cout << "Pre Order Traversal: \n";
-    tree.traversal_preorder_iterative();
-
-    cout << "Post Order Traversal: \n";
-    tree.traversal_postorder_iterative();
-
-    cout << "Searching 10 : ";
-    if(tree.search(10))
-        cout << "Found!\n";
-    else
-        cout << "Not found!\n";
-    return 0;
-}
+#endif //ALGOS_BINARY_SEARCH_TREE_HPP

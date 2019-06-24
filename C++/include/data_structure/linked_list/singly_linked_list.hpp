@@ -5,20 +5,59 @@
     similar elements. The list is maintained so that each element points to the
     next element and stores some data. To improve performance, the head and
     tail elements are stored to keep a track of insertions and deletions.
-
-    Author
-    ------
-    Sarvesh P.
 */
 
-#include "singly_linked_list.hpp"
+#ifndef SINGLY_LINKED_LIST_HPP
+#define SINGLY_LINKED_LIST_HPP
+
+#include <climits>
+
+const int ERROR_VAL = INT_MIN;
 
 
 /*
-    ==========================================================================
-    Node class
-    ==========================================================================
+    ===========================================================================
+    Node
+    ===========================================================================
+    Helper class for the nodes in the list.
 */
+
+template<class T>
+class Node {
+    T value;
+    Node<T>* next;
+    Node(void);
+
+public:
+    Node(const T&, Node<T>* const);
+    Node(const Node&);
+    Node<T>& operator=(const Node<T>&);
+    ~Node();
+    T& get_value(void);
+    void set_value(const T&);
+    Node<T>* get_next(void);
+    void set_next(Node<T>* const);
+
+    // inline friend functions:
+    friend bool operator==(const Node& lhs, const Node& rhs) {
+        return lhs.value == rhs.value;
+    }
+    friend bool operator!=(const Node& lhs, const Node& rhs) {
+        return !operator==(lhs, rhs);
+    }
+    friend bool operator>=(const Node& lhs, const Node& rhs) {
+        return !operator<(lhs, rhs);
+    }
+    friend bool operator<=(const Node& lhs, const Node& rhs) {
+        return !operator>(lhs, rhs);
+    }
+    friend bool operator>(const Node& lhs, const Node& rhs) {
+        return lhs.value > rhs.value;
+    }
+    friend bool operator<(const Node& lhs, const Node& rhs) {
+        return operator>(rhs,lhs);
+    }
+};
 
 
 /*
@@ -27,7 +66,7 @@
 */
 
 template<class T>
-Node<T>::Node(const T& value, Node<T> * const next) {
+Node<T>::Node(const T& value, Node<T>* const next) {
     this->value = value;
     this->next = next;
 }
@@ -39,7 +78,7 @@ Node<T>::Node(const T& value, Node<T> * const next) {
 */
 
 template<class T>
-Node<T>::Node(const Node<T> &n) {
+Node<T>::Node(const Node<T>& n) {
     this->value = n.value;
     this->next = n.next;
 }
@@ -52,9 +91,9 @@ Node<T>::Node(const Node<T> &n) {
 */
 
 template<class T>
-Node<T>& Node<T>::operator=(const Node<T> &rhs) {
-     this->value = rhs.value;
-     return *this;
+Node<T>& Node<T>::operator=(const Node<T>& rhs) {
+    this->value = rhs.value;
+    return *this;
 }
 
 
@@ -85,21 +124,42 @@ void Node<T>::set_value(const T& other) {
 }
 
 template<class T>
-Node<T> *Node<T>::get_next(void) {
+Node<T>* Node<T>::get_next(void) {
     return this->next;
 }
 
 template<class T>
-void set_next(Node<T> * const next) {
+void Node<T>::set_next(Node<T>* const next) {
     this->next = next;
 }
 
 
 /*
-    ==========================================================================
-    SinglyLinkedList class
-    ==========================================================================
+    ===========================================================================
+    SinglyLinkedList
+    ===========================================================================
 */
+
+template<class T>
+class SinglyLinkedList {
+    Node<T>* head;
+    Node<T>* tail;
+    int size;
+
+public:
+    SinglyLinkedList();
+    ~SinglyLinkedList();
+    bool is_empty(void);
+    int length(void) const;
+    void insert_front(const T&);
+    void insert_rear(const T&);
+    void delete_front(void);
+    void delete_rear(void);
+    T value_at(int);
+    T operator[](int);
+    const T operator[](int) const;
+    void clear(void);
+};
 
 
 /*
@@ -150,13 +210,6 @@ int SinglyLinkedList<T>::length(void) const {
 
 
 /*
-    =========
-    Insertion
-    =========
-*/
-
-
-/*
     insert_front
     ------------
     Inserts an element at the head of the list.
@@ -172,7 +225,7 @@ int SinglyLinkedList<T>::length(void) const {
 
 template<class T>
 void SinglyLinkedList<T>::insert_front(const T& value) {
-    Node<T> *temp = new Node<T>(value, head);
+    Node<T>* temp = new Node<T>(value, head);
     if (head == nullptr)
         tail = temp;
 
@@ -197,7 +250,7 @@ void SinglyLinkedList<T>::insert_front(const T& value) {
 
 template<class T>
 void SinglyLinkedList<T>::insert_rear(const T& value) {
-    Node<T> *temp = new Node<T>(value, nullptr);
+    Node<T>* temp = new Node<T>(value, nullptr);
     if (tail == nullptr)
         head = temp;
     else
@@ -206,14 +259,6 @@ void SinglyLinkedList<T>::insert_rear(const T& value) {
     tail = temp;
     ++size;
 }
-
-
-/*
-    ========
-    Deletion
-    ========
-*/
-
 
 /*
     delete_front
@@ -231,7 +276,7 @@ void SinglyLinkedList<T>::insert_rear(const T& value) {
 
 template<class T>
 void SinglyLinkedList<T>::delete_front(void) {
-    Node<T> *temp = head;
+    Node<T>* temp = head;
     if (temp == nullptr)
         return;
 
@@ -258,7 +303,7 @@ void SinglyLinkedList<T>::delete_front(void) {
 
 template<class T>
 void SinglyLinkedList<T>::delete_rear(void) {
-    Node<T> *temp = head;
+    Node<T>* temp = head;
     if (temp == nullptr)
         return;
     if (temp == tail) {
@@ -278,9 +323,8 @@ void SinglyLinkedList<T>::delete_rear(void) {
 }
 
 /*
-    ========
-    Indexing
-    ========
+    value_at
+    --------
     This is used to find the value of the element at a particular position in
     the list.
 
@@ -298,7 +342,7 @@ T SinglyLinkedList<T>::value_at(int index) {
     if (size == 0 or index > size)
         return ERROR_VAL;
 
-    Node *temp = head;
+    Node<T>* temp = head;
     int i = 0;
     while (i++ != index)
         temp = temp->get_next();
@@ -325,7 +369,7 @@ const T SinglyLinkedList<T>::operator[](int index) const {
 
 template<class T>
 void SinglyLinkedList<T>::clear(void) {
-    Node<T> *temp = head;
+    Node<T>* temp = head;
     while (temp != nullptr) {
         temp = temp->get_next();
         delete head;
@@ -334,3 +378,5 @@ void SinglyLinkedList<T>::clear(void) {
     head = tail = nullptr;
     size = 0;
 }
+
+#endif  // SINGLY_LINKED_LIST_HPP

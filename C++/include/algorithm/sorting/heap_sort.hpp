@@ -24,19 +24,19 @@ using std::vector;
     Creates a max heap from a vector of integers.
 */
 void heapify(vector<int>& heap, int parent, const int last) {
-	int child = parent*2 + 1;
-	while (child <= last) {    // travel down the children
-		if (child + 1 <= last and heap[child + 1] > heap[child]) {
-			child++;    // child is now the larger of its siblings
-		}
+    int child = parent*2 + 1;
+    while (child <= last) {    // travel down the children
+        if (child + 1 <= last and heap[child + 1] > heap[child]) {
+            child++;    // child is now the larger of its siblings
+        }
 
-		if (heap[parent] < heap[child]) {
-			swap(heap[parent], heap[child]);    // if the parent is smaller, swap it with its child
-		}
+        if (heap[parent] < heap[child]) {
+            swap(heap[parent], heap[child]);    // if the parent is smaller, swap it with its child
+        }
 
-		parent = child;
-		child = parent*2 + 1;
-	}
+        parent = child;
+        child = parent*2 + 1;
+    }
 }
 
 /*
@@ -46,20 +46,20 @@ void heapify(vector<int>& heap, int parent, const int last) {
     heapify to recreate the max heap.
 */
 void sort(vector<int> &heap, const int size, const bool to_show_state = false) {
-	if (to_show_state) {
-		cout << "\nPerforming heap sort on the heap...\n";
-	}
+    if (to_show_state) {
+        cout << "\nPerforming heap sort on the heap...\n";
+    }
 
-	int last = size - 1;
-	while (last >= 0) {
-		swap(heap[0], heap[last]);
-		last--;
-		heapify(heap, 0, last);
+    int last = size - 1;
+    while (last >= 0) {
+        swap(heap[0], heap[last]);
+        last--;
+        heapify(heap, 0, last);
 
-		if (to_show_state) {
-			display_state(heap);
-		}
-	}
+        if (to_show_state) {
+            display_state(heap);
+        }
+    }
 }
 
 /*
@@ -69,20 +69,20 @@ void sort(vector<int> &heap, const int size, const bool to_show_state = false) {
     to the top node (heap[0]).
 */
 void make_heap(vector<int>& heap, const int size, const bool to_show_state = false) {
-	if (to_show_state)
-		cout << "\nMaking initial heap...\n";
+    if (to_show_state)
+        cout << "\nMaking initial heap...\n";
 
-	for (int curr_node = size/2 - 1; curr_node >= 0; curr_node--) {
-		heapify(heap, curr_node, size - 1);    //last_element = heap_size - 1
+    for (int curr_node = size/2 - 1; curr_node >= 0; curr_node--) {
+        heapify(heap, curr_node, size - 1);    //last_element = heap_size - 1
 
-		if (to_show_state) {
-			display_state(heap);
-		}
-	}
+        if (to_show_state) {
+            display_state(heap);
+        }
+    }
 
-	if (to_show_state) {
-		cout << "Initial heap has been made.\n";
-	}
+    if (to_show_state) {
+        cout << "Initial heap has been made.\n";
+    }
 }
 
 /*
@@ -91,12 +91,12 @@ void make_heap(vector<int>& heap, const int size, const bool to_show_state = fal
     Combines the sorting and heapifying functionality into one function
 */
 void heap_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
-	size_t size = values.size();
-	make_heap(values, size, to_show_state);
-	sort(values, size, to_show_state);
+    size_t size = values.size();
+    make_heap(values, size, to_show_state);
+    sort(values, size, to_show_state);
 
-	// Reverse for descending, if necessary
-	if (order == -1) {
-		reverse(values.begin(), values.end());
-	}
+    // Reverse for descending, if necessary
+    if (order == -1) {
+        reverse(values.begin(), values.end());
+    }
 }

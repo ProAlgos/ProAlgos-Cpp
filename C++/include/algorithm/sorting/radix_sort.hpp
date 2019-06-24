@@ -32,30 +32,30 @@ using std::array;
     O(N), where N is the number of keys.
 */
 void count_sort(vector<int>& values, const int extractor, const int mult_factor,
-				const int add_factor, const bool to_show_state = false) {
-	array<int, 10> counter{0};
-	vector<int> output(values.size());
+                const int add_factor, const bool to_show_state = false) {
+    array<int, 10> counter{0};
+    vector<int> output(values.size());
 
-	auto get_digit = [&] (const int value) {
-		return add_factor + (mult_factor * ((value / extractor) % 10));
-	};
+    auto get_digit = [&] (const int value) {
+        return add_factor + (mult_factor * ((value / extractor) % 10));
+    };
 
-	for (int value: values) {
-		counter[get_digit(value)]++;
-	}
-	for (int i = 1; i < 10; i++) {
-		counter[i] += counter[i - 1];
-	}
-	for (int i = values.size() - 1; i >= 0; i--) {
-		output[counter[get_digit(values[i])] - 1] = values[i];
-		counter[get_digit(values[i])]--;
-	}
+    for (int value: values) {
+        counter[get_digit(value)]++;
+    }
+    for (int i = 1; i < 10; i++) {
+        counter[i] += counter[i - 1];
+    }
+    for (int i = values.size() - 1; i >= 0; i--) {
+        output[counter[get_digit(values[i])] - 1] = values[i];
+        counter[get_digit(values[i])]--;
+    }
 
-	values = output;
+    values = output;
 
-	if (to_show_state) {
-		display_state(values);
-	}
+    if (to_show_state) {
+        display_state(values);
+    }
 }
 
 /*
@@ -63,8 +63,8 @@ void count_sort(vector<int>& values, const int extractor, const int mult_factor,
     -------------
     Returns the maximum value in a vector.
 */
-int max_in_vector(const vector<int> &values) {
-	return *max_element(values.begin(), values.end());
+int max_in_vector(const vector<int>& values) {
+    return *max_element(values.begin(), values.end());
 }
 
 /*
@@ -81,25 +81,25 @@ int max_in_vector(const vector<int> &values) {
     O(N), where N is the number of keys.
 */
 void radix_sort_internal(vector<int>& values, const int mult_factor, const int add_factor,
-				const bool to_show_state = false) {
-	int max_value = max_in_vect(values);
+                         const bool to_show_state = false) {
+    int max_value = max_in_vect(values);
 
-	// On each iteration of the following loop, extractor helps in getting the
-	// next significant digit, which is (value / extractor) mod 10
-	for (int extractor = 1; max_value / extractor > 0; extractor *= 10) {
-		count_sort(values, extractor, to_show_state, mult_factor, add_factor);
-	}
+    // On each iteration of the following loop, extractor helps in getting the
+    // next significant digit, which is (value / extractor) mod 10
+    for (int extractor = 1; max_value / extractor > 0; extractor *= 10) {
+        count_sort(values, extractor, to_show_state, mult_factor, add_factor);
+    }
 }
 
 // Wrapper function
 void radix_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
-	// The following factors depend on the sorting order
-	int mult_factor = 1;
-	int add_factor = 0;
-	if (order == -1) {
-		mult_factor = -1;
-		add_factor = 9;
-	}
+    // The following factors depend on the sorting order
+    int mult_factor = 1;
+    int add_factor = 0;
+    if (order == -1) {
+        mult_factor = -1;
+        add_factor = 9;
+    }
 
-	radix_sort_internal(values, mult_factor, add_factor, to_show_state);
+    radix_sort_internal(values, mult_factor, add_factor, to_show_state);
 }

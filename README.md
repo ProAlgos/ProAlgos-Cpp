@@ -37,7 +37,6 @@ This repo is being actively maintained by @alxmjo, and inactively by @faheel.
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).
 
-
 [travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/faheel/Algos
 [contrib-guide]: .github/CONTRIBUTING.md
