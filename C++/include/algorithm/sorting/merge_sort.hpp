@@ -16,7 +16,7 @@
 */
 
 #include <vector>
-#include "sorting/utils.hpp"
+#include "utils.hpp"
 
 using std::vector;
 
@@ -54,13 +54,13 @@ void merge(vector<int>& values, const size_t start, const size_t end, const int 
 }
 
 // Carry out merge sort
-void merge_sort_internal(vector<int>& values, const size_t start, const size_t end,
-                const int order = 1, const bool to_show_state = false) {
+void merge_sort_range(vector<int>& values, const size_t start, const size_t end,
+                      const int order = 1, const bool to_show_state = false) {
     if (start < end) {
         size_t mid = (start + end) / 2;
 
-        merge_sort_internal(values, start, mid, order, to_show_state);
-        merge_sort_internal(values, mid + 1, end, order, to_show_state);
+        merge_sort_range(values, start, mid, order, to_show_state);
+        merge_sort_range(values, mid + 1, end, order, to_show_state);
 
         merge(values, start, end, order);
 
@@ -73,5 +73,5 @@ void merge_sort_internal(vector<int>& values, const size_t start, const size_t e
 // Wrapper function
 void merge_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     size_t size = values.size();
-    merge_sort_internal(values, 0, size-1, order, to_show_state);
+    merge_sort_range(values, 0, size - 1, order, to_show_state);
 }

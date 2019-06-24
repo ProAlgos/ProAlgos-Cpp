@@ -13,7 +13,7 @@
 #include <array>
 #include <iostream>
 #include <vector>
-#include "sorting/utils.hpp"
+#include "utils.hpp"
 
 using std::vector;
 using std::array;
@@ -63,7 +63,7 @@ void count_sort(vector<int>& values, const int extractor, const int mult_factor,
     -------------
     Returns the maximum value in a vector.
 */
-int max_in_vect(const vector<int>& values) {
+int max_in_vector(const vector<int>& values) {
     return *max_element(values.begin(), values.end());
 }
 
@@ -81,7 +81,7 @@ int max_in_vect(const vector<int>& values) {
     O(N), where N is the number of keys.
 */
 void radix_sort_internal(vector<int>& values, const int mult_factor, const int add_factor,
-                const bool to_show_state = false) {
+                         const bool to_show_state = false) {
     int max_value = max_in_vect(values);
 
     // On each iteration of the following loop, extractor helps in getting the
@@ -92,7 +92,7 @@ void radix_sort_internal(vector<int>& values, const int mult_factor, const int a
 }
 
 // Wrapper function
-void radix_sort() {
+void radix_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
     // The following factors depend on the sorting order
     int mult_factor = 1;
     int add_factor = 0;

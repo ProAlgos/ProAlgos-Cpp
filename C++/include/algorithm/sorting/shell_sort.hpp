@@ -16,20 +16,18 @@
 */
 
 #include <vector>
-#include "sorting/utils.hpp"
+#include "utils.hpp"
 
 using std::vector;
 
 void shell_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
-    int n = values.size();
-    int temp;
-    int i, j;
+    size_t size = values.size();
 
     // gap sequence is n/2, n/4, n/8, ..., 1
-    for (int gap = n / 2; gap > 0; gap /= 2) {
-        for (i = gap; i < n; i++) {
-            temp = values[i];
-            j = i;
+    for (size_t gap = size / 2; gap > 0; gap /= 2) {
+        for (size_t i = gap; i < size; i++) {
+            int temp = values[i];
+            size_t j = i;
             while (j >= gap and values[j - gap] * order > temp * order) {
                 values[j] = values[j - gap];
                 j -= gap;

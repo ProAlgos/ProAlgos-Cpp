@@ -19,7 +19,7 @@
 #include <cstdlib>      // rand(), srand()
 #include <ctime>        // time()
 #include <vector>
-#include "sorting/utils.hpp"
+#include "utils.hpp"
 
 using std::vector;
 
