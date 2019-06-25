@@ -20,7 +20,7 @@ the implementation and the unit tests.
 
 #### Adding unit tests
 
-1. Under [`test`](test), locate (or create, if it doesn't exist)
+1. Under `test`, locate (or create, if it doesn't exist)
    the directory having the same relative path from `test` as from `include`.
    For example, if you've created a header file in `include/algorithm/searching/some_dir/`,
    locate or create the directory `test/algorithm/searching/some_dir`.

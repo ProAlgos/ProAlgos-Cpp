@@ -79,8 +79,8 @@ on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manu
 ## Contributing
 
 If you want to contribute an algorithm or data structure in C++, please have a look at the following guidelines: 
-* [General Contribution Guidelines](CONTRIBUTING.md)
-* [C++ Contribution Guidelines](../CONTRIBUTING.md) 
+* [General Contribution Guidelines](../.github/CONTRIBUTING.md)
+* [C++ Contribution Guidelines](CONTRIBUTING.md) 
 * [C++ Coding Guidelines](CODING_GUIDELINES.md)
 
 Following the guidelines laid out in these documents will ensure that your code conforms to the standards and style 

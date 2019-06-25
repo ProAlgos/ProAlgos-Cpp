@@ -100,7 +100,7 @@ Follow these steps when you're ready to submit your code:
    `master` branch. Your pull request should reference the same issue you created 
    above.
 
-7. Once your pull request has been opened, we'll review it and go from there. :slightly-smiling-face:
+7. Once your pull request has been opened, we'll review it and go from there. :smile:
 
 ## Code of Conduct
 
