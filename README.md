@@ -14,7 +14,7 @@ Implementation and verification of well-known (and some rare) algorithms and dat
 1. Guide potential contributors on version control, unit testing, and algorithms.
 1. Add at least one algorithm every week.
 
-## Get involved!
+## How to get involved
 
 There are a few ways to get involved.
 
