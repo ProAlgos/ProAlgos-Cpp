@@ -2,7 +2,7 @@
 
 [![Travis status][travis-shield]][travis-link]
 
-Implementation of well-known (and some rare) algorithms, in C++.
+Implementation and verification of well-known (and some rare) algorithms, in C++.
 
 ## Contents
 
@@ -66,19 +66,25 @@ To compile the source files, run **`make all`**. Doing so will:
 
 The sub-directories will be the same as they are under `source`.
 
-To compile and run the tests, run **`make test`**. This will compile all the tests (in the same way as described above) and will run them, displaying the results. Note that the test binaries will have `.test` at the end of their name.
+To compile and run the tests, run **`make test`**. This will compile all the tests (in the same way as described above) 
+and will run them, displaying the results. Note that the test binaries will have `.test` at the end of their name.
 
-To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose contents have changed.
+To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make 
+some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose 
+contents have changed.
 
-To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
+To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information 
+on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
-## Unit tests
+## Contributing
 
-If you would like to (and you should) add unit tests for the code you are contributing, or for some of the existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
+If you want to contribute an algorithm or data structure in C++, please have a look at the following guidelines: 
+* [General Contribution Guidelines](CONTRIBUTING.md)
+* [C++ Contribution Guidelines](../CONTRIBUTING.md) 
+* [C++ Coding Guidelines](CODING_GUIDELINES.md)
 
-## C++ Coding Guidelines
-
-If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in ensuring that your code conforms to the style followed in this project.
+Following the guidelines laid out in these documents will ensure that your code conforms to the standards and style 
+of the project.
 
 [travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/faheel/Algos

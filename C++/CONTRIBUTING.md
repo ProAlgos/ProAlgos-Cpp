@@ -1,9 +1,29 @@
-# Adding unit tests for C++ code
+# C++ Contribution Guidelines
 
-1. Under the [`test` directory](test), locate (or create, if it doesn't exist)
+This page describes the specifics of implementing algorithms and data structures in C++. If you have not already done
+so, please read the [general contribution guidelines][contrib-guide].
+
+## Contents
+
+* [Coding guidelines](#coding-guidelines)
+* [Unit tests](#unit-tests)
+
+## Coding guidelines
+
+* This project adheres to the [C++ Coding Guidelines](../C++/CODING_GUIDELINES.md). Please read (and follow!) them.
+
+## Unit tests
+
+Algorithms and data structures are implemented as header files (.hpp) in the [`include` directory](include) and then verified via
+unit test files (.cpp) in the [`test` directory](test). If you're adding an algorithm or data structure, you'll write both
+the implementation and the unit tests. 
+
+#### Adding unit tests
+
+1. Under [`test`](test), locate (or create, if it doesn't exist)
    the directory having the same relative path from `test` as from `include`.
-   **Eg.** if you've created a header file in `include/algorithms/some_dir/`,
-   locate or create the directory `test/algorithms/some_dir`.
+   For example, if you've created a header file in `include/algorithm/searching/some_dir/`,
+   locate or create the directory `test/algorithm/searching/some_dir`.
 
 1. Create a file with the same name as the corresponding header file for which
    you are writing tests, except that the extension should be `.cpp`.
@@ -17,7 +37,7 @@
 
     The path to the header file is relative from the `include` directory. So,
     for instance, if you need to include the header file
-    `include/algorithms/searching/linear_search.hpp`, you can write:
+    `include/algorithm/searching/linear_search.hpp`, you can write:
 
     ```cpp
     #include "algorithms/searching/linear_search.hpp"
@@ -39,10 +59,11 @@
    target_link_libraries(some_test test_runner)
    ```
 
-**That's it!** Now you can compile the test using **`make test`** from the
+That's it! Now you can compile the test using **`make test`** from the
 `C++` directory, which will also run all of the tests for you. In order to run
 only a specific test and see its results, run it manually from the `bin` directory.
 
+[contrib-guide]: .github/CONTRIBUTING.md
 [catch]: https://github.com/catchorg/Catch2
 [catch-tutorial]: https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md#writing-tests
 [unit-tests]: https://github.com/faheel/Algos/tree/master/C%2B%2B/test
