@@ -14,7 +14,7 @@ Implementation and verification of well-known (and some rare) algorithms and dat
 1. Guide potential contributors on version control, unit testing, and algorithms.
 1. Add at least one algorithm every week.
 
-## Get involved
+## Get involved!
 
 There are a few ways to get involved.
 
@@ -31,7 +31,7 @@ guidelines][contrib-guide], so be sure to check them out.
 
 #### Just want to suggest a new algorithm or report a bug?
 
-[Create a new issue](https://github.com/faheel/Algos/issues/new) and we'll
+- [Create a new issue](https://github.com/faheel/Algos/issues/new) and we'll
 handle it from there. :smile:
 
 ## Maintainers
