@@ -1,5 +1,5 @@
 #include "third_party/catch.hpp"
-#include "data_structures/doubly_linked_list.hpp"
+#include "data_structure/linked_list/doubly_linked_list.hpp"
 
 TEST_CASE("Verify initial state", "[doubly-linked-list]") {
     DoublyLinkedList<int> temp;
