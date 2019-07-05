@@ -2,7 +2,7 @@
     Extended Euclidean algorithm
     ----------------------------
     Given two non-negative numbers A and B as inputs, find M[0], M[1] such that:
-    greatest_common_denominator(A, B) = M[0]*B + M[1]*B
+    greatest_common_divisor(A, B) = M[0]*B + M[1]*B
 
     Time complexity
     ---------------
@@ -13,6 +13,9 @@
     O(1).
 */
 
+#ifndef EXTENDED_EUCLIDEAN_HPP
+#define EXTENDED_EUCLIDEAN_HPP
+
 #include <array>
 
 using std::array;
@@ -20,12 +23,12 @@ using std::array;
 /*
     extended_euclidean
     ------------------
-    Uses the recurrence relation,
-        greatest_common_denominator(a, b) = greatest_common_denominator(b, a % b),
-    to find coefficients M[0] and M[1] such that
-        greatest_common_denominator(a, b) = (M[0] * a) + (M[1] * b)
+    Uses the recurrence relation:
+        greatest_common_divisor(a, b) = greatest_common_divisor(b, a % b)
+    to find coefficients M[0] and M[1] such that:
+        greatest_common_divisor(a, b) = (M[0] * a) + (M[1] * b)
 
-    Loop invariant: greatest_common_denominator(a, b) is the same at the end of each
+    Loop invariant: greatest_common_divisor(a, b) is the same at the end of each
     iteration a = aM[0] * (original value of a) + aM[1] * (original value of b)
     The above statement holds for b and bM as well.
 
@@ -50,3 +53,5 @@ array<int, 2> extended_euclidean(int a, int b) {
     }
     return aM;
 }
+
+# endif // EXTENDED_EUCLIDEAN_HPP

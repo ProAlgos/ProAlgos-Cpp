@@ -13,6 +13,9 @@
     O(1).
 */
 
+#ifndef TERNARY_SEARCH_HPP
+#define TERNARY_SEARCH_HPP
+
 #include <iostream>
 #include <vector>
 
@@ -71,3 +74,5 @@ size_t ternary_search(const std::vector<T>& values, const Pattern& pattern) {
 
     return pattern == ASCEND_THEN_DESCEND ? max_index : min_index;
 }
+
+#endif // TERNARY_SEARCH_HPP

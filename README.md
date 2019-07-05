@@ -1,6 +1,7 @@
 # Algos
 
 [![Travis status][travis-shield]][travis-link]
+[![Gitter](https://img.shields.io/gitter/room/Algos/Algos.svg?style=for-the-badge)](https://gitter.im/Algos-f)
 
 Implementation of well-known (and some rare) algorithms, mostly in C++.
 
@@ -29,10 +30,13 @@ guidelines][contrib-guide], so be sure to check them out.
 Just [create a new issue](https://github.com/faheel/Algos/issues/new) and I'll
 handle it from there :smile:
 
+## Maintainers
+
+This repo is being actively maintained by @alxmjo, and inactively by @faheel.
+
 ## License
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).
-
 
 [travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/faheel/Algos
