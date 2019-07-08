@@ -13,8 +13,7 @@
 * Start by perusing the repository. Take a look at how the algorithms are implemented, how tests
   are written, and which files go where. 
 
-* Read the contribution guidelines for the language in which you'd like to contribute:
-  * [C++](../C++/CONTRIBUTING.md)
+* Read the [contribution guidelines](../C++/CONTRIBUTING.md).
 
 * Before beginning your contribution, [create an issue][issue-guide]. In your issue's 
   description, please describe the addition or change you wish to make. This helps us guide 

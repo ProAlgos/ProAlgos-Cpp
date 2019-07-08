@@ -3,11 +3,7 @@
 [![Travis status][travis-shield]][travis-link]
 [![Gitter](https://img.shields.io/gitter/room/Algos/Algos.svg?style=for-the-badge)](https://gitter.im/Algos-f)
 
-Implementation and verification of well-known (and some rare) algorithms and data structures.
-
-## Contents
-
-* [C++](C++)
+Implementation and verification of well-known (and some rare) algorithms and data structures, in C++.
 
 ## Goals
 
