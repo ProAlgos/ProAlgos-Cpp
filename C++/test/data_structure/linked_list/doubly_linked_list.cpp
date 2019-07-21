@@ -118,3 +118,18 @@ TEST_CASE("Removing values from rear", "[doubly-linked-list]") {
     REQUIRE(temp.length() == 0);
 }
 
+TEST_CASE("Inserting arbitray values", "[doubly-linked-list]") {
+    DoublyLinkedList<int> list;
+
+    REQUIRE(list.is_empty());
+    list.insert_rear(-13);
+    list.insert_rear(157);
+    list.insert_front(-166);
+    list.insert_front(43);
+
+    REQUIRE(list.length() == 4);
+    REQUIRE(list[0] == 43);
+    REQUIRE(list[1] == -166);
+    REQUIRE(list[2] == -13);
+    REQUIRE(list[3] == 157);
+}
