@@ -45,10 +45,6 @@ struct Node {
             return this->value;
         }
 
-        void set_value(const T& other) {
-            this->value = other;
-        }
-
         Node<T> *get_prev(void) {
             return this->prev;
         }
