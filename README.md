@@ -25,9 +25,9 @@ There are a few ways to get involved.
 You can find more details regarding the steps above in the [contribution
 guidelines][contrib-guide], so be sure to check them out.
 
-#### Just want to suggest a new algorithm or report a bug?
+#### Just want to suggest a new algorithm or report a bug? 
 
-- [Create a new issue](https://github.com/faheel/Algos/issues/new) and we'll
+[Create a new issue](https://github.com/faheel/Algos/issues/new) and we'll
 handle it from there. :smile:
 
 ## Maintainers

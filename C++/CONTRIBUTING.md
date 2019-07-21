@@ -10,7 +10,7 @@ so, please read the [general contribution guidelines][contrib-guide].
 
 ## Coding guidelines
 
-* This project adheres to the [C++ Coding Guidelines](../C++/CODING_GUIDELINES.md). Please read (and follow!) them.
+This project adheres to the [C++ Coding Guidelines](../C++/CODING_GUIDELINES.md). Please read (and follow!) them.
 
 ## Unit tests
 
@@ -22,8 +22,8 @@ the implementation and the unit tests.
 
 1. Under `test`, locate (or create, if it doesn't exist)
    the directory having the same relative path from `test` as from `include`.
-   For example, if you've created a header file in `include/algorithm/searching/some_dir/`,
-   locate or create the directory `test/algorithm/searching/some_dir`.
+   For example, if you've created a header file in `include/algorithm/searching`,
+   locate (or create) the directory `test/algorithm/searching`.
 
 1. Create a file with the same name as the corresponding header file for which
    you are writing tests, except that the extension should be `.cpp`.
@@ -40,7 +40,7 @@ the implementation and the unit tests.
     `include/algorithm/searching/linear_search.hpp`, you can write:
 
     ```cpp
-    #include "algorithms/searching/linear_search.hpp"
+    #include "algorithm/searching/linear_search.hpp"
     ```
 
 1. After these lines you can add your test cases. For details regarding how to
@@ -50,13 +50,13 @@ the implementation and the unit tests.
    tests are written.
 
 1. Add an entry for your unit test in `CMakeLists.txt`. For example, if your
-   unit test is `test/algorithm/some_dir/some_test.cpp`, add the following
+   unit test is `test/algorithm/searching/linear_search.cpp`, add the following
    entry for it:
 
    ```cmake
-   add_executable(some_test
-           test/algorithm/some_dir/some_test.cpp)
-   target_link_libraries(some_test test_runner)
+    add_executable(linear_search
+           test/algorithm/searching/linear_search.cpp)
+    target_link_libraries(linear_search test_runner)
    ```
 
 That's it! Now you can compile the test using **`make test`** from the

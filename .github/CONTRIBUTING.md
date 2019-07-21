@@ -10,14 +10,39 @@
 
 ## Getting started
 
-* Start by perusing the repository. Take a look at how the algorithms are implemented, how tests
+* Start by exploring the repository. Take a look at how the algorithms are implemented, how tests
   are written, and which files go where. 
 
-* Read the [contribution guidelines](../C++/CONTRIBUTING.md).
+* Read the [C++ contribution guidelines](../C++/CONTRIBUTING.md).
 
 * Before beginning your contribution, [create an issue][issue-guide]. In your issue's 
   description, please describe the addition or change you wish to make. This helps us guide 
   your contribution, and it lets others know what you're working on.
+
+* [Fork][fork-guide] the repo, clone your fork, and configure the remotes:
+
+   ```bash
+   # Clone your fork of the repo into the current directory
+   git clone https://github.com/<your-username>/Algos.git
+   # Navigate to the newly cloned directory
+   cd Algos
+   # Assign the original repo to a remote called "upstream"
+   git remote add upstream https://github.com/faheel/Algos.git
+   ```
+
+* If you cloned a while ago, get the latest changes from upstream:
+
+   ```bash
+   git checkout master
+   git pull upstream master
+   ```
+
+* Create a new branch (from the `master` branch) to contain your code for a
+   specific algorithm or data structure:
+
+   ```bash
+   git checkout -b <branch-name>
+   ```
 
 ## Writing code
 
@@ -46,60 +71,35 @@
 
 * Before you push your changes to GitHub, make sure that your code compiles and runs without any errors or warnings.
 
-## Writing unit tests
+## Adding unit tests
 
 * As stated above, all algorithms and data structures are verified via unit tests.
   
 * Please make sure that your contribution includes a variety of unit tests and that all of your unit tests pass.
 
-* You can find more information about writing unit tests in the contribution guidelines for your particular language. 
+* You can find more information about writing unit tests [here](../C++/CONTRIBUTING.md). 
 
 ## Opening a pull request
 
 Follow these steps when you're ready to submit your code:
 
-1. [Fork][fork-guide] the repo, clone your fork, and configure the remotes:
-
-   ```bash
-   # Clone your fork of the repo into the current directory
-   git clone https://github.com/<your-username>/Algos.git
-   # Navigate to the newly cloned directory
-   cd Algos
-   # Assign the original repo to a remote called "upstream"
-   git remote add upstream https://github.com/faheel/Algos.git
-   ```
-
-2. If you cloned a while ago, get the latest changes from upstream:
-
-   ```bash
-   git checkout master
-   git pull upstream master
-   ```
-
-3. Create a new branch (from the `master` branch) to contain your code for a
-   specific algorithm or data structure:
-
-   ```bash
-   git checkout -b <branch-name>
-   ```
-
-4. Locally merge (or rebase) the upstream development branch into your branch:
+1. Locally merge (or rebase) the upstream development branch into your branch:
 
    ```bash
    git pull [--rebase] upstream master
    ```
 
-5. Push your branch up to your fork:
+1. Push your branch up to your fork:
 
    ```bash
    git push origin <branch-name>
    ```
 
-6. [Open a pull request][pr-guide] with a clear title and description against the
+1. [Open a pull request][pr-guide] with a clear title and description against the
    `master` branch. Your pull request should reference the same issue you created 
    above.
 
-7. Once your pull request has been opened, we'll review it and go from there. :smile:
+1. Once your pull request has been opened, we'll review it and go from there. :smile:
 
 ## Code of Conduct
 
