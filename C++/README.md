@@ -2,7 +2,7 @@
 
 [![Travis status][travis-shield]][travis-link]
 
-Implementation and verification of well-known (and some rare) algorithms, in C++.
+Implementing well-known (and some rare) **algorithms and data structures in C++**, while following **good software engineering practices** such as writing well-documented code, adhering to code guidelines, writing unit tests, reviewing each other's code, and ultimately learning to be better software developers.
 
 ## Contents
 
