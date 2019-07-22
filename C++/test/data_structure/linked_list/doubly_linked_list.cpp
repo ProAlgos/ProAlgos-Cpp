@@ -118,7 +118,7 @@ TEST_CASE("Removing values from rear", "[doubly-linked-list]") {
     REQUIRE(temp.length() == 0);
 }
 
-TEST_CASE("Inserting arbitray values", "[doubly-linked-list]") {
+TEST_CASE("Inserting arbitrary values", "[doubly-linked-list]") {
     DoublyLinkedList<int> list;
 
     REQUIRE(list.is_empty());
