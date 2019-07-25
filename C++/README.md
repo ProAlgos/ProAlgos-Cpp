@@ -52,6 +52,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
 
 * Linked List
   * [Singly linked list](include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
+  * [Doubly linked list](include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
 * Set
   * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
 * Tree

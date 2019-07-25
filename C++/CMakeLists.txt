@@ -141,6 +141,11 @@ add_executable(singly_linked_list
         test/data_structure/linked_list/singly_linked_list.cpp)
 target_link_libraries(singly_linked_list test_runner)
 
+# Doubly-linked list
+add_executable(doubly_linked_list
+        test/data_structure/linked_list/doubly_linked_list.cpp)
+target_link_libraries(doubly_linked_list test_runner)
+
 # ---
 # Set
 # ---
