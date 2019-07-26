@@ -1,50 +1,124 @@
+dist: xenial
 language: cpp
-sudo: true
 
 matrix:
   include:
-    # Linux g++ build
+    # Linux GCC 7 build
     - os: linux
+      compiler: gcc
       addons:
         apt:
           sources:
             - ubuntu-toolchain-r-test
           packages:
-            - g++-6
+            - g++-7
       env:
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
-
-    # Linux clang++ build
+        - COMPILER='g++-7'
+    
+    # Linux GCC 8 build
     - os: linux
+      compiler: gcc
       addons:
         apt:
           sources:
-            - llvm-toolchain-trusty-4.0
+            - ubuntu-toolchain-r-test
           packages:
-            - clang-4.0
+            - g++-8
       env:
-        - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+        - COMPILER='g++-8'
+    
+    # Linux GCC 9 build
+    - os: linux
+      compiler: gcc
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-9
+      env:
+        - COMPILER='g++-9'
 
-    # OSX g++ build
+    # Linux Clang 6 build
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          packages:
+            - clang-6.0
+      env:
+        - COMPILER='clang++-6.0'
+    
+    # Linux Clang 7 build
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-xenial-7
+          packages:
+            - clang-7
+      env:
+        - COMPILER='clang++-7'
+    
+    # Linux Clang 8 build
+    - os: linux
+      compiler: clang
+      addons:
+        apt:
+          sources:
+            - llvm-toolchain-xenial-8
+          packages:
+            - clang-8
+      env:
+        - COMPILER='clang++-8'
+
+    # macOS Xcode8 GCC build
     - os: osx
       osx_image: xcode8.3
       compiler: gcc
+      env:
+        - COMPILER='g++'
 
-    # OSX clang++ build
+    # macOS Xcode9 GCC build
+    - os: osx
+      osx_image: xcode9.4
+      compiler: gcc
+      env:
+        - COMPILER='g++'
+    
+    # macOS Xcode10 GCC build
+    - os: osx
+      osx_image: xcode10.2
+      compiler: gcc
+      env:
+        - COMPILER='g++'
+
+    # macOS Xcode8 Clang build
     - os: osx
       osx_image: xcode8.3
       compiler: clang
+      env:
+        - COMPILER='clang++'
+
+    # macOS Xcode9 Clang build
+    - os: osx
+      osx_image: xcode9.4
+      compiler: clang
+      env:
+        - COMPILER='clang++'
+    
+    # macOS Xcode10 Clang build
+    - os: osx
+      osx_image: xcode10.2
+      compiler: clang
+      env:
+        - COMPILER='clang++'
 
 before_install:
-  - eval "${MATRIX_EVAL}"
-  - pip install --user pyyaml cpp-coveralls
-
-install: true
+  - export CXX=${COMPILER}
 
 script:
   - cd C++
-  - make all
+  - make
   - make test
-
-after_success:
-  - coveralls -i C++
