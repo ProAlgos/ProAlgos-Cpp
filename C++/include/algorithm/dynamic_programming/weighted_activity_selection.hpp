@@ -78,9 +78,13 @@ int left_activity_bsearch( const std::vector<Activity> quer, std::size_t index )
 /**
  * Algorithm of solution
  */
-std::size_t solve(std::vector<std::size_t> start, std::vector<std::size_t> end, std::vector<std::size_t> weight)
+std::size_t weighted_activity(std::vector<std::size_t> start, 
+							  std::vector<std::size_t> end, 
+							  std::vector<std::size_t> weight)
 {
 	std::vector<Activity> quer;
+	for( int i = 0; i < start.size(); i++ )
+		quer.push_back( { start[ i ], end[ i ], weight[ i ] } );
 	// sort by end in ascending order
 	std::sort( std::begin( quer ), std::end( quer ), 
 		[] (const Activity& fst, const Activity& snd)
