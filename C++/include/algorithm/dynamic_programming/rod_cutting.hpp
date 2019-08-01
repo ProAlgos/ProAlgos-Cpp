@@ -29,7 +29,7 @@
  */
 int __rod_cutting( const std::vector<int>& costs, std::vector<int>& visited, int length) {
     // whole unit, can't delete
-    if( length == 1 ) {
+    if ( length == 1 ) {
         return visited[0];
     }
 
@@ -43,9 +43,9 @@ int __rod_cutting( const std::vector<int>& costs, std::vector<int>& visited, int
      * try cutting 1, 2, 3 ...
      * and find optimal
      */
-    for( std::size_t i = 1; i <= length / 2; i++ ) {
+    for ( std::size_t i = 1; i <= length / 2; i++ ) {
         // if we've already found - use it
-        if( visited[ length - i - 1 ] != -1 ) {
+        if ( visited[ length - i - 1 ] != -1 ) {
             next_cost = visited[ length - i - 1 ];
         }
         // if no - go find it
@@ -57,7 +57,7 @@ int __rod_cutting( const std::vector<int>& costs, std::vector<int>& visited, int
         next_cost += costs[ i - 1 ];
 
         // assign maximal value
-        if( cost < next_cost ) {
+        if ( cost < next_cost ) {
             cost = next_cost;
         }
     }

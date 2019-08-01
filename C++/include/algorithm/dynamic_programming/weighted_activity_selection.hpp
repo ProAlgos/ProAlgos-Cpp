@@ -51,14 +51,14 @@ struct Activity
 int left_activity_bsearch( const std::vector<Activity>& quer, int index )
 {
     int lo = 0, hi = index - 1;
-    while( lo <= hi ) {
+    while ( lo <= hi ) {
         int mid = ( lo + hi ) / 2;
 
         // if it is non-overlaping
-        if( quer[ mid ].end <= quer[ index ].start ) {
+        if ( quer[ mid ].end <= quer[ index ].start ) {
             // if there are other non-overlaping activity
             // a bit to the right, then continue searching
-            if( quer[ mid + 1 ].end <= quer[ index ].start ) {
+            if ( quer[ mid + 1 ].end <= quer[ index ].start ) {
                 lo = mid + 1;
             }
             // if it is right-most non-overlaping
@@ -85,7 +85,7 @@ int weighted_activity(const std::vector<std::time_t>& start,
                       const std::vector<std::time_t>& end, 
                       const std::vector<int>& weight) {
     std::vector<Activity> quer;
-    for( std::size_t i = 0; i < start.size(); i++ ) {
+    for ( std::size_t i = 0; i < start.size(); i++ ) {
         quer.push_back( { start[ i ], end[ i ], weight[ i ] } );
     }
 
@@ -103,7 +103,7 @@ int weighted_activity(const std::vector<std::time_t>& start,
     sol[0] = quer[0].weight;
 
     // find all solutions
-    for( std::size_t i = 1; i < quer.size(); i++ ) {
+    for ( std::size_t i = 1; i < quer.size(); i++ ) {
         int weight_with_current = quer[i].weight;
 
         // j - index of the problem needed to solve if
@@ -112,7 +112,7 @@ int weighted_activity(const std::vector<std::time_t>& start,
 
         // if there are consistent j on the left, 
         // add max_weight of it's solution
-        if( j != -1 ) {
+        if ( j != -1 ) {
             weight_with_current += sol[j];
         }
 
