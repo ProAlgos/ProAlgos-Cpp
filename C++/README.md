@@ -16,6 +16,8 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
+  * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp):white_check_mark:
+  * [Cut the rod](include/algorithm/dynamic_programming/cut_the_rod.hpp):white_check_mark:
 * Number theory
   * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms

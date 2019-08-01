@@ -36,9 +36,9 @@
  */
 struct Activity
 {
-	std::size_t start;
-	std::size_t end;
-	std::size_t weight;
+	int start;
+	int end;
+	int weight;
 };
 
 /**
@@ -47,12 +47,12 @@ struct Activity
  * that is left to the query[ index ]
  * using binary search in O( lg(index) )
  */
-int left_activity_bsearch( const std::vector<Activity> quer, std::size_t index )
+int left_activity_bsearch( const std::vector<Activity> quer, int index )
 {
-	std::size_t lo = 0, hi = index - 1;
+	int lo = 0, hi = index - 1;
 	while( lo <= hi )
 	{
-		std::size_t mid = ( lo + hi ) / 2;
+		int mid = ( lo + hi ) / 2;
 		if( quer[ mid ].end <= quer[ index ].start )
 		// if it is non-overlaping
 		{
@@ -78,12 +78,12 @@ int left_activity_bsearch( const std::vector<Activity> quer, std::size_t index )
 /**
  * Algorithm of solution
  */
-std::size_t weighted_activity(std::vector<std::size_t> start, 
-							  std::vector<std::size_t> end, 
-							  std::vector<std::size_t> weight)
+int weighted_activity(std::vector<int> start, 
+							  std::vector<int> end, 
+							  std::vector<int> weight)
 {
 	std::vector<Activity> quer;
-	for( int i = 0; i < start.size(); i++ )
+	for( std::size_t i = 0; i < start.size(); i++ )
 		quer.push_back( { start[ i ], end[ i ], weight[ i ] } );
 	// sort by end in ascending order
 	std::sort( std::begin( quer ), std::end( quer ), 
@@ -93,7 +93,7 @@ std::size_t weighted_activity(std::vector<std::size_t> start,
 		}
 	);
 
-	std::vector<std::size_t> sol ( quer.size() );
+	std::vector<int> sol ( quer.size() );
 	// sol[ i ] stores solution to first i + 1 activities
 
 	sol[0] = quer[0].weight;
@@ -101,7 +101,7 @@ std::size_t weighted_activity(std::vector<std::size_t> start,
 	for( std::size_t i = 1; i < quer.size(); i++ )
 	// find all solutions
 	{
-		std::size_t weight_with_current = quer[i].weight;
+		int weight_with_current = quer[i].weight;
 		int j = left_activity_bsearch( quer, i );
 		// j - index of the problem needed to solve if
 		// we want to include our i index in solution

@@ -44,7 +44,7 @@ add_executable(cut_the_rod
 target_link_libraries(cut_the_rod test_runner)
 
 
-# Weighted activity selection problem
+# Weighted activity selection
 add_executable(weighted_activity_selection
         test/algorithm/dynamic_programming/weighted_activity_selection.cpp)
 target_link_libraries(weighted_activity_selection test_runner)
