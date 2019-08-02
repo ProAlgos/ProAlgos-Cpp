@@ -19,10 +19,10 @@
     Fedurko Nikolaus (@B1Z0N)
 */
 
-#include <vector>
-
 #ifndef ROD_CUTTING_HPP
 #define ROT_CUTTING_HPP
+
+#include <vector>
 
 /**
  * Recursive helper function
