@@ -11,7 +11,6 @@ Implementation of well-known (and some rare) algorithms, in C++.
 ### Algorithms
 
 * Backtracking
-  
   * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
   
 * Dynamic programming
@@ -20,6 +19,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
   * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
+
 * Number theory
   * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms
@@ -60,8 +60,10 @@ Implementation of well-known (and some rare) algorithms, in C++.
 * Linked List
   * [Singly linked list](include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
   * [Doubly linked list](include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
+  
 * Set
   * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
+  
 * Tree
   * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 
