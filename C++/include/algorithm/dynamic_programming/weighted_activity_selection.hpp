@@ -24,13 +24,13 @@
     Fedurko Nikolaus (@B1Z0N)
 */
 
+#ifndef WEIGHTED_ACTIVITY_SELECTION_HPP
+#define WEIGHTED_ACTIVITY_SELECTION_HPP
+
 #include <ios>
 #include <vector>
 #include <algorithm>
 #include <ctime>
-
-#ifndef WEIGHTED_ACTIVITY_SELECTION_HPP
-#define WEIGHTED_ACTIVITY_SELECTION_HPP
 
 /**
  * Struct for single activity data
