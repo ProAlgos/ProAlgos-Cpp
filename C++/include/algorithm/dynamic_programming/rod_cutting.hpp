@@ -27,15 +27,15 @@
 /**
  * Recursive helper function
  */
-int __rod_cutting( const std::vector<int>& costs, std::vector<int>& visited, int length) {
+std::size_t __rod_cutting( const std::vector<std::size_t>& costs, std::vector<std::size_t>& visited, std::size_t length) {
     // whole unit, can't delete
     if ( length == 1 ) {
         return visited[0];
     }
 
     // try to sell it as is, not cutting
-    int cost = costs[ length - 1 ];
-    int next_cost;
+    std::size_t cost = costs[ length - 1 ];
+    std::size_t next_cost;
 
     /** 
      * loop to check only half,
@@ -71,9 +71,9 @@ int __rod_cutting( const std::vector<int>& costs, std::vector<int>& visited, int
 /**
  * Solution function
  */
-int rod_cutting( std::vector<int> costs ) {
+std::size_t rod_cutting( std::vector<std::size_t> costs ) {
     // vector of already found optimal costs 
-    std::vector<int> visited ( costs.size(), -1 );
+    std::vector<std::size_t> visited ( costs.size(), -1 );
     // rod of length 1 is optimally sold at cost of itself
     visited[0] = costs[0];
 

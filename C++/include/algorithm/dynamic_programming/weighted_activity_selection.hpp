@@ -39,7 +39,7 @@ struct Activity
 {
     std::time_t start;
     std::time_t end;
-    int weight;
+    std::size_t weight;
 };
 
 /**
@@ -48,7 +48,7 @@ struct Activity
  * that is left to the query[ index ]
  * using binary search in O( lg(index) )
  */
-int left_activity_bsearch( const std::vector<Activity>& quer, int index )
+int left_activity_bsearch( const std::vector<Activity>& quer, std::size_t index )
 {
     int lo = 0, hi = index - 1;
     while ( lo <= hi ) {
@@ -83,7 +83,7 @@ int left_activity_bsearch( const std::vector<Activity>& quer, int index )
  */
 int weighted_activity(const std::vector<std::time_t>& start, 
                       const std::vector<std::time_t>& end, 
-                      const std::vector<int>& weight) {
+                      const std::vector<std::size_t>& weight) {
     std::vector<Activity> quer;
     for ( std::size_t i = 0; i < start.size(); i++ ) {
         quer.push_back( { start[ i ], end[ i ], weight[ i ] } );
@@ -98,13 +98,13 @@ int weighted_activity(const std::vector<std::time_t>& start,
     );
 
     // sol[ i ] stores solution to first i + 1 activities
-    std::vector<int> sol ( quer.size() );
+    std::vector<std::size_t> sol ( quer.size() );
     // first solution is just it's single weight
     sol[0] = quer[0].weight;
 
     // find all solutions
     for ( std::size_t i = 1; i < quer.size(); i++ ) {
-        int weight_with_current = quer[i].weight;
+        std::size_t weight_with_current = quer[i].weight;
 
         // j - index of the problem needed to solve if
         // we want to include our i index in solution
