@@ -3,7 +3,7 @@
 [![Travis status][travis-shield]][travis-link]
 [![Gitter](https://img.shields.io/gitter/room/Algos/Algos.svg?style=for-the-badge)](https://gitter.im/Algos-f)
 
-Implementation and verification of well-known (and some rare) algorithms and data structures, in C++.
+Implementing well-known (and some rare) **algorithms and data structures**, while following **good software engineering practices** such as writing well-documented code, adhering to code guidelines, writing unit tests, reviewing each other's code, and ultimately learning to be better software developers.
 
 ## Goals
 
