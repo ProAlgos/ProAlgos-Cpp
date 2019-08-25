@@ -1,8 +1,8 @@
-﻿# Algos: C++
+# Algos: C++
 
 [![Travis status][travis-shield]][travis-link]
 
-Implementation of well-known (and some rare) algorithms, in C++.
+Implementing well-known (and some rare) **algorithms and data structures in C++**, while following **good software engineering practices** such as writing well-documented code, adhering to code guidelines, writing unit tests, reviewing each other's code, and ultimately learning to be better software developers.
 
 ## Contents
 
@@ -15,6 +15,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   
 * Dynamic programming
   * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
@@ -76,19 +77,25 @@ To compile the source files, run **`make all`**. Doing so will:
 
 The sub-directories will be the same as they are under `source`.
 
-To compile and run the tests, run **`make test`**. This will compile all the tests (in the same way as described above) and will run them, displaying the results. Note that the test binaries will have `.test` at the end of their name.
+To compile and run the tests, run **`make test`**. This will compile all the tests (in the same way as described above) 
+and will run them, displaying the results. Note that the test binaries will have `.test` at the end of their name.
 
-To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose contents have changed.
+To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make 
+some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose 
+contents have changed.
 
-To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
+To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information 
+on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
-## Unit tests
+## Contributing
 
-If you would like to (and you should) add unit tests for the code you are contributing, or for some of the existing code, read about [Adding unit tests for C++ code](UNIT_TESTS.md).
+If you want to contribute an algorithm or data structure in C++, please have a look at the following guidelines: 
+* [General Contribution Guidelines](../.github/CONTRIBUTING.md)
+* [C++ Contribution Guidelines](CONTRIBUTING.md) 
+* [C++ Coding Guidelines](CODING_GUIDELINES.md)
 
-## C++ Coding Guidelines
-
-If you want to contribute an algorithm or data structure in C++, make sure to read the [C++ Coding Guidelines](CODING_GUIDELINES.md) apart from the general [Contributing Guidelines](../CONTRIBUTING.md). This will help in ensuring that your code conforms to the style followed in this project.
+Following the guidelines laid out in these documents will ensure that your code conforms to the standards and style 
+of the project.
 
 [travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/faheel/Algos
