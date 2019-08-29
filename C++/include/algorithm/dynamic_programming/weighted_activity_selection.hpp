@@ -21,7 +21,7 @@
 
     Author
     ------
-    Fedurko Nikolaus (@B1Z0N)
+    Nikolaus Fedurko (@B1Z0N)
 */
 
 #ifndef WEIGHTED_ACTIVITY_SELECTION_HPP

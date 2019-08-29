@@ -16,7 +16,7 @@
 
     Author
     ------
-    Fedurko Nikolaus (@B1Z0N)
+    Nikolaus Fedurko (@B1Z0N)
 */
 
 #ifndef ROD_CUTTING_HPP
