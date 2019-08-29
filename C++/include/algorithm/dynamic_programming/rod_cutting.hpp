@@ -80,4 +80,4 @@ std::size_t rod_cutting( std::vector<std::size_t> costs ) {
     return __rod_cutting( costs, visited, costs.size() );
 }
 
-#endif  // CUT_THE_ROD_HPP
+#endif  // ROD_CUTTING_HPP
