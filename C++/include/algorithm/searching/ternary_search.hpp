@@ -128,25 +128,27 @@ T ternary_search(F f, T start, T end, const Pattern& pattern) {
     --------------------------------------------------------
     If the given function f first ascends and then descends (pattern == ASCEND_THEN_DESCEND)
     , this function finds the value x for which f(x) is maximum on the interval [start, end]
-    with a tolerance of abs_precision. Otherwise, this function finds the value x
-    for which f(x) is minimum on the interval [start, end] with a tolerance of abs_precision.
+    with a tolerance of abs_precision (or when the algorithm stops converging). 
+    Otherwise, this function finds the value x for which f(x) is minimum on the interval [start, end].
 */
 
 template <typename F, typename T,
           std::enable_if_t<std::is_floating_point<T>::value, int> = 0>
 T ternary_search(F f, T start, T end, const Pattern& pattern, const T abs_precision) {
     T start_third, end_third;
-
-    while ((end - start) > abs_precision) {
+    bool changed = true;
+    while (((end - start) > abs_precision) && changed) {
         start_third = start + (end - start) / 3.0;
         end_third = end - (end - start) / 3.0;
 
         const bool end_bigger =  f(start_third) < f(end_third);
         if ((ASCEND_THEN_DESCEND == pattern && end_bigger)
             || (DESCEND_THEN_ASCEND == pattern && !end_bigger)) {
+            changed = (start != start_third);
             start = start_third;
         }
         else {
+            changed = (end != end_third);
             end = end_third;
         }
     }
