@@ -128,7 +128,7 @@ T ternary_search(F f, T start, T end, const Pattern& pattern) {
     --------------------------------------------------------
     If the given function f first ascends and then descends (pattern == ASCEND_THEN_DESCEND)
     , this function finds the value x for which f(x) is maximum on the interval [start, end]
-    with a tolerance of abs_precision. Otherwise, this function finds the integral value x
+    with a tolerance of abs_precision. Otherwise, this function finds the value x
     for which f(x) is minimum on the interval [start, end] with a tolerance of abs_precision.
 */
 
