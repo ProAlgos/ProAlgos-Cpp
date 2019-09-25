@@ -26,6 +26,20 @@ void bubble_sort(vector<int>& values, const int order = 1, const bool to_show_st
     bool swapped;
     size_t i, j;
 
+    //O(N) check to find whether the vector is already sorted or not to make best case time complexity O(N)
+    bool is_not_sorted = false;
+    
+    for(i = 0;i<values.size()-1;i++){
+        if(values[i]>values[i+1]){
+            is_not_sorted = true;
+            break;
+        }
+    }
+    
+    // if vector is already sorted we simply return
+    if(!is_not_sorted)
+        return;
+    
     for (i = 0; i < values.size() - 1; i++) {
         swapped = false;
         for (j = 0; i + j < values.size() - 1; j++) {
