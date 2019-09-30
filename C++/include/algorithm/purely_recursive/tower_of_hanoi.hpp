@@ -11,7 +11,7 @@
         1. The disks can only be moved one at a time.
         2. At no time, can a disk be on top of a smaller disk.
 
-    This algorithm prints out the instructions for moving the disks according to 
+    This algorithm prints out the instructions for moving the disks according to
     the requirement.
 
     Time complexity
@@ -35,7 +35,7 @@ using std::cout;
 int tower_of_hanoi(int num_disks, char tower_a, char tower_b, char tower_c, int total_moves = 0, int move = 0)
 {
     if(num_disks >= 1)
-    {   
+    {
         // Disks from tower A are moved to tower C through the first recursive chain.
         total_moves = tower_of_hanoi(num_disks-1, tower_a, tower_c, tower_b, total_moves, move+1);
         cout << "Move disk" << num_disks << " from tower " << tower_a << " to tower " << tower_b << endl;
