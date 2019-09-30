@@ -82,6 +82,20 @@ add_executable(sieve_of_eratosthenes
         test/algorithm/number_theory/sieve_of_eratosthenes.cpp)
 target_link_libraries(sieve_of_eratosthenes test_runner)
 
+# ----------------
+# Purely Recursive
+# ----------------
+
+# Tower of Hanoi
+add_executable(tower_of_hanoi
+        test/algorithm/purely_recursive/tower_of_hanoi.cpp)
+target_link_libraries(tower_of_hanoi test_runner)
+
+# Permutation Generator
+add_executable(permutation_generator
+        test/algorithm/purely_recursive/permutation_generator.cpp)
+target_link_libraries(permutation_generator test_runner)
+
 # ---------
 # Searching
 # ---------
