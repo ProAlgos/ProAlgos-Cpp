@@ -128,6 +128,21 @@ add_executable(knuth_morris_pratt
         test/algorithm/string/knuth_morris_pratt.cpp)
 target_link_libraries(knuth_morris_pratt test_runner)
 
+# -----
+# Graph
+# -----
+
+#Breadth First Search
+add_executable(breadth_first_search
+        test/algorithm/graph/breadth_first_search.cpp)
+ target_link_libraries(breadth_first_search test_runner)
+
+#Depht First Search
+add_executable(depht_first_search
+        test/algorithm/graph/depht_first_search.cpp)
+ target_link_libraries(depht_first_search test_runner)
+
+
 # ============================================================================
 # Data structures
 # ============================================================================
@@ -163,3 +178,12 @@ target_link_libraries(disjoint_set test_runner)
 add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
+
+# -----
+# Graph
+# -----
+
+#Graph Data Struct
+add_executable(graph
+        test/data_structure/graph/graph.cpp)
+target_link_libraries(graph test_runner)
