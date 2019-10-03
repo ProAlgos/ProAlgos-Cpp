@@ -91,6 +91,11 @@ add_executable(binary_search
         test/algorithm/searching/binary_search.cpp)
 target_link_libraries(binary_search test_runner)
 
+# Breadth first search
+add_executable(breadth_first_search
+        test/algorithm/searching/breadth_first_search.cpp)
+target_link_libraries(breadth_first_search test_runner)
+
 # Linear search
 add_executable(linear_search
         test/algorithm/searching/linear_search.cpp)
