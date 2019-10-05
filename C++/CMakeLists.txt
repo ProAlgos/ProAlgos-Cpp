@@ -20,6 +20,15 @@ add_library(test_runner STATIC
 # ============================================================================
 
 # -------------------
+# Backtracking
+# -------------------
+
+# N-Queens
+add_executable(n_queens
+        test/algorithm/backtracking/n_queens.cpp)
+target_link_libraries(n_queens test_runner)
+
+# -------------------
 # Dynamic programming
 # -------------------
 
