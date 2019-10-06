@@ -129,6 +129,21 @@ add_executable(knuth_morris_pratt
 target_link_libraries(knuth_morris_pratt test_runner)
 
 
+# -----
+# Graph
+# -----
+
+# Depht First Search
+add_executable(depht_first_search
+        test/algorithm/graph/depht_first_search.cpp)
+target_link_libraries(depht_first_search test_runner)
+
+# Breadth First Search
+add_executable(breadth_first_search
+        test/algorithm/graph/breadth_first_search.cpp)
+target_link_libraries(breadth_first_search test_runner)
+
+
 # ============================================================================
 # Data structures
 # ============================================================================
