@@ -1,6 +1,9 @@
 #include "third_party/catch.hpp"
 #include "data_structure/graph/graph.hpp"
 
+#include <vector>
+using std::vector;
+
 TEST_CASE("Graph Data Struct", "[graph_data_struct]") {
 
         Graph graph_struct;
