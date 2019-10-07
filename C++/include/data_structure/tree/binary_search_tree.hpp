@@ -14,9 +14,11 @@
 
 #include <climits>
 #include <stack>
+#include <queue>
 #include <vector>
 
 using std::stack;
+using std::queue;
 using std::vector;
 
 const int INF = INT_MAX;
@@ -50,6 +52,7 @@ public:
     vector<int> traversal_preorder_iterative();
     vector<int> traversal_postorder_recursive();
     vector<int> traversal_postorder_iterative();
+    vector<int> traversal_levelorder_iterative();
 };
 
 Node* get_node() {
@@ -432,6 +435,46 @@ vector<int> BinarySearchTree::traversal_postorder_iterative() {
             current = nullptr;
         }
     } while (!traversal.empty());
+
+    return values;
+}
+
+/*
+Levelorder traversal
+------------------
+This Algorithm visits and displays each node in the following order starting
+with the level wise first it visit all the nodes on level 0 then followed by 1 and so on.
+
+Time complexity
+---------------
+Average case : O(n), where n is the number of nodes in the tree
+Worst case : O(n)
+
+Space complexity
+----------------
+O(n), where n is the number if nodes in the tree
+*/
+
+
+vector<int> BinarySearchTree::traversal_levelorder_iterative() {
+    vector<int> values;
+    if (root->value == INF) {
+    return values; // empty vector
+    }
+
+    queue<Node*> traversal;
+    traversal.push(root);
+
+    while(!traversal.empty())
+    {
+        Node *current=traversal.front();
+        traversal.pop();
+        values.push_back(current->value);
+        if(current->left_child)
+            traversal.push(current->left_child);
+        if(current->right_child)
+            traversal.push(current->right_child);
+    }
 
     return values;
 }
