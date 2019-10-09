@@ -82,6 +82,11 @@ add_executable(sieve_of_eratosthenes
         test/algorithm/number_theory/sieve_of_eratosthenes.cpp)
 target_link_libraries(sieve_of_eratosthenes test_runner)
 
+# Primorial of Prime
+add_executable(primorial_of_prime
+        test/algorithm/number_theory/primorial_of_prime.cpp)
+target_link_libraries(primorial_of_prime test_runner)
+
 # ---------
 # Searching
 # ---------
