@@ -101,6 +101,12 @@ add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
 
+# Quaternary search
+add_executable(quaternary_search
+        test/algorithm/searching/quaternary_search.cpp)
+target_link_libraries(quaternary_search test_runner)
+
+
 # -------
 # Sorting
 # -------
