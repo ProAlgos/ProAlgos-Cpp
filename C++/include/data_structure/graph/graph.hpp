@@ -9,7 +9,7 @@ using std::vector;
 
 class Graph
 {
-public:
+private:
         class Node {
         public:
                 Node();
@@ -30,9 +30,16 @@ public:
                 vector<Graph::Node*> connections_to_me;
                 bool was = false;
                 unsigned id;
-                static unsigned node_id;
+                static unsigned NODE_ID;
         protected:
         };
+        typedef vector<Graph::Node*>::iterator npvi_t;
+        vector<Graph::Node*> nodes;
+        void clear_nodes();
+        void depth_first_search_core(Graph::Node*);
+        void breadth_first_search_core(Graph::Node*, const uint16_t, uint16_t, uint16_t);
+        Graph::npvi_t& find_delete_node(Graph::npvi_t&, Graph::Node*) const;
+public:
         Graph();
         ~Graph();
         Graph::Node& push_node(const unsigned = 1);
@@ -45,13 +52,11 @@ public:
         Graph::Node& operator[](const unsigned int&) const;
         size_t size() const;
         const vector<Graph::Node*>& get_all_nodes() const;
-        void clear_nodes();
-private:
-        vector<Graph::Node*> nodes;
-        typedef vector<Graph::Node*>::iterator npvi_t;
-        Graph::npvi_t& find_delete_node(Graph::npvi_t&, Graph::Node*) const;
+        void depth_first_search(Graph::Node*);
+        void breadth_first_search(Graph::Node*,const uint16_t);
 protected:
 };
+//-----------------------------Graph Class implementation----------------------------
 Graph::Graph() {
 
 
@@ -104,9 +109,84 @@ void Graph::clear_nodes() {
         for (Graph::npvi_t iter = this->nodes.begin(); iter != this->nodes.end(); iter++)
                 (*iter)->was = false;
 }
-//NODE
-unsigned Graph::Node::node_id = 0;
-Graph::Node::Node() : id(Graph::Node::node_id++) {
+//-------------------------------Graph Algorithms-------------------------------
+/*
+        Depth First Search
+        -----------
+        Depth First Search gets around all the way in a graph.
+
+        Time complexity
+        ---------------
+        O(n) where n is the number of nodes in the tree.
+
+        Space complexity
+        ----------------
+        O(d) where d is the maximum depth of the tree
+*/
+//-------------------------------Depth First Search-------------------------------
+void Graph::depth_first_search_core(Graph::Node* node) {
+        uint16_t counter(0);
+        while (counter < node->get_connection_to_another().size())
+        {
+                if (!node->get_connection_to_another().at(counter)->it_was())
+                        depth_first_search_core(node->get_connection_to_another().at(counter));
+                counter++;
+        }
+        node->set_was(true);
+        cout << "Node ID: " <<  node->get_id() << endl;
+}
+//-------------------------Check Before Call The Algorithm-------------------------
+void Graph::depth_first_search(Graph::Node *node) {
+
+        if (node && find(this->nodes.begin(), this->nodes.end(), node) != nodes.end()) {
+                Graph::depth_first_search_core(node);
+                this->clear_nodes();
+        }
+}
+/*
+        Breadth First Search
+        -----------
+        Breadth First Search algorithm goes in a graph, until the end, by level by level.
+        You have to add the "start node",what is a pointer to a node. "Next deep level" is the  next deep level where the algorithm will go from the start node,this default value is 1
+        "Final Deep level" is the last deep level where the algotithm will go.This give you a chance to select a part in the graph you want to search in.
+
+        Time complexity
+        ---------------
+        O(n) where n is the number of nodes in the tree.
+
+        Space complexity
+        ----------------
+        O(n)
+*/
+//-------------------------------Breadth First Search-------------------------------
+void Graph::breadth_first_search_core(Graph::Node*node, const uint16_t final_deep_level, uint16_t next_deep_level = 1, uint16_t actual_deep = 0) {
+        if (actual_deep != next_deep_level) {
+                uint16_t counter(0);
+                while (counter < node->get_connection_to_another().size())
+                {
+                        if (!(node->get_connection_to_another().at(counter)->it_was() == true && (actual_deep + 1) == next_deep_level))
+                                breadth_first_search_core(node->get_connection_to_another().at(counter), final_deep_level, next_deep_level, actual_deep + 1);
+                        counter++;
+                }
+                if (actual_deep == 0) {
+                        this->clear_nodes();
+                        if (next_deep_level < final_deep_level)
+                                breadth_first_search_core(node, final_deep_level, next_deep_level + 1);
+                }
+                return;
+        }
+        node->set_was(true);
+        cout << "Node ID: " << node->get_id() << " Deep Level: " << static_cast<unsigned int>(next_deep_level) << endl;
+}
+//-------------------------Check Before Call The Algorithm-------------------------
+void Graph::breadth_first_search(Graph::Node* node, const uint16_t final_deep_level) {
+
+        if (node && find(this->nodes.begin(), this->nodes.end(), node) != this->nodes.end())
+                Graph::breadth_first_search_core(node,final_deep_level);
+}
+//-----------------------------Node Class implementation----------------------------
+unsigned Graph::Node::NODE_ID = 0;
+Graph::Node::Node() : id(Graph::Node::NODE_ID++) {
 
 }
 Graph::Node::~Node()
