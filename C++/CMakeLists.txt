@@ -72,6 +72,11 @@ add_executable(greatest_common_divisor
         test/algorithm/number_theory/greatest_common_divisor.cpp)
 target_link_libraries(greatest_common_divisor test_runner)
 
+# Greatest common divisor efficient
+add_executable(greatest_common_divisor_efficient
+        test/algorithm/number_theory/greatest_common_divisor_efficient.cpp)
+target_link_libraries(greatest_common_divisor_efficient test_runner)
+
 # Perfect number check
 add_executable(perfect_number_check
         test/algorithm/number_theory/perfect_number_check.cpp)
