@@ -38,7 +38,7 @@ int greatest_common_divisor_efficient(int a, int b) {
         b = a;
         a = r;
     }
-    return b
+    return b;
 }
 
 #endif // GREATEST_COMMON_DIVISOR_EFFICIENT_HPP
