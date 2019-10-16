@@ -163,3 +163,12 @@ target_link_libraries(disjoint_set test_runner)
 add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
+
+# AVL tree
+add_executable(avl_tree
+        test/data_structure/tree/avl_tree/avl_tree.cpp)
+target_link_libraries(avl_tree test_runner)
+
+add_executable(avl_node
+        test/data_structure/tree/avl_tree/avl_node.cpp)
+target_link_libraries(avl_node test_runner)
