@@ -26,10 +26,7 @@ public:
     using ThreeLinkedNodes = std::array<AVLNode*, 3>;
     enum TraverseOrder { PRE, IN, POST };
     AVLTree();
-    AVLTree(const std::initializer_list<int>& il) 
-        : AVLTree() {
-        for (int i : il) insert(i);
-    }
+    AVLTree(const std::initializer_list<int>& il);
     void insert(int);
     void remove(int);
 
@@ -43,10 +40,10 @@ public:
     void traverse(NodeHandler&&, TraverseOrder, AVLNode*);
 
     int get_size() { return size; }
-    AVLNode* get_root() { return rootParent->leftChild; }
-    void set_root(AVLNode* newRoot) { rootParent->attach_left_child(newRoot); }
+    AVLNode* get_root() { return root_parent->left_child; }
+    void set_root(AVLNode* new_root) { root_parent->attach_left_child(new_root); }
 private:
-    AVLNode* rootParent;
+    AVLNode* root_parent;
     int size;
 
     enum ImbalanceType {
@@ -56,8 +53,6 @@ private:
         LEFT_RIGHT,
         RIGHT_LEFT,
     };
-
-    bool isImbalanced(AVLNode*);
 
     void handle_first_insert(int);
     AVLNode* bst_insert(int);
@@ -72,7 +67,7 @@ private:
     AVLNode* find_imbalanced_ancestor(AVLNode*);
     ThreeLinkedNodes get_segment_imbalanced_by_remove(AVLNode*, ImbalanceType);
     AVLNode* rebalance_after_remove(AVLNode*);
-    ImbalanceType get_imbalance_type_for_remove(AVLNode* node);
+    ImbalanceType get_imbalance_type_for_remove(AVLNode*);
 
 
     AVLNode* rotate_to_rebalance(ThreeLinkedNodes&, ImbalanceType);
@@ -81,12 +76,17 @@ private:
 
     AVLNode* detach_from_tree(AVLNode*);
 
-    AVLNode* predecessor_node(AVLNode* node);
-    AVLNode* successor_node(AVLNode* node);
+    AVLNode* predecessor_node(AVLNode*);
+    AVLNode* successor_node(AVLNode*);
 };
 
-AVLTree::AVLTree() : rootParent(new AVLNode(0)), size(0) {}
+AVLTree::AVLTree() : root_parent(new AVLNode(0)), size(0)
+{}
 
+AVLTree::AVLTree(const std::initializer_list<int>& il)
+    : AVLTree() {
+    for (int i : il) insert(i);
+}
 /*
     Insert
     ------
@@ -111,9 +111,9 @@ void AVLTree::insert(int value) {
         handle_first_insert(value);
         return;
     } 
-    AVLNode* insertedNode = bst_insert(value);
-    if (insertedNode != nullptr) {
-        rebalance_after_insert(insertedNode);
+    AVLNode* inserted_node= bst_insert(value);
+    if (inserted_node != nullptr) {
+        rebalance_after_insert(inserted_node);
         ++size;
     }
 }
@@ -140,8 +140,8 @@ void AVLTree::insert(int value) {
     O(1)
 */
 void AVLTree::remove(int value) {
-    AVLNode* doomedNode = search(value);
-    remove_node(doomedNode);
+    AVLNode* doomed_node = search(value);
+    remove_node(doomed_node);
 }
 
 /*
@@ -166,10 +166,10 @@ AVLNode* AVLTree::search(int value) {
     AVLNode* candidate = get_root();
     while (candidate != nullptr) {
         if (value < candidate->value) {
-            candidate = candidate->leftChild;
+            candidate = candidate->left_child;
         }
         else if (value > candidate->value) {
-            candidate = candidate->rightChild;
+            candidate = candidate->right_child;
         }
         else {
             break;
@@ -195,11 +195,11 @@ void AVLTree::traverse(
     if (order == PRE) {
         function(root);
     }
-    traverse(function, order, root->leftChild);
+    traverse(function, order, root->left_child);
     if (order == IN) {
         function(root);
     }
-    traverse(function, order, root->rightChild);
+    traverse(function, order, root->right_child);
     if (order == POST) {
         function(root);
     }
@@ -218,57 +218,57 @@ void AVLTree::traverse(
     if (order == PRE) {
         function(root);
     }
-    traverse(std::forward<NodeHandler>(function), order, root->leftChild);
+    traverse(std::forward<NodeHandler>(function), order, root->left_child);
     if (order == IN) {
         function(root);
     }
-    traverse(std::forward<NodeHandler>(function), order, root->rightChild);
+    traverse(std::forward<NodeHandler>(function), order, root->right_child);
     if (order == POST) {
         function(root);
     }
 }
 
 void AVLTree::handle_first_insert(int value) {
-    auto newNode = new AVLNode(value);
-    rootParent->attach_left_child(newNode);
+    auto new_node = new AVLNode(value);
+    root_parent->attach_left_child(new_node);
     size = 1;
 }
 
 AVLNode* AVLTree::bst_insert(int value) {
     auto newNode = new AVLNode(value);
-    AVLNode* parentToAcceptNewNode = find_place_to_insert(value);
-    if (parentToAcceptNewNode == nullptr) {
+    AVLNode* parent_accepting_new_node = find_place_to_insert(value);
+    if (parent_accepting_new_node == nullptr) {
         return nullptr;
     }
-    if (value <= parentToAcceptNewNode->value) {
-        parentToAcceptNewNode->attach_left_child(newNode);
+    if (value <= parent_accepting_new_node->value) {
+        parent_accepting_new_node->attach_left_child(newNode);
     }
     else {
-        parentToAcceptNewNode->attach_right_child(newNode);
+        parent_accepting_new_node->attach_right_child(newNode);
     }
     return newNode;
 }
 
 AVLNode* AVLTree::find_place_to_insert(int value) {
-    auto parentToAcceptNewNode = get_root();
-    int parentValue = parentToAcceptNewNode->value;
+    auto parent_accepting_new_node = get_root();
+    int parent_value = parent_accepting_new_node->value;
     while (true) {
-        if (value <= parentValue) {
-            if (parentToAcceptNewNode->leftChild == nullptr) {
-                return parentToAcceptNewNode;
+        if (value <= parent_value) {
+            if (parent_accepting_new_node->left_child == nullptr) {
+                return parent_accepting_new_node;
             }
             else {
-                parentToAcceptNewNode = parentToAcceptNewNode->leftChild;
-                parentValue = parentToAcceptNewNode->value;
+                parent_accepting_new_node = parent_accepting_new_node->left_child;
+                parent_value = parent_accepting_new_node->value;
             }
         }
         else {
-            if (parentToAcceptNewNode->rightChild == nullptr) {
-                return parentToAcceptNewNode;
+            if (parent_accepting_new_node->right_child == nullptr) {
+                return parent_accepting_new_node;
             }
             else {
-                parentToAcceptNewNode = parentToAcceptNewNode->rightChild;
-                parentValue = parentToAcceptNewNode->value;
+                parent_accepting_new_node = parent_accepting_new_node->right_child;
+                parent_value = parent_accepting_new_node->value;
             }
         }
     }
@@ -278,30 +278,33 @@ AVLNode* AVLTree::find_place_to_insert(int value) {
 AVLTree::ThreeLinkedNodes AVLTree::get_segment_imbalanced_by_insert(
     AVLNode* origin) {
 
-    AVLTree::ThreeLinkedNodes ret{ origin, nullptr, nullptr };
-
-    while (ret[0] != rootParent) {
-        if (isImbalanced(ret[0]))
+    AVLNode* node = origin;
+    AVLNode* child = nullptr;
+    AVLNode* grandchild = nullptr;
+    while (node != root_parent) {
+        if (!node->is_balanced())
             break;
-        ret[2] = ret[1];
-        ret[1] = ret[0];
-        ret[0] = ret[0]->parent;
+        grandchild = child;
+        child = node;
+        node = node->parent;
     } 
 
-    return ret;
+    return { node, child, grandchild };
 }
 
 AVLTree::ImbalanceType AVLTree::get_imbalance_type_for_insert(
-    AVLTree::ThreeLinkedNodes& segment) {
-    auto imbalancedRoot = segment[0],
-         imbalancedChild = segment[1],
-         imbalancedGrandChild = segment[2];
+    AVLTree::ThreeLinkedNodes& imbalanced_segment) {
 
-    if (imbalancedRoot == rootParent) {
+    auto imbalanced_node = imbalanced_segment[0],
+         child = imbalanced_segment[1],
+         grandchild = imbalanced_segment[2];
+
+    if (imbalanced_node == root_parent ||
+        imbalanced_node->is_balanced()) {
         return ImbalanceType::BALANCED;
     }
-    if (imbalancedRoot->leftChild == imbalancedChild) {
-        if (imbalancedChild->leftChild == imbalancedGrandChild) {
+    if (imbalanced_node->left_child == child) {
+        if (child->left_child == grandchild) {
             return ImbalanceType::LEFT_LEFT;
         }
         else {
@@ -309,7 +312,7 @@ AVLTree::ImbalanceType AVLTree::get_imbalance_type_for_insert(
         }
     }
     else {
-        if (imbalancedChild->rightChild == imbalancedGrandChild) {
+        if (child->right_child == grandchild) {
             return ImbalanceType::RIGHT_RIGHT;
         }
         else {
@@ -320,55 +323,51 @@ AVLTree::ImbalanceType AVLTree::get_imbalance_type_for_insert(
     return ImbalanceType::BALANCED;
 }
 
-AVLNode* AVLTree::rotate_left(AVLNode* oldRoot) { 
-    auto newRoot = oldRoot->rightChild;
-    auto oldRootParent = oldRoot->parent;
+AVLNode* AVLTree::rotate_left(AVLNode* old_root) { 
+    auto new_root = old_root->right_child;
+    auto old_root_parent = old_root->parent;
 
-    oldRootParent->replace_child(oldRoot, newRoot);
+    old_root_parent->replace_child(old_root, new_root);
 
     // node(subtree) that goes from being left child of 
-    // newRoot to right child of old root
-    auto sideSwitchingNode = newRoot->leftChild;
-    newRoot->attach_left_child(oldRoot);
-    oldRoot->attach_right_child(sideSwitchingNode);
-    return newRoot;
+    // new_root to right child of old root
+    auto side_switching_node = new_root->left_child;
+    new_root->attach_left_child(old_root);
+    old_root->attach_right_child(side_switching_node);
+    return new_root;
 }
 
-AVLNode* AVLTree::rotate_right(AVLNode* oldRoot) { 
-    auto newRoot = oldRoot->leftChild;
-    auto oldRootParent = oldRoot->parent;
+AVLNode* AVLTree::rotate_right(AVLNode* old_root) { 
+    auto new_root = old_root->left_child;
+    auto old_root_parent = old_root->parent;
 
-    oldRootParent->replace_child(oldRoot, newRoot);
+    old_root_parent->replace_child(old_root, new_root);
 
-    auto sideSwitchingNode = newRoot->rightChild;
-    newRoot->attach_right_child(oldRoot);
-    oldRoot->attach_left_child(sideSwitchingNode);
-    return newRoot;
+    auto side_switching_node = new_root->right_child;
+    new_root->attach_right_child(old_root);
+    old_root->attach_left_child(side_switching_node);
+    return new_root;
 }
 
 AVLNode* AVLTree::rotate_to_rebalance(
     AVLTree::ThreeLinkedNodes& segment,
-    AVLTree::ImbalanceType imbalanceType) {
+    AVLTree::ImbalanceType imbalance_type) {
     
-    switch (imbalanceType)
+    switch (imbalance_type)
     {
     case ImbalanceType::LEFT_LEFT:
         return rotate_right(segment[0]); 
-        // return segment[1];
 
     case ImbalanceType::LEFT_RIGHT:
         rotate_left(segment[1]);
         return rotate_right(segment[0]);
-        // return segment[2];
 
     case ImbalanceType::RIGHT_RIGHT:
         return rotate_left(segment[0]);
-        // return segment[1];
 
     case ImbalanceType::RIGHT_LEFT:
         rotate_right(segment[1]);
         return rotate_left(segment[0]);
-        // return segment[2];
 
     case ImbalanceType::BALANCED:
         return nullptr;
@@ -379,16 +378,16 @@ AVLNode* AVLTree::rotate_to_rebalance(
     return nullptr;
 }
 
-AVLNode* AVLTree::rebalance_after_insert(AVLNode *insertedNode) {
-    auto segment = get_segment_imbalanced_by_insert(insertedNode);
-    auto imbalanceType = get_imbalance_type_for_insert(segment);
+AVLNode* AVLTree::rebalance_after_insert(AVLNode *inserted_node) {
+    auto segment = get_segment_imbalanced_by_insert(inserted_node);
+    auto imbalance_type = get_imbalance_type_for_insert(segment);
 
-    return rotate_to_rebalance(segment, imbalanceType);
+    return rotate_to_rebalance(segment, imbalance_type);
 }
 
 void AVLTree::handle_last_remove() {
-    auto lastNode = rootParent->detach_left_child();
-    delete lastNode;
+    auto last_node = root_parent->detach_left_child();
+    delete last_node;
     size = 0;
 }
 
@@ -396,24 +395,24 @@ AVLNode* AVLTree::detach_from_tree(AVLNode* node) {
     if (node->parent == nullptr) {
         throw std::runtime_error("Root node must not be detached from tree");
     }
-    if (node->leftChild != nullptr && node->rightChild != nullptr) {
+    if (node->left_child != nullptr && node->right_child != nullptr) {
         throw std::runtime_error("Detaching node with two children");
     }
 
-    AVLNode* nodeParent = node->parent;
-    bool nodeIsLeftChildOfParent = nodeParent->isLeftChild(node);
+    AVLNode* node_parent = node->parent;
+    bool node_is_left_child = node_parent->is_left_child(node);
     node->detach_parent();
 
-    auto leftChild = node->detach_left_child();
-    auto rightChild = node->detach_right_child();
+    auto left_child = node->detach_left_child();
+    auto right_child = node->detach_right_child();
 
-    auto childToAttach = (leftChild == nullptr ? rightChild : leftChild);
+    auto child_to_attach = (left_child == nullptr ? right_child : left_child);
 
-    if (nodeIsLeftChildOfParent) {
-        nodeParent->attach_left_child(childToAttach);
+    if (node_is_left_child) {
+        node_parent->attach_left_child(child_to_attach);
     }
     else {
-        nodeParent->attach_right_child(childToAttach);
+        node_parent->attach_right_child(child_to_attach);
     }
     return node;
 }
@@ -421,23 +420,23 @@ AVLNode* AVLTree::detach_from_tree(AVLNode* node) {
 AVLNode* AVLTree::bst_remove(AVLNode* node) {
     if (node == nullptr) return nullptr;
 
-    AVLNode* nodeToDelete = node;
-    AVLNode* nodeToReturn = nodeToDelete->parent;
+    AVLNode* node_to_delete = node;
+    AVLNode* node_to_return = node_to_delete->parent;
 
-    int childCount = nodeToDelete->child_count();
+    int childCount = node_to_delete->child_count();
 
     if (childCount == 0 || childCount == 1) {
-        detach_from_tree(nodeToDelete);
+        detach_from_tree(node_to_delete);
     }
     else {
-        nodeToDelete = successor_node(node);
-        nodeToReturn = nodeToDelete->parent;
-        std::swap(nodeToDelete->value, node->value);
-        detach_from_tree(nodeToDelete);
+        node_to_delete = successor_node(node);
+        node_to_return = node_to_delete->parent;
+        std::swap(node_to_delete->value, node->value);
+        detach_from_tree(node_to_delete);
     }
 
-    delete nodeToDelete;
-    return nodeToReturn;
+    delete node_to_delete;
+    return node_to_return;
 }
 
 void AVLTree::remove_node(AVLNode* node) {
@@ -448,101 +447,92 @@ void AVLTree::remove_node(AVLNode* node) {
         return;
     }
 
-    AVLNode* nodeToRebalance = bst_remove(node);
-    while (nodeToRebalance != rootParent) {
-        nodeToRebalance = rebalance_after_remove(nodeToRebalance);
-        nodeToRebalance = find_imbalanced_ancestor(nodeToRebalance);
+    AVLNode* node_to_rebalance = bst_remove(node);
+    while (node_to_rebalance != root_parent) {
+        node_to_rebalance = rebalance_after_remove(node_to_rebalance);
+        node_to_rebalance = find_imbalanced_ancestor(node_to_rebalance);
     }
     --size;
 }
 
-
-bool AVLTree::isImbalanced(AVLNode* node) {
-    constexpr int MaxAllowedImbalance = 1;
-    const int leftChildHeight = AVLNode::get_height(node->leftChild);
-    const int rightChildHeight = AVLNode::get_height(node->rightChild);
-    const int balance = leftChildHeight - rightChildHeight;
-    return std::abs(balance) > MaxAllowedImbalance;
-}
-
 AVLNode* AVLTree::rebalance_after_remove(AVLNode* node) {
-    if (node == rootParent || !isImbalanced(node)) return node->parent;
-    ImbalanceType imbalanceType =
+    if (node == root_parent || node->is_balanced()) return node->parent;
+    ImbalanceType imbalance_type =
         get_imbalance_type_for_remove(node);
 
     auto segment = get_segment_imbalanced_by_remove(
-        node, imbalanceType);
+        node, imbalance_type);
 
-    return rotate_to_rebalance(segment, imbalanceType);
+    return rotate_to_rebalance(segment, imbalance_type);
 }
 
 AVLTree::ThreeLinkedNodes AVLTree::get_segment_imbalanced_by_remove(
-    AVLNode* node, ImbalanceType imbalancedType) {
-    switch (imbalancedType)
+    AVLNode* node, ImbalanceType imbalanced_type) {
+    switch (imbalanced_type)
     {
     case LEFT_LEFT:
-        return { node, node->leftChild, node->leftChild->leftChild };
+        return { node, node->left_child, node->left_child->left_child };
     
     case LEFT_RIGHT:
-        return { node, node->leftChild, node->leftChild->rightChild };
+        return { node, node->left_child, node->left_child->right_child };
     
     case RIGHT_LEFT:
         return {
-            node, node->rightChild, node->rightChild->leftChild };
+            node, node->right_child, node->right_child->left_child };
     case RIGHT_RIGHT:
         return {
-            node, node->rightChild, node->rightChild->rightChild };
+            node, node->right_child, node->right_child->right_child };
     default:
         return { nullptr };
     }
 }
 
 AVLTree::ImbalanceType AVLTree::get_imbalance_type_for_remove(AVLNode* node) {
-    if (!isImbalanced(node)) return ImbalanceType::BALANCED;
+    if (node->is_balanced()) return ImbalanceType::BALANCED;
 
-    AVLNode* firstBranch = AVLNode::get_longer_branch(node);
-    AVLNode* secondBranch = AVLNode::get_longer_branch(firstBranch);
+    AVLNode* first_branch = AVLNode::get_longer_branch(node);
+    AVLNode* second_branch = AVLNode::get_longer_branch(first_branch);
 
-    if (node->isLeftChild(firstBranch) &&
-            firstBranch->isLeftChild(secondBranch)) {
+    if (node->is_left_child(first_branch) &&
+            first_branch->is_left_child(second_branch)) {
         return LEFT_LEFT;
     }
-    else if (node->isLeftChild(firstBranch) &&
-                firstBranch->isRightChild(secondBranch)) {
+    else if (node->is_left_child(first_branch) &&
+                first_branch->is_right_child(second_branch)) {
         return LEFT_RIGHT;
     }
-    else if  (node->isRightChild(firstBranch) &&
-                firstBranch->isLeftChild(secondBranch)) {
+    else if  (node->is_right_child(first_branch) &&
+                first_branch->is_left_child(second_branch)) {
         return RIGHT_LEFT;
     }
-    else if (node->isRightChild(firstBranch) &&
-                firstBranch->isRightChild(secondBranch)) {
+    else if (node->is_right_child(first_branch) &&
+                first_branch->is_right_child(second_branch)) {
         return RIGHT_RIGHT;
     }
     return BALANCED;
 }
 
 AVLNode* AVLTree::successor_node(AVLNode* node) {
-    AVLNode* ret = node->rightChild;
+    AVLNode* ret = node->right_child;
     if (ret == nullptr) return ret;
-    while (ret->leftChild != nullptr) {
-        ret = ret->leftChild;
+    while (ret->left_child != nullptr) {
+        ret = ret->left_child;
     }
     return ret;
 }
 
 AVLNode* AVLTree::predecessor_node(AVLNode* node) {
-    AVLNode* ret = node->leftChild;
+    AVLNode* ret = node->left_child;
     if (ret == nullptr) return ret;
-    while (ret->rightChild != nullptr) {
-        ret = ret->rightChild;
+    while (ret->right_child != nullptr) {
+        ret = ret->right_child;
     }
     return ret;
 }
 
 AVLNode* AVLTree::find_imbalanced_ancestor(AVLNode* node) {
-    while (node != rootParent) {
-        if (isImbalanced(node)) break;
+    while (node != root_parent) {
+        if (!node->is_balanced()) break;
         node = node->parent;
     }
     return node;

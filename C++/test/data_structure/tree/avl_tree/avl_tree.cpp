@@ -13,7 +13,7 @@ struct AVLNodeAccumulator {
         this->nodes.push_back(node);
     }
 
-    std::vector<int> getValues() {
+    std::vector<int> get_values() {
         std::vector<int> ret;
         std::transform(
             nodes.begin(),
@@ -34,7 +34,7 @@ TEST_CASE("Constructing trees", "[avl-tree]") {
         AVLTree tree2({1, 2, 3});
         tree2.traverse(std::ref(accumulator), AVLTree::TraverseOrder::IN);
         REQUIRE(accumulator.nodes.size() == 3);
-        REQUIRE(accumulator.getValues() == std::vector<int>{1, 2, 3});
+        REQUIRE(accumulator.get_values() == std::vector<int>{1, 2, 3});
     }
 }
 
@@ -115,49 +115,55 @@ TEST_CASE("Add and remove sequential values", "[avl-tree]") {
 
     AVLTree tree;
 
-    std::vector<int> testNumbers(100, 0);
-    std::iota(testNumbers.begin(), testNumbers.end(), 0);
-    auto shuffledTestNumbers = testNumbers;
-    std::random_shuffle(shuffledTestNumbers.begin(), shuffledTestNumbers.end());
+    std::vector<int> test_numbers(100, 0);
+    std::iota(test_numbers.begin(), test_numbers.end(), 0);
+    auto shuffled_test_numbers = test_numbers;
+    std::random_shuffle(shuffled_test_numbers.begin(), shuffled_test_numbers.end());
 
-    int previousTreeSize = tree.get_size();
+    int previous_tree_size = tree.get_size();
     // randomly add the numbers into tree
-    for (int i : shuffledTestNumbers) {
+    for (int i : shuffled_test_numbers) {
         tree.insert(i);
-        REQUIRE(tree.get_size() == previousTreeSize + 1);
-        previousTreeSize = tree.get_size();
+        REQUIRE(tree.get_size() == previous_tree_size + 1);
+        previous_tree_size = tree.get_size();
         AVLNodeAccumulator accumulator;
         tree.traverse(std::ref(accumulator), AVLTree::TraverseOrder::IN);
         REQUIRE(tree.get_size() == accumulator.nodes.size());
         // test that tree remains balanced after every insertion 
         for (AVLNode* node : accumulator.nodes) {
-            REQUIRE(node->isBalanced() == true);
+            REQUIRE(node->is_balanced() == true);
         }
-         // test that height of tree stays ~log(n)
-        if (tree.get_size() >= 2) {
-            const int allowableAvlTreeHeight = ceil(log2(testNumbers.size()));
-            REQUIRE(tree.get_root()->height <= allowableAvlTreeHeight);
+        // test that height of tree stays ~log(n)
+        if (tree.get_size() > 0) {
+            // refer to wikipedia AVL tree page for the constants
+            const int allowable_tree_height =
+            1.4405 * log2(tree.get_size() + 2) - 1.3278;
+            REQUIRE(tree.get_root()->height <= allowable_tree_height);
+
         }
     }
 
 
-    std::random_shuffle(shuffledTestNumbers.begin(), shuffledTestNumbers.end());
-    for (int i : shuffledTestNumbers) {
-        previousTreeSize = tree.get_size();
+    std::random_shuffle(shuffled_test_numbers.begin(), shuffled_test_numbers.end());
+    for (int i : shuffled_test_numbers) {
+        previous_tree_size = tree.get_size();
         tree.remove(i);
-        REQUIRE(tree.get_size() == previousTreeSize - 1);
+        REQUIRE(tree.get_size() == previous_tree_size - 1);
 
         AVLNodeAccumulator accumulator;
         tree.traverse(std::ref(accumulator), AVLTree::TraverseOrder::IN);
         REQUIRE(tree.get_size() == accumulator.nodes.size());
         // test that tree remains balanced after every removal
         for (AVLNode* node : accumulator.nodes) {
-            REQUIRE(node->isBalanced() == true);
+            REQUIRE(node->is_balanced() == true);
         }
-         // test that height of tree stays ~log(n)
-        if (tree.get_size() >= 2) {
-            const int allowableAvlTreeHeight = ceil(log2(testNumbers.size()));
-            REQUIRE(tree.get_root()->height <= allowableAvlTreeHeight);
+        // test that height of tree stays ~log(n)
+        if (tree.get_size() > 0) {
+            // refer to wikipedia AVL tree page for the constants
+            const int allowable_tree_height =
+            1.4405 * log2(tree.get_size() + 2) - 1.3278;
+            REQUIRE(tree.get_root()->height <= allowable_tree_height);
+
         }
     }
 }

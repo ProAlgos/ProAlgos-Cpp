@@ -10,12 +10,12 @@ struct AVLNode {
     AVLNode(int);
     AVLNode();
 
-    bool isBalanced() { return std::abs(AVLNode::get_height(leftChild) - AVLNode::get_height(rightChild)) < 2; }
+    bool is_balanced() const;
     int child_count() const;
-    void recalculate_height();
+    void adjust_height();
     
-    bool isLeftChild(AVLNode* node) const { return leftChild == node; }
-    bool isRightChild(AVLNode* node) const { return rightChild == node; }
+    bool is_left_child(AVLNode* node) const { return left_child == node; }
+    bool is_right_child(AVLNode* node) const { return right_child == node; }
 
     void detach_parent();
 
@@ -29,8 +29,8 @@ struct AVLNode {
 
     int value;
     AVLNode* parent;
-    AVLNode* leftChild;
-    AVLNode* rightChild;
+    AVLNode* left_child;
+    AVLNode* right_child;
     int height;
 };
 
@@ -41,19 +41,19 @@ int AVLNode::get_height(AVLNode* node) {
 
 AVLNode* AVLNode::get_longer_branch(AVLNode* node) {
     if (node == nullptr) return nullptr;
-    int leftBranchHeight = AVLNode::get_height(node->leftChild);
-    int rightBranchHeight = AVLNode::get_height(node->rightChild);
+    int leftBranchHeight = AVLNode::get_height(node->left_child);
+    int rightBranchHeight = AVLNode::get_height(node->right_child);
 
     if (leftBranchHeight >= rightBranchHeight)
-        return node->leftChild;
+        return node->left_child;
     else 
-        return node->rightChild;
+        return node->right_child;
 }
 
 AVLNode::AVLNode(int val, AVLNode* parent, AVLNode* left, AVLNode* right)
-    : value(val), parent(parent), leftChild(left), rightChild(right)
+    : value(val), parent(parent), left_child(left), right_child(right)
 {
-    recalculate_height();
+    adjust_height();
 }
 
 AVLNode::AVLNode(int val)
@@ -64,22 +64,26 @@ AVLNode::AVLNode()
     : AVLNode(0, nullptr, nullptr, nullptr)
 {}
 
+bool AVLNode::is_balanced() const { 
+    return std::abs(get_height(left_child) - get_height(right_child)) < 2;
+}
+
 int AVLNode::child_count() const {
     int ret = 0;
-    if (leftChild) ++ret;
-    if (rightChild) ++ret;
+    if (left_child) ++ret;
+    if (right_child) ++ret;
     return ret;
 }
 
-void AVLNode::recalculate_height() {
-    int leftChildHeight = leftChild ? leftChild->height : -1;
-    int rightChildHeight = rightChild ? rightChild->height : -1;
+void AVLNode::adjust_height() {
+    int leftChildHeight = left_child ? left_child->height : -1;
+    int rightChildHeight = right_child ? right_child->height : -1;
 
     int newHeight = std::max(leftChildHeight, rightChildHeight) + 1;
     if (newHeight != this->height) {
         this->height = newHeight;
         if (parent != nullptr) {
-            parent->recalculate_height();
+            parent->adjust_height();
         }
     }
 }
@@ -87,61 +91,63 @@ void AVLNode::recalculate_height() {
 void AVLNode::detach_parent() {
     if (this->parent == nullptr) return;
 
-    if (this->parent->isLeftChild(this)) {
-        this->parent->leftChild = nullptr;
+    if (this->parent->is_left_child(this)) {
+        this->parent->left_child = nullptr;
     }
-    else if (this->parent->isRightChild(this)) {
-        this->parent->rightChild = nullptr;
+    else if (this->parent->is_right_child(this)) {
+        this->parent->right_child = nullptr;
     }
-    this->parent->recalculate_height();
+    this->parent->adjust_height();
     this->parent = nullptr;
 }
 
 
 void AVLNode::attach_left_child(AVLNode* node) {
-    this->leftChild = node;
+    this->left_child = node;
     if (node != nullptr)
         node->parent = this;
-    recalculate_height();
+    adjust_height();
 }
 
 void AVLNode::attach_right_child(AVLNode* node) {
-    this->rightChild = node;
+    this->right_child = node;
     if (node != nullptr)
         node->parent = this;
-    recalculate_height();
+    adjust_height();
 }
 
 AVLNode* AVLNode::detach_left_child() {
-    AVLNode* toReturn = this->leftChild; 
-    if (this->leftChild != nullptr)
-        this->leftChild->parent = nullptr;    
-    this->leftChild = nullptr;
-    recalculate_height();
+    AVLNode* toReturn = this->left_child; 
+    if (this->left_child != nullptr)
+        this->left_child->parent = nullptr;    
+    this->left_child = nullptr;
+    adjust_height();
     return toReturn;
 }
 
 AVLNode* AVLNode::detach_right_child() {
-    AVLNode* toReturn = this->rightChild; 
-    if (this->rightChild != nullptr)
-        this->rightChild->parent = nullptr;    
-    this->rightChild = nullptr;
-    recalculate_height();
+    AVLNode* toReturn = this->right_child; 
+    if (this->right_child != nullptr)
+        this->right_child->parent = nullptr;    
+    this->right_child = nullptr;
+    adjust_height();
     return toReturn;
 }
 
 AVLNode* AVLNode::replace_child(AVLNode* oldChild, AVLNode* newChild) {
-    if (isLeftChild(oldChild)) {
+    if (is_left_child(oldChild)) {
         detach_left_child();
         attach_left_child(newChild);
         return oldChild;
     }
-    else if (isRightChild(oldChild)) {
+    else if (is_right_child(oldChild)) {
         detach_right_child();
         attach_right_child(newChild);
         return oldChild;
     }
-    throw std::runtime_error("oldChild is not a child of node");
-    return nullptr;
+    else {
+        throw std::runtime_error("oldChild is not a child of node");
+        return nullptr;
+    }
 }
 #endif // AVL_NODE_HPP
