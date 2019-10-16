@@ -12,6 +12,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 
 * Backtracking
   * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
+  * [Knight](include/algorithms/backtracking/knight.hpp)
 * Dynamic programming
   * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
