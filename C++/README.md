@@ -58,7 +58,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
 * Tree
   * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
-
+  * [AVL Tree](include/data_structure/tree/avl_tree/avl_tree.hpp) :white_check_mark:
 ## Compiling
 
 To compile the source files, run **`make all`**. Doing so will:
