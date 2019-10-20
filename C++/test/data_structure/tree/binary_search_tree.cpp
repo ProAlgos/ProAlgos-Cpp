@@ -30,6 +30,7 @@ TEST_CASE("Add and remove values", "[binary-search-tree]") {
     tree.insert(20);
     tree.insert(298);
     tree.insert(91);
+    tree.insert(53);
     tree.insert(77);
     tree.insert(-54);
     tree.insert(21);
