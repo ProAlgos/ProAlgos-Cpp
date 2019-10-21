@@ -25,7 +25,7 @@ void comb_sort (vector<int>& input, const int order = 1, const bool to_show_stat
     bool sorted = false;
 
     while (!sorted) {
-        gap /= shrink_factor; // this should automatically floor bc it is an int
+        gap /= shrink_factor; // this should automatically floor because it is an int
         sorted = false;
         if (gap == 1 || gap == 0) {
             sorted = true;
