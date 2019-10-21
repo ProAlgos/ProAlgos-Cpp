@@ -3,7 +3,7 @@
 #include "third_party/catch.hpp"
 #include "algorithm/searching/ternary_search.hpp"
 
-using namespace std;
+using std::vector;
 
 /*
     TODO: refactor
