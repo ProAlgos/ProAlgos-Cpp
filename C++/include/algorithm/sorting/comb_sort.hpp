@@ -34,7 +34,8 @@ void comb_sort (vector<int>& input, const int order = 1, const bool to_show_stat
     unsigned int gap = input.size();
     bool swapped = true;
 
-    while (swapped) {
+    // Continue while gap is larger than one or there was a swap on previous iteration
+    while (gap > 1 || swapped) {
         gap = get_next_gap(gap);
         swapped = false;
         for (int i = 0; i + gap < input.size(); i++) {
