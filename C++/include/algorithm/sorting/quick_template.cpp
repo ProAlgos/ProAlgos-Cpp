@@ -1,4 +1,21 @@
 template <typename T>
+T med_pivot(T s,T m,T e)
+{
+    if(*s<*e)
+    {
+        if(*m<*s)   return s;
+        if(*e<*m)   return e;
+
+        return m;
+    }
+    if(*m<*e)   return e;
+    if(*s<*m)   return s;
+
+    return m;
+}
+
+
+template <typename T>
 T partition(T s,T e) 	// assuming pivot is the last element
 {
     T temp = s, pivot = med_pivot(s,s + (e-s)/2,e-1);
