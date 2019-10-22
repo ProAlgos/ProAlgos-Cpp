@@ -2,6 +2,7 @@
 #include <limits>
 #include "third_party/catch.hpp"
 #include "algorithm/sorting/bubble_sort.hpp"
+#include "algorithm/sorting/comb_sort.hpp"
 #include "algorithm/sorting/counting_sort.hpp"
 #include "algorithm/sorting/heap_sort.hpp"
 #include "algorithm/sorting/insertion_sort.hpp"
@@ -24,6 +25,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
     // Sorting algorithms
     vector<sorting_function> sorting_functions = {
         bubble_sort,
+        comb_sort,
         counting_sort,
         heap_sort,
         insertion_sort,
@@ -53,6 +55,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
     // Sorting algorithms
     vector<sorting_function> sorting_functions = {
         bubble_sort,
+        comb_sort,
         counting_sort,
         heap_sort,
         insertion_sort,
