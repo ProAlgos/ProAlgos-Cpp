@@ -1,23 +1,23 @@
 /*
-Shunting Yard Algorithm, A.K.A. reverse polish
-----------------------------------------------
-Converting an infix arithmetic string to a post-fix one, A.K.A. Reverse Polish Notation.
-This implementation does not implement functions and solely focuses on simple arithmetic of consisting of [-,+,*,/,^]
+    Shunting Yard Algorithm, A.K.A. reverse polish
+    ----------------------------------------------
+    Converting an infix arithmetic string to a post-fix one, A.K.A. Reverse Polish Notation.
+    This implementation does not implement functions and solely focuses on simple arithmetic of consisting of [-,+,*,/,^]
 
-Time complexity
----------------
-O(N*M*P) where N is the size of input vector, i.e. equations,
- M is the size of the greatest string in the vector,
-and P is maximum number of operators in the string
+    Time complexity
+    ---------------
+    O(N*M*P) where N is the size of input vector, i.e. equations,
+     M is the size of the greatest string in the vector,
+    and P is maximum number of operators in the string
 
-Space complexity
-----------------
-O(N+P) = O(N) : where N is the size of input vector, i.e. equations,
-and  P is maximum number of operators in the string, i.e. stack operations.
+    Space complexity
+    ----------------
+    O(N+P) = O(N) : where N is the size of input vector, i.e. equations,
+    and  P is maximum number of operators in the string, i.e. stack operations.
 */
 
-#ifndef REVERSE_POLISH_HPP_
-#define REVERSE_POLISH_HPP_
+#ifndef REVERSE_POLISH_HPP
+#define REVERSE_POLISH_HPP
 
 #include <iostream>
 #include <vector>
@@ -29,55 +29,62 @@ and  P is maximum number of operators in the string, i.e. stack operations.
 using std::string;
 
 class OperatorOperations {
-	public:
-		std::vector <std::string> to_reverse_polish (const std::vector <std::string> &);
-		static std::unordered_map<char, int> operator_precedence;
-	    static std::unordered_map<char, std::string> operator_association;
+public:
+    static std::vector<std::string> to_reverse_polish(const std::vector<std::string> &);
+
+    static std::unordered_map<char, int> operator_precedence;
+    static std::unordered_map<char, std::string> operator_association;
 };
 
-std::unordered_map<char, int> OperatorOperations::operator_precedence{ { '-', 2 }, { '+', 2 }, { '*', 3 }, { '/', 3 }, { '^', 4 } };
-std::unordered_map<char, std::string> OperatorOperations::operator_association{ { '-', "left" }, { '+', "left" }, { '*', "left" }, { '/', "left" }, { '^', "right" } };
+std::unordered_map<char, int> OperatorOperations::operator_precedence{{'-', 2},
+                                                                      {'+', 2},
+                                                                      {'*', 3},
+                                                                      {'/', 3},
+                                                                      {'^', 4}};
+std::unordered_map<char, std::string> OperatorOperations::operator_association{{'-', "left"},
+                                                                               {'+', "left"},
+                                                                               {'*', "left"},
+                                                                               {'/', "left"},
+                                                                               {'^', "right"}};
 
-std::vector<std::string> OperatorOperations::to_reverse_polish(const std::vector<std::string>& equations)
-{
+std::vector<std::string> OperatorOperations::to_reverse_polish(const std::vector<std::string> &equations) {
     string equation;
     string temporary_string;
     std::vector<string> postfixed_equations;
     postfixed_equations.reserve(equations.size());
     std::stack<char> operators;
     OperatorOperations operations;
-    for (int i = 0; i <= (int)equations.size() - 1; i++) {
+    for (int i = 0; i <= (int) equations.size() - 1; i++) {
         equation = equations[i];
         temporary_string = "";
-        for (int j = 0; j <= (int)equation.length() - 1; j++) {
+        for (int j = 0; j <= (int) equation.length() - 1; j++) {
             if (isalnum(equation[j])) {
                 temporary_string.push_back(equation[j]);
-            }
-            else if (isblank(equation[j])) {
-            }
-            else if (equation[j] != '(' && equation[j] != ')' && operator_precedence.find(equation[j]) == operator_precedence.end()) {
+            } else if (isblank(equation[j])) {
+                // do nothing
+            } else if (equation[j] != '(' && equation[j] != ')' &&
+                       operator_precedence.find(equation[j]) == operator_precedence.end()) {
                 temporary_string.push_back(equation[j]);
-            }
-            else {
+            } else {
                 if (equation[j] == '(') {
                     operators.push(equation[j]);
-                }
-                else {
+                } else {
                     if (equation[j] == ')') {
                         while (operators.top() != '(') {
                             temporary_string.push_back(operators.top());
                             operators.pop();
                         }
                         operators.pop();
-                    }
-                    else {
+                    } else {
                         if (operators.empty()) {
                             operators.push(equation[j]);
-                        }
-                        else {
+                        } else {
                             while (!operators.empty() && (operators.top() != '(') &&
-                                    (operations.operator_precedence[operators.top()] > operations.operator_precedence[equation[j]] ||
-                                        (operations.operator_precedence[operators.top()] == operations.operator_precedence[equation[j]] && operations.operator_association[operators.top()] == "left"))) {
+                                   (operations.operator_precedence[operators.top()] >
+                                    operations.operator_precedence[equation[j]] ||
+                                    (operations.operator_precedence[operators.top()] ==
+                                     operations.operator_precedence[equation[j]] &&
+                                     operations.operator_association[operators.top()] == "left"))) {
                                 temporary_string.push_back(operators.top());
                                 operators.pop();
                             }
@@ -92,10 +99,11 @@ std::vector<std::string> OperatorOperations::to_reverse_polish(const std::vector
             operators.pop();
         }
         postfixed_equations.push_back(temporary_string);
-        for_each(postfixed_equations.begin(), postfixed_equations.end(), [](string character) -> void { std::cout << character << std::endl; });
+        for_each(postfixed_equations.begin(), postfixed_equations.end(),
+                 [](string character) -> void { std::cout << character << std::endl; });
         std::cout << std::endl;
     }
-    return (postfixed_equations);
+    return postfixed_equations;
 }
 
-#endif /* REVERSE_POLISH_HPP_ */
+#endif // REVERSE_POLISH_HPP
