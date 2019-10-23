@@ -1,10 +1,7 @@
 #include "algorithm/string/reverse_polish.hpp"
-#define CATCH_CONFIG_MAIN
-#define REVERSE_POLISH_TEST
 #include "third_party/catch.hpp"
 
 class UniqueTestsFixture {
-
 	protected:
 		OperatorOperations test_operations;
 		std::vector <string> test_input_vector;
@@ -13,7 +10,6 @@ class UniqueTestsFixture {
 };
 
 TEST_CASE_METHOD(UniqueTestsFixture, "valid cases"){
-
 	test_input_vector.push_back("3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3");
 	test_input_vector.push_back("3+4 * 2 /( 1 - 5 ) ^ 2 ^ 3");
 	test_input_vector.push_back("3 ^ 1 / (5 * 6) + 10");
@@ -25,7 +21,6 @@ TEST_CASE_METHOD(UniqueTestsFixture, "valid cases"){
 }
 
 TEST_CASE_METHOD(UniqueTestsFixture, "empty cases") {
-
 	test_input_vector.push_back(" ");
 	test_input_vector.push_back("");
 	test_expected_result_vector.push_back("");
@@ -35,7 +30,6 @@ TEST_CASE_METHOD(UniqueTestsFixture, "empty cases") {
 }
 
 TEST_CASE_METHOD(UniqueTestsFixture, "invalid cases") {
-
 	test_input_vector.push_back("hello");
 	test_input_vector.push_back("he2o");
 	test_input_vector.push_back("hell0");
@@ -45,5 +39,3 @@ TEST_CASE_METHOD(UniqueTestsFixture, "invalid cases") {
 	test_result_vector = test_operations.to_reverse_polish(test_input_vector);
 	REQUIRE(test_expected_result_vector == test_result_vector);
 }
-
-#undef REVERSE_POLISH_TEST
