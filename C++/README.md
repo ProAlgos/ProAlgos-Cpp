@@ -34,16 +34,16 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
   * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
 * Sorting
-  * [Bubble sort](source/sorting/bubble_sort.cpp)
-  * [Comb sort](source/include/sorting/comb_sort.hpp)
-  * [Counting sort (stable)](source/sorting/counting_sort.cpp)
-  * [Heap sort](source/sorting/heap_sort.cpp)
-  * [Insertion sort](source/sorting/insertion_sort.cpp)
-  * [Merge sort](source/sorting/merge_sort.cpp)
-  * [Quick sort](source/sorting/quick_sort.cpp)
+  * [Bubble sort](source/sorting/bubble_sort.cpp) :white_check_mark:
+  * [Comb sort](source/include/sorting/comb_sort.hpp) :white_check_mark:
+  * [Counting sort (stable)](source/sorting/counting_sort.cpp) :white_check_mark:
+  * [Heap sort](source/sorting/heap_sort.cpp) :white_check_mark:
+  * [Insertion sort](source/sorting/insertion_sort.cpp) :white_check_mark:
+  * [Merge sort](source/sorting/merge_sort.cpp) :white_check_mark:
+  * [Quick sort](source/sorting/quick_sort.cpp) :white_check_mark:
   * [Radix sort](source/sorting/radix_sort.cpp)
-  * [Selection sort](source/sorting/selection_sort.cpp)
-  * [Shell sort](source/sorting/shell_sort.cpp)
+  * [Selection sort](source/sorting/selection_sort.cpp) :white_check_mark:
+  * [Shell sort](source/sorting/shell_sort.cpp) :white_check_mark:
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
