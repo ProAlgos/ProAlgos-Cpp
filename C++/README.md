@@ -57,6 +57,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
     * [Knuth-Morris-Pratt](include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
   * [Shunting yard](include/algorithm/string/shunting_yard.hpp) :white_check_mark:
+
 ### Data structures
 
 * Linked List
