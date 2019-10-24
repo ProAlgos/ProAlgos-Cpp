@@ -20,7 +20,7 @@
 */
 
 #ifndef ROD_CUTTING_HPP
-#define ROT_CUTTING_HPP
+#define ROD_CUTTING_HPP
 
 #include <vector>
 

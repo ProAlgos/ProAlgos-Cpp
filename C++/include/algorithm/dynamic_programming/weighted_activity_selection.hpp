@@ -54,14 +54,14 @@ int left_activity_bsearch( const std::vector<Activity>& quer, std::size_t index 
     while ( lo <= hi ) {
         int mid = ( lo + hi ) / 2;
 
-        // if it is non-overlaping
+        // if it is non-overlapping
         if ( quer[ mid ].end <= quer[ index ].start ) {
-            // if there are other non-overlaping activity
+            // if there are other non-overlapping activity
             // a bit to the right, then continue searching
             if ( quer[ mid + 1 ].end <= quer[ index ].start ) {
                 lo = mid + 1;
             }
-            // if it is right-most non-overlaping
+            // if it is right-most non-overlapping
             else {
                 return mid;
             }
@@ -73,7 +73,7 @@ int left_activity_bsearch( const std::vector<Activity>& quer, std::size_t index 
         }
     }
 
-    // if quer[ index ] has no non-overlaping activites
+    // if quer[ index ] has no non-overlapping activities
     // to the left of it
     return -1;
 }
