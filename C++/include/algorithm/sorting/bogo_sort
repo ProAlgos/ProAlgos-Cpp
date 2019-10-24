@@ -1,0 +1,44 @@
+/*
+    Bogo sort
+    -----------
+    BogoSort also known as permutation sort, stupid sort, slow sort, shotgun sort or monkey sort is a
+    particularly ineffective algorithm based on generate and test paradigm. The algorithm successively
+    generates permutations of its input until it finds one that is sorted.
+    ---------------
+    Worst Case : O(∞) (since this algorithm has no upper bound)
+    Average Case: O(n*n!)
+    Best Case : O(n)(when array given is already sorted)
+    Auxiliary Space : O(1)
+*/
+
+#ifndef BOGO_SORT_HPP
+#define BOGO_SORT_HPP
+
+#include <vector>
+#include <algorithm>  
+#include "utils.hpp"
+
+using std::vector;
+template<class T>  
+void bogosort(std::vector<T>& array)  
+{  
+    while (! is_sorted(array))  
+    {  
+         std::random_shuffle(array.begin(), array.end());  
+    }  
+}  
+  
+template<class T>  
+bool is_sorted(const std::vector<T>& array)  
+{  
+    for (typename std::vector<T>::size_type i = 1; i < array.size(); ++i)  
+    {  
+         if (array[i] < array[i-1])  
+         {  
+              return false;  
+         }  
+    }  
+    return true;  
+}  
+
+#endif // BOGO_SORT_HPP
