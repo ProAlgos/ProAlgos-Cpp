@@ -90,7 +90,7 @@ add_executable(knuth_morris_pratt
         test/algorithm/string/knuth_morris_pratt.cpp)
 target_link_libraries(knuth_morris_pratt test_runner)
 
-# Shunting yard (reverse Polish notation)
+# Shunting yard
 add_executable(shunting_yard
         test/algorithm/string/shunting_yard.cpp)
 target_link_libraries(shunting_yard test_runner)
