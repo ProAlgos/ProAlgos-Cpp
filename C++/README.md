@@ -12,11 +12,15 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 
 * Backtracking
   * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
+  
 * Dynamic programming
+  * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
-  * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
+  * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
+  * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
+
 * Number theory
   * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms
@@ -29,10 +33,12 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
+  
 * Searching
   * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
   * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
   * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
+  
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp) :white_check_mark:
   * [Comb sort](source/include/sorting/comb_sort.hpp) :white_check_mark:
@@ -44,19 +50,23 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp) :white_check_mark:
   * [Shell sort](source/sorting/shell_sort.cpp) :white_check_mark:
+
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
     * [Knuth-Morris-Pratt](include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
   * [Shunting yard](include/algorithm/string/shunting_yard.hpp) :white_check_mark:
+
 ### Data structures
 
 * Linked List
   * [Singly linked list](include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
   * [Doubly linked list](include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
+  
 * Set
   * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
+  
 * Tree
   * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 

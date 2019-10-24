@@ -38,6 +38,16 @@ add_executable(kadane
         test/algorithm/dynamic_programming/kadane.cpp)
 target_link_libraries(kadane test_runner)
 
+# Rod cutting
+add_executable(rod_cutting
+        test/algorithm/dynamic_programming/rod_cutting.cpp)
+target_link_libraries(rod_cutting test_runner)
+
+# Weighted activity selection
+add_executable(weighted_activity_selection
+        test/algorithm/dynamic_programming/weighted_activity_selection.cpp)
+target_link_libraries(weighted_activity_selection test_runner)
+
 # -------------
 # Number theory
 # -------------
