@@ -44,7 +44,7 @@ Implementation of well-known (and some rare) algorithms, in C++.
   * Searching (pattern matching)
     * [Knuth-Morris-Pratt](include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
-  * [Shunting yard (reverse polish)](include/algorithm/string/reverse_polish.hpp) :white_check_mark:
+  * [Shunting yard](include/algorithm/string/shunting_yard.hpp) :white_check_mark:
 ### Data structures
 * [Binary search tree](include/data_structures/binary_search_tree.cpp)
 * [Disjoint-set](include/data_structures/disjoint_set.cpp) :white_check_mark:

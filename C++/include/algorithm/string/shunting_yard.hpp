@@ -1,5 +1,5 @@
 /*
-    Shunting Yard Algorithm, A.K.A. reverse polish
+    Shunting Yard
     ----------------------------------------------
     Converting an infix arithmetic string to a post-fix one, A.K.A. Reverse Polish Notation.
     This implementation does not implement functions and solely focuses on simple arithmetic of consisting of [-,+,*,/,^]
@@ -16,8 +16,8 @@
     and  P is maximum number of operators in the string, i.e. stack operations.
 */
 
-#ifndef REVERSE_POLISH_HPP
-#define REVERSE_POLISH_HPP
+#ifndef SHUNTING_YARD_HPP
+#define SHUNTING_YARD_HPP
 
 #include <iostream>
 #include <vector>
@@ -53,7 +53,6 @@ std::vector<std::string> OperatorOperations::to_reverse_polish(const std::vector
     std::vector<string> postfixed_equations;
     postfixed_equations.reserve(equations.size());
     std::stack<char> operators;
-    OperatorOperations operations;
     for (int i = 0; i <= (int) equations.size() - 1; i++) {
         equation = equations[i];
         temporary_string = "";
@@ -80,11 +79,11 @@ std::vector<std::string> OperatorOperations::to_reverse_polish(const std::vector
                             operators.push(equation[j]);
                         } else {
                             while (!operators.empty() && (operators.top() != '(') &&
-                                   (operations.operator_precedence[operators.top()] >
-                                    operations.operator_precedence[equation[j]] ||
-                                    (operations.operator_precedence[operators.top()] ==
-                                     operations.operator_precedence[equation[j]] &&
-                                     operations.operator_association[operators.top()] == "left"))) {
+                                   (OperatorOperations::operator_precedence[operators.top()] >
+                                    OperatorOperations::operator_precedence[equation[j]] ||
+                                    (OperatorOperations::operator_precedence[operators.top()] ==
+                                     OperatorOperations::operator_precedence[equation[j]] &&
+                                     OperatorOperations::operator_association[operators.top()] == "left"))) {
                                 temporary_string.push_back(operators.top());
                                 operators.pop();
                             }
@@ -99,11 +98,8 @@ std::vector<std::string> OperatorOperations::to_reverse_polish(const std::vector
             operators.pop();
         }
         postfixed_equations.push_back(temporary_string);
-        for_each(postfixed_equations.begin(), postfixed_equations.end(),
-                 [](string character) -> void { std::cout << character << std::endl; });
-        std::cout << std::endl;
     }
     return postfixed_equations;
 }
 
-#endif // REVERSE_POLISH_HPP
+#endif // SHUNTING_YARD_HPP

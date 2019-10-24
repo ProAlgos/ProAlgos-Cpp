@@ -91,9 +91,9 @@ add_executable(knuth_morris_pratt
 target_link_libraries(knuth_morris_pratt test_runner)
 
 # Shunting yard (reverse Polish notation)
-add_executable(reverse_polish
-        test/algorithm/string/reverse_polish.cpp)
-target_link_libraries(reverse_polish test_runner)
+add_executable(shunting_yard
+        test/algorithm/string/shunting_yard.cpp)
+target_link_libraries(shunting_yard test_runner)
 
 # ============================================================================
 # Data structures
