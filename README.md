@@ -12,15 +12,15 @@ Implementing well-known (and some rare) **algorithms and data structures**, whil
 
 ## How to get involved
 
-There are a few ways to get involved.
+There are a few ways to get involved:
 
 #### Want to contribute to open-source and get involved with the project?
 
-1. **Read** the [contribution guidelines][contrib-guide]
-1. **Fork** the repo
-1. **Create an issue** describing what you'd like to add, or **claim an issue** that's [up for grabs][up-for-grabs]
-1. Create a **branch** and **add your code**
-1. Submit a **pull request** and reference the issue it closes
+1. **Read** the [contribution guidelines][contrib-guide].
+1. **Fork** the repo.
+1. **Create an issue** describing what you'd like to add, or **claim an issue** that's [up for grabs][up-for-grabs].
+1. Create a **branch** and **add your code**.
+1. Submit a **pull request** and reference the issue it closes.
 
 You can find more details regarding the steps above in the [contribution
 guidelines][contrib-guide], so be sure to check them out.
