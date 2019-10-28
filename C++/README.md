@@ -33,7 +33,8 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
-  
+   *Euler Totient Function (include/algorithm/number_theory/EulerTotient.hpp)
+   
 * Searching
   * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
   * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
