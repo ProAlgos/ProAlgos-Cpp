@@ -92,6 +92,11 @@ add_executable(sieve_of_eratosthenes
         test/algorithm/number_theory/sieve_of_eratosthenes.cpp)
 target_link_libraries(sieve_of_eratosthenes test_runner)
 
+#Euler's Totient Function
+add_executable(euler_totient
+        test/algorithm/number_theory/euler_totient.cpp)
+target_link_libraries(euler_totient test_runner)
+
 # ---------
 # Searching
 # ---------
