@@ -73,7 +73,7 @@ Follow the steps below to contribute to the project:
    ```
 
 7. [Open a pull request](https://help.github.com/articles/about-pull-requests/)
-    with a clear title and description against the `reorganise` branch.
+    with a clear title and description against the `reorganise` the branch.
 
 ## Code of Conduct
 This project has a [Code of Conduct](CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
