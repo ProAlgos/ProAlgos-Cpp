@@ -12,7 +12,7 @@ Implementing well-known (and some rare) **algorithms and data structures**, whil
 
 ## How to get involved
 
-There are a few ways to get involved:
+There are a few ways to get involved.
 
 #### Want to contribute to open-source and get involved with the project?
 
