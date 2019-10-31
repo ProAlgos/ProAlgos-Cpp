@@ -38,6 +38,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
   * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
   * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
+  * [Jump search](include/algorithms/searching/jump_search.hpp) :white_check_mark:
   
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp) :white_check_mark:
