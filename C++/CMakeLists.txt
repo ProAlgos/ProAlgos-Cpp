@@ -178,3 +178,9 @@ target_link_libraries(disjoint_set test_runner)
 add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
+
+# Heap
+add_executable(heap
+        test/data_structure/heap/heap.cpp)
+target_link_libraries(heap test_runner)
+

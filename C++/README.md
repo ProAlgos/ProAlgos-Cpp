@@ -69,6 +69,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   
 * Tree
   * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
+  * [Heap](include/data_structure/tree/heap.hpp) :white_check_mark:
 
 ## Compiling
 
