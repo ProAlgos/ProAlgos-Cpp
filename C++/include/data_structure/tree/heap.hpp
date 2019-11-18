@@ -28,7 +28,7 @@ class Heap{
 
 //method to get the size value    
 template< class T, bool (*comparator)(T&, T&) >
-int Heap<T, comparator>::size(){
+int Heap<T, comparator>::Get_Size(){
 	return this->size;
 }
 
