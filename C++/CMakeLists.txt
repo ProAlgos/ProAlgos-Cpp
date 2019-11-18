@@ -181,6 +181,6 @@ target_link_libraries(binary_search_tree test_runner)
 
 # Heap
 add_executable(heap
-        test/data_structure/heap/heap.cpp)
+        test/data_structure/tree/heap.cpp)
 target_link_libraries(heap test_runner)
 
