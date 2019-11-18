@@ -93,7 +93,7 @@ TEST_CASE("Add and remove values in a min heap", "[heap]"){
 }
 
 TEST_CASE("Exceptions from the heap", "[heap]"){
-	heap<int, Min_Comparator> tree;
+	Heap<int, Min_Comparator> tree;
 
 	//Attempt of remove from an empty heap tree
 	try{
