@@ -178,3 +178,8 @@ target_link_libraries(disjoint_set test_runner)
 add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
+
+# Threaded Binary Tree
+add_executable(threaded_binary_tree
+        test/data_structure/threaded_binary_tree/threaded_binary_tree.cpp)
+target_link_libraries(threaded_binary_tree test_runner)
