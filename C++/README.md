@@ -20,6 +20,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
   * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
+  * [Coin Change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
 
 * Number theory
   * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
