@@ -1,11 +1,11 @@
 /*
     Coin Change Algorithm
-    ------------------------------------
-    
-    Given an unlimited amount of coins with different values, find the number of ways of making change for an given value using the coins. 
+    ---------------------
+    Given an unlimited amount of coins with different values, find the number of ways of making change for an given
+    value using the coins.
+
     Time complexity
-    
-    ----------------
+    ---------------
     O(M*N), where M is the number of coins with different values and N is the amount that we desired to change
 
     Space complexity
@@ -30,12 +30,12 @@ int coin_change(const vector<int>& coin, int number_of_coins, int amount)
 
     int i, j;
 
-    // make a matrix of size (amount+1)*number_of_coins to tabulate the computed values
+    // Make a matrix of size (amount+1)*number_of_coins to tabulate the computed values
     // table[i][j] represents no.of ways in which an 'i' can be made with just j type of coins available
     vector<vector<int>> table (amount + 1, vector<int>(number_of_coins, 0));
 
-    int current_in; // stores the number of ways in which the amount can be changed including the current coin value
-    int current_out; // stores the number of ways in which the amount can be changed excluding the current coin value
+    int current_in; // Stores the number of ways in which the amount can be changed including the current coin value
+    int current_out; // Stores the number of ways in which the amount can be changed excluding the current coin value
 
     for (j = 0; j < number_of_coins; j++) {
         table[0][j] = 1;
@@ -45,7 +45,7 @@ int coin_change(const vector<int>& coin, int number_of_coins, int amount)
     // j represents the coin values available
     for (i = 1; i <= amount; i++) {
         for (j = 0; j < number_of_coins; j++) {
-            // if the the value of current coin is less than or equal to total amount whose change is required
+            // If the the value of current coin is less than or equal to total amount whose change is required
             // include this coin
             if (i >= coin[j]) {
                 current_in = table[i - coin[j]][j];
