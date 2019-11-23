@@ -15,12 +15,12 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   
 * Dynamic programming
   * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [Coin Change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
   * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
   * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
-  * [Coin Change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
 
 * Number theory
   * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
