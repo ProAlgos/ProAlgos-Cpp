@@ -14,7 +14,8 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
   
 * Dynamic programming
-  * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [0-1 knapsack](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [Coin change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
   * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
   * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:

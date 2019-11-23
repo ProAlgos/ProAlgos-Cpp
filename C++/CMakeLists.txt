@@ -33,6 +33,11 @@ add_executable(0_1_knapsack
         test/algorithm/dynamic_programming/0_1_knapsack.cpp)
 target_link_libraries(0_1_knapsack test_runner)
 
+# Coin change
+add_executable(coin_change
+        test/algorithm/dynamic_programming/coin_change.cpp)
+target_link_libraries(coin_change test_runner)
+
 # Kadane's
 add_executable(kadane
         test/algorithm/dynamic_programming/kadane.cpp)
