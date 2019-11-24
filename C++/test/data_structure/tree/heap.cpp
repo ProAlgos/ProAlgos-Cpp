@@ -23,36 +23,36 @@ TEST_CASE("Add and remove values in a max heap", "[heap]"){
     Heap<int, Min_Comparator> tree;
 
     //Inserts elements
-    tree.Push_Heap(12);	
-    tree.Push_Heap(29);
-    tree.Push_Heap(21);
-    tree.Push_Heap(32);
-    tree.Push_Heap(35);
-    tree.Push_Heap(5);
-    tree.Push_Heap(23);
-    tree.Push_Heap(21);
-    tree.Push_Heap(3);
-    tree.Push_Heap(9);
-    tree.Push_Heap(1);
+    tree.insert(12);	
+    tree.insert(29);
+    tree.insert(21);
+    tree.insert(32);
+    tree.insert(35);
+    tree.insert(5);
+    tree.insert(23);
+    tree.insert(21);
+    tree.insert(3);
+    tree.insert(9);
+    tree.insert(1);
 
     //Verify the size
-    REQUIRE(tree.Get_Size() == 11);
+    REQUIRE(tree.get_size() == 11);
 
     //Verify the top of the tree
-    REQUIRE(tree.Pop_Heap() == 35);
-    REQUIRE(tree.Pop_Heap() == 32);
-    REQUIRE(tree.Pop_Heap() == 29);
-    REQUIRE(tree.Pop_Heap() == 23);
-    REQUIRE(tree.Pop_Heap() == 21);
-    REQUIRE(tree.Pop_Heap() == 21);
-    REQUIRE(tree.Pop_Heap() == 12);
-    REQUIRE(tree.Pop_Heap() == 9);
-    REQUIRE(tree.Pop_Heap() == 5);
-    REQUIRE(tree.Pop_Heap() == 3);
-    REQUIRE(tree.Pop_Heap() == 1);
+    REQUIRE(tree.remove() == 35);
+    REQUIRE(tree.remove() == 32);
+    REQUIRE(tree.remove() == 29);
+    REQUIRE(tree.remove() == 23);
+    REQUIRE(tree.remove() == 21);
+    REQUIRE(tree.remove() == 21);
+    REQUIRE(tree.remove() == 12);
+    REQUIRE(tree.remove() == 9);
+    REQUIRE(tree.remove() == 5);
+    REQUIRE(tree.remove() == 3);
+    REQUIRE(tree.remove() == 1);
 
     //Verify the final size
-    REQUIRE(tree.Get_Size() == 0);
+    REQUIRE(tree.get_size() == 0);
 
 }
 
@@ -60,37 +60,37 @@ TEST_CASE("Add and remove values in a min heap", "[heap]"){
     Heap<int, Max_Comparator> tree;
 
     //Inserts elements
-    tree.Push_Heap(12);	
-    tree.Push_Heap(29);
-    tree.Push_Heap(21);
-    tree.Push_Heap(32);
-    tree.Push_Heap(35);
-    tree.Push_Heap(5);
-    tree.Push_Heap(23);
-    tree.Push_Heap(21);
-    tree.Push_Heap(3);
-    tree.Push_Heap(9);
-    tree.Push_Heap(1);
+    tree.insert(12);	
+    tree.insert(29);
+    tree.insert(21);
+    tree.insert(32);
+    tree.insert(35);
+    tree.insert(5);
+    tree.insert(23);
+    tree.insert(21);
+    tree.insert(3);
+    tree.insert(9);
+    tree.insert(1);
 
     //Verify the size
-    REQUIRE(tree.Get_Size() == 11);
+    REQUIRE(tree.get_size() == 11);
 
     //Verify the top of the tree
-    REQUIRE(tree.Pop_Heap() == 1);
-    REQUIRE(tree.Pop_Heap() == 3);
-    REQUIRE(tree.Pop_Heap() == 5);
-    REQUIRE(tree.Pop_Heap() == 9);
-    REQUIRE(tree.Pop_Heap() == 12);
-    REQUIRE(tree.Pop_Heap() == 21);
-    REQUIRE(tree.Pop_Heap() == 21);
-    REQUIRE(tree.Pop_Heap() == 23);
-    REQUIRE(tree.Pop_Heap() == 29);
-    REQUIRE(tree.Pop_Heap() == 32);
-    REQUIRE(tree.Pop_Heap() == 35);
+    REQUIRE(tree.remove() == 1);
+    REQUIRE(tree.remove() == 3);
+    REQUIRE(tree.remove() == 5);
+    REQUIRE(tree.remove() == 9);
+    REQUIRE(tree.remove() == 12);
+    REQUIRE(tree.remove() == 21);
+    REQUIRE(tree.remove() == 21);
+    REQUIRE(tree.remove() == 23);
+    REQUIRE(tree.remove() == 29);
+    REQUIRE(tree.remove() == 32);
+    REQUIRE(tree.remove() == 35);
 
     
     //Verify the final size
-    REQUIRE(tree.Get_Size() == 0);
+    REQUIRE(tree.get_size() == 0);
 }
 
 TEST_CASE("Exceptions from the heap", "[heap]"){
@@ -98,14 +98,14 @@ TEST_CASE("Exceptions from the heap", "[heap]"){
 
     //Attempt of remove from an empty heap tree
     try{
-        tree.Pop_Heap();
+        tree.remove();
     }catch(int exception){
         REQUIRE(exception == -1);
     }
 
     //Attempt of get the top element from an empty heap tree
     try{
-        tree.Get_Top();
+        tree.top();
     }catch(int exception){
         REQUIRE(exception == -1);
     }
