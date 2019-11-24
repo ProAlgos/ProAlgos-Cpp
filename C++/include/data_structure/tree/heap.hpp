@@ -9,33 +9,33 @@ class Heap{
 
         int size;					  //number of elements
         
-        void Heapify(int i);          //auxiliar function to maintain the heap structure when a element is removed 
+        void heapify(int i);          //auxiliar function to maintain the heap structure when a element is removed 
 
     public:
         Heap();                       //constructor of the heap
 
         ~Heap();                      //destructor of the heap
         
-        void Push_Heap(T key);        //function to insert a element into heap
+        void insert(T key);        //function to insert a element into heap
 
-        T Pop_Heap();                 //function to remove a element from heap
+        T remove();                 //function to remove a element from heap
 
-        T Get_Top();                  //function to get the element on the top of heap
+        T top();                  //function to get the element on the top of heap
 
-        int Get_Size();               //function to return the size of heap
+        int get_size();               //function to return the size of heap
        
 };  
 
 //method to get the size value    
 template< class T, bool (*comparator)(T&, T&) >
-int Heap<T, comparator>::Get_Size(){
+int Heap<T, comparator>::get_size(){
     return this->size;
 }
 
 //function that returns the T element on the top of heap
 //the complexity of this function is O(1)
 template< class T, bool (*comparator)(T&, T&) >
-T Heap<T, comparator>::Get_Top(){
+T Heap<T, comparator>::top(){
 
     //if the heap is empty, throws exception -1, meaning that the heap is empty
     if (this->size <= 0) throw -1;
@@ -58,7 +58,7 @@ Heap<T, comparator>::~Heap(){
 }
 
 /*
-Push Heap
+insert
 -------------------
 Function that inserts the key in the heap. This algorithm inserts the key at the end of the vector, and build the heap
 (min or max) using the comparator function, by comparing the key element with its parent and swap they when necessary.
@@ -74,7 +74,7 @@ O(n), where n is the number of elements of the heap
 */
 
 template< class T, bool (*comparator)(T&, T&) >
-void Heap<T, comparator>::Push_Heap(T key){ 
+void Heap<T, comparator>::insert(T key){ 
     //insert the key in the vector
     this->vector.push_back(key);
 
@@ -98,7 +98,7 @@ void Heap<T, comparator>::Push_Heap(T key){
 }
 
 /*
-Push Heap
+remove
 -------------------
 Function that removes the element of the top in the heap and return it. The function removes the element in the top 
 and to maintain the struct correctily, puts the last element of the vector in the first position, and calls the heapify
@@ -116,7 +116,7 @@ O(n), where n is the number of elements of the heap
 */
 
 template< class T, bool (*comparator)(T&, T&) >
-T Heap<T, comparator>::Pop_Heap(){
+T Heap<T, comparator>::remove(){
     
     //if the heap is empty, throws exception -1, meaning that the heap is empty
     if (this->size <= 0) throw -1;
@@ -135,14 +135,14 @@ T Heap<T, comparator>::Pop_Heap(){
 
     /*after the remotion of the smallest or greatest element (this depends on the comparator function),
     the heap is reorganized to maintain the structure desired*/
-    this->Heapify(0); 
+    this->heapify(0); 
     
     //return the the smaller or greater element in the heap
     return root; 
 }
 
 /*
-Heapify
+heapify
 ----------------
 Rebuild the structure after a element is removed from the heap. It does it selecting the smaller or 
 grater element (depends on comparator funtion) between the root and it's sons. After that, if the element 
@@ -160,7 +160,7 @@ O(n), where n is the number of elements of the heap
 
 //int i - the index of the root
 template< class T, bool (*comparator)(T&, T&) >
-void Heap<T, comparator>::Heapify(int i){
+void Heap<T, comparator>::heapify(int i){
 
     //calculates the index of the left son
     int l = 2*i + 1; 
@@ -183,6 +183,6 @@ void Heap<T, comparator>::Heapify(int i){
     element are swapped recursively until the vector reaches the end*/
     if (elem_to_change != i) { 
         std::swap(this->vector[i], this->vector[elem_to_change]); 
-        this->Heapify(elem_to_change); 
+        this->heapify(elem_to_change); 
     } 
 }
