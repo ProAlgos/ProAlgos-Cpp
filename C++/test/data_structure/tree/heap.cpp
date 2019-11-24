@@ -109,3 +109,4 @@ TEST_CASE("Exceptions from the heap", "[heap]"){
 		REQUIRE(exception == -1);
 	}
 }
+
