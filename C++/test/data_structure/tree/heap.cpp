@@ -2,19 +2,19 @@
 #include "data_structure/tree/heap.hpp"
 
 bool Max_Comparator(int& t1, int& t2){	//Verify if t1 is greater or equal than t2 (used in min heap)
-	if(t1 >= t2){
-		return true;
-	}
+    if(t1 >= t2){
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 bool Min_Comparator(int& t1, int& t2){  //Verify if t1 is lesser than t2 (used in max heap)
-	if(t1 < t2){
-		return true;
-	}
+    if(t1 < t2){
+        return true;
+    }
 
-	return false;
+    return false;
 }
 
 
@@ -94,20 +94,20 @@ TEST_CASE("Add and remove values in a min heap", "[heap]"){
 }
 
 TEST_CASE("Exceptions from the heap", "[heap]"){
-	Heap<int, Min_Comparator> tree;
+    Heap<int, Min_Comparator> tree;
 
-	//Attempt of remove from an empty heap tree
-	try{
-		tree.Pop_Heap();
-	}catch(int exception){
-		REQUIRE(exception == -1);
-	}
+    //Attempt of remove from an empty heap tree
+    try{
+        tree.Pop_Heap();
+    }catch(int exception){
+        REQUIRE(exception == -1);
+    }
 
-	//Attempt of get the top element from an empty heap tree
-	try{
-		tree.Get_Top();
-	}catch(int exception){
-		REQUIRE(exception == -1);
-	}
+    //Attempt of get the top element from an empty heap tree
+    try{
+        tree.Get_Top();
+    }catch(int exception){
+        REQUIRE(exception == -1);
+    }
 }
 

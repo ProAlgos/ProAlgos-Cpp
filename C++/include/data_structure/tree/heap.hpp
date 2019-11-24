@@ -4,32 +4,32 @@
 
 template<class T, bool (*comparator)(T&, T&) >
 class Heap{
-	private:
-		std::vector<T> vector;		  //base vector of heap
+    private:
+        std::vector<T> vector;		  //base vector of heap
 
-		int size;					  //number of elements
+        int size;					  //number of elements
         
         void Heapify(int i);          //auxiliar function to maintain the heap structure when a element is removed 
 
-	public:
-		Heap();                       //constructor of the heap
+    public:
+        Heap();                       //constructor of the heap
 
-		~Heap();                      //destructor of the heap
-		
-		void Push_Heap(T key);        //function to insert a element into heap
+        ~Heap();                      //destructor of the heap
+        
+        void Push_Heap(T key);        //function to insert a element into heap
 
-		T Pop_Heap();                 //function to remove a element from heap
+        T Pop_Heap();                 //function to remove a element from heap
 
         T Get_Top();                  //function to get the element on the top of heap
 
-		int Get_Size();               //function to return the size of heap
+        int Get_Size();               //function to return the size of heap
        
 };  
 
 //method to get the size value    
 template< class T, bool (*comparator)(T&, T&) >
 int Heap<T, comparator>::Get_Size(){
-	return this->size;
+    return this->size;
 }
 
 //function that returns the T element on the top of heap
@@ -48,7 +48,7 @@ T Heap<T, comparator>::Get_Top(){
 template< class T, bool (*comparator)(T&, T&) >
 Heap<T, comparator>::Heap(){
     //sets the atributte size to 0
-	this->size = 0;
+    this->size = 0;
 }
 
 //destructor method
@@ -79,10 +79,10 @@ void Heap<T, comparator>::Push_Heap(T key){
     this->vector.push_back(key);
 
     //increments the attribute size   
-	this->size++;
+    this->size++;
 
     //i receives the position where the key was inserted, the last position in this case
-	int i = this->size - 1;    
+    int i = this->size - 1;    
     
     //parent receives the index of the node parent of the key
     int parent = (int)(i-1)/2;
@@ -131,7 +131,7 @@ T Heap<T, comparator>::Pop_Heap(){
     this->size--; 
 
     //vector chages its size to the necessary size to comport the elements in the heap
-	this->vector.resize(this->size);
+    this->vector.resize(this->size);
 
     /*after the remotion of the smallest or greatest element (this depends on the comparator function),
     the heap is reorganized to maintain the structure desired*/
