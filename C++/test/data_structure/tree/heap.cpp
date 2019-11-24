@@ -88,6 +88,7 @@ TEST_CASE("Add and remove values in a min heap", "[heap]"){
     REQUIRE(tree.Pop_Heap() == 32);
     REQUIRE(tree.Pop_Heap() == 35);
 
+    
     //Verify the final size
     REQUIRE(tree.Get_Size() == 0);
 }
