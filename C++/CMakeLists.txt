@@ -53,6 +53,11 @@ add_executable(weighted_activity_selection
         test/algorithm/dynamic_programming/weighted_activity_selection.cpp)
 target_link_libraries(weighted_activity_selection test_runner)
 
+# Paintingfence
+add_executable(Paintingfence
+        test/algorithm/dynamic_programming/Paintingfence.cpp)
+target_link_libraries(Paintingfence test_runner)
+
 # -------------
 # Number theory
 # -------------
