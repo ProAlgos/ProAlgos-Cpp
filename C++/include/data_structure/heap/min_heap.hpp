@@ -24,10 +24,6 @@
 
 #include <climits>
 #include <vector>
-#include <iostream>
-
-using std::cout;
-using std::endl;
 
 using std::vector;
 
@@ -143,20 +139,20 @@ template<class T>
 class MinHeap {
 private:
   vector<Node<T>*>* heap;
-  size_t findIndex(const T&);
-  bool hasChildren(size_t index);
-  size_t maxPriorityChild(size_t index);
-  void heapifyDown(size_t index);
-  void heapifyUp(size_t index);
+  size_t find_index(const T&);
+  bool has_children(size_t index);
+  size_t max_priority_child(size_t index);
+  void heapify_down(size_t index);
+  void heapify_up(size_t index);
 public:
   MinHeap();
   MinHeap(vector<T> toInsert);
   ~MinHeap();
-  void insertValue(const T&);
-  void removeValue(const T&);
-  T returnMin();
+  void insert_value(const T&);
+  void remove_value(const T&);
+  T return_min();
+  vector<T> return_elements();
   size_t size() {return heap->size();}
-  vector<T> returnElems();
 };
 
 /*
@@ -170,14 +166,16 @@ MinHeap<T>::MinHeap() {
 }
 
 /*
-  Build a heap from an existing vector of ints
+  Builds a heap from an existing vector of ints
   Heapify down is called on all non-leaf nodes.
 
   Time Complexity:
 
   Worst Case: O(n) + O(n/2)
   Average Case: O(n) + O(n/2)
+  -------------------
 */
+
 template<class T>
 MinHeap<T>::MinHeap(vector<T> toInsert) {
   heap = new vector<Node<T>*>();
@@ -186,15 +184,16 @@ MinHeap<T>::MinHeap(vector<T> toInsert) {
     heap->push_back(newNode);
   }
   for (size_t i = (heap->size() / 2) - 1; i > 0; i--) {
-    heapifyDown(i);
+    heapify_down(i);
   }
-  heapifyDown(0);
+  heapify_down(0);
 }
 
 /*
     Destructors
     -------------------
 */
+
 template<class T>
 MinHeap<T>::~MinHeap() {
   for (auto elem : *heap) {
@@ -204,6 +203,7 @@ MinHeap<T>::~MinHeap() {
 }
 
 /*
+    find_index
     Helper function to find the index of a node in the array.
     If multiple nodes with the same value exist, it will return the one with the lowest index.
     If node does not exist, function returns the size of the heap (value out of bounds)
@@ -215,8 +215,9 @@ MinHeap<T>::~MinHeap() {
     Average time: O(n)
     -------------------
 */
+
 template<class T>
-size_t MinHeap<T>::findIndex(const T& search) {
+size_t MinHeap<T>::find_index(const T& search) {
   for (size_t i = 0; i < heap->size(); i++) {
     if (heap->at(i)->get_value() == search) {
       return i;
@@ -226,11 +227,13 @@ size_t MinHeap<T>::findIndex(const T& search) {
 }
 
 /*
-  hasChildren
-  Returns true if the node at the current index has at least one child, false if not
+  has_children
+  Returns true if the node at the current index has at least one child, false if not.
+  -------------------
 */
+
 template<class T>
-bool MinHeap<T>::hasChildren(size_t index) {
+bool MinHeap<T>::has_children(size_t index) {
   if (index * 2 + 1 < heap->size()) {
     return true;
   }
@@ -239,13 +242,16 @@ bool MinHeap<T>::hasChildren(size_t index) {
 
 
 /*
-  Helper function to return the maxPriorityChild, the child of the current node that has
-  the smallest value, eg the max priority.
+  max_priority_child
+  Helper function to return the "max priority child", e.g. the child of the current node that has
+  the smallest value, and thus the max priority.
   If the current node only has one child, it returns that child.
   Assumes that the current node has at least one child.
+  -------------------
 */
+
 template<class T>
-size_t MinHeap<T>::maxPriorityChild(size_t index) {
+size_t MinHeap<T>::max_priority_child(size_t index) {
   size_t leftChild = index * 2 + 1;
   size_t rightChild = index * 2 + 2;
   if (rightChild == heap->size()) {
@@ -259,7 +265,7 @@ size_t MinHeap<T>::maxPriorityChild(size_t index) {
 }
 
 /*
-    heapifyDown
+    heapify_down
     Recursively sends the top node down the tree and swaps places until it is in the correct place.
 
     Time Complexity:
@@ -268,19 +274,20 @@ size_t MinHeap<T>::maxPriorityChild(size_t index) {
     Average Case: O(log(n))
     -------------------
 */
+
 template<class T>
-void MinHeap<T>::heapifyDown(size_t index) {
-  if (hasChildren(index)) {
-    size_t child = maxPriorityChild(index);
+void MinHeap<T>::heapify_down(size_t index) {
+  if (has_children(index)) {
+    size_t child = max_priority_child(index);
     if (*(heap->at(index)) > *(heap->at(child))) {
       std::swap(heap->at(index), heap->at(child));
-      heapifyDown(child);
+      heapify_down(child);
     }
   }
 }
 
 /*
-    heapifyUp
+    heapify_up
     Recursively builds the heap by sending values upward.
 
     Time Complexity:
@@ -289,82 +296,91 @@ void MinHeap<T>::heapifyDown(size_t index) {
     Average Case: O(log(n))
     -------------------
 */
+
 template<class T>
-void MinHeap<T>::heapifyUp(size_t index) {
+void MinHeap<T>::heapify_up(size_t index) {
   if (index == 0) {
     return;
   }
   size_t parent = (index - 1)/ 2;
   if (*(heap->at(index)) < *(heap->at(parent))) {
     std::swap(heap->at(index), heap->at(parent));
-    heapifyUp(parent);
+    heapify_up(parent);
   }
 }
 
 /*
-  insertValue
-  inserts a new value into the heap by adding it to the end and calling heapifyUp to
+  insert_value
+  inserts a new value into the heap by adding it to the end and calling heapify_up to
   maintain heap property
 
   Time Complexity:
 
   Worst Case: O(log(n))
   Average Case: O(log(n))
+  -------------------
 */
+
 template<class T>
-void MinHeap<T>::insertValue(const T& value) {
+void MinHeap<T>::insert_value(const T& value) {
   Node<T>* newNode = new Node<T>(value);
   heap->push_back(newNode);
-  heapifyUp(heap->size() - 1);
+  heapify_up(heap->size() - 1);
 }
 
 /*
-  removeValue
+  remove_value
   Removes value from the heap while keeping the heap property by swapping it with the last item
-  and calling heapifyDown and heapifyUp on that index.
+  and calling heapify_down and heapify_up on that index.
   If there are duplicates of values, the function only removes the one with the lower
   index.
   If the value does not exist in the heap, this function does nothing.
-  HeapifyUp and HeapifyDown are called but only one (or possibly neither) will actually result in any changes, depending on
+  heapify_up and heapify_down are called but only one (or possibly neither) will actually result in any changes, depending on
   whether the current value is too far down or up the tree.
 
   Time Complexity:
 
   Worst Case: O(n) + O(log(n))
   Average Case: O(n) + O(log(n))
+  -------------------
 */
+
 template<class T>
-void MinHeap<T>::removeValue(const T& value) {
-  size_t indexToRemove = findIndex(value);
+void MinHeap<T>::remove_value(const T& value) {
+  size_t indexToRemove = find_index(value);
   if (indexToRemove == heap->size()) {
     return;
   }
   std::swap(heap->at(indexToRemove), heap->at(heap->size() - 1));
   delete heap->at(heap->size() - 1);
   heap->erase(heap->end() - 1);
-  heapifyDown(indexToRemove);
-  heapifyUp(indexToRemove);
+  heapify_down(indexToRemove);
+  heapify_up(indexToRemove);
 }
 
-/* returnMin
+/* return_min
   return the minimum value of the heap (aka the root)
 
   Time Complexity:
 
   Worst Case: O(1)
   Average Case: O(1)
+  -------------------
 */
+
 template<class T>
-T MinHeap<T>::returnMin() {
+T MinHeap<T>::return_min() {
   return heap->at(0)->get_value();
 }
 
-/* returnElems
-  Returns a vector of just the elements in order.
+/* return_elements
+  Returns a vector of each element in each node in order.
   Used for testing
+  -------------------
 */
+
 template<class T>
-vector<T> MinHeap<T>::returnElems() {
+vector<T> MinHeap<T>::return_elements() {
   vector<T> elems;
   for (auto elem : *heap) {
     elems.push_back(elem->get_value());
