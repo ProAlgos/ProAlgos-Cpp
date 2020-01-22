@@ -15,6 +15,8 @@
     The left child of any node (if it exists) is at index 2x+1 where x is the index of the current node.
     the right child of any node (if it exists) is at index 2x+2 where x is the index of the current node.
     <2, 4, 6, 8, 5, 9, 12, 13, 10> is the vector representation of the min heap above.
+
+    The benefit of a min_heap is that the smallest element can always be found in O(1) time.
 */
 
 #ifndef MIN_HEAP_HPP

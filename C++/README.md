@@ -71,6 +71,8 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 * Tree
   * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 
+* Heap
+  * [Min heap](include/data_structure/heap/min_heap.hpp) :white_check_mark:
 ## Compiling
 
 To compile the source files, run **`make all`**. Doing so will:
