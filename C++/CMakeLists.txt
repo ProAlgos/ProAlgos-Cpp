@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 include_directories(include)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Wextra -pedantic-errors")
+set(CMAKE_CXX_FLAGS "-g -O0 -Wall -pedantic-errors")
 
 # Test runner
 add_library(test_runner STATIC
@@ -183,3 +183,12 @@ target_link_libraries(disjoint_set test_runner)
 add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
+
+# ----
+# Heap
+# ----
+
+# Binary search tree
+add_executable(min_heap
+        test/data_structure/heap/min_heap.cpp)
+target_link_libraries(min_heap test_runner)
