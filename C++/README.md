@@ -51,6 +51,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp) :white_check_mark:
   * [Shell sort](source/sorting/shell_sort.cpp) :white_check_mark:
+  * [Bucket sort](source/sorting/bucket_sort.cpp) :white_check_mark:
 
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
