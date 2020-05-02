@@ -10,20 +10,23 @@
 #include "algorithm/sorting/quick_sort.hpp"
 #include "algorithm/sorting/selection_sort.hpp"
 #include "algorithm/sorting/shell_sort.hpp"
+#include "algorithm/sorting/bucket_sort.hpp"
 
 // Prototypes
 int generate_random_int(int, int);
 vector<int> generate_unsorted_vector(int max_size = 1000);
 
 // Pointer to function
-using sorting_function = void(*)(vector<int>&, int, bool);
+using SortingFunction = void(*)(vector<int>&, int, bool);
+
+SortingFunction bucket_insertion = bucket_sort<insertion_sort>;
 
 // Constant value
 const int TIMES_TO_RUN = 20;
 
 TEST_CASE("Sort in ascending order", "[sorting]") {
     // Sorting algorithms
-    vector<sorting_function> sorting_functions = {
+    vector<SortingFunction> sorting_functions = {
         bubble_sort,
         comb_sort,
         counting_sort,
@@ -32,7 +35,8 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
         merge_sort,
         quick_sort,
         selection_sort,
-        shell_sort
+        shell_sort,
+        bucket_insertion
     };
 
     vector<int> original, algo_sorted, std_sorted;
@@ -53,7 +57,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
 
 TEST_CASE("Sort in descending order", "[sorting]") {
     // Sorting algorithms
-    vector<sorting_function> sorting_functions = {
+    vector<SortingFunction> sorting_functions = {
         bubble_sort,
         comb_sort,
         counting_sort,
@@ -62,7 +66,8 @@ TEST_CASE("Sort in descending order", "[sorting]") {
         merge_sort,
         quick_sort,
         selection_sort,
-        shell_sort
+        shell_sort,
+        bucket_insertion
     };
 
     vector<int> original, algo_sorted, std_sorted;
