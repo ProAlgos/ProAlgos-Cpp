@@ -24,7 +24,6 @@
 #include <vector>
 #include <list>
 #include "utils.hpp"
-#include <algorithm>
 
 using std::vector;
 using std::list;
@@ -58,13 +57,15 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
     for(float i : values) { 
         if(i > 0) {
 
-            //as the bucket index grows, elements get larger 
-            positive_buckets[(positive_buckets.size() * i / max_value) - 1].push_back(i);
+            //as the bucket index grows, elements get larger
+            float bucket_index = (positive_buckets.size() * i / max_value) - 1; 
+            positive_buckets[static_cast<int>(bucket_index)].push_back(i);
 
         } else if(i < 0) {
 
             //as the bucket index grows, elements get smaller
-            negative_buckets[(negative_buckets.size() * i / min_value) - 1].push_back(i);
+            float bucket_index = (negative_buckets.size() * i / min_value) - 1; 
+            negative_buckets[static_cast<int>(bucket_index)].push_back(i);
 
         } else {
 
