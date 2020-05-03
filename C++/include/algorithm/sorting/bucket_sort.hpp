@@ -38,8 +38,7 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
         return;
     }
 
-    int max_value = values[0];
-    int min_value = values[0];
+    auto max_value = values[0], min_value = values[0];
     int negative_count = 0, positive_count = 0;
 
     for(int i : values) {
@@ -50,10 +49,10 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
     }
 
     //The number of negative buckets will be the number of negative elements
-    vector<list<int>> negative_buckets(negative_count, list<int>());
+    vector<list<int>> negative_buckets(negative_count);
 
     //The number of positive buckets will be the number of positive elements
-    vector<list<int>> positive_buckets(positive_count, list<int>());
+    vector<list<int>> positive_buckets(positive_count);
 
     //Insert the items into their appropriate bucket
     for(float i : values) { 
@@ -61,6 +60,7 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
 
             //as the bucket index grows, elements get larger 
             positive_buckets[(positive_buckets.size() * i / max_value) - 1].push_back(i);
+
         } else if(i < 0) {
 
             //as the bucket index grows, elements get smaller
@@ -75,10 +75,11 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
 
     values.clear();
     
-    auto sort_buckets_and_insert = [&](auto it_start, auto it_end) {
+    auto sort_buckets_and_unify = [&](auto it_start, auto it_end) {
 
         for_each(it_start, it_end,[&](auto bucket) {
 
+            //Sort each bucket individually using the internal sorting algo
             vector<int> sorted(bucket.size());
             sorted.assign(begin(bucket), end(bucket));
             sort(sorted, order, false);
@@ -96,15 +97,15 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
 
         //1 means ascending, so we should start from the smallest negative
         //element and end with the largest positive element
-        sort_buckets_and_insert(rbegin(negative_buckets), rend(negative_buckets));
-        sort_buckets_and_insert(begin(positive_buckets), end(positive_buckets));
-        
+        sort_buckets_and_unify(rbegin(negative_buckets), rend(negative_buckets));
+        sort_buckets_and_unify(begin(positive_buckets), end(positive_buckets));
+
     } else {
 
         //-1 means descending, so we should start from the largest positive
         //element and end with the smallest negative element
-        sort_buckets_and_insert(rbegin(positive_buckets), rend(positive_buckets));
-        sort_buckets_and_insert(begin(negative_buckets), end(negative_buckets));
+        sort_buckets_and_unify(rbegin(positive_buckets), rend(positive_buckets));
+        sort_buckets_and_unify(begin(negative_buckets), end(negative_buckets));
     }
 }
 
