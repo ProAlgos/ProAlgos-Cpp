@@ -30,7 +30,7 @@
    git remote add upstream https://github.com/faheel/Algos.git
    ```
 
-* If you cloned a while ago, get the latest changes from upstream:
+* If you cloned a while ago, get the latest changes from upstream (please note the identification of the master branch, not the reorganise branch):
 
    ```bash
    git checkout master
@@ -38,7 +38,7 @@
    ```
 
 * Create a new branch (from the `master` branch) to contain your code for a
-   specific algorithm or data structure:
+   specific algorithm or data structure (again, please note the use of the master branch, not the reorganise branch):
 
    ```bash
    git checkout -b <branch-name>
