@@ -37,8 +37,7 @@
    git pull upstream master
    ```
 
-* Create a new branch (from the `master` branch) to contain your code for a
-   specific algorithm or data structure:
+* Create a new branch (from the `master` branch) to contain your code for a specific algorithm or data structure:
 
    ```bash
    git checkout -b <branch-name>
@@ -46,8 +45,8 @@
 
 ## Writing code
 
-* Commit your changes in logical chunks. Use Git's [interactive rebase][rebase-guide]
-  feature to tidy up your commits before making them public.
+* Commit your changes in logical chunks. Use Git's [interactive rebase][rebase-info]
+  feature to tidy up your commits before making them public. For more info, see the following [interactive rebase guide][rebase-guide].
 
 * For each algorithm, mention its **time complexity** and **space complexity**
   in the _"description comment"_ of its implementation. In case the average-case
@@ -106,6 +105,7 @@ Follow these steps when you're ready to submit your code:
 This project has a [Code of Conduct](CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
 [fork-guide]: https://help.github.com/fork-a-repo/
-[rebase-guide]: https://help.github.com/articles/interactive-rebase
+[rebase-info]: https://help.github.com/en/github/using-git/about-git-rebase
+[rebase-guide]: https://hackernoon.com/beginners-guide-to-interactive-rebasing-346a3f9c3a6d
 [pr-guide]: https://help.github.com/articles/about-pull-requests/
 [issue-guide]: https://help.github.com/en/articles/about-issues
