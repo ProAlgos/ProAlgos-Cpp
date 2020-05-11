@@ -14,6 +14,6 @@
 
 
 
-[contrib-guidelines]: https://github.com/faheel/Algos/blob/master/CONTRIBUTING.md
-[unit-tests]: https://github.com/faheel/Algos/blob/master/C%2B%2B/UNIT_TESTS.md
-[contents]: https://github.com/faheel/Algos/tree/master/C%2B%2B#contents
+[contrib-guidelines]: https://github.com/ProAlgos/ProAlgos-Cpp/blob/master/.github/CONTRIBUTING.md
+[unit-tests]: https://github.com/ProAlgos/ProAlgos-Cpp/blob/master/C++/CONTRIBUTING.md#unit-tests
+[contents]: https://github.com/ProAlgos/ProAlgos-Cpp/tree/master/C%2B%2B#contents

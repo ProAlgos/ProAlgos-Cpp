@@ -25,7 +25,7 @@
    # Clone your fork of the repo into the current directory
    git clone https://github.com/<your-username>/ProAlgos-Cpp.git
    # Navigate to the newly cloned directory
-   cd Algos
+   cd ProAlgos-Cpp
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/ProAlgos/ProAlgos-Cpp.git
    ```
