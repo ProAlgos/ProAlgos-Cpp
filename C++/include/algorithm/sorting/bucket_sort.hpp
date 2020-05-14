@@ -23,14 +23,19 @@
 
 #include <vector>
 #include <list>
+#include <algorithm>
 #include "utils.hpp"
 
 using std::vector;
 using std::list;
+using std::sort;
 
 using SortingFunction = void(*)(vector<int>&, int, bool);
 
-template<SortingFunction sort>
+//Bucket sort uses another internal sorting algorithm
+void internal_sort(vector<int>& values, const int order, const bool to_show_state);
+
+template<SortingFunction sort=internal_sort>
 void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_state = false) {
 
     if(values.empty()) {
@@ -107,6 +112,18 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
         //element and end with the smallest negative element
         sort_buckets_and_unify(rbegin(positive_buckets), rend(positive_buckets));
         sort_buckets_and_unify(begin(negative_buckets), end(negative_buckets));
+    }
+}
+
+void internal_sort(vector<int>& values, const int order = 1, const bool to_show_state = false){
+
+    //Suppress unused parameter warning
+    (void)to_show_state;
+
+    if(order == 1){
+        sort(begin(values), end(values), std::less<int>());
+    } else {
+        sort(begin(values), end(values), std::greater<int>());
     }
 }
 

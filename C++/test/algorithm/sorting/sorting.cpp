@@ -17,16 +17,14 @@ int generate_random_int(int, int);
 vector<int> generate_unsorted_vector(int max_size = 1000);
 
 // Pointer to function
-using SortingFunction = void(*)(vector<int>&, int, bool);
-
-SortingFunction bucket_insertion = bucket_sort<insertion_sort>;
+using sorting_function = void(*)(vector<int>&, int, bool);
 
 // Constant value
 const int TIMES_TO_RUN = 20;
 
 TEST_CASE("Sort in ascending order", "[sorting]") {
     // Sorting algorithms
-    vector<SortingFunction> sorting_functions = {
+    vector<sorting_function> sorting_functions = {
         bubble_sort,
         comb_sort,
         counting_sort,
@@ -36,7 +34,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
         quick_sort,
         selection_sort,
         shell_sort,
-        bucket_insertion
+        bucket_sort
     };
 
     vector<int> original, algo_sorted, std_sorted;
@@ -57,7 +55,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
 
 TEST_CASE("Sort in descending order", "[sorting]") {
     // Sorting algorithms
-    vector<SortingFunction> sorting_functions = {
+    vector<sorting_function> sorting_functions = {
         bubble_sort,
         comb_sort,
         counting_sort,
@@ -67,7 +65,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
         quick_sort,
         selection_sort,
         shell_sort,
-        bucket_insertion
+        bucket_sort
     };
 
     vector<int> original, algo_sorted, std_sorted;
