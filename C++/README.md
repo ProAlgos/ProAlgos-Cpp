@@ -11,13 +11,13 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 ### Algorithms
 
 * Backtracking
-  * [N-Queens](include/algorithms/backtracking/n_queens.hpp)
+  * [N-Queens](include/algorithm/backtracking/n_queens.hpp)
   
 * Dynamic programming
   * [0-1 knapsack](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * [Coin change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
-  * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
-  * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
+  * [Longest decreasing subsequence](include/algorithm/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
+  * [Matrix chain multiplication](include/algorithm/dynamic_programming/matrix_chain_multiplication.hpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
   * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
@@ -36,9 +36,9 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
     * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
   
 * Searching
-  * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
-  * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
-  * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
+  * [Binary search](include/algorithm/searching/binary_search.hpp) :white_check_mark:
+  * [Linear search](include/algorithm/searching/linear_search.hpp) :white_check_mark:
+  * [Ternary search](include/algorithm/searching/ternary_search.hpp) :white_check_mark:
   
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp) :white_check_mark:

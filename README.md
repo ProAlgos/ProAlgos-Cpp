@@ -38,7 +38,7 @@ This repo is actively maintained by [@alxmjo](https://github.com/alxmjo), and in
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).
 
-[travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
-[travis-link]: https://travis-ci.org/faheel/Algos
+[travis-shield]: https://img.shields.io/travis/ProAlgos/ProAlgos-Cpp.svg?style=for-the-badge
+[travis-link]: https://travis-ci.org/ProAlgos/ProAlgos-Cpp
 [contrib-guide]: .github/CONTRIBUTING.md
 [up-for-grabs]: https://github.com/faheel/Algos/labels/Up%20for%20grabs
