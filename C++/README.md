@@ -42,6 +42,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   
 * Sorting
   * [Bubble sort](source/sorting/bubble_sort.cpp) :white_check_mark:
+  * [Bucket sort](source/sorting/bucket_sort.cpp) :white_check_mark:
   * [Comb sort](source/include/sorting/comb_sort.hpp) :white_check_mark:
   * [Counting sort (stable)](source/sorting/counting_sort.cpp) :white_check_mark:
   * [Heap sort](source/sorting/heap_sort.cpp) :white_check_mark:
@@ -51,7 +52,6 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Radix sort](source/sorting/radix_sort.cpp)
   * [Selection sort](source/sorting/selection_sort.cpp) :white_check_mark:
   * [Shell sort](source/sorting/shell_sort.cpp) :white_check_mark:
-  * [Bucket sort](source/sorting/bucket_sort.cpp) :white_check_mark:
 
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:

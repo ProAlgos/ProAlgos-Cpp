@@ -26,6 +26,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
     // Sorting algorithms
     vector<sorting_function> sorting_functions = {
         bubble_sort,
+        bucket_sort,
         comb_sort,
         counting_sort,
         heap_sort,
@@ -33,8 +34,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
         merge_sort,
         quick_sort,
         selection_sort,
-        shell_sort,
-        bucket_sort
+        shell_sort
     };
 
     vector<int> original, algo_sorted, std_sorted;
@@ -57,6 +57,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
     // Sorting algorithms
     vector<sorting_function> sorting_functions = {
         bubble_sort,
+        bucket_sort,
         comb_sort,
         counting_sort,
         heap_sort,
@@ -64,8 +65,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
         merge_sort,
         quick_sort,
         selection_sort,
-        shell_sort,
-        bucket_sort
+        shell_sort
     };
 
     vector<int> original, algo_sorted, std_sorted;
