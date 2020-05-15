@@ -27,7 +27,7 @@ guidelines][contrib-guide], so be sure to check them out.
 
 #### Just want to suggest a new algorithm or report a bug? 
 
-[Create a new issue](https://github.com/faheel/Algos/issues/new) and we'll
+[Create a new issue](https://github.com/ProAlgos/ProAlgos-Cpp/issues/new) and we'll
 handle it from there. :smile:
 
 ## Maintainers
@@ -41,4 +41,4 @@ This project is licensed under the terms of the [MIT license](LICENSE.md).
 [travis-shield]: https://img.shields.io/travis/ProAlgos/ProAlgos-Cpp.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/ProAlgos/ProAlgos-Cpp
 [contrib-guide]: .github/CONTRIBUTING.md
-[up-for-grabs]: https://github.com/faheel/Algos/labels/Up%20for%20grabs
+[up-for-grabs]: https://github.com/ProAlgos/ProAlgos-Cpp/labels/Up%20for%20grabs

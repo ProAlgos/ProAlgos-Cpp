@@ -66,4 +66,4 @@ only a specific test and see its results, run it manually from the `bin` directo
 [contrib-guide]: .github/CONTRIBUTING.md
 [catch]: https://github.com/catchorg/Catch2
 [catch-tutorial]: https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md#writing-tests
-[unit-tests]: https://github.com/faheel/Algos/tree/master/C%2B%2B/test
+[unit-tests]: https://github.com/ProAlgos/ProAlgos-Cpp/tree/master/C%2B%2B/test

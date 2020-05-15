@@ -101,5 +101,5 @@ If you want to contribute an algorithm or data structure in C++, please have a l
 Following the guidelines laid out in these documents will ensure that your code conforms to the standards and style 
 of the project.
 
-[travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
-[travis-link]: https://travis-ci.org/faheel/Algos
+[travis-shield]: https://img.shields.io/travis/ProAlgos/ProAlgos-Cpp.svg?style=for-the-badge
+[travis-link]: https://travis-ci.org/ProAlgos/ProAlgos-Cpp
