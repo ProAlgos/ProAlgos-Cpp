@@ -3,7 +3,9 @@
     ----------------------
     Bucket sort, or bin sort, is an integer sorting algorithm that works by
     distributing the elements of an array into a number of buckets. Each 
-    is then sorted individually using a different sorting algorithm.
+    is then sorted individually using a different sorting algorithm. 
+    Insertion sort is used in this implementation, but other sorting 
+    algorithms can be used, too.
 
     This is a linear sorting algorithm for evenly distributed items.
 
@@ -73,7 +75,9 @@ void bucket_sort(vector<int>& values, const int order = 1, const bool to_show_st
     
     auto sort_buckets_and_unify = [&](auto it_start, auto it_end) {
         for_each(it_start, it_end,[&](auto bucket) {
+            
             // Sort each bucket individually using internal file insertion_sort.hpp
+            // Note that other sorting algorithms can also be used
             vector<int> sorted(bucket.size());
             sorted.assign(begin(bucket), end(bucket));
             insertion_sort(sorted, order, false);
