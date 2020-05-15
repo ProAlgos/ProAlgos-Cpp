@@ -2,6 +2,7 @@
 #include <limits>
 #include "third_party/catch.hpp"
 #include "algorithm/sorting/bubble_sort.hpp"
+#include "algorithm/sorting/bucket_sort.hpp"
 #include "algorithm/sorting/comb_sort.hpp"
 #include "algorithm/sorting/counting_sort.hpp"
 #include "algorithm/sorting/heap_sort.hpp"
@@ -10,7 +11,6 @@
 #include "algorithm/sorting/quick_sort.hpp"
 #include "algorithm/sorting/selection_sort.hpp"
 #include "algorithm/sorting/shell_sort.hpp"
-#include "algorithm/sorting/bucket_sort.hpp"
 
 // Prototypes
 int generate_random_int(int, int);
