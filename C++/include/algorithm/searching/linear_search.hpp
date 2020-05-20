@@ -22,16 +22,17 @@
     linear_search
     -------------
     Returns the index where a given element is found in an array. If the
-    element is not found, it returns -1.
+    element is not found, it returns index of element one past last one.
+    same as c++ iterator end style.
 */
 
 template <typename T>
-int linear_search(const T& element, const std::vector<T>& values) {
+size_t linear_search(const T& element, const std::vector<T>& values) {
     for (size_t i = 0; i < values.size(); i++)
         if (values[i] == element)   // it's a match!
             return i;       // return the index at which it was found
 
-    return -1;  // no match is found
+    return values.size();  // no match is found
 }
 
 #endif // LINEAR_SEARCH_HPP
