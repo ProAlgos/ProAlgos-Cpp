@@ -11,8 +11,8 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 ### Algorithms
 
 * Backtracking
-  * [N-Queens](include/algorithm/backtracking/n_queens.hpp)
-  
+  * [N-Queens](include/algorithms/backtracking/n_queens.hpp) :white_check_mark:
+
 * Dynamic programming
   * [0-1 knapsack](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
   * [Coin change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
