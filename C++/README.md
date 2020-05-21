@@ -12,11 +12,16 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 
 * Backtracking
   * [N-Queens](include/algorithms/backtracking/n_queens.hpp) :white_check_mark:
+
 * Dynamic programming
-  * [Longest decreasing subsequence](source/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
-  * [Matrix chain multiplication](source/dynamic_programming/matrix_chain_mult.cpp) :white_check_mark:
-  * [0-1 Knapsack Problem](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [0-1 knapsack](include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [Coin change](include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
+  * [Longest decreasing subsequence](include/algorithm/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
+  * [Matrix chain multiplication](include/algorithm/dynamic_programming/matrix_chain_multiplication.hpp) :white_check_mark:
   * Maximum sum contiguous subarray: [Kadane's algorithm](include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
+  * [Rod cutting](include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
+  * [Weighted activity selection](include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
+
 * Number theory
   * [Binomial coefficient](include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms
@@ -29,33 +34,41 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
+  
 * Searching
-  * [Binary search](include/algorithms/searching/binary_search.hpp) :white_check_mark:
-  * [Linear search](include/algorithms/searching/linear_search.hpp) :white_check_mark:
-  * [Ternary search](include/algorithms/searching/ternary_search.hpp) :white_check_mark:
+  * [Binary search](include/algorithm/searching/binary_search.hpp) :white_check_mark:
+  * [Linear search](include/algorithm/searching/linear_search.hpp) :white_check_mark:
+  * [Ternary search](include/algorithm/searching/ternary_search.hpp) :white_check_mark:
+  
 * Sorting
-  * [Bubble sort](include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:
-  * [Counting sort (stable)](include/algorithm/sorting/counting_sort.hpp) :white_check_mark:
-  * [Heap sort](include/algorithm/sorting/heap_sort.hpp) :white_check_mark:
-  * [Insertion sort](include/algorithm/sorting/insertion_sort.hpp) :white_check_mark:
-  * [Merge sort](include/algorithm/sorting/merge_sort.hpp) :white_check_mark:
-  * [Quick sort](include/algorithm/sorting/quick_sort.hpp) :white_check_mark:
-  * [Radix sort](include/algorithm/sorting/radix_sort.hpp)
-  * [Selection sort](include/algorithm/sorting/selection_sort.hpp) :white_check_mark:
-  * [Shell sort](include/algorithm/sorting/shell_sort.hpp) :white_check_mark:
+  * [Bubble sort](source/sorting/bubble_sort.cpp) :white_check_mark:
+  * [Bucket sort](source/sorting/bucket_sort.cpp) :white_check_mark:
+  * [Comb sort](source/include/sorting/comb_sort.hpp) :white_check_mark:
+  * [Counting sort (stable)](source/sorting/counting_sort.cpp) :white_check_mark:
+  * [Heap sort](source/sorting/heap_sort.cpp) :white_check_mark:
+  * [Insertion sort](source/sorting/insertion_sort.cpp) :white_check_mark:
+  * [Merge sort](source/sorting/merge_sort.cpp) :white_check_mark:
+  * [Quick sort](source/sorting/quick_sort.cpp) :white_check_mark:
+  * [Radix sort](source/sorting/radix_sort.cpp)
+  * [Selection sort](source/sorting/selection_sort.cpp) :white_check_mark:
+  * [Shell sort](source/sorting/shell_sort.cpp) :white_check_mark:
+
 * String
   * [Longest common subsequence](include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
     * [Knuth-Morris-Pratt](include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
   * [Edit Distance Problem](include/algorithm/string/edit_distance.hpp) :white_check_mark:
+  * [Shunting yard](include/algorithm/string/shunting_yard.hpp) :white_check_mark:
 
 ### Data structures
 
 * Linked List
   * [Singly linked list](include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
   * [Doubly linked list](include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
+  
 * Set
   * [Disjoint-set](include/data_structure/set/disjoint_set.hpp) :white_check_mark:
+  
 * Tree
   * [Binary search tree](include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 
@@ -88,5 +101,5 @@ If you want to contribute an algorithm or data structure in C++, please have a l
 Following the guidelines laid out in these documents will ensure that your code conforms to the standards and style 
 of the project.
 
-[travis-shield]: https://img.shields.io/travis/faheel/Algos.svg?style=for-the-badge
-[travis-link]: https://travis-ci.org/faheel/Algos
+[travis-shield]: https://img.shields.io/travis/ProAlgos/ProAlgos-Cpp.svg?style=for-the-badge
+[travis-link]: https://travis-ci.org/ProAlgos/ProAlgos-Cpp

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-project(Algos)
+project(ProAlgos-Cpp)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -42,10 +42,25 @@ add_executable(0_1_knapsack
         test/algorithm/dynamic_programming/0_1_knapsack.cpp)
 target_link_libraries(0_1_knapsack test_runner)
 
+# Coin change
+add_executable(coin_change
+        test/algorithm/dynamic_programming/coin_change.cpp)
+target_link_libraries(coin_change test_runner)
+
 # Kadane's
 add_executable(kadane
         test/algorithm/dynamic_programming/kadane.cpp)
 target_link_libraries(kadane test_runner)
+
+# Rod cutting
+add_executable(rod_cutting
+        test/algorithm/dynamic_programming/rod_cutting.cpp)
+target_link_libraries(rod_cutting test_runner)
+
+# Weighted activity selection
+add_executable(weighted_activity_selection
+        test/algorithm/dynamic_programming/weighted_activity_selection.cpp)
+target_link_libraries(weighted_activity_selection test_runner)
 
 # -------------
 # Number theory
@@ -136,6 +151,11 @@ target_link_libraries(longest_common_subsequence test_runner)
 add_executable(knuth_morris_pratt
         test/algorithm/string/knuth_morris_pratt.cpp)
 target_link_libraries(knuth_morris_pratt test_runner)
+
+# Shunting yard
+add_executable(shunting_yard
+        test/algorithm/string/shunting_yard.cpp)
+target_link_libraries(shunting_yard test_runner)
 
 # ============================================================================
 # Data structures
