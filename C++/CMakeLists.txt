@@ -142,25 +142,25 @@ add_executable(edit_distance
         test/algorithm/string/edit_distance.cpp)
 target_link_libraries(edit_distance test_runner)
 
-# Longest common subsequence
-add_executable(longest_common_subsequence
-        test/algorithm/string/longest_common_subsequence.cpp)
-target_link_libraries(longest_common_subsequence test_runner)
+# Heap's Algorithm
+add_executable(heaps_algorithm
+        test/algorithm/string/heaps_algorithm.cpp)
+target_link_libraries(heaps_algorithm test_runner)
 
 # Knuth-Morris-Pratt
 add_executable(knuth_morris_pratt
         test/algorithm/string/knuth_morris_pratt.cpp)
 target_link_libraries(knuth_morris_pratt test_runner)
 
+# Longest common subsequence
+add_executable(longest_common_subsequence
+        test/algorithm/string/longest_common_subsequence.cpp)
+target_link_libraries(longest_common_subsequence test_runner)
+
 # Shunting yard
 add_executable(shunting_yard
         test/algorithm/string/shunting_yard.cpp)
 target_link_libraries(shunting_yard test_runner)
-
-# Heap's Algorithm
-add_executable(heaps_algorithm
-        test/algorithm/string/heaps_algorithm.cpp)
-target_link_libraries(heaps_algorithm test_runner)
 
 # ============================================================================
 # Data structures
