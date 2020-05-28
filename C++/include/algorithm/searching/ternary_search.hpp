@@ -88,11 +88,21 @@ template <typename F, typename T,
           std::enable_if_t<std::is_integral<T>::value, int> = 0>
 T ternary_search(F f, T start, T end, const Pattern& pattern) {
     T start_third, end_third;
+
+    // Shrink the search range by a third of the size at every iteration until
+    // the distance between start and end is below 3.
     while ((end - start) > 2) {
+        // Compute the points at one third and two thirds of the distance from start and end
         start_third = start + (end - start) / 3;
         end_third = end - (end - start) / 3;
 
         const bool end_bigger =  f(start_third) < f(end_third);
+        // If the function is ascending then descending then if f(end_third) is bigger then f(start_third)
+        // that means that the maximum of the function cannot be between start and start_third and thus
+        // the search range can be reduced to start_third and end; if f(start_third) is bigger then the
+        // that the maximum of the function cannot be between end_third and end and thus
+        // the search range can be reduced to start and end_third
+        // The behavior is reversed for a function descending and then ascending
         if ((ASCEND_THEN_DESCEND == pattern && end_bigger)
             || (DESCEND_THEN_ASCEND == pattern && !end_bigger)) {
             start = start_third;
@@ -102,9 +112,12 @@ T ternary_search(F f, T start, T end, const Pattern& pattern) {
         }
     }
 
+    // If start is equal to end, the extremum index was found
     if (start == end) {
         return start;
     }
+
+    // Iterate through the shrank search range to find the extrema and their indexes
     auto max_value = f(end);
     auto min_value = f(end);
     T max_x = end;
@@ -120,6 +133,7 @@ T ternary_search(F f, T start, T end, const Pattern& pattern) {
             min_x = i;
         }
     }
+    // If the function is ascending then descending, the maximum index should be returned otherwise the minimum index
     return pattern == ASCEND_THEN_DESCEND ? max_x : min_x;
 }
 
@@ -137,11 +151,21 @@ template <typename F, typename T,
 T ternary_search(F f, T start, T end, const Pattern& pattern, const T abs_precision) {
     T start_third, end_third;
     bool changed = true;
+    // Shrink the search range by a third of the size at every iteration until
+    // the distance between start and end is below the desired_absolute precision
+    // or the search range does not change anymore
     while (((end - start) > abs_precision) && changed) {
+        // Compute the points at one third and two thirds of the distance from start and end
         start_third = start + (end - start) / 3.0;
         end_third = end - (end - start) / 3.0;
 
         const bool end_bigger =  f(start_third) < f(end_third);
+        // If the function is ascending then descending then if f(end_third) is bigger then f(start_third)
+        // that means that the maximum of the function cannot be between start and start_third and thus
+        // the search range can be reduced to start_third and end; if f(start_third) is bigger then the
+        // that the maximum of the function cannot be between end_third and end and thus
+        // the search range can be reduced to start and end_third
+        // The behavior is reversed for a function descending and then ascending
         if ((ASCEND_THEN_DESCEND == pattern && end_bigger)
             || (DESCEND_THEN_ASCEND == pattern && !end_bigger)) {
             changed = (start != start_third);
@@ -153,6 +177,7 @@ T ternary_search(F f, T start, T end, const Pattern& pattern, const T abs_precis
         }
     }
 
+    // returns the midpoint of the extrema index result range
     return (start + end) / 2.0;
 }
 

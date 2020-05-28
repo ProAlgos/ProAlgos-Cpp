@@ -1,5 +1,4 @@
-#include <algorithm>
-#include <math.h>
+#include <cmath>
 
 #include "third_party/catch.hpp"
 #include "algorithm/searching/ternary_search.hpp"
@@ -88,21 +87,25 @@ TEST_CASE("Base cases", "[searching][ternary_search]") {
     REQUIRE(ternary_search(vector<int>({4, 5}), ASCEND_THEN_DESCEND) == 1);
     REQUIRE(ternary_search(vector<int>({4, 5}), DESCEND_THEN_ASCEND) == 0);
 
+    // Testing ternary search for integer range and ascending then descending functions
     REQUIRE(ternary_search(&ascending_descending_func_int, 2, 2, ASCEND_THEN_DESCEND) == 2);
     REQUIRE(ternary_search(&ascending_descending_func_int, 2, 3, ASCEND_THEN_DESCEND) == 2);
     REQUIRE(ternary_search([](int x){return -(x - 2) * (x - 2);}, 1, 2, ASCEND_THEN_DESCEND) == 2);
     REQUIRE(ternary_search([](int x){return -(x - 2) * (x - 2);}, -4, -3, ASCEND_THEN_DESCEND) == -3);
 
+    // Testing ternary search for integer range and descending then ascending functions
     REQUIRE(ternary_search(&descending_ascending_func_int, 5, 5, DESCEND_THEN_ASCEND) == 5);
     REQUIRE(ternary_search(&descending_ascending_func_int, 5, 6, DESCEND_THEN_ASCEND) == 5);
     REQUIRE(ternary_search([](int x){return (x - 5) * (x - 5) * (x - 5) * (x - 5);}, 4, 5, DESCEND_THEN_ASCEND) == 5);
     REQUIRE(ternary_search([](int x){return (x - 5) * (x - 5) * (x - 5) * (x - 5);}, 12, 13, DESCEND_THEN_ASCEND) == 12);
 
+    // Testing ternary search for float range and ascending then descending functions
     REQUIRE(ternary_search(&ascending_descending_func_float, 9.0, 9.0, ASCEND_THEN_DESCEND, 10e-9) == Approx(9.0));
     REQUIRE(ternary_search(&ascending_descending_func_float, 8.0, 9.0, ASCEND_THEN_DESCEND, 10e-9) == Approx(9.0));
     REQUIRE(ternary_search([](float x){return -(x - 9.0f) * (x - 9.0f);}, 9.0, 10.0, ASCEND_THEN_DESCEND, 10e-9) == Approx(9.0));
     REQUIRE(ternary_search([](float x){return -(x - 9.0f) * (x - 9.0f);}, -4.0, -3.0, ASCEND_THEN_DESCEND, 10e-9) == Approx(-3.0));
 
+    // Testing ternary search for float range and descending then ascending functions
     REQUIRE(ternary_search(&descending_ascending_func_float, 0.5, 0.5, DESCEND_THEN_ASCEND, 10e-9) == Approx(0.5));
     REQUIRE(ternary_search(&descending_ascending_func_float, 0.4, 0.5, DESCEND_THEN_ASCEND, 10e-9) == Approx(0.5));
     REQUIRE(ternary_search([](float x){return (x - 0.5f) * (x - 0.5f) * (x - 0.5f) * (x - 0.5f);}, 0.5, 0.6, DESCEND_THEN_ASCEND, 10e-9) == Approx(0.5));
