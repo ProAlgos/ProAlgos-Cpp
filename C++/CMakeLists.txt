@@ -157,6 +157,11 @@ add_executable(shunting_yard
         test/algorithm/string/shunting_yard.cpp)
 target_link_libraries(shunting_yard test_runner)
 
+# Heap's Algorithm
+add_executable(heaps_algorithm
+        test/algorithm/string/heaps_algorithm.cpp)
+target_link_libraries(heaps_algorithm test_runner)
+
 # ============================================================================
 # Data structures
 # ============================================================================
