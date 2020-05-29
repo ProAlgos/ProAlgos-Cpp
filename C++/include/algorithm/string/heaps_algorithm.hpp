@@ -27,7 +27,7 @@ using std::swap;
 
 vector<string> heaps_algorithm(unsigned int number_of_elements, string& collection, vector<string>& permutations) {   
     
-    if (number_of_elements == 1 || collection == "") {
+    if (number_of_elements == 1 || collection.empty()) {
         permutations.push_back(collection);
     }
     
@@ -39,7 +39,7 @@ vector<string> heaps_algorithm(unsigned int number_of_elements, string& collecti
 
         /* Generate permutations where the i-th element is swapped
          * with each i-1 initial elements */
-        for (int i = 0; i < number_of_elements - 1; i++) { 
+        for (unsigned int i = 0; i < number_of_elements - 1; i++) {
             
             /* The swap choice depends on the parity of 
              * number_of_elements within each recursive call */
