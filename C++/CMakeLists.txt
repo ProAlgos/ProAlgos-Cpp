@@ -23,7 +23,7 @@ add_library(test_runner STATIC
 # Backtracking
 # -------------------
 
-# N-Queens
+# N-queens
 add_executable(n_queens
         test/algorithm/backtracking/n_queens.cpp)
 target_link_libraries(n_queens test_runner)
@@ -129,6 +129,7 @@ target_link_libraries(ternary_search test_runner)
 # Sorting
 # -------
 
+# Common sorting
 add_executable(sorting
         test/algorithm/sorting/sorting.cpp)
 target_link_libraries(sorting test_runner)
@@ -137,12 +138,12 @@ target_link_libraries(sorting test_runner)
 # String
 # ------
 
-# Edit distance Problem
+# Edit distance
 add_executable(edit_distance
         test/algorithm/string/edit_distance.cpp)
 target_link_libraries(edit_distance test_runner)
 
-# Heap's Algorithm
+# Heap's
 add_executable(heaps_algorithm
         test/algorithm/string/heaps_algorithm.cpp)
 target_link_libraries(heaps_algorithm test_runner)
