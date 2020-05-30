@@ -45,29 +45,31 @@ TEST_CASE("long cases", "[string][heaps_algorithm]") {
     REQUIRE(heaps_algorithm(s.length(), s, output_6) == permutations);
 
     vector<string> output_7;
-        s = "algos";
-        permutations = {"algos", "lagos", "galos", "aglos", "lgaos",
-                        "glaos", "olags", "loags", "aolgs", "oalgs",
-                        "laogs", "alogs", "agols", "gaols", "oagls", 
-                        "aogls", "goals", "ogals", "oglas", "golas",
-                        "logas", "olgas", "gloas", "lgoas", "sgoal",
-                        "gsoal", "osgal", "sogal", "gosal", "ogsal",
-                        "agsol", "gasol", "sagol", "asgol", "gsaol",
-                        "sgaol", "soagl", "osagl", "asogl", "saogl",
-                        "oasgl", "aosgl", "aogsl", "oagsl", "gaosl",
-                        "agosl", "ogasl", "goasl", "loasg", "olasg",
-                        "alosg", "laosg", "oalsg", "aolsg", "solag",
-                        "oslag", "lsoag", "sloag", "olsag", "losag",
-                        "lasog", "alsog", "slaog", "lsaog", "aslog",
-                        "salog", "saolg", "asolg", "osalg", "soalg",
-                        "aoslg", "oaslg", "gaslo", "agslo", "sgalo",
-                        "gsalo", "asglo", "saglo", "lagso", "algso",
-                        "glaso", "lgaso", "aglso", "galso", "gslao",
-                        "sglao", "lgsao", "glsao", "slgao", "lsgao",
-                        "lsago", "slago", "alsgo", "lasgo", "salgo",
-                        "aslgo", "oslga", "solga", "losga", "olsga",
-                        "sloga", "lsoga", "gsola", "sgola", "ogsla",
-                        "gosla", "sogla", "osgla", "olgsa", "logsa",
-                        "golsa", "oglsa", "lgosa", "glosa", "glsoa",
-                        "lgsoa", "sgloa", "gsloa", "lsgoa", "slgoa"};
+    s = "algos";
+    permutations = {"algos", "lagos", "galos", "aglos", "lgaos",
+                    "glaos", "olags", "loags", "aolgs", "oalgs",
+                    "laogs", "alogs", "agols", "gaols", "oagls", 
+                    "aogls", "goals", "ogals", "oglas", "golas",
+                    "logas", "olgas", "gloas", "lgoas", "sgoal",
+                    "gsoal", "osgal", "sogal", "gosal", "ogsal",
+                    "agsol", "gasol", "sagol", "asgol", "gsaol",
+                    "sgaol", "soagl", "osagl", "asogl", "saogl",
+                    "oasgl", "aosgl", "aogsl", "oagsl", "gaosl",
+                    "agosl", "ogasl", "goasl", "loasg", "olasg",
+                    "alosg", "laosg", "oalsg", "aolsg", "solag",
+                    "oslag", "lsoag", "sloag", "olsag", "losag",
+                    "lasog", "alsog", "slaog", "lsaog", "aslog",
+                    "salog", "saolg", "asolg", "osalg", "soalg",
+                    "aoslg", "oaslg", "gaslo", "agslo", "sgalo",
+                    "gsalo", "asglo", "saglo", "lagso", "algso",
+                    "glaso", "lgaso", "aglso", "galso", "gslao",
+                    "sglao", "lgsao", "glsao", "slgao", "lsgao",
+                    "lsago", "slago", "alsgo", "lasgo", "salgo",
+                    "aslgo", "oslga", "solga", "losga", "olsga",
+                    "sloga", "lsoga", "gsola", "sgola", "ogsla",
+                    "gosla", "sogla", "osgla", "olgsa", "logsa",
+                    "golsa", "oglsa", "lgosa", "glosa", "glsoa",
+                    "lgsoa", "sgloa", "gsloa", "lsgoa", "slgoa"};
+
+    REQUIRE(heaps_algorithm(s.length(), s, output_7) == permutations);
 }
