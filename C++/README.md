@@ -76,8 +76,8 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
 
 ## Compiling
 
-To compile the source files, run **`make`** from the `C++` directory. Doing so will create executable binaries in 
-sub-directories under the `bin` directory.
+To compile the source files, run **`make`** from the `C++` directory. Doing so will create executable binaries in the 
+`bin` directory.
 
 To compile and run all tests, run **`make test`**. This will compile all the tests (in the same way as described above) 
 and will run them, displaying the results. 
