@@ -42,6 +42,8 @@
 
 ## Writing code
 
+* Start by reviewing our [C++ coding guidelines][coding-guidelines].
+
 * Commit your changes in logical chunks. Use Git's [interactive rebase][rebase-info]
   feature to tidy up your commits before making them public. For more info, see the following [interactive rebase guide][rebase-guide].
 
@@ -142,6 +144,7 @@ Follow these steps when you're ready to submit your code:
 
 This project has a [Code of Conduct](CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
 
+[coding-guidelines]: ../C++/CODING_GUIDELINES.md
 [fork-guide]: https://help.github.com/fork-a-repo/
 [rebase-info]: https://help.github.com/en/github/using-git/about-git-rebase
 [rebase-guide]: https://hackernoon.com/beginners-guide-to-interactive-rebasing-346a3f9c3a6d
