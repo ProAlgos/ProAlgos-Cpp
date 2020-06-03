@@ -134,5 +134,5 @@ This project is licensed under the terms of the [MIT license](LICENSE.md).
 
 [travis-shield]: https://img.shields.io/travis/ProAlgos/ProAlgos-Cpp.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/ProAlgos/ProAlgos-Cpp
-[contrib-guide]: .github/CONTRIBUTING.md
+[contrib-guide]: CONTRIBUTING.md
 [up-for-grabs]: https://github.com/ProAlgos/ProAlgos-Cpp/labels/Up%20for%20grabs
