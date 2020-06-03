@@ -1,14 +1,19 @@
-# Algos
+# Algos: C++
 
 [![Travis status][travis-shield]][travis-link]
-[![Gitter](https://img.shields.io/gitter/room/Algos/Algos.svg?style=for-the-badge)](https://gitter.im/Algos-f)
 
-Implementing well-known (and some rare) **algorithms and data structures**, while following **good software engineering practices** such as writing well-documented code, adhering to code guidelines, writing unit tests, reviewing each other's code, and ultimately learning to be better software developers.
+This project is focused on implementing **algorithms and data structures** in C++, while following **good software engineering practices**, such as: 
+
+- Writing well-documented code
+- Adhering to code guidelines
+- Writing and passing unit tests
+- Reviewing each other's code
 
 ## Goals
 
-1. Guide potential contributors on version control, unit testing, and algorithms.
-1. Add at least one algorithm every week.
+1. Implement algorithms and data structures
+1. Learn to be better software developers
+1. Guide one another on version control, unit testing, and algorithms
 
 ## How to get involved
 
@@ -25,7 +30,7 @@ There are a few ways to get involved.
 You can find more details regarding the steps above in the [contribution
 guidelines][contrib-guide], so be sure to check them out.
 
-#### Just want to suggest a new algorithm or report a bug? 
+#### Just want to suggest a new algorithm or report a bug?
 
 [Create a new issue](https://github.com/ProAlgos/ProAlgos-Cpp/issues/new) and we'll
 handle it from there. :smile:
@@ -121,7 +126,7 @@ on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manu
 
 ## Maintainers
 
-This repo is actively maintained by [@alxmjo](https://github.com/alxmjo), and inactively by [@faheel](https://github.com/faheel).
+This project is actively maintained by [@alxmjo](https://github.com/alxmjo), and inactively by [@faheel](https://github.com/faheel).
 
 ## License
 
