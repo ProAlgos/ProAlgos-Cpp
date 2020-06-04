@@ -19,7 +19,7 @@ private:
     
 public:
     Stack();
-    void push(T &item);
+    void push(const T &item);
     void pop();
     T top();
     int length();
@@ -36,7 +36,7 @@ Stack<T>::Stack() : size {0}, head {nullptr} {}
     Adds item to the top of the stack
  */
 template<class T>
-void Stack<T>::push(T &item) {
+void Stack<T>::push(const T &item) {
     Node<T> temp  = new Node<T>(item, head);
     head = temp;
     ++size;
