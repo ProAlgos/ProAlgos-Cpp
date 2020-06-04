@@ -119,6 +119,6 @@ before_install:
   - export CXX=${COMPILER}
 
 script:
-  - cd C++
+  - cd code
   - make
   - make test

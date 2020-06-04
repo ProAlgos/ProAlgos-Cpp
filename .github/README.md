@@ -42,68 +42,68 @@ handle it from there. :smile:
 ### Algorithms
 
 * Backtracking
-  * [N-Queens](../C++/include/algorithm/backtracking/n_queens.hpp) :white_check_mark:
+  * [N-Queens](../code/include/algorithm/backtracking/n_queens.hpp) :white_check_mark:
 
 * Dynamic programming
-  * [0-1 knapsack](../C++/include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
-  * [Coin change](../C++/include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
-  * [Longest decreasing subsequence](../C++/include/algorithm/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
-  * [Matrix chain multiplication](../C++/include/algorithm/dynamic_programming/matrix_chain_multiplication.hpp) :white_check_mark:
-  * Maximum sum contiguous subarray: [Kadane's algorithm](../C++/include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
-  * [Rod cutting](../C++/include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
-  * [Weighted activity selection](../C++/include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
+  * [0-1 knapsack](../code/include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
+  * [Coin change](../code/include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
+  * [Longest decreasing subsequence](../code/include/algorithm/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
+  * [Matrix chain multiplication](../code/include/algorithm/dynamic_programming/matrix_chain_multiplication.hpp) :white_check_mark:
+  * Maximum sum contiguous subarray: [Kadane's algorithm](../code/include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
+  * [Rod cutting](../code/include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
+  * [Weighted activity selection](../code/include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
 
 * Number theory
-  * [Binomial coefficient](../C++/include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
+  * [Binomial coefficient](../code/include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms
-    * [Greatest common divisor](../C++/include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
-    * [Extended Euclidean algorithm](../C++/include/algorithm/number_theory/extended_euclidean.hpp) (Bézout coefficients) :white_check_mark:
-  * [Fast exponentiation](../C++/include/algorithm/number_theory/fast_exponentiation.hpp) :white_check_mark:
+    * [Greatest common divisor](../code/include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
+    * [Extended Euclidean algorithm](../code/include/algorithm/number_theory/extended_euclidean.hpp) (Bézout coefficients) :white_check_mark:
+  * [Fast exponentiation](../code/include/algorithm/number_theory/fast_exponentiation.hpp) :white_check_mark:
   * Nth Fibonacci number
-    * [Linear time algorithm](../C++/include/algorithm/number_theory/fibonacci.hpp) :white_check_mark:
-    * [Logarithmic time algorithm](../C++/include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
-  * [Perfect number check](../C++/include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
+    * [Linear time algorithm](../code/include/algorithm/number_theory/fibonacci.hpp) :white_check_mark:
+    * [Logarithmic time algorithm](../code/include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
+  * [Perfect number check](../code/include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
-    * [Sieve of Eratosthenes (simple)](../C++/include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
+    * [Sieve of Eratosthenes (simple)](../code/include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
   
 * Searching
-  * [Binary search](../C++/include/algorithm/searching/binary_search.hpp) :white_check_mark:
-  * [Linear search](../C++/include/algorithm/searching/linear_search.hpp) :white_check_mark:
-  * [Ternary search](../C++/include/algorithm/searching/ternary_search.hpp) :white_check_mark:
+  * [Binary search](../code/include/algorithm/searching/binary_search.hpp) :white_check_mark:
+  * [Linear search](../code/include/algorithm/searching/linear_search.hpp) :white_check_mark:
+  * [Ternary search](../code/include/algorithm/searching/ternary_search.hpp) :white_check_mark:
   
 * Sorting
-  * [Bubble sort](../C++/include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:
-  * [Bucket sort](../C++/include/algorithm/sorting/bucket_sort.hpp) :white_check_mark:
-  * [Comb sort](../C++/include/algorithm/sorting/comb_sort.hpp) :white_check_mark:
-  * [Counting sort (stable)](../C++/include/algorithm/sorting/counting_sort.hpp) :white_check_mark:
-  * [Heap sort](../C++/include/algorithm/sorting/heap_sort.hpp) :white_check_mark:
-  * [Insertion sort](../C++/include/algorithm/sorting/insertion_sort.hpp) :white_check_mark:
-  * [Merge sort](../C++/include/algorithm/sorting/merge_sort.hpp) :white_check_mark:
-  * [Quick sort](../C++/include/algorithm/sorting/quick_sort.hpp) :white_check_mark:
-  * [Radix sort](../C++/include/algorithm/sorting/radix_sort.hpp)
-  * [Selection sort](../C++/include/algorithm/sorting/selection_sort.hpp) :white_check_mark:
-  * [Shell sort](../C++/include/algorithm/sorting/shell_sort.hpp) :white_check_mark:
+  * [Bubble sort](../code/include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:
+  * [Bucket sort](../code/include/algorithm/sorting/bucket_sort.hpp) :white_check_mark:
+  * [Comb sort](../code/include/algorithm/sorting/comb_sort.hpp) :white_check_mark:
+  * [Counting sort (stable)](../code/include/algorithm/sorting/counting_sort.hpp) :white_check_mark:
+  * [Heap sort](../code/include/algorithm/sorting/heap_sort.hpp) :white_check_mark:
+  * [Insertion sort](../code/include/algorithm/sorting/insertion_sort.hpp) :white_check_mark:
+  * [Merge sort](../code/include/algorithm/sorting/merge_sort.hpp) :white_check_mark:
+  * [Quick sort](../code/include/algorithm/sorting/quick_sort.hpp) :white_check_mark:
+  * [Radix sort](../code/include/algorithm/sorting/radix_sort.hpp)
+  * [Selection sort](../code/include/algorithm/sorting/selection_sort.hpp) :white_check_mark:
+  * [Shell sort](../code/include/algorithm/sorting/shell_sort.hpp) :white_check_mark:
 
 * String
-  * [Longest common subsequence](../C++/include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
+  * [Longest common subsequence](../code/include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
-    * [Knuth-Morris-Pratt](../C++/include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
-  * [Edit Distance Problem](../C++/include/algorithm/string/edit_distance.hpp) :white_check_mark:
-  * [Shunting yard](../C++/include/algorithm/string/shunting_yard.hpp) :white_check_mark:
+    * [Knuth-Morris-Pratt](../code/include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
+  * [Edit Distance Problem](../code/include/algorithm/string/edit_distance.hpp) :white_check_mark:
+  * [Shunting yard](../code/include/algorithm/string/shunting_yard.hpp) :white_check_mark:
   * Permutation
-    * [Heap's Algorithm](../C++/include/algorithm/string/heaps_algorithm.hpp) :white_check_mark:
+    * [Heap's Algorithm](../code/include/algorithm/string/heaps_algorithm.hpp) :white_check_mark:
 
 ### Data structures
 
 * Linked List
-  * [Singly linked list](../C++/include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
-  * [Doubly linked list](../C++/include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
+  * [Singly linked list](../code/include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
+  * [Doubly linked list](../code/include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
   
 * Set
-  * [Disjoint-set](../C++/include/data_structure/set/disjoint_set.hpp) :white_check_mark:
+  * [Disjoint-set](../code/include/data_structure/set/disjoint_set.hpp) :white_check_mark:
   
 * Tree
-  * [Binary search tree](../C++/include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
+  * [Binary search tree](../code/include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 
 ## Compiling
 
