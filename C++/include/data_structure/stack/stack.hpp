@@ -37,7 +37,7 @@ Stack<T>::Stack() : size {0}, head {nullptr} {}
  */
 template<class T>
 void Stack<T>::push(const T &item) {
-    Node<T> temp  = new Node<T>(item, head);
+    Node<T> * temp  = new Node<T>(item, head);
     head = temp;
     ++size;
 }
