@@ -121,7 +121,7 @@ To remove all of the files created during compilation, run **`make clean`**. You
 some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose 
 contents have changed.
 
-To know what happens in the background when **`make`** runs, you may read the [Makefile](Makefile). For more information 
+To know what happens in the background when **`make`** runs, you may read the [Makefile](../code/Makefile). For more information 
 on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
 
 ## Maintainers
