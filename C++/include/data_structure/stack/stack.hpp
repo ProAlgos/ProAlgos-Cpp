@@ -74,7 +74,8 @@ size_t Stack<T>::length() {
 /*
  Returns true if stack is empty
 */
-bool isEmpty() {
+template<class T>
+bool Stack<T>::isEmpty() {
     return size == 0;
 }
 
