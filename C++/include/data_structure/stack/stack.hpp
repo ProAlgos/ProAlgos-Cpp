@@ -1,6 +1,6 @@
 /*
     Stack
-    ------------------
+    -----
     A data structure which has the Last In First Out (LIFO) property. Elements are added
     and removed from the top (head). Only the top element can be accessed at any given time.
     Hence, there is no random access. All member functions have O(1) time complexity.
@@ -45,7 +45,7 @@ void Stack<T>::push(const T &item) {
 
 /*
  Removes an item from the top of the stack
- */
+*/
 template<class T>
 void Stack<T>::pop() {
     Node<T>* temp = head;
