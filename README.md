@@ -107,22 +107,25 @@ handle it from there. :smile:
 
 ## Compiling
 
-To compile the source files, run **`make all`**. Doing so will:
+To compile the source files, run **`make`** from the `C++` directory. Doing so will create executable binaries in the `bin` directory.
 
-* create executable binaries in sub-directories under the `bin` directory, and
-* create intermediate build files in sub-directories under the `build` directory.
+To compile and run all tests, run **`make test`**. This will compile all the tests (in the same way as described above) and will run them, displaying the results. 
 
-The sub-directories will be the same as they are under `source`.
+In order to run a specific test and see its results, run it manually from the `bin` directory after calling `make`. For example, this command (executed from `bin`) would run only the unit tests for the N Queens algorithm:
 
-To compile and run the tests, run **`make test`**. This will compile all the tests (in the same way as described above) 
-and will run them, displaying the results. Note that the test binaries will have `.test` at the end of their name.
+```
+$ ./n_queens
+```
 
-To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make 
-some changes to a file and want to recompile it. Just run **`make all`**, and it will re-compile just those files whose 
-contents have changed.
+To remove all of the files created during compilation, run **`make clean`**. You need not do this every time you make some changes to a file and want to recompile it. Just run **`make`** and it will re-compile just those files whose contents have changed.
 
-To know what happens in the background when **`make`** runs, you may read the [Makefile](cpp/Makefile). For more information 
-on **`make`**, read the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html).
+To see what happens in the background during compilation and testing, see the following files:
+
+- [Makefile](cpp/Makefile)
+- [CMakeLists.txt](cpp/CMakeLists.txt)
+- [Testing script](cpp/scripts/run_tests.sh)
+
+For more information on `make`, see the [GNU make Manual](https://www.gnu.org/software/make/manual/make.html). For more information on `CMake`, see the [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html).
 
 ## Maintainers
 
