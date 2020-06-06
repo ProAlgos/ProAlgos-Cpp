@@ -2,7 +2,7 @@
     Stack
     ------------------
     A data structure which has the Last In First Out (LIFO) property. Elements are added
-    and removed from the top(head). Only the top element can be accessed at any given time.
+    and removed from the top (head). Only the top element can be accessed at any given time.
     Hence, there is no random access. All member functions have O(1) time complexity.
 */
 
