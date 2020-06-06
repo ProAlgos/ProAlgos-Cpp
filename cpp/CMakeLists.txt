@@ -207,3 +207,4 @@ target_link_libraries(stack test_runner)
 add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
+
