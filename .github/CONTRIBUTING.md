@@ -10,7 +10,7 @@
 
 ## Getting started
 
-* Start by exploring the repository. Take a look at how the algorithms and data structures are implemented, how tests are written, and which files go where. 
+* Start by exploring the repository. Take a look at how the algorithms and data structures are implemented, how tests are written, and which files go where.
 
 * Before beginning your contribution, [create an issue][issue-guide]. In your issue's description, please describe the addition or change you wish to make. This helps others guide your contribution, and it lets others know what you're working on.
 
@@ -19,10 +19,10 @@
    ```bash
    # Clone your fork of the repo into the current directory
    git clone https://github.com/<your-username>/ProAlgos-Cpp.git
-  
+
    # Navigate to the newly cloned directory
    cd ProAlgos-Cpp
-  
+
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/ProAlgos/ProAlgos-Cpp.git
    ```
@@ -71,7 +71,7 @@
 
 ## Testing code
 
-Algorithms and data structures are implemented as header files (.hpp) in the [`include` directory](include) and then verified via unit test files (.cpp) in the [`test` directory](test). If you're adding an algorithm or data structure, you'll write both the implementation and the unit tests. 
+Algorithms and data structures are implemented as header files (.hpp) in the [`include` directory][include-dir] and then verified via unit test files (.cpp) in the [`test` directory][test-dir]. If you're adding an algorithm or data structure, you'll write both the implementation and the unit tests.
 
 #### Adding unit tests
 
@@ -101,7 +101,7 @@ Algorithms and data structures are implemented as header files (.hpp) in the [`i
 1. After these lines you can add your test cases. For details regarding how to
    write test cases using the [Catch test framework][catch], I suggest you to
    go through [this short tutorial][catch-tutorial]. You can also take a look
-   at the [existing unit tests][unit-tests] to get a clearer idea about how the
+   at the [existing unit tests][test-dir] to get a clearer idea about how the
    tests are written.
 
 1. Add an entry for your unit test in `CMakeLists.txt`. For example, if your
@@ -135,7 +135,7 @@ Follow these steps when you're ready to submit your code:
    ```
 
 1. [Open a pull request][pr-guide] with a clear title and description against the
-   `master` branch. Your pull request should reference the same issue you created 
+   `master` branch. Your pull request should reference the same issue you created
    above.
 
 1. Once your pull request has been opened, we'll review it and go from there. :smile:
@@ -152,4 +152,5 @@ This project has a [Code of Conduct](CODE_OF_CONDUCT.md). Please follow it in al
 [issue-guide]: https://help.github.com/en/articles/about-issues
 [catch]: https://github.com/catchorg/Catch2
 [catch-tutorial]: https://github.com/catchorg/Catch2/blob/master/docs/tutorial.md#writing-tests
-[unit-tests]: https://github.com/ProAlgos/ProAlgos-Cpp/tree/master/C%2B%2B/test
+[include-dir]: https://github.com/ProAlgos/ProAlgos-Cpp/tree/master/cpp/include
+[test-dir]: https://github.com/ProAlgos/ProAlgos-Cpp/tree/master/cpp/test

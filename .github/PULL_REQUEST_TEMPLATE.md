@@ -15,5 +15,5 @@
 
 
 [contrib-guidelines]: https://github.com/ProAlgos/ProAlgos-Cpp/blob/master/.github/CONTRIBUTING.md
-[unit-tests]: https://github.com/ProAlgos/ProAlgos-Cpp/blob/master/C++/CONTRIBUTING.md#unit-tests
-[contents]: https://github.com/ProAlgos/ProAlgos-Cpp/tree/master/C%2B%2B#contents
+[unit-tests]: https://github.com/ProAlgos/ProAlgos-Cpp/blob/master/.github/CONTRIBUTING.md#adding-unit-tests
+[contents]: https://github.com/ProAlgos/ProAlgos-Cpp/blob/master/.github/README.md#contents
