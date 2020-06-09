@@ -34,6 +34,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
   * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
     * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
+    * [Primorial](include/algorithm/number_theory/primorial.hpp) :white_check_mark:
   
 * Searching
   * [Binary search](include/algorithm/searching/binary_search.hpp) :white_check_mark:
