@@ -2,30 +2,30 @@
 #include "algorithm/number_theory/primorial.hpp"
 
 TEST_CASE("Base cases", "[primorial]") {
-    REQUIRE(primorial(2) == 2);
+    REQUIRE(primorial_Pn(2) == 2);
 }
 
 TEST_CASE("Normal cases", "[primorial]") {
-    REQUIRE(primorial(3) == 6);
-    REQUIRE(primorial(5) == 30);
-    REQUIRE(primorial(7) == 210);
-    REQUIRE(primorial(11) == 2310);
-    REQUIRE(primorial(13) == 30030);
-    REQUIRE(primorial(MAX_P_N) == 614889782588491410);
+    REQUIRE(primorial_Pn(3) == 6);
+    REQUIRE(primorial_Pn(5) == 30);
+    REQUIRE(primorial_Pn(7) == 210);
+    REQUIRE(primorial_Pn(11) == 2310);
+    REQUIRE(primorial_Pn(13) == 30030);
+    REQUIRE(primorial_Pn(MAX_P_N) == 614889782588491410); // MAX_P_N = 47
 }
 
 TEST_CASE("Negative cases", "[primorial]") {
-    REQUIRE(primorial(0) == 0);
-    REQUIRE(primorial(1) == 0);
-    REQUIRE(primorial(4) == 0);
-    REQUIRE(primorial(8) == 0);
-    REQUIRE(primorial(9) == 0);
-    REQUIRE(primorial(12) == 0);
-    REQUIRE(primorial(46) == 0);
-    REQUIRE(primorial(UINT_MAX) == 0);
+    REQUIRE(primorial_Pn(0) == 0);
+    REQUIRE(primorial_Pn(1) == 0);
+    REQUIRE(primorial_Pn(4) == 0);
+    REQUIRE(primorial_Pn(8) == 0);
+    REQUIRE(primorial_Pn(9) == 0);
+    REQUIRE(primorial_Pn(12) == 0);
+    REQUIRE(primorial_Pn(46) == 0);
+    REQUIRE(primorial_Pn(UINT_MAX) == 0);
 }
 
 TEST_CASE("Wraparound cases", "[primorial]") {
-    REQUIRE(primorial(53) == 0);
-    REQUIRE(primorial(173) == 0);
+    REQUIRE(primorial_Pn(53) == 0);
+    REQUIRE(primorial_Pn(173) == 0);
 }
