@@ -21,16 +21,18 @@
 
 typedef unsigned long long int ULL;
 
-// primorial_Pn(Pn) where Pn > 47 goes beyond the range of ULL
-const unsigned int MAX_P_N = 47;
+// primorial_natural(n) where n > 52 goes beyond the range of ULL
+const unsigned int MAX_N_NATURAL = 52;
 
-// primorial_n(n) where n > 15 goes beyond the range of ULL
+// primorial(n) where n > 15 goes beyond the range of ULL
 const unsigned int MAX_N = 15;
 
-// returns 0 if Pn is not a prime number or if Pn# is too big to fit in an 
-// ULL. returns the primorial Pn# otherwise
-ULL primorial_Pn(unsigned int p_n) {
-    if (p_n < 2) {
+// computes the primorial defined by natural numbers: https://oeis.org/A034386
+// returns 0 if n# is too big to fit in an ULL.
+// returns the primorial n# otherwise
+ULL primorial_natural(unsigned int n) {
+    // check for unsigned integer wraparound
+    if (n > MAX_N_NATURAL) {
         return 0;
     }
 
@@ -38,7 +40,7 @@ ULL primorial_Pn(unsigned int p_n) {
     
     ULL product = 1;
 
-    for (unsigned int i = 2; i <= p_n; i++) {
+    for (unsigned int i = 2; i <= n; i++) {
         bool is_prime = true;
         for (std::vector<unsigned int>::iterator it = primes.begin(); is_prime
             && it != primes.end(); it++) {
@@ -46,34 +48,26 @@ ULL primorial_Pn(unsigned int p_n) {
                 is_prime = false;
             }
         }
-        if (is_prime) {            
-            // check for unsigned integer wraparound
-            if (ULLONG_MAX / product < i) {
-                return 0;
-            } else {
-                product *= i;
-                primes.push_back(i);
-            }
+        if (is_prime) {
+            product *= i;
+            primes.push_back(i);
         }
-    }
-
-    // make sure Pn was a prime nubmer
-    if (primes[primes.size()-1] != p_n) {
-        return 0;
     }
 
     return product;
 }
 
-// returns 0 if n is 0 or if Pn# is too big to fit in an ULL. 
+// computes the primorial defined by prime numbers: https://oeis.org/A002110
+// returns 0 if Pn# is too big to fit in an ULL. 
 // returns the primorial Pn# otherwise
-ULL primorial_n(unsigned int n) {
-    if (n < 1) {
+ULL primorial(unsigned int n) {
+    // check for unsigned integer wraparound
+    if (n > MAX_N) {
         return 0;
     }
 
     std::vector<unsigned int> primes;
-    
+
     ULL product = 1;
 
     for (unsigned int i = 2; primes.size() < n; i++) {
@@ -84,14 +78,9 @@ ULL primorial_n(unsigned int n) {
                 is_prime = false;
             }
         }
-        if (is_prime) {            
-            // check for unsigned integer wraparound
-            if (ULLONG_MAX / product < i) {
-                return 0;
-            } else {
-                product *= i;
-                primes.push_back(i);
-            }
+        if (is_prime) {
+            product *= i;
+            primes.push_back(i);
         }
     }
 
