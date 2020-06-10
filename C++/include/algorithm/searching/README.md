@@ -1,5 +1,5 @@
 # Searching 
-Searching Algorithms are designed to check for an element or retrieve an element from any data structure where it is stored.
+Searching algorithms are designed to check for an element or retrieve an element from any data structure where it is stored.
 
 ### Contents
 1. [Linear search](#1-linear-search)
