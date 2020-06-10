@@ -1,16 +1,20 @@
 /*
     Primorial
     ---------
-    Calculate the primorial Pn# of the nth prime number Pn.
+    Calculate the primorial Pn# for the prime number definition of primorial 
+    and n# for the natural number definition of primorial.
     Pn# is defined as the product of the first n primes.
+    n# is defined as the product of all primes less than or equal to n.
 
     Time complexity
     ---------------
-    O(Pn^2) where Pn is the nth prime number.
+    O(N^2) where N is n for the natural definition and Pn for the prime 
+    definition.
 
     Space complexity
     ----------------
-    O(N).
+    O(N) where N is n for the natural definition and Pn for the prime 
+    definition.
 */
 
 #ifndef PRIMORIAL_HPP
