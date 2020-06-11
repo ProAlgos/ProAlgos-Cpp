@@ -25,17 +25,17 @@
 
 typedef unsigned long long int ULL;
 
-// primorial_natural(n) where n > 52 goes beyond the range of ULL
+// primorial_natural(n) goes beyond the range of ULL where n > 52
 const unsigned int MAX_N_NATURAL = 52;
 
-// primorial(n) where n > 15 goes beyond the range of ULL
+// primorial(n) goes beyond the range of ULL where n > 15
 const unsigned int MAX_N = 15;
 
-// computes the primorial defined by natural numbers: https://oeis.org/A034386
-// returns 0 if n# is too big to fit in an ULL.
-// returns the primorial n# otherwise
+// Computes the primorial defined by natural numbers: https://oeis.org/A034386
+// Returns 0 if n# is too big to fit in an ULL
+// Otherwise returns the primorial n#, where n# = the product of all primes ≤ n
 ULL primorial_natural(unsigned int n) {
-    // check for unsigned integer wraparound
+    // Check for unsigned integer wraparound
     if (n > MAX_N_NATURAL) {
         return 0;
     }
@@ -46,8 +46,7 @@ ULL primorial_natural(unsigned int n) {
 
     for (unsigned int i = 2; i <= n; i++) {
         bool is_prime = true;
-        for (std::vector<unsigned int>::iterator it = primes.begin(); is_prime
-            && it != primes.end(); it++) {
+        for (auto it = primes.begin(); is_prime && it != primes.end(); it++) {
             if (i % *it == 0) {
                 is_prime = false;
             }
@@ -61,11 +60,11 @@ ULL primorial_natural(unsigned int n) {
     return product;
 }
 
-// computes the primorial defined by prime numbers: https://oeis.org/A002110
-// returns 0 if Pn# is too big to fit in an ULL. 
-// returns the primorial Pn# otherwise
+// Computes the primorial defined by prime numbers: https://oeis.org/A002110
+// Returns 0 if Pn# is too big to fit in an ULL
+// Otherwise returns the primorial Pn#, where Pn# = the product of the first n primes
 ULL primorial(unsigned int n) {
-    // check for unsigned integer wraparound
+    // Check for unsigned integer wraparound
     if (n > MAX_N) {
         return 0;
     }
@@ -76,8 +75,7 @@ ULL primorial(unsigned int n) {
 
     for (unsigned int i = 2; primes.size() < n; i++) {
         bool is_prime = true;
-        for (std::vector<unsigned int>::iterator it = primes.begin(); is_prime
-            && it != primes.end(); it++) {
+        for (auto it = primes.begin(); is_prime && it != primes.end(); it++) {
             if (i % *it == 0) {
                 is_prime = false;
             }
