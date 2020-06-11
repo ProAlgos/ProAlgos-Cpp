@@ -8,6 +8,7 @@ Dynamic programming algorithms are often used for optimization. A dynamic progra
 
 1. [Matrix chain multiplication](#1-matrix-chain-multiplication)
 2. [Coin Change](#2-coin-change)
+3. [0_1 Knapsack](#3-0_1-knapsack)
 
 ---
 
@@ -69,7 +70,7 @@ value using the coins.
 
 ### Output
 - #### `table[amount][number_of_coins - 1]`
-  Type: 'int' (bottom rightmost cell of 2D Matrix of type vector<vector<int>>)
+  Type: `int (bottom rightmost cell of 2D Matrix of type vector<vector<int>>)`
 
   After filling the matrix the bottom rightmost cell of the of the matrix will contain the total number of ways.  
 
@@ -80,4 +81,43 @@ Time               | Space
 _O(M*N)_ | _O(M*N)_
 
 where M is the number of coins with different values and 
-N is the amount that we desired to change
+N is the amount that we desired to change.
+
+## 3. 0_1 Knapsack
+
+Given weights and values of n items, put these items in a knapsack of a fixed capacity to get the maximum total value in the knapsack.
+
+## Input
+- #### `capacity`
+  Type: `long long`
+
+  It is the maximum capacity of the knapsack, in which we have to put weights.
+
+- #### `numberOfItems`
+  Type: `long long`
+
+  It is the total number of items given.
+
+- #### `weights`
+  Type: `vector<long long>`
+
+  vector array of the weights for the items given.
+
+- #### `values`
+  Type: `vector<long long>`
+
+  vector array of the values for the items given.
+
+### Output
+- #### `maxItems[numberOfItems][capacity]`
+  Type: `int (bottom rightmost cell of 2D Matrix of type vector<vector<long long>>)`
+
+  After filling the matrix the bottom rightmost cell of the of the matrix will contain maximum total value in the knapsack.  
+
+### Complexity
+
+Time               | Space
+-------------------|-------------------
+_O(N*C)_ | _O(N*C)_
+
+where N is the number of items and C is the capacity of the knapsack.
