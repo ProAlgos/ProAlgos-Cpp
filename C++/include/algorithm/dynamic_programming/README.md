@@ -54,19 +54,23 @@ value using the coins.
 ## Input
 - #### `coin`
   Type: `vector<int> &`
+
   It contains coins of different denomination.
 
 - #### `number_of_coins`
   Type: `int`
+
   It is the size of vector coin (coin.size()), or the total number of coins given.
 
 - #### `amount`
   Type: `int`
+
   It is the amount for which we have to find the number of ways to make change.
 
 ### Output
-- #### table[amount][number_of_coins - 1]
+- #### `table[amount][number_of_coins - 1]`
   Type: 'int' (bottom rightmost cell of 2D Matrix of type vector<vector<int>>)
+
   After filling the matrix the bottom rightmost cell of the of the matrix will contain the total number of ways.  
 
 ### Complexity
