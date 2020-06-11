@@ -33,6 +33,7 @@ Implementing well-known (and some rare) **algorithms and data structures in C++*
     * [Logarithmic time algorithm](include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
   * [Perfect number check](include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
+    * [Primorial](include/algorithm/number_theory/primorial.hpp) :white_check_mark:
     * [Sieve of Eratosthenes (simple)](include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
   
 * Searching

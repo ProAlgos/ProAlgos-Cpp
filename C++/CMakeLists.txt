@@ -101,6 +101,11 @@ add_executable(perfect_number_check
         test/algorithm/number_theory/perfect_number_check.cpp)
 target_link_libraries(perfect_number_check test_runner)
 
+# Primorial
+add_executable(primorial
+        test/algorithm/number_theory/primorial.cpp)
+target_link_libraries(primorial test_runner)
+
 # Sieve of Eratosthenes
 add_executable(sieve_of_eratosthenes
         test/algorithm/number_theory/sieve_of_eratosthenes.cpp)
