@@ -206,9 +206,9 @@ where N is the length of the rod.
 ## 7. Weighted Activity Selection
 
 Given N activities where every activity is represented by following three elements of it.
-    1. Start Time
-    2. Finish Time
-    3. Weight or Value Associated
+Markup : 1. Start Time
+         2. Finish Time
+         3. Weight or Value Associated
 Find the maximum weight subset of activities such that no two of them in the subset overlap.
 
 ## Input
