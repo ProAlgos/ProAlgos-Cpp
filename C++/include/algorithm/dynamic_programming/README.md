@@ -8,7 +8,7 @@ Dynamic programming algorithms are often used for optimization. A dynamic progra
 
 1. [Matrix chain multiplication](#1-matrix-chain-multiplication)
 2. [Coin change](#2-coin-change)
-3. [0_1 Knapsack](#3-0-1-knapsack)
+3. [0-1 Knapsack](#3-0-1-knapsack)
 4. [Kadane's algorithm](#4-kadane's-algorithm)
 5. [Longest decreasing subsequence](#5-longest-decreasing-subsequence)
 6. [Rod cutting](#6-rod-cutting)
