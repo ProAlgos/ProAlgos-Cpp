@@ -8,11 +8,11 @@ Dynamic programming algorithms are often used for optimization. A dynamic progra
 
 1. [Matrix chain multiplication](#1-matrix-chain-multiplication)
 2. [Coin change](#2-coin-change)
-3. [0_1 Knapsack](#3-0_1-knapsack)
-4. [Kadane](#4-Kadane)
-5. [Longest Decreasing Subsequence](#5-Longest-Decreasing-Subsequence)
-6. [Rod Cutting](#6-Rod-Cutting)
-7. [Weighted Activity Selection](#7-Weighted-Activity-Selection)
+3. [0_1 Knapsack](#3-0-1-knapsack)
+4. [Kadane's algorithm](#4-kadane's-algorithm)
+5. [Longest decreasing subsequence](#5-longest-decreasing-subsequence)
+6. [Rod cutting](#6-rod-cutting)
+7. [Weighted activity selection](#7-weighted-activity-selection)
 
 ---
 
@@ -73,7 +73,7 @@ Given an unlimited amount of coins with different values, find the number of way
 
 ### Output
 - #### `table[amount][number_of_coins - 1]`
-  Type: `int (bottom rightmost cell of 2D Matrix of type vector<vector<int>>)`
+  Type: `int` (bottom rightmost cell of 2D Matrix of type `vector<vector<int>>`)
 
   After filling the matrix the bottom rightmost cell of the matrix will contain the total number of ways.  
 
@@ -83,10 +83,9 @@ Time               | Space
 -------------------|-------------------
 _O(M*N)_ | _O(M*N)_
 
-where M is the number of coins with different values and 
-N is the amount that we desired to change.
+where M is the number of coins with different values and N is the amount that we desired to change.
 
-## 3. 0_1 Knapsack
+## 3. 0-1 Knapsack
 
 Given weights and values of n items, put these items in a knapsack of a fixed capacity to get the maximum total value in the knapsack.
 
@@ -104,18 +103,18 @@ Given weights and values of n items, put these items in a knapsack of a fixed ca
 - #### `weights`
   Type: `vector<long long>`
 
-  vector of the weights for the items given.
+  Contains the weights for the items given.
 
 - #### `values`
   Type: `vector<long long>`
 
-  vector of the values for the items given.
+  Contains the values for the items given.
 
 ### Output
 - #### `maxItems[numberOfItems][capacity]`
-  Type: `int (bottom rightmost cell of 2D Matrix of type vector<vector<long long>>)`
+  Type: `int` (bottom rightmost cell of 2D Matrix of type `vector<vector<long long>>`)
 
-  After filling the matrix the bottom rightmost cell of the of the matrix will contain maximum total value in the knapsack.  
+  After filling the matrix the bottom rightmost cell of the matrix will contain maximum total value in the knapsack.  
 
 ### Complexity
 
@@ -125,7 +124,7 @@ _O(N*C)_ | _O(N*C)_
 
 where N is the number of items and C is the capacity of the knapsack.
 
-## 4. Kadane
+## 4. Kadane's algorithm
 
 This algorithm is used for finding the contiguous subarray within a one-dimensional array of integers which has the largest sum.
 
@@ -149,7 +148,7 @@ _O(N)_ | _O(1)_
 
 where N is the number of elements in the original array.
 
-## 5. Longest Decreasing Subsequence
+## 5. Longest decreasing subsequence
 
 This algorithm finds the longest decreasing subsequence in a sequence of numbers.
 
@@ -160,9 +159,9 @@ This algorithm finds the longest decreasing subsequence in a sequence of numbers
   Vector array of inputs for which we have to find longest decreasing subsequence.
 
 - #### `to_show_state`
-  Type: `const bool`
+  Type: `bool`
 
-  Initially it is set to false, if no second argument is provided in the function. if this is true subsequence is printed out by the function.
+  Defaults to false. If true, then the function prints the subsequence.
 
 ### Output
 - #### `max`
@@ -174,23 +173,23 @@ This algorithm finds the longest decreasing subsequence in a sequence of numbers
 
 Time               | Space
 -------------------|-------------------
-_O(n log(n))_ | _O(n)_
+_O(N log(N))_ | _O(N)_
 
-where n is the number of elements in the initial list.
+where N is the number of elements in the initial list.
 
-## 6. Rod Cutting
+## 6. Rod cutting
 
-Given a rod of length N units and an array of prices that contains prices of all pieces of size smaller than N. Determine the maximum value obtainable by cutting up the rod and selling the pieces.
+Given a rod of length N units and an array of prices that contains prices of all pieces of size smaller than N, determine the maximum value obtainable by cutting up the rod and selling the pieces.
 
 ### Input
 - #### `costs`
-  Type: `vector<std::size_t>`
+  Type: `vector<size_t>`
 
   Vector of costs of all pieces of size smaller than N.
 
 ### Output
 - #### `cost`
-  Type: `size_t (size_t is an unsigned integral data type)`
+  Type: `size_t`
 
   Represents the maximum value obtainable by cutting up the rod and selling the pieces. 
 
@@ -202,38 +201,38 @@ _O(N<sup>2</sup>)_ | _O(N)_
 
 where N is the length of the rod.
 
-## 7. Weighted Activity Selection
+## 7. Weighted activity selection
 
 Given N activities where every activity is represented by following three properties:
 
-    1. Start Time
-    2. Finish Time
-    3. Weight or Value Associated
-    
-Find the maximum weight subset of activities such that no two activities overlap.
+1.Start time
+2.Finish time
+3.Weight (or value)
+
+find the maximum weight subset of activities such that no two activities overlap.
 
 ### Input
 - #### `start`
-  Type: `const vector<std::time_t>`
+  Type: `vector<time_t>`
 
   Vector representing the start time of N activities.
-  Note: `time_t` is a arithmetic type capable of representing times.
+  Note: `time_t` is an arithmetic type capable of representing times.
 
 - #### `end`
-  Type: `const vector<std::time_t>`
+  Type: `vector<time_t>`
 
   Vector representing the end time of N activities.
-  Note: `time_t` is a arithmetic type capable of representing times.
+  Note: `time_t` is an arithmetic type capable of representing times.
 
 - #### `weight`
-  Type: `const vector<std::size_t>`
+  Type: `vector<size_t>`
 
-  Vector representing the weight or priority of the given N activities.
+  Vector representing the weight (or value) of the given N activities.
   Note: `size_t` is an unsigned integral data type.
 
 ### Output
 - #### `sol.back()`
-  Type: `int (sol is a vector of type size_t)`
+  Type: `int` (note that `sol` is a vector of type `size_t`)
 
   The last index of the vector `sol` contains maximum weight subset of activities.
 
