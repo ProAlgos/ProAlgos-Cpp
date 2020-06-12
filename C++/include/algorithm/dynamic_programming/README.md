@@ -133,13 +133,13 @@ This algorithm is used for finding the contiguous subarray within a one-dimensio
 - #### `values`
   Type: `vector<int>`
 
-  Array of integers for which we have to find the contiguous subarray having the largest sum.
+  Vector of integers for which we have to find the contiguous subarray having the largest sum.
 
 ### Output
 - #### `maxSum, start, end`
   Type: `tuple<int, size_t, size_t>`
 
-  Output is a tuple of maximum sum, start index of the contiguous array and the last index of the contiguous array. Note: size_t is an unsigned integral data type.  
+  Output is a tuple of maximum sum, start index of the contiguous array and the last index of the contiguous array. Note: `size_t` is an unsigned integral data type.  
 
 ### Complexity
 
@@ -207,9 +207,7 @@ where N is the length of the rod.
 Given N activities where every activity is represented by following three properties:
 
     1. Start Time
-
     2. Finish Time
-
     3. Weight or Value Associated
     
 Find the maximum weight subset of activities such that no two activities overlap.
