@@ -205,9 +205,9 @@ where N is the length of the rod.
 
 Given N activities where every activity is represented by following three properties:
 
-1.Start time
-2.Finish time
-3.Weight (or value)
+1. Start time
+2. Finish time
+3. Weight (or value)
 
 find the maximum weight subset of activities such that no two activities overlap.
 
