@@ -56,7 +56,7 @@ handle it from there. :smile:
 * Number theory
   * [Binomial coefficient](cpp/include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
   * Euclidean algorithms
-    * [Greatest common divisor](cpp/include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD)
+    * [Greatest common divisor](cpp/include/algorithm/number_theory/greatest_common_divisor.hpp) (GCD) :white_check_mark:
     * [Extended Euclidean algorithm](cpp/include/algorithm/number_theory/extended_euclidean.hpp) (Bézout coefficients) :white_check_mark:
   * [Fast exponentiation](cpp/include/algorithm/number_theory/fast_exponentiation.hpp) :white_check_mark:
   * Nth Fibonacci number
