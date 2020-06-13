@@ -1,6 +1,7 @@
 MIT License
 
 Copyright (c) 2017 - 2020 Syed Faheel Ahmad
+Copyright (c) 2018 - 2020 Alexander Montgomery Johnson
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
