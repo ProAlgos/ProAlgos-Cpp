@@ -73,7 +73,7 @@ Given an unlimited amount of coins with different values, find the number of way
 
 ### Output
 - #### `table[amount][number_of_coins - 1]`
-  Type: `int` (bottom rightmost cell of 2D Matrix of type `vector<vector<int>>`)
+  Type: `int` 
 
   After filling the matrix the bottom rightmost cell of the matrix will contain the total number of ways.  
 
@@ -112,7 +112,7 @@ Given weights and values of n items, put these items in a knapsack of a fixed ca
 
 ### Output
 - #### `maxItems[numberOfItems][capacity]`
-  Type: `int` (bottom rightmost cell of 2D Matrix of type `vector<vector<long long>>`)
+  Type: `int` 
 
   After filling the matrix the bottom rightmost cell of the matrix will contain maximum total value in the knapsack.  
 
@@ -234,7 +234,7 @@ find the maximum weight subset of activities such that no two activities overlap
 - #### `sol.back()`
   Type: `int` (note that `sol` is a vector of type `size_t`)
 
-  The last index of the vector `sol` contains maximum weight subset of activities.
+  The last index of the vector `sol` contains the maximum weight subset of activities.
 
 ### Complexity
 
