@@ -158,6 +158,7 @@ public:
     T value_at(int);
     T operator[](int);
     const T operator[](int) const;
+    void reverse(void);
     void clear(void);
 };
 
@@ -360,6 +361,38 @@ const T SinglyLinkedList<T>::operator[](int index) const {
     return value_at(index);
 }
 
+/*
+    reverse
+    -------
+    Reverse the list by changing links between nodes.
+
+    Time complexity
+    ---------------
+    O(N), where N is the number of nodes in the list
+
+    Space complexity
+    ----------------
+    O(1) 
+*/
+
+template<class T>
+void SinglyLinkedList<T>::reverse(void) {
+    if (size > 1) {
+        Node<T>* next = head;
+        Node<T>* current, * previous;
+        current = previous = nullptr;
+        tail = head;
+
+        while (next) {
+            current = next;
+            next = next->get_next();
+            current->set_next(previous);
+            previous = current;
+        }
+
+        head = current;
+    }
+}
 
 /*
     clear
