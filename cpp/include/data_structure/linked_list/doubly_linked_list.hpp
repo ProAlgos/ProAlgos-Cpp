@@ -106,6 +106,7 @@ class DoublyLinkedList {
         T value_at(int);
         T operator[](int);
         const T operator[](int) const;
+        void reverse(void);
         void clear(void);
 };
 
@@ -308,6 +309,38 @@ const T DoublyLinkedList<T>::operator[](int index) const {
     return value_at(index);
 }
 
+/*
+    reverse
+    -------
+    Reverse the list by changing links between nodes.
+
+    Time complexity
+    ---------------
+    O(N), where N is the number of nodes in the list
+
+    Space complexity
+    ----------------
+    O(1) 
+*/
+
+template<class T>
+void DoublyLinkedList<T>::reverse(void) {
+    if (size > 1) {
+        Node<T>* current = head;
+        Node<T>* temp = nullptr;
+        tail = head;
+
+        while (current) {
+            temp = current->get_next();
+            current->set_next(current->get_prev());
+            current->set_prev(temp);
+            current = temp;
+
+            if(current && !current->get_next())
+                head = current;
+        }
+    }
+}
 
 /*
     clear
