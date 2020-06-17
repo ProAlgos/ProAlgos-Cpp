@@ -22,7 +22,7 @@ class Graph {
         // or -1 if it already exists
         int add_vertex(const Vertex& v);
 
-        // returns EXIT_SUCCESS
+        // returns 0
         // or -1 if it already exists
         int add_edge   (int weight, const Vertex& v1, const Vertex& v2);
         int remove_edge(const Vertex& v1, const Vertex& v2)            ;
@@ -34,6 +34,7 @@ class Graph {
         int get_weight              (const Vertex& v1, const Vertex& v2);
         int get_num_vertices        ()                                  ;
         vector<Vertex>& get_vertices()                                  ; 
+        Vertex& get_vertex          (int index)                         ;
     
     private:
 
@@ -59,6 +60,23 @@ Graph<Vertex>::~Graph() {
     index = -1;
 }
 
+// TODO how to deal with non-existent indices?
+template<typename Vertex>
+Vertex& Graph<Vertex>::get_vertex(int index) {
+    auto it = indices.find(index);
+    if (it != indices.end()) {
+        return it->second;
+    }
+}
+
+template<typename Vertex>
+vector<Vertex>& Graph<Vertex>::get_vertices() {
+    vector<Vertex> vertices;
+    for (auto it : indices) {
+        vertices.push_back(it.second);
+    }
+    return *vertices;
+}
 
 template<typename Vertex>
 int Graph<Vertex>::get_index(const Vertex& v) {
@@ -70,6 +88,8 @@ int Graph<Vertex>::get_index(const Vertex& v) {
     return -1;
 }
 
+// if idx not -1, then the vertex exists
+// and it returns -1
 template<typename Vertex>
 int Graph<Vertex>::add_vertex(const Vertex& v) { 
     
@@ -78,7 +98,6 @@ int Graph<Vertex>::add_vertex(const Vertex& v) {
     if (idx != -1) {
         return -1;
     } else {
-        
         index++;
         indices.insert({index, v});
         vector<int> new_vertex(matrix.size(), 0);
@@ -109,14 +128,13 @@ int Graph<Vertex>::add_edge(int weight, const Vertex& v1, const Vertex& v2) {
         return -1;
     } else {
         if (!directed) {
-            printf("OK\n");
             matrix[idx_v1][idx_v2] = weight;
             matrix[idx_v2][idx_v1] = weight;
         } else {
             matrix[idx_v1][idx_v2] = weight;
         }
     }
-    return EXIT_SUCCESS; 
+    return 0; 
 }
 
 template<typename Vertex>
@@ -140,7 +158,7 @@ int Graph<Vertex>::remove_edge(const Vertex& v1, const Vertex& v2) {
             matrix[idx_v1][idx_v2] = 0;
         }
     }
-    return EXIT_SUCCESS;
+    return 0;
 }
 
 template<typename Vertex>
@@ -161,15 +179,6 @@ template<typename Vertex>
 int Graph<Vertex>::get_num_vertices() {
     
     return matrix.size();
-}
-
-template<typename Vertex>
-vector<Vertex>& Graph<Vertex>::get_vertices() {
-    vector<Vertex> vertices;
-    for (auto it : indices) {
-        vertices.push_back(it.second);
-    }
-    return *vertices;
 }
 
 #endif
