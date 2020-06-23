@@ -14,7 +14,7 @@ struct Node {
     private:
         T value;
         Node<T> *prev, *next;
-        Node(void);
+        Node();
 
     public:
         Node(const T value, Node<T> *const prev, Node<T> *const next) {
@@ -41,11 +41,11 @@ struct Node {
             this->next = nullptr;
         }
 
-        T get_value(void) {
+        T get_value() {
             return this->value;
         }
 
-        Node<T> *get_prev(void) {
+        Node<T> *get_prev() {
             return this->prev;
         }
 
@@ -53,7 +53,7 @@ struct Node {
             this->prev = prev;
         }
 
-        Node<T> *get_next(void) {
+        Node<T> *get_next() {
             return this->next;
         }
 
@@ -97,16 +97,17 @@ class DoublyLinkedList {
     public:
         DoublyLinkedList();
         ~DoublyLinkedList();
-        bool is_empty(void);
-        int length(void) const;
+        bool is_empty();
+        int length() const;
         void insert_front(const T&);
         void insert_rear(const T&);
-        void delete_front(void);
-        void delete_rear(void);
+        void delete_front();
+        void delete_rear();
         T value_at(int);
         T operator[](int);
         const T operator[](int) const;
-        void clear(void);
+        void reverse();
+        void clear();
 };
 
 template<class T>
@@ -128,7 +129,7 @@ DoublyLinkedList<T>::~DoublyLinkedList() {
     Returns true if the list is empty
 */
 template<class T>
-bool DoublyLinkedList<T>::is_empty(void) {
+bool DoublyLinkedList<T>::is_empty() {
     return size == 0;
 }
 
@@ -139,7 +140,7 @@ bool DoublyLinkedList<T>::is_empty(void) {
     Returns the number of elements in this list
 */
 template<class T>
-int DoublyLinkedList<T>::length(void) const {
+int DoublyLinkedList<T>::length() const {
     return size;
 }
 
@@ -225,7 +226,7 @@ void DoublyLinkedList<T>::insert_rear(const T& value) {
     O(1).
 */
 template<class T>
-void DoublyLinkedList<T>::delete_front(void) {
+void DoublyLinkedList<T>::delete_front() {
     Node<T> *temp = head;
     if (temp == nullptr) {
         return;
@@ -255,7 +256,7 @@ void DoublyLinkedList<T>::delete_front(void) {
     O(1).
 */
 template<class T>
-void DoublyLinkedList<T>::delete_rear(void) {
+void DoublyLinkedList<T>::delete_rear() {
     Node<T> *temp = tail;
     if (temp == nullptr) {
         return;
@@ -308,6 +309,39 @@ const T DoublyLinkedList<T>::operator[](int index) const {
     return value_at(index);
 }
 
+/*
+    reverse
+    -------
+    Reverse the list by changing links between nodes.
+
+    Time complexity
+    ---------------
+    O(N), where N is the number of nodes in the list
+
+    Space complexity
+    ----------------
+    O(1) 
+*/
+
+template<class T>
+void DoublyLinkedList<T>::reverse() {
+    if (size > 1) {
+        Node<T>* current = head;
+        Node<T>* temp = nullptr;
+        tail = head;
+
+        while (current) {
+            temp = current->get_next();
+            current->set_next(current->get_prev());
+            current->set_prev(temp);
+            current = temp;
+
+            if (current && !current->get_next()) {
+                head = current;
+            }
+        }
+    }
+}
 
 /*
     clear
@@ -316,7 +350,7 @@ const T DoublyLinkedList<T>::operator[](int index) const {
 */
 
 template<class T>
-void DoublyLinkedList<T>::clear(void) {
+void DoublyLinkedList<T>::clear() {
     Node<T> *temp = head;
     
     while (temp != nullptr) {

@@ -124,6 +124,38 @@ TEST_CASE("Delete elements", "[singly-linked-list]") {
     REQUIRE(list[11] == 2102);
 }
 
+TEST_CASE("Reverse linked list", "[singly-linked-list]") {
+    SinglyLinkedList<int> list;
+
+    list.insert_rear(37);
+    list.insert_rear(22);
+    list.insert_rear(42);
+    list.insert_rear(15);
+    list.insert_rear(9);
+    list.insert_rear(52);
+    list.insert_rear(77);
+    list.insert_rear(63);
+    list.insert_rear(36);
+    list.insert_rear(48);
+    list.insert_rear(101);
+
+    list.reverse();
+    
+    // Verify reversed elements
+    REQUIRE(list[0] == 101);
+    REQUIRE(list[1] == 48);
+    REQUIRE(list[2] == 36);
+    REQUIRE(list[3] == 63);
+    REQUIRE(list[4] == 77);
+    REQUIRE(list[5] == 52);
+    REQUIRE(list[6] == 9);
+    REQUIRE(list[7] == 15);
+    REQUIRE(list[8] == 42);
+    REQUIRE(list[9] == 22);
+    REQUIRE(list[10] == 37);
+
+}
+
 TEST_CASE("Clear list", "[singly-linked-list]") {
     SinglyLinkedList<int> list;
 
