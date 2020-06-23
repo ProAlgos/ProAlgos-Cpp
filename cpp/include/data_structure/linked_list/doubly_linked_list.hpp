@@ -336,8 +336,9 @@ void DoublyLinkedList<T>::reverse() {
             current->set_prev(temp);
             current = temp;
 
-            if(current && !current->get_next())
-                head = current;
+            if (current && !current->get_next()) {
+				head = current;
+			}
         }
     }
 }
