@@ -123,9 +123,9 @@ _O(N + R)_ | _O(N + K)_
 
 Where N is the number of elements, R is the range of input and K the size of the frequency array.
 
-<!-- WIP BELOW -->
 ## 7. Bucket Sort
 A sorting algorithm that works by dividing elements into different buckets, and then sorting the buckets individuall. Each bucket is then sorted individually by using a different sorting algorithm. Insertion sort is used in this implementation, but other algorithms can be used.
+
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
@@ -140,7 +140,8 @@ _O(N + N^2 / K+K)_ | _O(N)_
 Where N is the number of elements, and K is the number of buckets
 
 ## 8. Radix Sort
-Least significant digit radix sort is an efficient, non-comparative, integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value.
+Least significant digit radix sort is an efficient, non-comparative, integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value. Note that this implementation of radix sort can be used to sort positive integers only.
+
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
@@ -155,47 +156,50 @@ _O(N)_ | _O(N)_
 Where N is the number of keys
 
 ## 9. Heap Sort
-A sorting algorithm that works 
+A comparison-based sorting algorithm that uses an array-implemented heap to sort a list of integers.
+
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
-couting_sort(Arr, -1, true)
+heap_sort(Arr, -1, true)
 ```
 ### Complexity
 
 Time    | Space
 :--------:|:-------------------:
-_O(N + R)_ | _O(N + K)_
+_O(N * log(N))_ | _O(1)_
 
-Where N is the number of elements, R is the range of input and K the size of the frequency array.
+Where N is the number of elements
 
 ## 10. Shell Sort
-A sorting algorithm that works 
+An in-place comparison sort which starts by sorting pairs of elements far apart from each other, then progressively reducing the gap between elements to be compared. The time complexity depends on the gap sequence, which is _floor(N / 2^K)_ in this implementation.
+
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
-couting_sort(Arr, -1, true)
+shell_sort(Arr, -1, true)
 ```
 ### Complexity
 
 Time    | Space
 :--------:|:-------------------:
-_O(N + R)_ | _O(N + K)_
+_O(N^2)_ | _O(1)_
 
-Where N is the number of elements, R is the range of input and K the size of the frequency array.
+Where N is the number of elements
 
 ## 11. Comb Sort
-A sorting algorithm that works 
+A sorting algorithm designed to improve upon bubble sort by by eliminating small values that start near the end of the list.
+	
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
-couting_sort(Arr, -1, true)
+comb_sort(Arr, -1, true)
 ```
 ### Complexity
 
 Time    | Space
 :--------:|:-------------------:
-_O(N + R)_ | _O(N + K)_
+_O(N^2 / 2^p)_ | _O(1)_
 
-Where N is the number of elements, R is the range of input and K the size of the frequency array.
+where N is the number of elements, and p is the number of increments
 
