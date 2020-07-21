@@ -5,7 +5,7 @@ Sorting algorithms are designed to arrange data in a particular order. Sorting a
 **Stable:** Identical elements remain in the same order as before sorting.
 **Unstable:** Identical elements may be sorted in any order.
 
-#### In-place and Not In-place Sorting:
+#### In-place and Not In-place Sorting
 **In-place**: Where the elements are sorted by modifying their order directly.
 **Not In-place**: Where an auxiliary data structure is used for sorting.
 
