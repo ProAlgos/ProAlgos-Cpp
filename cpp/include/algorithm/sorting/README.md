@@ -6,8 +6,8 @@ Sorting algorithms are designed to arrange data in a particular order. Sorting a
 **Unstable:** Identical elements may be sorted in any order.  
 
 #### In-place and Not In-place Sorting
-**In-place**: Where the elements are sorted by modifying their order directly.  
-**Not In-place**: Where an auxiliary data structure is used for sorting.  
+**In-place**: Elements are sorted by modifying their order directly.  
+**Not In-place**: An auxiliary data structure is used for sorting.  
 
 
 ### Contents
