@@ -124,7 +124,7 @@ _O(N + R)_ | _O(N + K)_
 Where N is the number of elements, R is the range of input and K the size of the frequency array.
 
 ## 7. Bucket Sort
-A sorting algorithm that works by dividing elements into different buckets, and then sorting the buckets individuall. Each bucket is then sorted individually by using a different sorting algorithm. Insertion sort is used in this implementation, but other algorithms can be used.
+A sorting algorithm that works by dividing elements into different buckets, and then sorting the buckets individualy. Each bucket is then sorted individually by using a different sorting algorithm. Insertion sort is used in this implementation, but other algorithms can be used.
 
 ### Usage
 ``` c++
