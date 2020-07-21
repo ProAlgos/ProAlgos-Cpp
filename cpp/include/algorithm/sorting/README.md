@@ -123,52 +123,36 @@ _O(N + R)_ | _O(N + K)_
 
 Where N is the number of elements, R is the range of input and K the size of the frequency array.
 
-
 <!-- WIP BELOW -->
 ## 7. Bucket Sort
-A sorting algorithm that works 
+A sorting algorithm that works by dividing elements into different buckets, and then sorting the buckets individuall. Each bucket is then sorted individually by using a different sorting algorithm. Insertion sort is used in this implementation, but other algorithms can be used.
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
-couting_sort(Arr, -1, true)
+bucket_sort(Arr, -1, true)
 ```
 ### Complexity
 
 Time    | Space
 :--------:|:-------------------:
-_O(N + R)_ | _O(N + K)_
+_O(N + N^2 / K+K)_ | _O(N)_
 
-Where N is the number of elements, R is the range of input and K the size of the frequency array.
-
-## 7. Bucket Sort
-A sorting algorithm that works 
-### Usage
-``` c++
-vector<int> Arr{1, 8, 5, 12, 3};
-couting_sort(Arr, -1, true)
-```
-### Complexity
-
-Time    | Space
-:--------:|:-------------------:
-_O(N + R)_ | _O(N + K)_
-
-Where N is the number of elements, R is the range of input and K the size of the frequency array.
+Where N is the number of elements, and K is the number of buckets
 
 ## 8. Radix Sort
-A sorting algorithm that works 
+Least significant digit radix sort is an efficient, non-comparative, integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value.
 ### Usage
 ``` c++
 vector<int> Arr{1, 8, 5, 12, 3};
-couting_sort(Arr, -1, true)
+radix_sort(Arr, -1, true)
 ```
 ### Complexity
 
 Time    | Space
 :--------:|:-------------------:
-_O(N + R)_ | _O(N + K)_
+_O(N)_ | _O(N)_
 
-Where N is the number of elements, R is the range of input and K the size of the frequency array.
+Where N is the number of keys
 
 ## 9. Heap Sort
 A sorting algorithm that works 
