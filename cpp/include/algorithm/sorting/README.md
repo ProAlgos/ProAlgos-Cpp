@@ -9,7 +9,6 @@ Sorting algorithms are designed to arrange data in a particular order. Sorting a
 **In-place**: Elements are sorted by modifying their order directly.  
 **Not in-place**: An Auxiliary data structure is used for sorting.  
 
-
 ### Contents
 1. [Bubble sort](#1-bubble-sort)
 2. [Bucket sort](#2-bucket-sort)
@@ -106,7 +105,7 @@ _O(N * log(N))_ | _O(1)_
 Where N is the number of elements
 
 ## 6. Insertion sort
-An in-place, comparison based sorting algorithm that builds the final sorted list of value one item at a time. This is a recursive algorithm more efficient for small data sets than most other quadratic-time algorithms.
+An in-place, comparison based sorting algorithm that builds the final sorted list one item at a time. This is a recursive algorithm more efficient for small data sets than most other quadratic-time algorithms.
 
 ### Usage
 ``` c++
@@ -122,7 +121,7 @@ _O(N^2)_ | _O(1)_
 Where N is the number of elements in the array.
 
 ## 7. Merge sort
-This is a sorting algorithm that uses the concept of 'divide and conquer'. This is a not in-place sorting algorithm and is efficient.
+An algorithm that uses the concept divide and conquer. This is a not in-place sorting algorithm and is efficient.
 
 ### Usage
 ``` c++
@@ -138,7 +137,7 @@ _O(N * log(N)_ | _O(1)_
 Where N is the number of elements.
 
 ## 8. Quick sort
-This is an efficient sorting algorithm that uses the concept of 'divide and conquer'. This is a recursive algorithm. 
+An efficient sorting algorithm that uses the concept of 'divide and conquer'. This is a recursive algorithm. 
 
 ### Usage
 ``` c++
@@ -171,7 +170,7 @@ _O(N)_ | _O(N)_
 Where N is the number of keys
 
 ## 10. Selection sort
-A simple in-place comparision-based sorting algorithm. This sorts a list by finding the smallest or largest element (depending on the sorting order) from the unsorted sublist and swapping it with the leftmost unsorted element, then moving the sublist boundary one element to the right.
+A simple in-place comparison-based sorting algorithm. This sorts a list by finding the smallest or largest element (depending on the sorting order) from the unsorted sublist and swapping it with the leftmost unsorted element, then moving the sublist boundary one element to the right.
 
 ### Usage
 ``` c++
