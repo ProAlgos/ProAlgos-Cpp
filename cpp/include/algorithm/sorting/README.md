@@ -41,7 +41,7 @@ _O(N^2)_ | _O(1)_
 Where N is the number of elements in the array.
 
 ## 2. Bucket sort
-A sorting algorithm that works by dividing elements into different buckets, and then sorting the buckets individualy. Each bucket is then sorted individually by using a different sorting algorithm. Insertion sort is used in this implementation, but other algorithms can be used.
+A sorting algorithm that works by dividing elements into different buckets, and then sorting the buckets individually. Each bucket is then sorted individually by using a different sorting algorithm. Insertion sort is used in this implementation, but other algorithms can be used.
 
 ### Usage
 ``` c++
@@ -121,7 +121,7 @@ _O(N^2)_ | _O(1)_
 Where N is the number of elements in the array.
 
 ## 7. Merge sort
-An algorithm that uses the concept divide and conquer. This is a not in-place sorting algorithm and is efficient.
+An algorithm that uses the concept 'divide and conquer'. This is a not in-place sorting algorithm and is efficient.
 
 ### Usage
 ``` c++
