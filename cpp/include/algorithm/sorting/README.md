@@ -7,7 +7,7 @@ Sorting algorithms are designed to arrange data in a particular order. Sorting a
 
 #### In-place and Not In-place Sorting
 **In-place**: Elements are sorted by modifying their order directly.  
-**Not in-place**: An Auxiliary data structure is used for sorting.  
+**Not in-place**: An auxiliary data structure is used for sorting.  
 
 ### Contents
 1. [Bubble sort](#1-bubble-sort)
