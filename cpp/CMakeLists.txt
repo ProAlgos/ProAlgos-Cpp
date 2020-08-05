@@ -186,6 +186,15 @@ add_executable(doubly_linked_list
         test/data_structure/linked_list/doubly_linked_list.cpp)
 target_link_libraries(doubly_linked_list test_runner)
 
+# -----
+# Queue
+# -----
+
+# Queue
+add_executable(queue
+        test/data_structure/queue/queue.cpp)
+target_link_libraries(queue test_runner)
+
 # ---
 # Set
 # ---
