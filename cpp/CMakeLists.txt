@@ -88,9 +88,9 @@ add_executable(fibonacci
 target_link_libraries(fibonacci test_runner)
 
 # Fast fibonacci
- add_executable(fibonacci_fast
+add_executable(fibonacci_fast
         test/algorithm/number_theory/fibonacci_fast.cpp)
- target_link_libraries(fibonacci_fast test_runner)
+target_link_libraries(fibonacci_fast test_runner)
 
 # Fibonacci efficient
 add_executable(fibonacci_efficient

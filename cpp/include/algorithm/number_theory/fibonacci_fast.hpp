@@ -22,11 +22,10 @@
 #define FIBONACCI_FAST_HPP
 
 #include <cmath>
-typedef unsigned long long int ULL;
+typedef long long int ULL;
 
 const int MAX_N = 64; // fibonacci(64) cannot be calculated due to limitation of precision of computers for irrational number phi (GOLDEN RATIO)
 const long double phi = 1.618033988749894;
-
 
 long double ___modExp_____(const int ex) // Name is unconventional to prevent accidental clash with a function name in implementing class
 {
