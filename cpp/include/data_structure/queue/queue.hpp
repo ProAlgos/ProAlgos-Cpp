@@ -34,7 +34,7 @@ public:
     -----------
 */
 template<class T>
-Queue<T>::Queue() : size {0}, head {nullptr} {}
+Queue<T>::Queue() : size {0}, head {nullptr}, tail {nullptr} {}
 
 /*
  Adds an item to the end of the queue
