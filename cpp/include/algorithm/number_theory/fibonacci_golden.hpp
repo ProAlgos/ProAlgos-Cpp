@@ -18,8 +18,8 @@
     O(1).
 */
 
-#ifndef FIBONACCI_FAST_HPP
-#define FIBONACCI_FAST_HPP
+#ifndef FIBONACCI_GOLDEN_HPP
+#define FIBONACCI_GOLDEN_HPP
 
 #include <cmath>
 typedef long long int ULL;
@@ -64,7 +64,7 @@ ULL fibonacci(const int n)
     }
     else
     {
-        return round(___modExp_____(n - 2));
+        return round(___modExp_____(n));
     }
 
 }

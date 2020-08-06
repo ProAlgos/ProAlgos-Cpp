@@ -1,5 +1,5 @@
 #include "third_party/catch.hpp"
-#include "algorithm/number_theory/fibonacci_fast.hpp"
+#include "algorithm/number_theory/fibonacci_golden.hpp"
 
 TEST_CASE("Base cases", "[fibonacci]") {
     REQUIRE(fibonacci(0) == 0);
