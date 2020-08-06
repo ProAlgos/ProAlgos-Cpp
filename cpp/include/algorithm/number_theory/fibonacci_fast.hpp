@@ -18,8 +18,8 @@
     O(1).
 */
 
-#ifndef FIBONACCI_HPP
-#define FIBONACCI_HPP
+#ifndef FIBONACCI_FAST_HPP
+#define FIBONACCI_FAST_HPP
 
 #include <cmath>
 typedef unsigned long long int ULL;
@@ -70,5 +70,5 @@ ULL fibonacci(const int n)
 
 }
 
-#endif // FIBONACCI_HPP
+#endif // FIBONACCI_FAST_HPP
 
