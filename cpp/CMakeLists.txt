@@ -66,6 +66,11 @@ target_link_libraries(weighted_activity_selection test_runner)
 # Number theory
 # -------------
 
+#fast_fibonacci
+ add_executable(fibonacci_fast
+        test/algorithm/searching/fibonacci_fast.cpp)
+ target_link_libraries(fibonacci_fast test_runner)
+
 # Binomial coefficient
 add_executable(binomial_coefficient
         test/algorithm/number_theory/binomial_coefficient.cpp)
