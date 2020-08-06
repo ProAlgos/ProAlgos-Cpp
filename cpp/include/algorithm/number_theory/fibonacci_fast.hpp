@@ -28,9 +28,9 @@ const int MAX_N = 64; // fibonacci(64) cannot be calculated due to limitation of
 const long double phi = 1.618033988749894;
 
 
-long double ___modExp_____(int exp) // Name is unconventional to prevent accidental clash with a function name in implementing class
+long double ___modExp_____(const int ex) // Name is unconventional to prevent accidental clash with a function name in implementing class
 {
-    int n=exp;
+    int n=ex, exp=ex;
     long double ans = 1, a = phi;
     while (exp)
     {
