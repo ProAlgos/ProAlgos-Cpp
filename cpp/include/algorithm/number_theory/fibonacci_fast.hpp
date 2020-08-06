@@ -7,7 +7,7 @@
 
     It uses the fact that the round off value of the next fibonacci number
     is f_(n+1) = f_(n)*(phi) where phi is golden ratio
-    
+
 
     Time complexity
     ---------------
@@ -24,15 +24,13 @@
 #include <cmath>
 typedef unsigned long long int ULL;
 
-const int MAX_N = 93; // fibonacci(94) goes beyond the range of ULL
+const int MAX_N = 64; // fibonacci(64) cannot be calculated due to limitation of precision of computers for irrational number phi (GOLDEN RATIO)
 const long double phi = 1.618033988749894;
+
 
 long double ___modExp_____(int exp) // Name is unconventional to prevent accidental clash with a function name in implementing class
 {
-    if (exp < 2)
-    {
-        return 0;
-    }
+    int n=exp;
     long double ans = 1, a = phi;
     while (exp)
     {
@@ -43,7 +41,14 @@ long double ___modExp_____(int exp) // Name is unconventional to prevent acciden
         a *= a;
         exp >>= 1;
     }
-    return exp;
+    if (n%2==0) {
+        return sqrt(0.2)*(ans-1/(ans));
+    }
+    else
+    {
+        return sqrt(0.2)*(ans+1/ans);
+    }
+
 }
 
 ULL fibonacci(const int n)
