@@ -13,7 +13,7 @@ TEST_CASE("Normal cases", "[fibonacci]") {
     REQUIRE(fibonacci(18) == 2584);
     REQUIRE(fibonacci(23) == 28657);
     REQUIRE(fibonacci(50) == 12586269025);
-    REQUIRE(fibonacci(93) == 12200160415121876738U);
+    REQUIRE(fibonacci(64) == 10610209857723U);
 }
 
 TEST_CASE("Overflow cases", "[fibonacci]") {
