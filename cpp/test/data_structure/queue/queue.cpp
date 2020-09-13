@@ -3,18 +3,18 @@
 
 TEST_CASE("Verify initial state", "[queue]") {
     // Initialize queue
-	Queue<int> queue;
+    Queue<int> queue;
 
-	// Verify state
+    // Verify state
     REQUIRE(queue.length() == 0);
     REQUIRE(queue.isEmpty() == true);
 }
 
 TEST_CASE("Add elements", "[queue]") {
     // Initialize queue
-	Queue<int> queue;
+    Queue<int> queue;
 
-	// Add items
+    // Add items
     queue.push(27);
     queue.push(2);
     queue.push(72);
@@ -34,9 +34,9 @@ TEST_CASE("Add elements", "[queue]") {
 
 TEST_CASE("Delete elements", "[queue]") {
     // Initialize queue
-	Queue<int> queue;
+    Queue<int> queue;
 
-	// Add items
+    // Add items
     queue.push(27);
     queue.push(2);
     queue.push(72);
@@ -66,9 +66,9 @@ TEST_CASE("Delete elements", "[queue]") {
 
 TEST_CASE("Clear list", "[queue]") {
     // Initialize queue
-	Queue<int> queue;
+    Queue<int> queue;
 
-	// Add items
+    // Add items
     queue.push(27);
     queue.push(2);
     queue.push(72);
@@ -103,26 +103,26 @@ TEST_CASE("Clear list", "[queue]") {
 }
 
 TEST_CASE("Adding and removing values", "[queue]") {
-	// Initialize state
-	Queue<int> queue;
+    // Initialize state
+    Queue<int> queue;
 
-	// Verify state after adding items
+    // Verify state after adding items
     queue.push(2);
     REQUIRE(queue.length() == 1);
     REQUIRE(queue.top() == 2);
 
-	// Verify state after adding more items
+    // Verify state after adding more items
     queue.push(5);
     queue.push(7);
     REQUIRE(queue.length() == 3);
     REQUIRE(queue.top() == 2);
 
-	// Verify state after removing items
+    // Verify state after removing items
     queue.pop();
     REQUIRE(queue.length() == 2);
     REQUIRE(queue.top() == 5);
 
-	// Verify state after removing more items
+    // Verify state after removing more items
     queue.pop();
     REQUIRE(queue.length() == 1);
     REQUIRE(queue.top() == 7);
