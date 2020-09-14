@@ -26,16 +26,16 @@ template<class T>
 class Node {
     T value;
     Node<T>* next;
-    Node(void);
+    Node();
 
 public:
     Node(const T&, Node<T>* const);
     Node(const Node&);
     Node<T>& operator=(const Node<T>&);
     ~Node();
-    T& get_value(void);
+    T& get_value();
     void set_value(const T&);
-    Node<T>* get_next(void);
+    Node<T>* get_next();
     void set_next(Node<T>* const);
 
     // inline friend functions:
@@ -114,7 +114,7 @@ Node<T>::~Node() {
 */
 
 template<class T>
-T& Node<T>::get_value(void) {
+T& Node<T>::get_value() {
     return this->value;
 }
 
@@ -124,7 +124,7 @@ void Node<T>::set_value(const T& other) {
 }
 
 template<class T>
-Node<T>* Node<T>::get_next(void) {
+Node<T>* Node<T>::get_next() {
     return this->next;
 }
 
@@ -149,16 +149,17 @@ class SinglyLinkedList {
 public:
     SinglyLinkedList();
     ~SinglyLinkedList();
-    bool is_empty(void);
-    int length(void) const;
+    bool is_empty();
+    int length() const;
     void insert_front(const T&);
     void insert_rear(const T&);
-    void delete_front(void);
-    void delete_rear(void);
+    void delete_front();
+    void delete_rear();
     T value_at(int);
     T operator[](int);
     const T operator[](int) const;
-    void clear(void);
+    void reverse();
+    void clear();
 };
 
 
@@ -192,7 +193,7 @@ SinglyLinkedList<T>::~SinglyLinkedList() {
 */
 
 template<class T>
-bool SinglyLinkedList<T>::is_empty(void) {
+bool SinglyLinkedList<T>::is_empty() {
     return size == 0;
 }
 
@@ -204,7 +205,7 @@ bool SinglyLinkedList<T>::is_empty(void) {
 */
 
 template<class T>
-int SinglyLinkedList<T>::length(void) const {
+int SinglyLinkedList<T>::length() const {
     return size;
 }
 
@@ -275,7 +276,7 @@ void SinglyLinkedList<T>::insert_rear(const T& value) {
 */
 
 template<class T>
-void SinglyLinkedList<T>::delete_front(void) {
+void SinglyLinkedList<T>::delete_front() {
     Node<T>* temp = head;
     if (temp == nullptr)
         return;
@@ -302,7 +303,7 @@ void SinglyLinkedList<T>::delete_front(void) {
 */
 
 template<class T>
-void SinglyLinkedList<T>::delete_rear(void) {
+void SinglyLinkedList<T>::delete_rear() {
     Node<T>* temp = head;
     if (temp == nullptr)
         return;
@@ -360,6 +361,38 @@ const T SinglyLinkedList<T>::operator[](int index) const {
     return value_at(index);
 }
 
+/*
+    reverse
+    -------
+    Reverse the list by changing links between nodes.
+
+    Time complexity
+    ---------------
+    O(N), where N is the number of nodes in the list
+
+    Space complexity
+    ----------------
+    O(1) 
+*/
+
+template<class T>
+void SinglyLinkedList<T>::reverse() {
+    if (size > 1) {
+        Node<T>* next = head;
+        Node<T>* current, * previous;
+        current = previous = nullptr;
+        tail = head;
+
+        while (next) {
+            current = next;
+            next = next->get_next();
+            current->set_next(previous);
+            previous = current;
+        }
+
+        head = current;
+    }
+}
 
 /*
     clear
@@ -368,7 +401,7 @@ const T SinglyLinkedList<T>::operator[](int index) const {
 */
 
 template<class T>
-void SinglyLinkedList<T>::clear(void) {
+void SinglyLinkedList<T>::clear() {
     Node<T>* temp = head;
     while (temp != nullptr) {
         temp = temp->get_next();

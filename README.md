@@ -100,8 +100,14 @@ handle it from there. :smile:
   * [Singly linked list](cpp/include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
   * [Doubly linked list](cpp/include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
   
+* Queue
+  * [Queue](cpp/include/data_structure/queue/queue.hpp) :white_check_mark:
+  
 * Set
   * [Disjoint-set](cpp/include/data_structure/set/disjoint_set.hpp) :white_check_mark:
+  
+* Stack
+  * [Stack](cpp/include/data_structure/stack/stack.hpp) :white_check_mark:
   
 * Tree
   * [Binary search tree](cpp/include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
