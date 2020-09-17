@@ -87,7 +87,7 @@ add_executable(fibonacci
         test/algorithm/number_theory/fibonacci.cpp)
 target_link_libraries(fibonacci test_runner)
 
-# Fast fibonacci using golden ratio
+# Space efficient logarithmic time fibonacci using golden ratio
 add_executable(fibonacci_golden
         test/algorithm/number_theory/fibonacci_golden.cpp)
 target_link_libraries(fibonacci_golden test_runner)

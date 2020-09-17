@@ -62,7 +62,7 @@ handle it from there. :smile:
   * Nth Fibonacci number
     * [Linear time algorithm](cpp/include/algorithm/number_theory/fibonacci.hpp) :white_check_mark:
     * [Logarithmic time algorithm](cpp/include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
-    * [Golden Ratio (faster logarithmic time) algorithm](cpp/include/algorithm/number_theory/fibonacci_golden.hpp) :white_check_mark:
+    * [Golden Ratio algorithm](cpp/include/algorithm/number_theory/fibonacci_golden.hpp) :white_check_mark:
   * [Perfect number check](cpp/include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
     * [Primorial](include/algorithm/number_theory/primorial.hpp) :white_check_mark:
