@@ -1,3 +1,18 @@
+/*
+ *  Adjacency Matrix of a Graph
+ *  
+ *  A graph is a collection of vertices and edges.
+ *  An adjacency matrix is a possible implementation of a graph,
+ *  represented by a 2D array of size VxV where V is the number
+ *  of vertices. Let adj[][] be the 2D array, a slot adj[i][j] = w
+ *  means that there is an edge from vertex i to vertex j with
+ *  weight w. If w = 0, then there is no edge.
+ *
+ *  Time Complexity
+ *
+ * */
+
+
 #ifndef ADJACENCY_MATRIX_HPP
 #define ADJACENCY_MATRIX_HPP
 
@@ -16,32 +31,25 @@ class Graph {
         Graph(bool is_directed);
         virtual ~Graph()       ;
         
-        /* set methods */
-        
-        // returns the index of the added vertex
-        // or -1 if it already exists
+        /* set methods */        
         int add_vertex(const Vertex& v);
-
-        // returns 0
-        // or -1 if it already exists
-        int add_edge   (int weight, const Vertex& v1, const Vertex& v2);
-        int remove_edge(const Vertex& v1, const Vertex& v2)            ;
+        int add_edge   (int weight, const Vertex& vertex_1, const Vertex& vertex_2);
+        int remove_edge(const Vertex& vertex_1, const Vertex& vertex_2)            ;
    
 
 
         /* get methods */  
         int get_index               (const Vertex& v)                   ;
-        int get_weight              (const Vertex& v1, const Vertex& v2);
+        int get_weight              (const Vertex& vertex_1, const Vertex& vertex_2);
         int get_num_vertices        ()                                  ;
         vector<Vertex>& get_vertices()                                  ; 
         Vertex& get_vertex          (int index)                         ;
     
     private:
 
-        // this integer identifies each vertex in our map.
-        // we increase it every time we add a vertex. 
-        // It never decreases
+        // this integer identifies each vertex in our map. We increase it every time we add a vertex. It never decreases
         int                  index   ;
+
         vector<vector<int> > matrix  ;
         map<int, Vertex>     indices ;
         bool                 directed;
@@ -88,14 +96,14 @@ int Graph<Vertex>::get_index(const Vertex& v) {
     return -1;
 }
 
-// if idx not -1, then the vertex exists
-// and it returns -1
+// returns the index of the added vertex
+// or -1 if it already exists        
 template<typename Vertex>
 int Graph<Vertex>::add_vertex(const Vertex& v) { 
     
-    int idx = get_index(v);
+    int index = get_index(v);
     
-    if (idx != -1) {
+    if (index != -1) {
         return -1;
     } else {
         index++;
@@ -111,68 +119,71 @@ int Graph<Vertex>::add_vertex(const Vertex& v) {
     return index;
 }
 
-//will silently fail if either v1 or v2 does not exist
+
+// returns 0 if OK
+// or -1 if it already exists        
+// will silently fail if either vertex_1 or vertex_2 does not exist
 template<typename Vertex>
-int Graph<Vertex>::add_edge(int weight, const Vertex& v1, const Vertex& v2) {
+int Graph<Vertex>::add_edge(int weight, const Vertex& vertex_1, const Vertex& vertex_2) {
     
-    int idx_v1, idx_v2;
-    if (v1 != v2) {
-        idx_v1 = get_index(v1);
-        idx_v2 = get_index(v2);
+    int index_vertex_1, index_vertex_2;
+    if (vertex_1 != vertex_2) {
+        index_vertex_1 = get_index(vertex_1);
+        index_vertex_2 = get_index(vertex_2);
     } else {
-        idx_v1 = get_index(v1);
-        idx_v2 = idx_v1;
+        index_vertex_1 = get_index(vertex_1);
+        index_vertex_2 = index_vertex_1;
     }
     
-    if (matrix[idx_v1][idx_v2] != 0) {
+    if (matrix[index_vertex_1][index_vertex_2] != 0) {
         return -1;
     } else {
         if (!directed) {
-            matrix[idx_v1][idx_v2] = weight;
-            matrix[idx_v2][idx_v1] = weight;
+            matrix[index_vertex_1][index_vertex_2] = weight;
+            matrix[index_vertex_2][index_vertex_1] = weight;
         } else {
-            matrix[idx_v1][idx_v2] = weight;
+            matrix[index_vertex_1][index_vertex_2] = weight;
         }
     }
     return 0; 
 }
 
 template<typename Vertex>
-int Graph<Vertex>::remove_edge(const Vertex& v1, const Vertex& v2) {
-    int idx_v1, idx_v2; 
-    if (v1 != v2) {
-        idx_v1 = get_index(v1);
-        idx_v2 = get_index(v2);
+int Graph<Vertex>::remove_edge(const Vertex& vertex_1, const Vertex& vertex_2) {
+    int index_vertex_1, index_vertex_2; 
+    if (vertex_1 != vertex_2) {
+        index_vertex_1 = get_index(vertex_1);
+        index_vertex_2 = get_index(vertex_2);
     } else {
-        idx_v1 = get_index(v1);
-        idx_v2 = idx_v1;
+        index_vertex_1 = get_index(vertex_1);
+        index_vertex_2 = index_vertex_1;
     }
     
-    if (matrix[idx_v1][idx_v2] == 0) {
+    if (matrix[index_vertex_1][index_vertex_2] == 0) {
         return -1;
     } else {
         if (!directed) {
-            matrix[idx_v1][idx_v2] = 0;
-            matrix[idx_v2][idx_v1] = 0;
+            matrix[index_vertex_1][index_vertex_2] = 0;
+            matrix[index_vertex_2][index_vertex_1] = 0;
         } else {
-            matrix[idx_v1][idx_v2] = 0;
+            matrix[index_vertex_1][index_vertex_2] = 0;
         }
     }
     return 0;
 }
 
 template<typename Vertex>
-int Graph<Vertex>::get_weight(const Vertex& v1, const Vertex& v2) {
-    int idx_v1, idx_v2; 
-    if (v1 != v2) {
-        idx_v1 = get_index(v1);
-        idx_v2 = get_index(v2);
+int Graph<Vertex>::get_weight(const Vertex& vertex_1, const Vertex& vertex_2) {
+    int index_vertex_1, index_vertex_2; 
+    if (vertex_1 != vertex_2) {
+        index_vertex_1 = get_index(vertex_1);
+        index_vertex_2 = get_index(vertex_2);
     } else {
-        idx_v1 = get_index(v1);
-        idx_v2 = idx_v1;
+        index_vertex_1 = get_index(vertex_1);
+        index_vertex_2 = index_vertex_1;
     }
     
-    return matrix[idx_v1][idx_v2];
+    return matrix[index_vertex_1][index_vertex_2];
 }
 
 template<typename Vertex>
