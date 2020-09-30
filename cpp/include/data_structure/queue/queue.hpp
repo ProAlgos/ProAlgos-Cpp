@@ -54,6 +54,10 @@ void Queue<T>::push(const T &item) {
  Removes an item from the top of the queue
 */
 template<class T>
+bool Queue<T>::isEmpty() {
+    return size == 0;
+}
+template<class T>
 void Queue<T>::pop() {
     Node<T>* temp = head;
     head = temp->get_next();
@@ -83,9 +87,6 @@ size_t Queue<T>::length() {
 /*
  Returns true if queue is empty
 */
-template<class T>
-bool Queue<T>::isEmpty() {
-    return size == 0;
-}
+
 
 #endif /* QUEUE_HPP */
