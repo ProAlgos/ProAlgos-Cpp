@@ -8,6 +8,7 @@ This project is focused on implementing **algorithms and data structures** in C+
 - Adhering to code guidelines
 - Writing and passing unit tests
 - Reviewing each other's code
+- Focusing on DSA topics
 
 ## Goals
 
