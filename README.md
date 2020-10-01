@@ -8,6 +8,7 @@ This project is focused on implementing **algorithms and data structures** in C+
 - Adhering to code guidelines
 - Writing and passing unit tests
 - Reviewing each other's code
+- Understanding one another's codes
 
 ## Goals
 
@@ -89,6 +90,7 @@ handle it from there. :smile:
   * [Longest common subsequence](cpp/include/algorithm/string/longest_common_subsequence.hpp) :white_check_mark:
   * Searching (pattern matching)
     * [Knuth-Morris-Pratt](cpp/include/algorithm/string/knuth_morris_pratt.hpp) :white_check_mark:
+    * [Rabin carp algorithm]
   * [Edit Distance Problem](cpp/include/algorithm/string/edit_distance.hpp) :white_check_mark:
   * [Shunting yard](cpp/include/algorithm/string/shunting_yard.hpp) :white_check_mark:
   * Permutation
@@ -99,6 +101,7 @@ handle it from there. :smile:
 * Linked List
   * [Singly linked list](cpp/include/data_structure/linked_list/singly_linked_list.hpp) :white_check_mark:
   * [Doubly linked list](cpp/include/data_structure/linked_list/doubly_linked_list.hpp) :white_check_mark:
+  * [circular linked list](cpp/include/data_structure/linked_list/circular_linked_list.hpp) :white_check_mark:
   
 * Queue
   * [Queue](cpp/include/data_structure/queue/queue.hpp) :white_check_mark:
