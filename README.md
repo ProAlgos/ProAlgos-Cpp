@@ -9,13 +9,13 @@ This project is focused on implementing **algorithms and data structures** in C+
 - Writing and passing unit tests
 - Reviewing each other's code
 
-## Goals
+## Aims
 
 1. Implement algorithms and data structures
 1. Learn to be better software developers
 1. Guide one another on version control, unit testing, and algorithms
 
-## How to get involved
+## How to get involved?
 
 There are a few ways to get involved.
 
@@ -112,7 +112,7 @@ handle it from there. :smile:
 * Tree
   * [Binary search tree](cpp/include/data_structure/tree/binary_search_tree.hpp) :white_check_mark:
 
-## Compiling
+## Compilation
 
 To compile the source files, run **`make`** from the `C++` directory. Doing so will create executable binaries in the `bin` directory.
 
