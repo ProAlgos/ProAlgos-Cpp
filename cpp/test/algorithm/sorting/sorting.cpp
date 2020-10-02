@@ -8,6 +8,7 @@
 #include "algorithm/sorting/heap_sort.hpp"
 #include "algorithm/sorting/insertion_sort.hpp"
 #include "algorithm/sorting/merge_sort.hpp"
+#include "algorithm/sorting/pancake_sort.hpp"
 #include "algorithm/sorting/quick_sort.hpp"
 #include "algorithm/sorting/selection_sort.hpp"
 #include "algorithm/sorting/shell_sort.hpp"
@@ -32,9 +33,10 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
         heap_sort,
         insertion_sort,
         merge_sort,
+        pancake_sort,
         quick_sort,
         selection_sort,
-        shell_sort
+        shell_sort,
     };
 
     vector<int> original, algo_sorted, std_sorted;
@@ -63,6 +65,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
         heap_sort,
         insertion_sort,
         merge_sort,
+        pancake_sort,
         quick_sort,
         selection_sort,
         shell_sort
