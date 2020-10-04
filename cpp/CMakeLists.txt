@@ -28,6 +28,11 @@ add_executable(n_queens
         test/algorithm/backtracking/n_queens.cpp)
 target_link_libraries(n_queens test_runner)
 
+# ALL permutations of a string/array
+add_executable(all_permutations
+	test/algorithm/backtracking/all_permutations.cpp)
+target_link_libraries(all_permutations test_runner)
+
 # -------------------
 # Dynamic programming
 # -------------------

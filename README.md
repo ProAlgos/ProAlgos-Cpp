@@ -43,6 +43,7 @@ handle it from there. :smile:
 
 * Backtracking
   * [N-Queens](cpp/include/algorithm/backtracking/n_queens.hpp) :white_check_mark:
+  * [All permutations of a string/array](cpp/include/algorithm/backtracking/all_permutations.hpp) :white_check_mark:
 
 * Dynamic programming
   * [0-1 knapsack](cpp/include/algorithm/dynamic_programming/0_1_knapsack.hpp) :white_check_mark:
