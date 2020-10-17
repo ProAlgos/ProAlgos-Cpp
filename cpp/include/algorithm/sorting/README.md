@@ -153,7 +153,7 @@ Expected case:_O(N * log(N)_ | _O(1)_
 
 Where N is the number of elements.
 
-## 8. Radix sort
+## 9. Radix sort
 Least significant digit radix sort is an efficient, non-comparative, integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value. Note that this implementation of radix sort can be used to sort positive integers only.
 
 ### Usage
