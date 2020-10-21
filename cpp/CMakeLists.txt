@@ -222,3 +222,7 @@ add_executable(binary_search_tree
         test/data_structure/tree/binary_search_tree.cpp)
 target_link_libraries(binary_search_tree test_runner)
 
+add_executable(fenwick_tree
+        test/data_structure/tree/fenwick_tree.cpp)
+target_link_libraries(fenwick_tree test_runner)
+
