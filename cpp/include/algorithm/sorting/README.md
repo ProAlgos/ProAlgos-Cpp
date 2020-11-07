@@ -132,7 +132,7 @@ merge_sort(arr, -1, true);
 
 Time    | Space
 :--------:|:-------------------:
-_O(N * log(N)_ | _O(1)_
+_O(N * log(N))_ | _O(1)_
 
 Where N is the number of elements.
 
