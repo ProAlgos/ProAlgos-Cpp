@@ -60,9 +60,9 @@ public:
   Average case : O(nlog(n)), where n is the number of elements in the original array
   Worst case : O(nlog(n))
   
-  Space complexity : O(n)
+  Space complexity
   ----------------
-  
+  O(n)
 */
 FenwickTree::FenwickTree(vector<int> original_array){
   max_index = original_array.size();
@@ -105,11 +105,10 @@ FenwickTree::FenwickTree(vector<int> original_array){
   ---------------
   Worst case : O(log n), where n is the number of elements in the fenwick tree
   
-  Space complexity : O(n)
+  Space complexity
   ----------------
-  
+  O(n)
 */
-void FenwickTree::update_tree(int value, int index){
 void FenwickTree::update_tree(int index, int value){
   if (max_index == 0){
     return;
@@ -137,8 +136,9 @@ void FenwickTree::update_tree(int index, int value){
   ---------------
   Worst case: O(log n), where n is the number of elements in the fenwick tree
   
-  Space complexity : O(n)
+  Space complexity
   ----------------
+  O(n)
 */
 int FenwickTree::calculate_prefix_sum(int index){
   if (max_index == 0){
