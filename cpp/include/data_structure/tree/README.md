@@ -3,12 +3,12 @@ Trees are a group of data structures that are named this way because of how they
 
 ### Contents
 
-1. [Fenwick Tree](#1-fenwick-tree)
+1. [Fenwick tree](#1-fenwick-tree)
 
 ---
 
-## 1. Fenwick Tree
-A fenwick tree offers a more equitable tradeoff between updating an array of prefix sums and calculating prefix sums. Both the update operation and the calculate operation are implemented with the time complexity of O(log n). That can be compared to the naive implementation where the caclulate operation is O(1), and the update operation is O(n).
+## 1. Fenwick tree
+A fenwick tree offers a more equitable tradeoff between updating an array of prefix sums and calculating prefix sums. Both the update operation and the calculate operation are implemented with the time complexity of O(log n). That can be compared to the naive implementation where the calculate operation is O(1), and the update operation is O(n).
 
 ### Usage 
 
