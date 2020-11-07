@@ -43,7 +43,7 @@ private:
 public:
   FenwickTree(vector<int> original_array);
   
-  void update_tree(int value, int index);
+  void update_tree(int index, int value);
   
   int calculate_prefix_sum(int index);
 };
@@ -72,7 +72,7 @@ FenwickTree::FenwickTree(vector<int> original_array){
   tree.insert(tree.begin(), max_index + 1, 0);
   
   for (int i = 0;i < max_index;i++) {
-    update_tree(original_array[i], i);
+    update_tree(i, original_array[i]);
   }
 }
 
@@ -110,6 +110,7 @@ FenwickTree::FenwickTree(vector<int> original_array){
   
 */
 void FenwickTree::update_tree(int value, int index){
+void FenwickTree::update_tree(int index, int value){
   if (max_index == 0){
     return;
   }

@@ -26,7 +26,7 @@ TEST_CASE("Check tree that has been updated", "[fenwick-tree]") {
     FenwickTree tree(original_array);
     
     // Update in the middle of the array and then check
-    tree.update_tree(4, 2);
+    tree.update_tree(2, 4);
     
     REQUIRE(tree.calculate_prefix_sum(0) == 10);
     REQUIRE(tree.calculate_prefix_sum(1) == 13);
@@ -44,7 +44,7 @@ TEST_CASE("Check tree that has been updated", "[fenwick-tree]") {
     REQUIRE(tree.calculate_prefix_sum(4) == 53);
     
     // Update at the start of the array and then check
-    tree.update_tree(4, 0);
+    tree.update_tree(0, 4);
     
     REQUIRE(tree.calculate_prefix_sum(0) == 14);
     REQUIRE(tree.calculate_prefix_sum(1) == 17);
@@ -59,7 +59,7 @@ TEST_CASE("Check tree that has been updated with a negative number", "[fenwick-t
     FenwickTree tree(original_array);
     
     // original_array will now be [10, 3, 19, 12, 5]
-    tree.update_tree(-3, 1);
+    tree.update_tree(1, -3);
     
     REQUIRE(tree.calculate_prefix_sum(0) == 10);
     REQUIRE(tree.calculate_prefix_sum(1) == 10);
@@ -67,14 +67,14 @@ TEST_CASE("Check tree that has been updated with a negative number", "[fenwick-t
     REQUIRE(tree.calculate_prefix_sum(3) == 37);
     REQUIRE(tree.calculate_prefix_sum(4) == 42);
     
-    tree.update_tree(-3, 4);
+    tree.update_tree(4, -3);
     REQUIRE(tree.calculate_prefix_sum(0) == 10);
     REQUIRE(tree.calculate_prefix_sum(1) == 10);
     REQUIRE(tree.calculate_prefix_sum(2) == 25);
     REQUIRE(tree.calculate_prefix_sum(3) == 37);
     REQUIRE(tree.calculate_prefix_sum(4) == 39);
     
-    tree.update_tree(-3, 0);
+    tree.update_tree(0, -3);
     REQUIRE(tree.calculate_prefix_sum(0) == 7);
     REQUIRE(tree.calculate_prefix_sum(1) == 7);
     REQUIRE(tree.calculate_prefix_sum(2) == 22);
