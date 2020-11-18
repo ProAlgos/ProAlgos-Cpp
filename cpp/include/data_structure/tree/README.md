@@ -17,15 +17,14 @@ vector<int> original_array{10, 3, 15, 12, 5};
 
 FenwickTree tree(original_array);
 
-\\ calculate the sum from index 0 -> 2
+// calculate the sum from index 0 -> 2
 tree.calculate_prefix_sum(2)
 
-\\ add 3 to the value located at index = 2
-tree.update_tree(3, 2)
+// add 3 to the value located at index = 2
+tree.update_tree(3, 2);
 
-\\ add -3 to the value located at index = 2
-tree.update_tree(-3, 2)
-
+// add -3 to the value located at index = 2
+tree.update_tree(-3, 2);
 ```
 
 ### Complexity
