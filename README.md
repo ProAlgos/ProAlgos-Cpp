@@ -93,7 +93,7 @@ handle it from there. :smile:
   * [Shunting yard](cpp/include/algorithm/string/shunting_yard.hpp) :white_check_mark:
   * Permutation
     * [Heap's Algorithm](cpp/include/algorithm/string/heaps_algorithm.hpp) :white_check_mark:
-  * [Rolling Polynomial Hash Function](cpp/include/algorithm/string/string_hash.hpp) :white_check_mark:  
+  * [Polynomial Rolling Hash Function](cpp/include/algorithm/string/string_hash.hpp) :white_check_mark:  
 
 ### Data structures
 
