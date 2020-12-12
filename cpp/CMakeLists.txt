@@ -170,7 +170,7 @@ target_link_libraries(shunting_yard test_runner)
 
 # String Hash Function
 add_executable(string_hash
-        test/algorithm/string/string_hashing.cpp)
+        test/algorithm/string/string_hash.cpp)
 target_link_libraries(string_hash test_runner)
 
 # ============================================================================
