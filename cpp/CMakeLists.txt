@@ -226,3 +226,10 @@ add_executable(fenwick_tree
         test/data_structure/tree/fenwick_tree.cpp)
 target_link_libraries(fenwick_tree test_runner)
 
+# ============================================================================
+# Utilities
+# ============================================================================
+
+add_executable(data_conversion
+               test/utils/data_conversion.cpp)
+target_link_libraries(data_conversion test_runner)
