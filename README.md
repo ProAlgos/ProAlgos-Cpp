@@ -93,7 +93,10 @@ handle it from there. :smile:
   * [Shunting yard](cpp/include/algorithm/string/shunting_yard.hpp) :white_check_mark:
   * Permutation
     * [Heap's Algorithm](cpp/include/algorithm/string/heaps_algorithm.hpp) :white_check_mark:
-
+* Utils
+  * [Data Conversion](cpp/include/utils/data_conversion.hpp)
+    * Convert to upper case :white_check_mark:
+    * Convert to lower case :white_check_mark:
 ### Data structures
 
 * Linked List
