@@ -69,6 +69,7 @@ handle it from there. :smile:
   
 * Searching
   * [Binary search](cpp/include/algorithm/searching/binary_search.hpp) :white_check_mark:
+  * [Jump search](cpp/include/algorithm/searching/jump_search.hpp) :white_check_mark:
   * [Linear search](cpp/include/algorithm/searching/linear_search.hpp) :white_check_mark:
   * [Ternary search](cpp/include/algorithm/searching/ternary_search.hpp) :white_check_mark:
   
