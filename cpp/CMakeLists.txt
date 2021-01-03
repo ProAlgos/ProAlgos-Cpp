@@ -130,6 +130,11 @@ add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
 
+# Jump search
+add_executable(jump_search
+        test/algorithm/searching/jump_search.cpp)
+target_link_libraries(jump_search test_runner)
+
 # -------
 # Sorting
 # -------
