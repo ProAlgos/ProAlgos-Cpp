@@ -1,0 +1,22 @@
+name: Build and run tests
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  ci:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build unit tests
+      run: cd cpp && make
+    - name: Run unit tests
+      run: cd cpp && make test
