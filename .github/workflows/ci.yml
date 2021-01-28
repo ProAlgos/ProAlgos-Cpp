@@ -8,7 +8,6 @@ on:
 
 defaults:
   run:
-    shell: bash
     working-directory: cpp
 
 jobs:
@@ -22,14 +21,16 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build unit tests
-      run: |
-        mkdir build && cd build && cmake ..
-        if [ "$RUNNER_OS" == "Windows" ]; then
-          cmake --config Debug .
-        else
-          cmake .
-        fi
+    - name: Configure
+      run: mkdir build && cd build && cmake ..
+    - name: Build unit tests for Windows
+      if: runner.os == 'Windows'
+      run: cmake --config Debug .
+      env:
+        CXX_STANDARD: ${{ matrix.cpp-version }}
+    - name: Build unit tests for Linux and macOS
+      if: runner.os != 'Windows'
+      run: cmake .
       env:
         CXX_STANDARD: ${{ matrix.cpp-version }}
     - name: Run unit tests
