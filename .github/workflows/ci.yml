@@ -14,23 +14,15 @@ jobs:
   unit-tests:
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest]
         cpp-version: [14, 17, 20]
 
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
-    - name: Configure
-      run: mkdir build && cd build && cmake ..
-    - name: Build unit tests for Windows
-      if: runner.os == 'Windows'
-      run: cmake --config Debug .
-      env:
-        CXX_STANDARD: ${{ matrix.cpp-version }}
-    - name: Build unit tests for Linux and macOS
-      if: runner.os != 'Windows'
-      run: cmake .
+    - name: Build unit tests
+      run: make
       env:
         CXX_STANDARD: ${{ matrix.cpp-version }}
     - name: Run unit tests
