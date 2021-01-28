@@ -1,4 +1,4 @@
-name: Build and run tests
+name: CI
 
 on:
   push:
@@ -10,13 +10,19 @@ jobs:
   ci:
     strategy:
       matrix:
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        compiler: [g++, clang++]
+        cpp-version: [14, 17, 20]
 
-    runs-on: ${{ matrix.platform }}
+    runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v2
+    - run: cd cpp
     - name: Build unit tests
-      run: cd cpp && make
+      run: make
+      env:
+        CXX: ${{ matrix.compiler }}
+        CXX_STANDARD: ${{ matrix.cpp-version }}
     - name: Run unit tests
-      run: cd cpp && make test
+      run: make test
