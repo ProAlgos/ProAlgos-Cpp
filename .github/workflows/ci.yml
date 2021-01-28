@@ -18,11 +18,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: cd cpp
     - name: Build unit tests
-      run: make
+      run: cd cpp && make
       env:
         CXX: ${{ matrix.compiler }}
         CXX_STANDARD: ${{ matrix.cpp-version }}
     - name: Run unit tests
-      run: make test
+      run: cd cpp && make test
