@@ -1,6 +1,6 @@
 # ProAlgos: C++
 
-[![Travis status][travis-shield]][travis-link]
+[![CI status][ci-status-badge]][ci-status-link]
 
 This project is focused on implementing **algorithms and data structures** in C++, while following **good software engineering practices**, such as: 
 
@@ -143,6 +143,8 @@ This project is actively maintained by [@alxmjo](https://github.com/alxmjo), and
 
 This project is licensed under the terms of the [MIT license](LICENSE.md).
 
+[ci-status-badge]: https://github.com/ProAlgos/ProAlgos-Cpp/workflows/CI/badge.svg
+[ci-status-link]: https://github.com/ProAlgos/ProAlgos-Cpp/actions
 [travis-shield]: https://img.shields.io/travis/ProAlgos/ProAlgos-Cpp.svg?style=for-the-badge
 [travis-link]: https://travis-ci.org/ProAlgos/ProAlgos-Cpp
 [contrib-guide]: docs/CONTRIBUTING.md
