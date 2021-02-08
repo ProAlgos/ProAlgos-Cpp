@@ -9,7 +9,13 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 include_directories(include)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Wextra -pedantic-errors")
+
+set(CMAKE_CXX_FLAGS "-g -O0 -pedantic -Wall -pedantic-errors")
+if(CMAKE_COMPILER_IS_GNUCXX)
+    message(STATUS "GCC detected, adding compile flags")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra")
+endif(CMAKE_COMPILER_IS_GNUCXX)
+
 
 # Test runner
 add_library(test_runner STATIC
