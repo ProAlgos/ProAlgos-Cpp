@@ -52,6 +52,7 @@ handle it from there. :smile:
   * Maximum sum contiguous subarray: [Kadane's algorithm](cpp/include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](cpp/include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
   * [Weighted activity selection](cpp/include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
+  * [Optimal coin game strategy](cpp/include/algorithm/dynamic_programming/optimal_coin_game_strategy.hpp) :white_check_mark:
 
 * Number theory
   * [Binomial coefficient](cpp/include/algorithm/number_theory/binomial_coefficient.hpp) :white_check_mark:
