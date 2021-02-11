@@ -13,6 +13,7 @@ Dynamic programming algorithms are often used for optimization. A dynamic progra
 5. [Longest decreasing subsequence](#5-longest-decreasing-subsequence)
 6. [Rod cutting](#6-rod-cutting)
 7. [Weighted activity selection](#7-weighted-activity-selection)
+8. [Optimal coin game strategy](#8-Optimal coin game strategy)
 
 ---
 
@@ -243,3 +244,30 @@ Time               | Space
 _O(N*log(N))_ | _O(N)_
 
 where N is the number of activities given.
+
+## 8. Optimal coin game strategy
+
+Given an array A of coins in size N, A = {c1, c2, ... , cN} and each ci in A is a coin with some greater than zero value.
+You and an opponent plays a turns based game where in each turn a player removes the first or last coin in A and put it in their pocket.
+The game ends when A is empty.
+Determine the maximal value that will be in your pocket after the game ends if you play the first turn and both you and your opponent plays optimaly
+
+### Input
+- #### `coins`
+  Type: `vector<size_t>`
+
+  Vector of coins to be played with in size N.
+
+### Output
+- #### `maximal win value`
+  Type: `size_t`
+
+  Represents the maximal value that will be in your pocket after the game ends if you play the first turn and both you and your opponent plays optimaly
+
+### Complexity
+
+Time               | Space
+-------------------|-------------------
+_O(N<sup>2</sup>)_ | _O(N<sup>2</sup>)_
+
+where N is size of the coins vector.

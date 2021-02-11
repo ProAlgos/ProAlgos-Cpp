@@ -37,6 +37,10 @@ target_link_libraries(n_queens test_runner)
 # -------------------
 # Dynamic programming
 # -------------------
+# Optimal Coin Game Strategy
+add_executable(optimal_coin_game_strategy
+        test/algorithm/dynamic_programming/optimal_coin_game_strategy.cpp)
+target_link_libraries(optimal_coin_game_strategy test_runner)
 
 # Matrix chain multiplication
 add_executable(matrix_chain_multiplication
