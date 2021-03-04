@@ -71,6 +71,7 @@ handle it from there. :smile:
   * [Binary search](cpp/include/algorithm/searching/binary_search.hpp) :white_check_mark:
   * [Linear search](cpp/include/algorithm/searching/linear_search.hpp) :white_check_mark:
   * [Ternary search](cpp/include/algorithm/searching/ternary_search.hpp) :white_check_mark:
+  * [Exponential search](cpp/include/algorithm/searching/exponential_search.hpp) :white_check_mark:
   
 * Sorting
   * [Bubble sort](cpp/include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:

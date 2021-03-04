@@ -130,6 +130,11 @@ add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
 
+# Exponential search
+add_executable(exponential_search
+        test/algorithm/searching/exponential_search.cpp)
+target_link_libraries(exponential_search test_runner)
+
 # -------
 # Sorting
 # -------
