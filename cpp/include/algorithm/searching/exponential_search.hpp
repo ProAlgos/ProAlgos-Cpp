@@ -17,6 +17,7 @@
 #define EXPONENTIAL_SEARCH_HPP
 
 #include <vector>
+#include <algorithm>
 
 /*
     exponential_search
@@ -59,7 +60,7 @@ int exponential_search(const T& value, const std::vector<T>& sorted_values) {
  
     //  Call exponential search for the found range.
     int n= sorted_values.size();
-    return exponential_search(value,sorted_values,i/2,min(i, n-1));
+    return exponential_search(value,sorted_values,i/2, min(i, n-1));
 }
 
 #endif // EXPONENTIAL_SEARCH_HPP
