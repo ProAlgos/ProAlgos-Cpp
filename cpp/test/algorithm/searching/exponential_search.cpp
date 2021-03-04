@@ -20,6 +20,6 @@ TEST_CASE("Integer cases", "[searching][exponential_search]") {
 
 TEST_CASE("Mixed cases", "[searching][exponential_search]") {
     REQUIRE(exponential_search('c', vector<char>({'a', 'b', 'c', 'd', 'e'})) == 2);
-    REQUIRE(exponential_search(string("3"), vector<string>({"1", "2", "3", "4", "5"})) == 1);
-    REQUIRE(exponential_search(0.15, vector<double>({0.01, 0.15, 0.23, 1.19, 2.13, 2.68, 3.04})) == 5);
+    REQUIRE(exponential_search(string("3"), vector<string>({"1", "2", "3", "4", "5"})) == 2);
+    REQUIRE(exponential_search(0.15, vector<double>({0.01, 0.15, 0.23, 1.19, 2.13, 2.68, 3.04})) == 1);
 }
