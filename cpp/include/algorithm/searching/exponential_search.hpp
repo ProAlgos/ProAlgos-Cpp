@@ -54,11 +54,12 @@ int exponential_search(const T& value, const std::vector<T>& sorted_values) {
         return -1;
     
     int i = 1;
-    while (i < sorted_values.size() && sorted_values[i] <= x)
+    while (i < sorted_values.size() && sorted_values[i] <= value)
         i = i*2;
  
     //  Call exponential search for the found range.
-    return exponential_search(x,sorted_values,i/2,min(i, n-1));
+    int n= sorted_values.size();
+    return exponential_search(value,sorted_values,i/2,min(i, n-1));
 }
 
 #endif // EXPONENTIAL_SEARCH_HPP
