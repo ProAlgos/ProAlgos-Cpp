@@ -130,6 +130,11 @@ add_executable(ternary_search
         test/algorithm/searching/ternary_search.cpp)
 target_link_libraries(ternary_search test_runner)
 
+# Interpolation search
+add_executable(interpolation_search
+        test/algorithm/searching/interpolation_search.cpp)
+target_link_libraries(interpolation_search test_runner)
+
 # -------
 # Sorting
 # -------
