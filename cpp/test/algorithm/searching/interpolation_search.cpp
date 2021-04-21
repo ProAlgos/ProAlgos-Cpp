@@ -13,6 +13,6 @@ TEST_CASE("Base cases", "[searching][interpolation_search]") {
 TEST_CASE("Integer cases", "[searching][interpolation_search]") {
     REQUIRE(interpolation_search(31, vector<int>({-4, 3, 4, 17, 31, 47, 98, 118})) == 4);
     REQUIRE(interpolation_search(-50, vector<int>({-100, -50, 0, 50, 100})) == 1);
-    REQUIRE(interpolation_search(42, vector<int>({-19, 3, 18, 29, 42, 51, 74})) == 5);
+    REQUIRE(interpolation_search(42, vector<int>({-19, 3, 18, 29, 42, 51, 74})) == 4);
     REQUIRE(interpolation_search(100, vector<int>({0, 55, 69, 104, 200})) == -1);
 }
