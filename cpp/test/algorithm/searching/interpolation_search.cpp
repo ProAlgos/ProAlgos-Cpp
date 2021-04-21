@@ -16,9 +16,3 @@ TEST_CASE("Integer cases", "[searching][interpolation_search]") {
     REQUIRE(interpolation_search(42, vector<int>({-19, 3, 18, 29, 42, 51, 74})) == 5);
     REQUIRE(interpolation_search(100, vector<int>({0, 55, 69, 104, 200})) == -1);
 }
-
-TEST_CASE("Mixed cases", "[searching][interpolation_search]") {
-    REQUIRE(interpolation_search('e', vector<char>({'a', 'b', 'c', 'd', 'e'})) == 4);
-    REQUIRE(interpolation_search(string("1"), vector<string>({"1", "2", "3", "4", "5"})) == 0);
-    REQUIRE(interpolation_search(3.4, vector<double>({0.2, 0.25, 0.3, 1.1, 2.3, 3.14, 3.4})) == 6);
-}

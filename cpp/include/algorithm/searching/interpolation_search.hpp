@@ -20,7 +20,6 @@
 #define INTERPOLATION_SEARCH_HPP
 
 #include <vector>
-
 /*
     interpolation_search
     -------------
@@ -33,13 +32,13 @@
 */
 
 template <typename T>
-int interpolation_search(const T& value, const std::vector<T>& sorted_values){
+int interpolation_search(const T& value, const std::vector<T>& sorted_values) {
     // Find indexes of two corners
     int n = sorted_values.size();
     int l = 0, r = (n - 1);
 
-    while (l <= r && value >= sorted_values[l] && value <= sorted_values[r]){
-        if (l == r){
+    while (l <= r && value >= sorted_values[l] && value <= sorted_values[r]) {
+        if (l == r) {
             if (sorted_values[l] == value) {
                 return l;
             }
@@ -49,11 +48,11 @@ int interpolation_search(const T& value, const std::vector<T>& sorted_values){
         // Probing the position
         int pos = l + (((double)(r - l) / (sorted_values[r] - sorted_values[l])) * (value - sorted_values[l]));        //uniform distribution kept in mind.
 
-        if (sorted_values[pos] == value){
+        if (sorted_values[pos] == value) {
             return pos;
         }
 
-        if (sorted_values[pos] > value){
+        if (sorted_values[pos] > value) {
             r = pos - 1;        //this means value is in left subarray
         } else {
             l = pos + 1;        //this means value is in right subarray
