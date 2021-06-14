@@ -5,6 +5,7 @@ Searching algorithms are designed to check for an element or retrieve an element
 1. [Linear search](#1-linear-search)
 2. [Binary search](#2-binary-search)
 3. [Ternary search](#3-ternary-search)
+4. [Interpolation search](#4-interpolation-search)
 ---
 ## 1. Linear search
 In this algorithm the array is traversed sequentially and every element is checked until the element is found.
@@ -71,26 +72,6 @@ Array needs to be sorted to perform ternary search on it.
         return 0;
     }
   ```
-* **Given a function f(x) and an floating point interval [a, b]**
-  ```c++
-  float ascending_descending_func_float(float x) {
-    return -(x - 9.0f) * (x - 9.0f);
-  }
-
-  float descending_ascending_func_float(float x) {
-    return (x - 0.5f) * (x - 0.5f) * (x - 0.5f) * (x - 0.5f);
-  }
-  
-  int main(int argc, const char *argv[]) {
-    float maximum = ternary_search(&ascending_descending_func_float, 8.0, 9.0, ASCEND_THEN_DESCEND, 10e-9);
-    float minimum = ternary_search(&descending_ascending_func_float, 0.4, 0.5, DESCEND_THEN_ASCEND, 10e-9)
-    
-    std::cout << maximum << std::endl; // Approx(9.0);
-    std::cout << minimum << std::endl; // Approx(0.5);
-    
-    return 0;
-  }
-  ```
 
 ### Complexity
 Time    | Space
@@ -98,3 +79,42 @@ Time    | Space
 _O(log<sub>3</sub>(N))_ | _O(1)_
 
 where N is the number of elements in the array.
+
+## 4. Interpolation search
+The Interpolation Search is an improvement over Binary Search for instances, where the values in a sorted array are uniformly distributed. Binary Search always goes to the middle element to check. On the other hand, interpolation search may go to different locations according to the value of the key being searched.
+
+### Usage
+* **Search an element in a given array.**
+  ``` c++
+    vector<int> nums{5, 7, 9, 13, 18, 21, 39};
+    size_t index_found = interpolation_search(9, nums);
+    std::cout << index_found << std::endl; // 2
+  ```
+* **Given a function f(x) and an integral interval [a, b]**
+  ```c++
+    int ascending_descending_func_int(int x) {
+        return -(x - 2) * (x - 2);
+    }
+    int descending_ascending_func_int(int x) {
+        return (x - 5) * (x - 5) * (x - 5) * (x - 5);
+    }
+    
+    int main(int argc, const char *argv[]) {
+        int maximum = ternary_search(&ascending_descending_func_int, 1, 7,     ASCEND_THEN_DESCEND);
+        
+        int minimun = ternary_search(&descending_ascending_func_int, 2, 6, DESCEND_THEN_ASCEND);
+        
+        std::cout << maximum << std::endl; // 2
+        std::cout << maximum << std::endl; // 5
+        
+        return 0;
+    }
+  ```
+
+### Complexity
+Time    | Space
+:--------:|:-------------------:
+_O(log<sub>2</sub>(log<sub>2</sub>(N)))_ | _O(1)_
+
+where N is the number of elements in the array. Note: This is the complexity for average case. Worst case time complexity is: O(n)
+
