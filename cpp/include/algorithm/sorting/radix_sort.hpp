@@ -85,7 +85,7 @@ int max_in_vector(const vector<int>& values) {
 */
 void radix_sort_internal(vector<int>& values, const int mult_factor, const int add_factor,
                          const bool to_show_state = false) {
-    int max_value = max_in_vect(values);
+    int max_value = max_in_vector(values);
 
     // On each iteration of the following loop, extractor helps in getting the
     // next significant digit, which is (value / extractor) mod 10
