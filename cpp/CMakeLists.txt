@@ -230,4 +230,4 @@ target_link_libraries(fenwick_tree test_runner)
 #Segment Tree
 add_executable(fenwick_tree
         test/data_structure/tree/segment_tree.cpp)
-target_link_libraries(fenwick_tree test_runner)
+target_link_libraries(segment_tree test_runner)
