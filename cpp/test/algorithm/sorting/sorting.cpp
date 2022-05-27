@@ -9,6 +9,7 @@
 #include "algorithm/sorting/insertion_sort.hpp"
 #include "algorithm/sorting/merge_sort.hpp"
 #include "algorithm/sorting/quick_sort.hpp"
+#include "algorithm/sorting/radix_sort.hpp"
 #include "algorithm/sorting/selection_sort.hpp"
 #include "algorithm/sorting/shell_sort.hpp"
 
@@ -33,6 +34,7 @@ TEST_CASE("Sort in ascending order", "[sorting]") {
         insertion_sort,
         merge_sort,
         quick_sort,
+        radix_sort,
         selection_sort,
         shell_sort
     };
@@ -64,6 +66,7 @@ TEST_CASE("Sort in descending order", "[sorting]") {
         insertion_sort,
         merge_sort,
         quick_sort,
+        radix_sort,
         selection_sort,
         shell_sort
     };
