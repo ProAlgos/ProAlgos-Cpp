@@ -66,6 +66,7 @@ handle it from there. :smile:
   * Prime numbers
     * [Primorial](include/algorithm/number_theory/primorial.hpp) :white_check_mark:
     * [Sieve of Eratosthenes (simple)](cpp/include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
+  * [Euler's Totient](cpp/include/algorithm/number_theory/euler_totient.hpp) :white_check_mark:
   
 * Searching
   * [Binary search](cpp/include/algorithm/searching/binary_search.hpp) :white_check_mark:
