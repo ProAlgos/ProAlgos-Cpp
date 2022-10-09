@@ -1,1 +1,36 @@
+/*   CODE  */
 
+#include<iostream>
+#include<vector>
+using namespace std;
+
+/*Reversing the first and last element then increasing (s) and decreasing (e) to next element and swap then after (s>e) Exit loop*/
+void reversearray(vector &arr, int n){
+    int s=0;
+    int e=n-1;
+    while(s<=e){
+       swap(arr[s++],arr[e--]);
+     }
+}
+
+// Function will print the array
+void printarray(vector &arr, int n){
+        for(int i=0;i<n;i++){
+          cout<<arr[i]<<" ";
+          } cout<<endl;
+}
+
+int main(){
+
+    vector<int> v;
+     int a=0;
+     // Taking input as we do not know the vector array size
+     while(cin>>a){
+     v.push_back(a);
+     }
+     int size=v.size();
+     reversearray(v,size); // Reverse Function Call
+     printarray(v,size); // Printing Array Call
+
+return 0;
+}
