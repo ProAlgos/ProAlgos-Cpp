@@ -68,9 +68,9 @@ handle it from there. :smile:
     * [Sieve of Eratosthenes (simple)](cpp/include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
   
 * Searching
-  * [Binary search](cpp/include/algorithm/searching/binary_search.hpp) :white_check_mark:
-  * [Linear search](cpp/include/algorithm/searching/linear_search.hpp) :white_check_mark:
-  * [Ternary search](cpp/include/algorithm/searching/ternary_search.hpp) :white_check_mark:
+  * [Binary search](cpp/include/algorithm/searching/binary_search.hpp) O(log n) :white_check_mark:
+  * [Linear search](cpp/include/algorithm/searching/linear_search.hpp) O(n) :white_check_mark:
+  * [Ternary search](cpp/include/algorithm/searching/ternary_search.hpp) O(log n base 3) :white_check_mark:
   
 * Sorting
   * [Bubble sort](cpp/include/algorithm/sorting/bubble_sort.hpp) :white_check_mark:
