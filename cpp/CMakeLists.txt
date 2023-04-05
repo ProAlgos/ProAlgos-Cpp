@@ -9,7 +9,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/bin)
 include_directories(include)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Wextra -pedantic-errors")
+if(MSVC)
+        set(CMAKE_CXX_FLAGS "/W3 /EHsc /permissive- -D_USE_MATH_DEFINES")
+else()
+        set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Wextra -pedantic-errors")
+endif()
+
 
 # Test runner
 add_library(test_runner STATIC
