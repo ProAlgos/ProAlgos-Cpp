@@ -30,7 +30,8 @@
 template <typename T>
 int binary_search(const T& value, const std::vector<T>& sorted_values,
         const int low, const int high) {
-    int mid = low + (high - low) / 2;
+    
+    int mid = (sorted_values.size() == 1)?0:low + (high - low) / 2;
 
     if (value == sorted_values[mid])
         return mid;
