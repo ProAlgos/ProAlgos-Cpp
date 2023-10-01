@@ -21,7 +21,7 @@ This implementation of the linked list allows for both forward and backward trav
 
 Time    | Space
 --------|-------------------
-_O(1)_ | _O(N)_
+_O(N)_ | _O(1)_
 
 where N is the number of elements.
 
