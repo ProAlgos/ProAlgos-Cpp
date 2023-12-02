@@ -49,7 +49,8 @@ handle it from there. :smile:
   * [Coin change](cpp/include/algorithm/dynamic_programming/coin_change.hpp) :white_check_mark:
   * [Longest decreasing subsequence](cpp/include/algorithm/dynamic_programming/longest_decreasing_subsequence.hpp) :white_check_mark:
   * [Matrix chain multiplication](cpp/include/algorithm/dynamic_programming/matrix_chain_multiplication.hpp) :white_check_mark:
-  * Maximum sum contiguous subarray: [Kadane's algorithm](cpp/include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
+  * Maximum sum contiguous subarray 
+    * [Kadane's algorithm](cpp/include/algorithm/dynamic_programming/kadane.hpp) :white_check_mark:
   * [Rod cutting](cpp/include/algorithm/dynamic_programming/rod_cutting.hpp) :white_check_mark:
   * [Weighted activity selection](cpp/include/algorithm/dynamic_programming/weighted_activity_selection.hpp) :white_check_mark:
 
@@ -64,7 +65,7 @@ handle it from there. :smile:
     * [Logarithmic time algorithm](cpp/include/algorithm/number_theory/fibonacci_efficient.hpp) :white_check_mark:
   * [Perfect number check](cpp/include/algorithm/number_theory/perfect_number_check.hpp) :white_check_mark:
   * Prime numbers
-    * [Primorial](include/algorithm/number_theory/primorial.hpp) :white_check_mark:
+    * [Primorial](cpp/include/algorithm/number_theory/primorial.hpp) :white_check_mark:
     * [Sieve of Eratosthenes (simple)](cpp/include/algorithm/number_theory/sieve_of_eratosthenes.hpp) :white_check_mark:
   
 * Searching

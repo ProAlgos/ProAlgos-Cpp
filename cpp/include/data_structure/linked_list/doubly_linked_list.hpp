@@ -1,3 +1,15 @@
+/*
+    Doubly linked list
+    ------------------
+    The doubly linked list is a data structure used to store a collection of elements. 
+    Each element can be used to store data along with two pointers which point to the 
+    previous and the next elements in the list.
+    The doubly linked list is very similar to the singly linked list, but the latter stores 
+    only a single pointer to the next element and does not store a pointer to the previous element.
+    Certain advantages of using this list include traversal in both the forward and backward
+    directions and the ability to efficiently insert and delete new elements. 
+*/
+
 #ifndef DOUBLY_LINKED_LIST_HPP
 #define DOUBLY_LINKED_LIST_HPP
 
@@ -17,30 +29,48 @@ struct Node {
         Node();
 
     public:
+        /*
+            Constructor
+            -----------
+        */
         Node(const T value, Node<T> *const prev, Node<T> *const next) {
             this->value = value;
             this->prev = prev;
             this->next = next;
         }
-
+        /*
+            Copy Constructor
+            -----------
+        */
         Node(const Node<T> &n) {
             this->value = n.value;
             this->prev = n.prev;
             this->next = n.next;
         }
-
+        /*
+            Assignment operator
+            -------------------
+            Assigns the values of the RHS (right hand side) to the LHS (left hand side)
+        */
         Node<T> operator=(const Node<T> &rhs) {
             this->value = rhs.value;
             this->prev = rhs.prev;
             this->next = rhs.next;
             return *this;
         }
-
+        /*
+            Destructor
+            ----------
+            Setting the element's pointers to nullptr removes its association with the list
+        */
         ~Node() {
             this->prev = nullptr;
             this->next = nullptr;
         }
-
+        /*
+            Getters and setters
+            -------------------
+        */
         T get_value() {
             return this->value;
         }
@@ -110,13 +140,20 @@ class DoublyLinkedList {
         void clear();
 };
 
+/*
+    Constructor
+    -----------
+*/
 template<class T>
 DoublyLinkedList<T>::DoublyLinkedList() {
     size = 0;
     head = tail = nullptr;
 }
 
-
+/*
+    Destructor
+    ----------
+*/
 template<class T>
 DoublyLinkedList<T>::~DoublyLinkedList() {
     clear();
