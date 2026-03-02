@@ -2,9 +2,9 @@
 
 [![Travis status][travis-shield]][travis-link]
 
-This project is focused on implementing **algorithms and data structures** in C++, while following **good software engineering practices**, such as: 
+This project is primarily focused on implementing **algorithms and data structures** in C++, while following **good software engineering practices**, such as: 
 
-- Writing well-documented code
+- Scripting well-documented code
 - Adhering to code guidelines
 - Writing and passing unit tests
 - Reviewing each other's code
@@ -27,7 +27,7 @@ There are a few ways to get involved.
 1. Create a **branch** and **add your code**
 1. Submit a **pull request** and reference the issue it closes
 
-You can find more details regarding the steps above in the [contribution
+You can fetch more details regarding the steps above in the [contribution
 guidelines][contrib-guide], so be sure to check them out.
 
 #### Just want to suggest a new algorithm or report a bug?
